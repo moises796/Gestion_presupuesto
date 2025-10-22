@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "Vobo";
+}
+
+@Html.DevExpress().GetStyleSheets(
+    new StyleSheet { ExtensionSuite = ExtensionSuite.NavigationAndLayout },
+    new StyleSheet { ExtensionSuite = ExtensionSuite.Editors },
+    new StyleSheet { ExtensionSuite = ExtensionSuite.GridView }
+)
+@Html.DevExpress().GetScripts(
+    new Script { ExtensionSuite = ExtensionSuite.NavigationAndLayout },
+    new Script { ExtensionSuite = ExtensionSuite.Editors },
+    new Script { ExtensionSuite = ExtensionSuite.GridView }
+)
+
+
+<center>
+    <h1 class="animated fadeInUp encabezado mt-2">V°. b°.</h1>
+</center>
+
+<div class="card border-0 rounded-4 shadow-sm p-1 p-sm-2 p-md-3 p-lg-5 ">
+    <div class="d-flex justify-content-between align-items-start mb-3">
+        @Html.Action("GridVobo", "Vobo")
+
+    </div>
+</div>
+

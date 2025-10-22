@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="registro_presupuestoModelStoreContainer" CdmEntityContainer="registro_presupuestoEntities">
+    <EntitySetMapping Name="detalle_presupuesto">
+      <EntityTypeMapping TypeName="registro_presupuestoModel.detalle_presupuesto">
+        <MappingFragment StoreEntitySet="detalle_presupuesto">
+          <ScalarProperty Name="id_detalle_presupuesto" ColumnName="id_detalle_presupuesto" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="nombre_proceso" ColumnName="nombre_proceso" />
+          <ScalarProperty Name="id_metodo_contratacion" ColumnName="id_metodo_contratacion" />
+          <ScalarProperty Name="fecha_inicio" ColumnName="fecha_inicio" />
+          <ScalarProperty Name="fecha_fin" ColumnName="fecha_fin" />
+          <ScalarProperty Name="monto" ColumnName="monto" />
+          <ScalarProperty Name="id_fuente_financiamiento" ColumnName="id_fuente_financiamiento" />
+          <ScalarProperty Name="id_unidad_organizativa" ColumnName="id_unidad_organizativa" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="fuente_financiamiento">
+      <EntityTypeMapping TypeName="registro_presupuestoModel.fuente_financiamiento">
+        <MappingFragment StoreEntitySet="fuente_financiamiento">
+          <ScalarProperty Name="id_fuente_financiamiento" ColumnName="id_fuente_financiamiento" />
+          <ScalarProperty Name="valor" ColumnName="valor" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="metodo_contratacion">
+      <EntityTypeMapping TypeName="registro_presupuestoModel.metodo_contratacion">
+        <MappingFragment StoreEntitySet="metodo_contratacion">
+          <ScalarProperty Name="id_metodo_contratacion" ColumnName="id_metodo_contratacion" />
+          <ScalarProperty Name="valor" ColumnName="valor" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="movimiento_detalle_presupuesto">
+      <EntityTypeMapping TypeName="registro_presupuestoModel.movimiento_detalle_presupuesto">
+        <MappingFragment StoreEntitySet="movimiento_detalle_presupuesto">
+          <ScalarProperty Name="id_movimiento_detalle_presupuesto" ColumnName="id_movimiento_detalle_presupuesto" />
+          <ScalarProperty Name="id_detalle_presupuesto" ColumnName="id_detalle_presupuesto" />
+          <ScalarProperty Name="nombre_proceso" ColumnName="nombre_proceso" />
+          <ScalarProperty Name="id_metodo_contratacion" ColumnName="id_metodo_contratacion" />
+          <ScalarProperty Name="fecha_inicio" ColumnName="fecha_inicio" />
+          <ScalarProperty Name="fecha_fin" ColumnName="fecha_fin" />
+          <ScalarProperty Name="monto" ColumnName="monto" />
+          <ScalarProperty Name="id_fuente_financiamiento" ColumnName="id_fuente_financiamiento" />
+          <ScalarProperty Name="id_unidad_organizativa" ColumnName="id_unidad_organizativa" />
+          <ScalarProperty Name="fecha_movimiento" ColumnName="fecha_movimiento" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="menu">
+      <EntityTypeMapping TypeName="registro_presupuestoModel.menu">
+        <MappingFragment StoreEntitySet="menu">
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="id_rol" ColumnName="id_rol" />
+          <ScalarProperty Name="orden" ColumnName="orden" />
+          <ScalarProperty Name="controlador" ColumnName="controlador" />
+          <ScalarProperty Name="accion" ColumnName="accion" />
+          <ScalarProperty Name="menu_nombre" ColumnName="menu_nombre" />
+          <ScalarProperty Name="menu_icono" ColumnName="menu_icono" />
+          <ScalarProperty Name="id_menu" ColumnName="id_menu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sub_menu">
+      <EntityTypeMapping TypeName="registro_presupuestoModel.sub_menu">
+        <MappingFragment StoreEntitySet="sub_menu">
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="id_rol" ColumnName="id_rol" />
+          <ScalarProperty Name="orden" ColumnName="orden" />
+          <ScalarProperty Name="id_menu" ColumnName="id_menu" />
+          <ScalarProperty Name="controlador" ColumnName="controlador" />
+          <ScalarProperty Name="accion" ColumnName="accion" />
+          <ScalarProperty Name="sub_menu_nombre" ColumnName="sub_menu_nombre" />
+          <ScalarProperty Name="sub_menu_icono" ColumnName="sub_menu_icono" />
+          <ScalarProperty Name="id_sub_menu" ColumnName="id_sub_menu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="etapa_vobo">
+      <EntityTypeMapping TypeName="registro_presupuestoModel.etapa_vobo">
+        <MappingFragment StoreEntitySet="etapa_vobo">
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="valor" ColumnName="valor" />
+          <ScalarProperty Name="id_etapa_vobo" ColumnName="id_etapa_vobo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="personal_vobo">
+      <EntityTypeMapping TypeName="registro_presupuestoModel.personal_vobo">
+        <MappingFragment StoreEntitySet="personal_vobo">
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="id_empleado" ColumnName="id_empleado" />
+          <ScalarProperty Name="id_personal_vobo" ColumnName="id_personal_vobo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vobo">
+      <EntityTypeMapping TypeName="registro_presupuestoModel.vobo">
+        <MappingFragment StoreEntitySet="vobo">
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="instruccion" ColumnName="instruccion" />
+          <ScalarProperty Name="id_etapa_vobo" ColumnName="id_etapa_vobo" />
+          <ScalarProperty Name="id_detalle_presupuesto" ColumnName="id_detalle_presupuesto" />
+          <ScalarProperty Name="id_personal_vobo" ColumnName="id_personal_vobo" />
+          <ScalarProperty Name="id_vobo" ColumnName="id_vobo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

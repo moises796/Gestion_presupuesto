@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="rrhhModelStoreContainer" CdmEntityContainer="rrhhEntities">
+    <EntitySetMapping Name="Cargo">
+      <EntityTypeMapping TypeName="rrhhModel.Cargo">
+        <MappingFragment StoreEntitySet="Cargo">
+          <ScalarProperty Name="id_cargo" ColumnName="id_cargo" />
+          <ScalarProperty Name="id_puesto_nominal" ColumnName="id_puesto_nominal" />
+          <ScalarProperty Name="id_puesto_funcional" ColumnName="id_puesto_funcional" />
+          <ScalarProperty Name="id_estructura" ColumnName="id_estructura" />
+          <ScalarProperty Name="id_empleado" ColumnName="id_empleado" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Puesto_Funcional">
+      <EntityTypeMapping TypeName="rrhhModel.Puesto_Funcional">
+        <MappingFragment StoreEntitySet="Puesto_Funcional">
+          <ScalarProperty Name="id_puesto_funcional" ColumnName="id_puesto_funcional" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Estructura">
+      <EntityTypeMapping TypeName="rrhhModel.Estructura">
+        <MappingFragment StoreEntitySet="Estructura">
+          <ScalarProperty Name="id_estructura" ColumnName="id_estructura" />
+          <ScalarProperty Name="id_parent" ColumnName="id_parent" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="nomenclatura" ColumnName="nomenclatura" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="id_periodo" ColumnName="id_periodo" />
+          <ScalarProperty Name="enlace_id_estructura" ColumnName="enlace_id_estructura" />
+          <ScalarProperty Name="id_nivel_organizativo" ColumnName="id_nivel_organizativo" />
+          <ScalarProperty Name="orden" ColumnName="orden" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Periodo">
+      <EntityTypeMapping TypeName="rrhhModel.Periodo">
+        <MappingFragment StoreEntitySet="Periodo">
+          <ScalarProperty Name="id_periodo" ColumnName="id_periodo" />
+          <ScalarProperty Name="codigo_periodo" ColumnName="codigo_periodo" />
+          <ScalarProperty Name="anio" ColumnName="anio" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="fecha_aprobacion" ColumnName="fecha_aprobacion" />
+          <ScalarProperty Name="documento" ColumnName="documento" />
+          <ScalarProperty Name="nombreDocumento" ColumnName="nombreDocumento" />
+          <ScalarProperty Name="fechaDocumento" ColumnName="fechaDocumento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Empleado">
+      <EntityTypeMapping TypeName="rrhhModel.Empleado">
+        <MappingFragment StoreEntitySet="Empleado">
+          <ScalarProperty Name="id_empleado" ColumnName="id_empleado" />
+          <ScalarProperty Name="codigo_empleado" ColumnName="codigo_empleado" />
+          <ScalarProperty Name="foto_empleado" ColumnName="foto_empleado" />
+          <ScalarProperty Name="nombres" ColumnName="nombres" />
+          <ScalarProperty Name="apellidos" ColumnName="apellidos" />
+          <ScalarProperty Name="prefijo_academico" ColumnName="prefijo_academico" />
+          <ScalarProperty Name="correo_personal" ColumnName="correo_personal" />
+          <ScalarProperty Name="direccion_empleado" ColumnName="direccion_empleado" />
+          <ScalarProperty Name="telefono_personal" ColumnName="telefono_personal" />
+          <ScalarProperty Name="celular_personal" ColumnName="celular_personal" />
+          <ScalarProperty Name="id_genero" ColumnName="id_genero" />
+          <ScalarProperty Name="fecha_nacimiento" ColumnName="fecha_nacimiento" />
+          <ScalarProperty Name="codigo_pais" ColumnName="codigo_pais" />
+          <ScalarProperty Name="id_departamento_nacimiento" ColumnName="id_departamento_nacimiento" />
+          <ScalarProperty Name="id_municipio_nacimiento" ColumnName="id_municipio_nacimiento" />
+          <ScalarProperty Name="id_ciudad_nacimiento" ColumnName="id_ciudad_nacimiento" />
+          <ScalarProperty Name="nacionalidad" ColumnName="nacionalidad" />
+          <ScalarProperty Name="peso" ColumnName="peso" />
+          <ScalarProperty Name="altura" ColumnName="altura" />
+          <ScalarProperty Name="id_tiposangre" ColumnName="id_tiposangre" />
+          <ScalarProperty Name="id_discapacidad" ColumnName="id_discapacidad" />
+          <ScalarProperty Name="id_estadocivil" ColumnName="id_estadocivil" />
+          <ScalarProperty Name="id_tipocontrato" ColumnName="id_tipocontrato" />
+          <ScalarProperty Name="id_tipocontratacion" ColumnName="id_tipocontratacion" />
+          <ScalarProperty Name="responsable" ColumnName="responsable" />
+          <ScalarProperty Name="telefono_responsable" ColumnName="telefono_responsable" />
+          <ScalarProperty Name="direccion_responsable" ColumnName="direccion_responsable" />
+          <ScalarProperty Name="correo_institucional" ColumnName="correo_institucional" />
+          <ScalarProperty Name="telefono_institucional" ColumnName="telefono_institucional" />
+          <ScalarProperty Name="celular_institucional" ColumnName="celular_institucional" />
+          <ScalarProperty Name="salario" ColumnName="salario" />
+          <ScalarProperty Name="nombre_conyuge" ColumnName="nombre_conyuge" />
+          <ScalarProperty Name="telefono_conyuge" ColumnName="telefono_conyuge" />
+          <ScalarProperty Name="id_estado_usuario" ColumnName="id_estado_usuario" />
+          <ScalarProperty Name="titular" ColumnName="titular" />
+          <ScalarProperty Name="fecha_contratacion" ColumnName="fecha_contratacion" />
+          <ScalarProperty Name="id_detEstadoUsuario" ColumnName="id_detEstadoUsuario" />
+          <ScalarProperty Name="fecha_renuncia" ColumnName="fecha_renuncia" />
+          <ScalarProperty Name="id_proyecto" ColumnName="id_proyecto" />
+          <ScalarProperty Name="id_profesion" ColumnName="id_profesion" />
+          <ScalarProperty Name="id_marcacion" ColumnName="id_marcacion" />
+          <ScalarProperty Name="codigo_marcacion" ColumnName="codigo_marcacion" />
+          <ScalarProperty Name="usuario_marca" ColumnName="usuario_marca" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

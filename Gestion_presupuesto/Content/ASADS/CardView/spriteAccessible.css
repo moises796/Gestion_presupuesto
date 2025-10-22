@@ -1,0 +1,48 @@
+.dx-acc-r .dxCardView_CTClearFilter_ASADS:before, .dx-acc-r .dxCardView_CTClearFilterDisabled_ASADS:before, .dx-acc-r .dxCardView_CTDeleteRow_ASADS:before, .dx-acc-r .dxCardView_CTDeleteRowDisabled_ASADS:before, .dx-acc-r .dxCardView_CTEditRow_ASADS:before, .dx-acc-r .dxCardView_CTEditRowDisabled_ASADS:before, .dx-acc-r .dxCardView_CTExportCsv_ASADS:before, .dx-acc-r .dxCardView_CTExportCsvDisabled_ASADS:before, .dx-acc-r .dxCardView_CTExportDocx_ASADS:before, .dx-acc-r .dxCardView_CTExportDocxDisabled_ASADS:before, .dx-acc-r .dxCardView_CTExportPdf_ASADS:before, .dx-acc-r .dxCardView_CTExportPdfDisabled_ASADS:before, .dx-acc-r .dxCardView_CTExportRtf_ASADS:before, .dx-acc-r .dxCardView_CTExportRtfDisabled_ASADS:before, .dx-acc-r .dxCardView_CTExportXls_ASADS:before, .dx-acc-r .dxCardView_CTExportXlsDisabled_ASADS:before, .dx-acc-r .dxCardView_CTExportXlsx_ASADS:before, .dx-acc-r .dxCardView_CTExportXlsxDisabled_ASADS:before, .dx-acc-r .dxCardView_CTFullCollapse_ASADS:before, .dx-acc-r .dxCardView_CTFullCollapseDisabled_ASADS:before, .dx-acc-r .dxCardView_CTFullExpand_ASADS:before, .dx-acc-r .dxCardView_CTFullExpandDisabled_ASADS:before, .dx-acc-r .dxCardView_CTNewRow_ASADS:before, .dx-acc-r .dxCardView_CTNewRowDisabled_ASADS:before, .dx-acc-r .dxCardView_CTRefresh_ASADS:before, .dx-acc-r .dxCardView_CTRefreshDisabled_ASADS:before, .dx-acc-r .dxCardView_CTShowCustomizationWindow_ASADS:before, .dx-acc-r .dxCardView_CTShowCustomizationWindowDisabled_ASADS:before, .dx-acc-r .dxCardView_CTShowFilterEditor_ASADS:before, .dx-acc-r .dxCardView_CTShowFilterEditorDisabled_ASADS:before, .dx-acc-r .dxCardView_CTShowSearchPanel_ASADS:before, .dx-acc-r .dxCardView_CTShowSearchPanelDisabled_ASADS:before, .dx-acc-r .dxCardView_CTUpdateSummaries_ASADS:before, .dx-acc-r .dxCardView_cvCollapsedButton_ASADS:before, .dx-acc-r .dxCardView_cvCollapsedButtonRtl_ASADS:before, .dx-acc-r .dxCardView_cvExpandedButton_ASADS:before, .dx-acc-r .dxCardView_cvExpandedButtonRtl_ASADS:before, .dx-acc-r .dxCardView_gvCellError_ASADS:before, .dx-acc-r .dxCardView_gvFilterRowButton_ASADS:before, .dx-acc-r .dxCardView_gvHeaderFilter_ASADS:before, .dx-acc-r .dxCardView_gvHeaderFilterActive_ASADS:before, .dx-acc-r .dxCardView_gvHeaderSortDown_ASADS:before, .dx-acc-r .dxCardView_gvHeaderSortUp_ASADS:before, .dx-acc-r .dxCardView_gvUpdateSummariesButton_ASADS:before, .dx-acc-r .dxm-checked .dxCardView_CTShowCustomizationWindow_ASADS:before, .dx-acc-r .dxm-checked .dxCardView_CTShowSearchPanel_ASADS:before { content: url('sprite.svg'); }
+.dx-acc-r .dxCardView_CTClearFilter_ASADS:before { left: -378px; top: 0px; }
+.dx-acc-r .dxCardView_CTClearFilterDisabled_ASADS:before { left: 0px; top: 0px; }
+.dx-acc-r .dxCardView_CTDeleteRow_ASADS:before { left: -360px; top: 0px; }
+.dx-acc-r .dxCardView_CTDeleteRowDisabled_ASADS:before { left: -324px; top: 0px; }
+.dx-acc-r .dxCardView_CTEditRow_ASADS:before { left: -432px; top: 0px; }
+.dx-acc-r .dxCardView_CTEditRowDisabled_ASADS:before { left: -396px; top: 0px; }
+.dx-acc-r .dxCardView_CTExportCsv_ASADS:before { left: -36px; top: -18px; }
+.dx-acc-r .dxCardView_CTExportCsvDisabled_ASADS:before { left: -414px; top: 0px; }
+.dx-acc-r .dxCardView_CTExportDocx_ASADS:before { left: -468px; top: 0px; }
+.dx-acc-r .dxCardView_CTExportDocxDisabled_ASADS:before { left: -450px; top: 0px; }
+.dx-acc-r .dxCardView_CTExportPdf_ASADS:before { left: -504px; top: 0px; }
+.dx-acc-r .dxCardView_CTExportPdfDisabled_ASADS:before { left: -486px; top: 0px; }
+.dx-acc-r .dxCardView_CTExportRtf_ASADS:before { left: -18px; top: -18px; }
+.dx-acc-r .dxCardView_CTExportRtfDisabled_ASADS:before { left: 0px; top: -18px; }
+.dx-acc-r .dxCardView_CTExportXls_ASADS:before { left: -252px; top: 0px; }
+.dx-acc-r .dxCardView_CTExportXlsDisabled_ASADS:before { left: -306px; top: 0px; }
+.dx-acc-r .dxCardView_CTExportXlsx_ASADS:before { left: -270px; top: 0px; }
+.dx-acc-r .dxCardView_CTExportXlsxDisabled_ASADS:before { left: -342px; top: 0px; }
+.dx-acc-r .dxCardView_CTFullCollapse_ASADS:before { left: -216px; top: 0px; }
+.dx-acc-r .dxCardView_CTFullCollapseDisabled_ASADS:before { left: -234px; top: 0px; }
+.dx-acc-r .dxCardView_CTFullExpand_ASADS:before { left: -180px; top: 0px; }
+.dx-acc-r .dxCardView_CTFullExpandDisabled_ASADS:before { left: -198px; top: 0px; }
+.dx-acc-r .dxCardView_CTNewRow_ASADS:before { left: -144px; top: 0px; }
+.dx-acc-r .dxCardView_CTNewRowDisabled_ASADS:before { left: -288px; top: 0px; }
+.dx-acc-r .dxCardView_CTRefresh_ASADS:before { left: -108px; top: 0px; }
+.dx-acc-r .dxCardView_CTRefreshDisabled_ASADS:before { left: -126px; top: 0px; }
+.dx-acc-r .dxCardView_CTShowCustomizationWindow_ASADS:before { left: -72px; top: 0px; }
+.dx-acc-r .dxCardView_CTShowCustomizationWindowDisabled_ASADS:before { left: -90px; top: 0px; }
+.dx-acc-r .dxCardView_CTShowFilterEditor_ASADS:before { left: -118px; top: -18px; }
+.dx-acc-r .dxCardView_CTShowFilterEditorDisabled_ASADS:before { left: -134px; top: -18px; }
+.dx-acc-r .dxCardView_CTShowSearchPanel_ASADS:before { left: -102px; top: -18px; }
+.dx-acc-r .dxCardView_CTShowSearchPanelDisabled_ASADS:before { left: -54px; top: 0px; }
+.dx-acc-r .dxCardView_CTUpdateSummaries_ASADS:before { left: -36px; top: 0px; }
+.dx-acc-r .dxCardView_cvCollapsedButton_ASADS:before { left: -180px; top: -18px; }
+.dx-acc-r .dxCardView_cvCollapsedButtonRtl_ASADS:before { left: -194px; top: -18px; }
+.dx-acc-r .dxCardView_cvExpandedButton_ASADS:before { left: -236px; top: -18px; }
+.dx-acc-r .dxCardView_cvExpandedButtonRtl_ASADS:before { left: -166px; top: -18px; }
+.dx-acc-r .dxCardView_gvCellError_ASADS:before { left: -86px; top: -18px; }
+.dx-acc-r .dxCardView_gvFilterRowButton_ASADS:before { left: -522px; top: 0px; }
+.dx-acc-r .dxCardView_gvHeaderFilter_ASADS:before { left: -54px; top: -18px; }
+.dx-acc-r .dxCardView_gvHeaderFilterActive_ASADS:before { left: -70px; top: -18px; }
+.dx-acc-r .dxCardView_gvHeaderSortDown_ASADS:before { left: -208px; top: -18px; }
+.dx-acc-r .dxCardView_gvHeaderSortUp_ASADS:before { left: -222px; top: -18px; }
+.dx-acc-r .dxCardView_gvUpdateSummariesButton_ASADS:before { left: -18px; top: 0px; }
+.dx-acc-r .dxm-checked .dxCardView_CTShowCustomizationWindow_ASADS:before { left: -162px; top: 0px; }
+.dx-acc-r .dxm-checked .dxCardView_CTShowSearchPanel_ASADS:before { left: -150px; top: -18px; }
+

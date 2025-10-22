@@ -1,0 +1,44 @@
+
+dxSpriteWidth { width : 538 }
+
+.dxm-checked .dxVerticalGrid_CTShowSearchPanel_ASADS, .dxVerticalGrid_CategoryCollapsed_ASADS, .dxVerticalGrid_CategoryExpanded_ASADS, .dxVerticalGrid_CollapsedButton_ASADS, .dxVerticalGrid_CTClearFilter_ASADS, .dxVerticalGrid_CTClearFilterDisabled_ASADS, .dxVerticalGrid_CTDeleteRow_ASADS, .dxVerticalGrid_CTDeleteRowDisabled_ASADS, .dxVerticalGrid_CTEditRow_ASADS, .dxVerticalGrid_CTEditRowDisabled_ASADS, .dxVerticalGrid_CTExportCsv_ASADS, .dxVerticalGrid_CTExportCsvDisabled_ASADS, .dxVerticalGrid_CTExportDocx_ASADS, .dxVerticalGrid_CTExportDocxDisabled_ASADS, .dxVerticalGrid_CTExportPdf_ASADS, .dxVerticalGrid_CTExportPdfDisabled_ASADS, .dxVerticalGrid_CTExportRtf_ASADS, .dxVerticalGrid_CTExportRtfDisabled_ASADS, .dxVerticalGrid_CTExportXls_ASADS, .dxVerticalGrid_CTExportXlsDisabled_ASADS, .dxVerticalGrid_CTExportXlsx_ASADS, .dxVerticalGrid_CTExportXlsxDisabled_ASADS, .dxVerticalGrid_CTNewRow_ASADS, .dxVerticalGrid_CTNewRowDisabled_ASADS, .dxVerticalGrid_CTRefresh_ASADS, .dxVerticalGrid_CTRefreshDisabled_ASADS, .dxVerticalGrid_CTShowFilterEditor_ASADS, .dxVerticalGrid_CTShowFilterEditorDisabled_ASADS, .dxVerticalGrid_CTShowSearchPanel_ASADS, .dxVerticalGrid_CTShowSearchPanelDisabled_ASADS, .dxVerticalGrid_CTUpdateSummaries_ASADS, .dxVerticalGrid_ExpandedButton_ASADS, .dxVerticalGrid_gvCellError_ASADS, .dxVerticalGrid_gvFilterRowButton_ASADS, .dxVerticalGrid_gvHeaderFilter_ASADS, .dxVerticalGrid_gvHeaderFilterActive_ASADS, .dxVerticalGrid_gvHeaderSortDown_ASADS, .dxVerticalGrid_gvHeaderSortUp_ASADS, .dxVerticalGrid_gvUpdateSummariesButton_ASADS { background-image: url('sprite.svg'); background-repeat: no-repeat; background-color: transparent } 
+.dxm-checked .dxVerticalGrid_CTShowSearchPanel_ASADS { background-position: -32px -18px; background-size: 538px auto; width: 14px; height: 14px } 
+.dxVerticalGrid_CategoryCollapsed_ASADS { background-position: -48px -18px; background-size: 538px auto; width: 12px; height: 12px } 
+.dxVerticalGrid_CategoryExpanded_ASADS { background-position: -76px -18px; background-size: 538px auto; width: 12px; height: 12px } 
+.dxVerticalGrid_CollapsedButton_ASADS { background-position: -90px -18px; background-size: 538px auto; width: 12px; height: 12px } 
+.dxVerticalGrid_CTClearFilter_ASADS { background-position: -396px 0px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxVerticalGrid_CTClearFilterDisabled_ASADS { background-position: -414px 0px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxVerticalGrid_CTDeleteRow_ASADS { background-position: -360px 0px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxVerticalGrid_CTDeleteRowDisabled_ASADS { background-position: -378px 0px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxVerticalGrid_CTEditRow_ASADS { background-position: -324px 0px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxVerticalGrid_CTEditRowDisabled_ASADS { background-position: -342px 0px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxVerticalGrid_CTExportCsv_ASADS { background-position: -288px 0px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxVerticalGrid_CTExportCsvDisabled_ASADS { background-position: -306px 0px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxVerticalGrid_CTExportDocx_ASADS { background-position: -432px 0px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxVerticalGrid_CTExportDocxDisabled_ASADS { background-position: -270px 0px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxVerticalGrid_CTExportPdf_ASADS { background-position: -216px 0px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxVerticalGrid_CTExportPdfDisabled_ASADS { background-position: -234px 0px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxVerticalGrid_CTExportRtf_ASADS { background-position: -180px 0px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxVerticalGrid_CTExportRtfDisabled_ASADS { background-position: -198px 0px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxVerticalGrid_CTExportXls_ASADS { background-position: -126px 0px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxVerticalGrid_CTExportXlsDisabled_ASADS { background-position: -162px 0px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxVerticalGrid_CTExportXlsx_ASADS { background-position: -144px 0px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxVerticalGrid_CTExportXlsxDisabled_ASADS { background-position: 0px 0px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxVerticalGrid_CTNewRow_ASADS { background-position: -90px 0px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxVerticalGrid_CTNewRowDisabled_ASADS { background-position: -108px 0px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxVerticalGrid_CTRefresh_ASADS { background-position: -54px 0px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxVerticalGrid_CTRefreshDisabled_ASADS { background-position: -72px 0px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxVerticalGrid_CTShowFilterEditor_ASADS { background-position: 0px -18px; background-size: 538px auto; width: 14px; height: 14px } 
+.dxVerticalGrid_CTShowFilterEditorDisabled_ASADS { background-position: -514px 0px; background-size: 538px auto; width: 14px; height: 14px } 
+.dxVerticalGrid_CTShowSearchPanel_ASADS { background-position: -16px -18px; background-size: 538px auto; width: 14px; height: 14px } 
+.dxVerticalGrid_CTShowSearchPanelDisabled_ASADS { background-position: -36px 0px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxVerticalGrid_CTUpdateSummaries_ASADS { background-position: -18px 0px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxVerticalGrid_ExpandedButton_ASADS { background-position: -62px -18px; background-size: 538px auto; width: 12px; height: 12px } 
+.dxVerticalGrid_gvCellError_ASADS { background-position: -498px 0px; background-size: 538px auto; width: 14px; height: 14px } 
+.dxVerticalGrid_gvFilterRowButton_ASADS { background-position: -482px 0px; background-size: 538px auto; width: 14px; height: 14px } 
+.dxVerticalGrid_gvHeaderFilter_ASADS { background-position: -450px 0px; background-size: 538px auto; width: 14px; height: 14px } 
+.dxVerticalGrid_gvHeaderFilterActive_ASADS { background-position: -466px 0px; background-size: 538px auto; width: 14px; height: 14px } 
+.dxVerticalGrid_gvHeaderSortDown_ASADS { background-position: -118px -18px; background-size: 538px auto; width: 12px; height: 12px } 
+.dxVerticalGrid_gvHeaderSortUp_ASADS { background-position: -104px -18px; background-size: 538px auto; width: 12px; height: 12px } 
+.dxVerticalGrid_gvUpdateSummariesButton_ASADS { background-position: -252px 0px; background-size: 538px auto; width: 16px; height: 16px } 
+

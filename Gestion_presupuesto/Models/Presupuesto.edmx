@@ -1,0 +1,681 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="registro_presupuestoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="detalle_presupuesto">
+          <Key>
+            <PropertyRef Name="id_detalle_presupuesto" />
+          </Key>
+          <Property Name="id_detalle_presupuesto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="codigo" Type="varchar" MaxLength="150" />
+          <Property Name="nombre_proceso" Type="varchar" MaxLength="350" />
+          <Property Name="id_metodo_contratacion" Type="int" />
+          <Property Name="fecha_inicio" Type="date" />
+          <Property Name="fecha_fin" Type="date" />
+          <Property Name="monto" Type="float" />
+          <Property Name="id_fuente_financiamiento" Type="int" />
+          <Property Name="id_unidad_organizativa" Type="int" />
+          <Property Name="estado" Type="int" />
+        </EntityType>
+        <EntityType Name="etapa_vobo">
+          <Key>
+            <PropertyRef Name="id_etapa_vobo" />
+          </Key>
+          <Property Name="id_etapa_vobo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="valor" Type="varchar" MaxLength="150" />
+          <Property Name="estado" Type="int" />
+        </EntityType>
+        <EntityType Name="fuente_financiamiento">
+          <Key>
+            <PropertyRef Name="id_fuente_financiamiento" />
+          </Key>
+          <Property Name="id_fuente_financiamiento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="valor" Type="varchar" MaxLength="250" />
+          <Property Name="estado" Type="int" />
+        </EntityType>
+        <EntityType Name="menu">
+          <Key>
+            <PropertyRef Name="id_menu" />
+          </Key>
+          <Property Name="id_menu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="menu_icono" Type="varchar" MaxLength="100" />
+          <Property Name="menu_nombre" Type="varchar" MaxLength="150" />
+          <Property Name="accion" Type="varchar" MaxLength="100" />
+          <Property Name="controlador" Type="varchar" MaxLength="200" />
+          <Property Name="orden" Type="int" />
+          <Property Name="id_rol" Type="varchar" MaxLength="250" />
+          <Property Name="estado" Type="int" />
+        </EntityType>
+        <EntityType Name="metodo_contratacion">
+          <Key>
+            <PropertyRef Name="id_metodo_contratacion" />
+          </Key>
+          <Property Name="id_metodo_contratacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="valor" Type="varchar" MaxLength="250" />
+          <Property Name="estado" Type="int" />
+        </EntityType>
+        <EntityType Name="movimiento_detalle_presupuesto">
+          <Key>
+            <PropertyRef Name="id_movimiento_detalle_presupuesto" />
+          </Key>
+          <Property Name="id_movimiento_detalle_presupuesto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_detalle_presupuesto" Type="int" />
+          <Property Name="nombre_proceso" Type="varchar" MaxLength="350" />
+          <Property Name="id_metodo_contratacion" Type="int" />
+          <Property Name="fecha_inicio" Type="date" />
+          <Property Name="fecha_fin" Type="date" />
+          <Property Name="monto" Type="float" />
+          <Property Name="id_fuente_financiamiento" Type="int" />
+          <Property Name="id_unidad_organizativa" Type="int" />
+          <Property Name="fecha_movimiento" Type="datetime" />
+          <Property Name="estado" Type="int" />
+        </EntityType>
+        <EntityType Name="personal_vobo">
+          <Key>
+            <PropertyRef Name="id_personal_vobo" />
+          </Key>
+          <Property Name="id_personal_vobo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_empleado" Type="int" />
+          <Property Name="estado" Type="int" />
+        </EntityType>
+        <EntityType Name="sub_menu">
+          <Key>
+            <PropertyRef Name="id_sub_menu" />
+          </Key>
+          <Property Name="id_sub_menu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sub_menu_icono" Type="varchar" MaxLength="100" />
+          <Property Name="sub_menu_nombre" Type="varchar" MaxLength="150" />
+          <Property Name="accion" Type="varchar" MaxLength="100" />
+          <Property Name="controlador" Type="varchar" MaxLength="200" />
+          <Property Name="id_menu" Type="int" />
+          <Property Name="orden" Type="int" />
+          <Property Name="id_rol" Type="varchar" MaxLength="250" />
+          <Property Name="estado" Type="int" />
+        </EntityType>
+        <EntityType Name="vobo">
+          <Key>
+            <PropertyRef Name="id_vobo" />
+          </Key>
+          <Property Name="id_vobo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_personal_vobo" Type="int" />
+          <Property Name="id_detalle_presupuesto" Type="int" />
+          <Property Name="id_etapa_vobo" Type="int" />
+          <Property Name="instruccion" Type="varchar" MaxLength="400" />
+          <Property Name="estado" Type="int" />
+        </EntityType>
+        <Association Name="FK__detalle_p__id_fu__3F466844">
+          <End Role="fuente_financiamiento" Type="Self.fuente_financiamiento" Multiplicity="0..1" />
+          <End Role="detalle_presupuesto" Type="Self.detalle_presupuesto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fuente_financiamiento">
+              <PropertyRef Name="id_fuente_financiamiento" />
+            </Principal>
+            <Dependent Role="detalle_presupuesto">
+              <PropertyRef Name="id_fuente_financiamiento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__detalle_p__id_me__3E52440B">
+          <End Role="metodo_contratacion" Type="Self.metodo_contratacion" Multiplicity="0..1" />
+          <End Role="detalle_presupuesto" Type="Self.detalle_presupuesto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="metodo_contratacion">
+              <PropertyRef Name="id_metodo_contratacion" />
+            </Principal>
+            <Dependent Role="detalle_presupuesto">
+              <PropertyRef Name="id_metodo_contratacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__movimient__id_de__4222D4EF">
+          <End Role="detalle_presupuesto" Type="Self.detalle_presupuesto" Multiplicity="0..1" />
+          <End Role="movimiento_detalle_presupuesto" Type="Self.movimiento_detalle_presupuesto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="detalle_presupuesto">
+              <PropertyRef Name="id_detalle_presupuesto" />
+            </Principal>
+            <Dependent Role="movimiento_detalle_presupuesto">
+              <PropertyRef Name="id_detalle_presupuesto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__movimient__id_fu__440B1D61">
+          <End Role="fuente_financiamiento" Type="Self.fuente_financiamiento" Multiplicity="0..1" />
+          <End Role="movimiento_detalle_presupuesto" Type="Self.movimiento_detalle_presupuesto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fuente_financiamiento">
+              <PropertyRef Name="id_fuente_financiamiento" />
+            </Principal>
+            <Dependent Role="movimiento_detalle_presupuesto">
+              <PropertyRef Name="id_fuente_financiamiento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__movimient__id_me__4316F928">
+          <End Role="metodo_contratacion" Type="Self.metodo_contratacion" Multiplicity="0..1" />
+          <End Role="movimiento_detalle_presupuesto" Type="Self.movimiento_detalle_presupuesto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="metodo_contratacion">
+              <PropertyRef Name="id_metodo_contratacion" />
+            </Principal>
+            <Dependent Role="movimiento_detalle_presupuesto">
+              <PropertyRef Name="id_metodo_contratacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__sub_menu__id_men__5441852A">
+          <End Role="menu" Type="Self.menu" Multiplicity="0..1" />
+          <End Role="sub_menu" Type="Self.sub_menu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="menu">
+              <PropertyRef Name="id_menu" />
+            </Principal>
+            <Dependent Role="sub_menu">
+              <PropertyRef Name="id_menu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__vobo__id_detalle__5BE2A6F2">
+          <End Role="detalle_presupuesto" Type="Self.detalle_presupuesto" Multiplicity="0..1" />
+          <End Role="vobo" Type="Self.vobo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="detalle_presupuesto">
+              <PropertyRef Name="id_detalle_presupuesto" />
+            </Principal>
+            <Dependent Role="vobo">
+              <PropertyRef Name="id_detalle_presupuesto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__vobo__id_etapa_v__5CD6CB2B">
+          <End Role="etapa_vobo" Type="Self.etapa_vobo" Multiplicity="0..1" />
+          <End Role="vobo" Type="Self.vobo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="etapa_vobo">
+              <PropertyRef Name="id_etapa_vobo" />
+            </Principal>
+            <Dependent Role="vobo">
+              <PropertyRef Name="id_etapa_vobo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__vobo__id_persona__5AEE82B9">
+          <End Role="personal_vobo" Type="Self.personal_vobo" Multiplicity="0..1" />
+          <End Role="vobo" Type="Self.vobo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="personal_vobo">
+              <PropertyRef Name="id_personal_vobo" />
+            </Principal>
+            <Dependent Role="vobo">
+              <PropertyRef Name="id_personal_vobo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="registro_presupuestoModelStoreContainer">
+          <EntitySet Name="detalle_presupuesto" EntityType="Self.detalle_presupuesto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="etapa_vobo" EntityType="Self.etapa_vobo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="fuente_financiamiento" EntityType="Self.fuente_financiamiento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="menu" EntityType="Self.menu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="metodo_contratacion" EntityType="Self.metodo_contratacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="movimiento_detalle_presupuesto" EntityType="Self.movimiento_detalle_presupuesto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="personal_vobo" EntityType="Self.personal_vobo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sub_menu" EntityType="Self.sub_menu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vobo" EntityType="Self.vobo" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__detalle_p__id_fu__3F466844" Association="Self.FK__detalle_p__id_fu__3F466844">
+            <End Role="fuente_financiamiento" EntitySet="fuente_financiamiento" />
+            <End Role="detalle_presupuesto" EntitySet="detalle_presupuesto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__detalle_p__id_me__3E52440B" Association="Self.FK__detalle_p__id_me__3E52440B">
+            <End Role="metodo_contratacion" EntitySet="metodo_contratacion" />
+            <End Role="detalle_presupuesto" EntitySet="detalle_presupuesto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__movimient__id_de__4222D4EF" Association="Self.FK__movimient__id_de__4222D4EF">
+            <End Role="detalle_presupuesto" EntitySet="detalle_presupuesto" />
+            <End Role="movimiento_detalle_presupuesto" EntitySet="movimiento_detalle_presupuesto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__movimient__id_fu__440B1D61" Association="Self.FK__movimient__id_fu__440B1D61">
+            <End Role="fuente_financiamiento" EntitySet="fuente_financiamiento" />
+            <End Role="movimiento_detalle_presupuesto" EntitySet="movimiento_detalle_presupuesto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__movimient__id_me__4316F928" Association="Self.FK__movimient__id_me__4316F928">
+            <End Role="metodo_contratacion" EntitySet="metodo_contratacion" />
+            <End Role="movimiento_detalle_presupuesto" EntitySet="movimiento_detalle_presupuesto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__sub_menu__id_men__5441852A" Association="Self.FK__sub_menu__id_men__5441852A">
+            <End Role="menu" EntitySet="menu" />
+            <End Role="sub_menu" EntitySet="sub_menu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__vobo__id_detalle__5BE2A6F2" Association="Self.FK__vobo__id_detalle__5BE2A6F2">
+            <End Role="detalle_presupuesto" EntitySet="detalle_presupuesto" />
+            <End Role="vobo" EntitySet="vobo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__vobo__id_etapa_v__5CD6CB2B" Association="Self.FK__vobo__id_etapa_v__5CD6CB2B">
+            <End Role="etapa_vobo" EntitySet="etapa_vobo" />
+            <End Role="vobo" EntitySet="vobo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__vobo__id_persona__5AEE82B9" Association="Self.FK__vobo__id_persona__5AEE82B9">
+            <End Role="personal_vobo" EntitySet="personal_vobo" />
+            <End Role="vobo" EntitySet="vobo" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="registro_presupuestoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="detalle_presupuesto">
+          <Key>
+            <PropertyRef Name="id_detalle_presupuesto" />
+          </Key>
+          <Property Name="id_detalle_presupuesto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codigo" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="nombre_proceso" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
+          <Property Name="id_metodo_contratacion" Type="Int32" />
+          <Property Name="fecha_inicio" Type="DateTime" Precision="0" />
+          <Property Name="fecha_fin" Type="DateTime" Precision="0" />
+          <Property Name="monto" Type="Double" />
+          <Property Name="id_fuente_financiamiento" Type="Int32" />
+          <Property Name="id_unidad_organizativa" Type="Int32" />
+          <Property Name="estado" Type="Int32" />
+          <NavigationProperty Name="fuente_financiamiento" Relationship="Self.FK__detalle_p__id_fu__3F466844" FromRole="detalle_presupuesto" ToRole="fuente_financiamiento" />
+          <NavigationProperty Name="metodo_contratacion" Relationship="Self.FK__detalle_p__id_me__3E52440B" FromRole="detalle_presupuesto" ToRole="metodo_contratacion" />
+          <NavigationProperty Name="movimiento_detalle_presupuesto" Relationship="Self.FK__movimient__id_de__4222D4EF" FromRole="detalle_presupuesto" ToRole="movimiento_detalle_presupuesto" />
+          <NavigationProperty Name="vobo" Relationship="registro_presupuestoModel.FK__vobo__id_detalle__5BE2A6F2" FromRole="detalle_presupuesto" ToRole="vobo" />
+        </EntityType>
+        <EntityType Name="fuente_financiamiento">
+          <Key>
+            <PropertyRef Name="id_fuente_financiamiento" />
+          </Key>
+          <Property Name="id_fuente_financiamiento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="valor" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="estado" Type="Int32" />
+          <NavigationProperty Name="detalle_presupuesto" Relationship="Self.FK__detalle_p__id_fu__3F466844" FromRole="fuente_financiamiento" ToRole="detalle_presupuesto" />
+          <NavigationProperty Name="movimiento_detalle_presupuesto" Relationship="Self.FK__movimient__id_fu__440B1D61" FromRole="fuente_financiamiento" ToRole="movimiento_detalle_presupuesto" />
+        </EntityType>
+        <EntityType Name="metodo_contratacion">
+          <Key>
+            <PropertyRef Name="id_metodo_contratacion" />
+          </Key>
+          <Property Name="id_metodo_contratacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="valor" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="estado" Type="Int32" />
+          <NavigationProperty Name="detalle_presupuesto" Relationship="Self.FK__detalle_p__id_me__3E52440B" FromRole="metodo_contratacion" ToRole="detalle_presupuesto" />
+          <NavigationProperty Name="movimiento_detalle_presupuesto" Relationship="Self.FK__movimient__id_me__4316F928" FromRole="metodo_contratacion" ToRole="movimiento_detalle_presupuesto" />
+        </EntityType>
+        <EntityType Name="movimiento_detalle_presupuesto">
+          <Key>
+            <PropertyRef Name="id_movimiento_detalle_presupuesto" />
+          </Key>
+          <Property Name="id_movimiento_detalle_presupuesto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_detalle_presupuesto" Type="Int32" />
+          <Property Name="nombre_proceso" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
+          <Property Name="id_metodo_contratacion" Type="Int32" />
+          <Property Name="fecha_inicio" Type="DateTime" Precision="0" />
+          <Property Name="fecha_fin" Type="DateTime" Precision="0" />
+          <Property Name="monto" Type="Double" />
+          <Property Name="id_fuente_financiamiento" Type="Int32" />
+          <Property Name="id_unidad_organizativa" Type="Int32" />
+          <Property Name="fecha_movimiento" Type="DateTime" Precision="3" />
+          <Property Name="estado" Type="Int32" />
+          <NavigationProperty Name="detalle_presupuesto" Relationship="Self.FK__movimient__id_de__4222D4EF" FromRole="movimiento_detalle_presupuesto" ToRole="detalle_presupuesto" />
+          <NavigationProperty Name="fuente_financiamiento" Relationship="Self.FK__movimient__id_fu__440B1D61" FromRole="movimiento_detalle_presupuesto" ToRole="fuente_financiamiento" />
+          <NavigationProperty Name="metodo_contratacion" Relationship="Self.FK__movimient__id_me__4316F928" FromRole="movimiento_detalle_presupuesto" ToRole="metodo_contratacion" />
+        </EntityType>
+        <Association Name="FK__detalle_p__id_fu__3F466844">
+          <End Role="fuente_financiamiento" Type="Self.fuente_financiamiento" Multiplicity="0..1" />
+          <End Role="detalle_presupuesto" Type="Self.detalle_presupuesto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fuente_financiamiento">
+              <PropertyRef Name="id_fuente_financiamiento" />
+            </Principal>
+            <Dependent Role="detalle_presupuesto">
+              <PropertyRef Name="id_fuente_financiamiento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__detalle_p__id_me__3E52440B">
+          <End Role="metodo_contratacion" Type="Self.metodo_contratacion" Multiplicity="0..1" />
+          <End Role="detalle_presupuesto" Type="Self.detalle_presupuesto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="metodo_contratacion">
+              <PropertyRef Name="id_metodo_contratacion" />
+            </Principal>
+            <Dependent Role="detalle_presupuesto">
+              <PropertyRef Name="id_metodo_contratacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__movimient__id_de__4222D4EF">
+          <End Role="detalle_presupuesto" Type="Self.detalle_presupuesto" Multiplicity="0..1" />
+          <End Role="movimiento_detalle_presupuesto" Type="Self.movimiento_detalle_presupuesto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="detalle_presupuesto">
+              <PropertyRef Name="id_detalle_presupuesto" />
+            </Principal>
+            <Dependent Role="movimiento_detalle_presupuesto">
+              <PropertyRef Name="id_detalle_presupuesto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__movimient__id_fu__440B1D61">
+          <End Role="fuente_financiamiento" Type="Self.fuente_financiamiento" Multiplicity="0..1" />
+          <End Role="movimiento_detalle_presupuesto" Type="Self.movimiento_detalle_presupuesto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fuente_financiamiento">
+              <PropertyRef Name="id_fuente_financiamiento" />
+            </Principal>
+            <Dependent Role="movimiento_detalle_presupuesto">
+              <PropertyRef Name="id_fuente_financiamiento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__movimient__id_me__4316F928">
+          <End Role="metodo_contratacion" Type="Self.metodo_contratacion" Multiplicity="0..1" />
+          <End Role="movimiento_detalle_presupuesto" Type="Self.movimiento_detalle_presupuesto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="metodo_contratacion">
+              <PropertyRef Name="id_metodo_contratacion" />
+            </Principal>
+            <Dependent Role="movimiento_detalle_presupuesto">
+              <PropertyRef Name="id_metodo_contratacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="registro_presupuestoEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="detalle_presupuesto" EntityType="Self.detalle_presupuesto" />
+          <EntitySet Name="fuente_financiamiento" EntityType="Self.fuente_financiamiento" />
+          <EntitySet Name="metodo_contratacion" EntityType="Self.metodo_contratacion" />
+          <EntitySet Name="movimiento_detalle_presupuesto" EntityType="Self.movimiento_detalle_presupuesto" />
+          <AssociationSet Name="FK__detalle_p__id_fu__3F466844" Association="Self.FK__detalle_p__id_fu__3F466844">
+            <End Role="fuente_financiamiento" EntitySet="fuente_financiamiento" />
+            <End Role="detalle_presupuesto" EntitySet="detalle_presupuesto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__detalle_p__id_me__3E52440B" Association="Self.FK__detalle_p__id_me__3E52440B">
+            <End Role="metodo_contratacion" EntitySet="metodo_contratacion" />
+            <End Role="detalle_presupuesto" EntitySet="detalle_presupuesto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__movimient__id_de__4222D4EF" Association="Self.FK__movimient__id_de__4222D4EF">
+            <End Role="detalle_presupuesto" EntitySet="detalle_presupuesto" />
+            <End Role="movimiento_detalle_presupuesto" EntitySet="movimiento_detalle_presupuesto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__movimient__id_fu__440B1D61" Association="Self.FK__movimient__id_fu__440B1D61">
+            <End Role="fuente_financiamiento" EntitySet="fuente_financiamiento" />
+            <End Role="movimiento_detalle_presupuesto" EntitySet="movimiento_detalle_presupuesto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__movimient__id_me__4316F928" Association="Self.FK__movimient__id_me__4316F928">
+            <End Role="metodo_contratacion" EntitySet="metodo_contratacion" />
+            <End Role="movimiento_detalle_presupuesto" EntitySet="movimiento_detalle_presupuesto" />
+          </AssociationSet>
+          <EntitySet Name="menu" EntityType="registro_presupuestoModel.menu" />
+          <EntitySet Name="sub_menu" EntityType="registro_presupuestoModel.sub_menu" />
+          <AssociationSet Name="FK__sub_menu__id_men__5441852A" Association="registro_presupuestoModel.FK__sub_menu__id_men__5441852A">
+            <End Role="menu" EntitySet="menu" />
+            <End Role="sub_menu" EntitySet="sub_menu" />
+          </AssociationSet>
+          <EntitySet Name="etapa_vobo" EntityType="registro_presupuestoModel.etapa_vobo" />
+          <EntitySet Name="personal_vobo" EntityType="registro_presupuestoModel.personal_vobo" />
+          <EntitySet Name="vobo" EntityType="registro_presupuestoModel.vobo" />
+          <AssociationSet Name="FK__vobo__id_detalle__5BE2A6F2" Association="registro_presupuestoModel.FK__vobo__id_detalle__5BE2A6F2">
+            <End Role="detalle_presupuesto" EntitySet="detalle_presupuesto" />
+            <End Role="vobo" EntitySet="vobo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__vobo__id_etapa_v__5CD6CB2B" Association="registro_presupuestoModel.FK__vobo__id_etapa_v__5CD6CB2B">
+            <End Role="etapa_vobo" EntitySet="etapa_vobo" />
+            <End Role="vobo" EntitySet="vobo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__vobo__id_persona__5AEE82B9" Association="registro_presupuestoModel.FK__vobo__id_persona__5AEE82B9">
+            <End Role="personal_vobo" EntitySet="personal_vobo" />
+            <End Role="vobo" EntitySet="vobo" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="menu">
+          <Key>
+            <PropertyRef Name="id_menu" />
+          </Key>
+          <Property Name="id_menu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="menu_icono" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="menu_nombre" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="accion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="controlador" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="orden" Type="Int32" />
+          <Property Name="id_rol" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="estado" Type="Int32" />
+          <NavigationProperty Name="sub_menu" Relationship="registro_presupuestoModel.FK__sub_menu__id_men__5441852A" FromRole="menu" ToRole="sub_menu" />
+        </EntityType>
+        <EntityType Name="sub_menu">
+          <Key>
+            <PropertyRef Name="id_sub_menu" />
+          </Key>
+          <Property Name="id_sub_menu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sub_menu_icono" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="sub_menu_nombre" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="accion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="controlador" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="id_menu" Type="Int32" />
+          <Property Name="orden" Type="Int32" />
+          <Property Name="id_rol" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="estado" Type="Int32" />
+          <NavigationProperty Name="menu" Relationship="registro_presupuestoModel.FK__sub_menu__id_men__5441852A" FromRole="sub_menu" ToRole="menu" />
+        </EntityType>
+        <Association Name="FK__sub_menu__id_men__5441852A">
+          <End Type="registro_presupuestoModel.menu" Role="menu" Multiplicity="0..1" />
+          <End Type="registro_presupuestoModel.sub_menu" Role="sub_menu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="menu">
+              <PropertyRef Name="id_menu" />
+            </Principal>
+            <Dependent Role="sub_menu">
+              <PropertyRef Name="id_menu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="etapa_vobo">
+          <Key>
+            <PropertyRef Name="id_etapa_vobo" />
+          </Key>
+          <Property Name="id_etapa_vobo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="valor" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="estado" Type="Int32" />
+          <NavigationProperty Name="vobo" Relationship="registro_presupuestoModel.FK__vobo__id_etapa_v__5CD6CB2B" FromRole="etapa_vobo" ToRole="vobo" />
+        </EntityType>
+        <EntityType Name="personal_vobo">
+          <Key>
+            <PropertyRef Name="id_personal_vobo" />
+          </Key>
+          <Property Name="id_personal_vobo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_empleado" Type="Int32" />
+          <Property Name="estado" Type="Int32" />
+          <NavigationProperty Name="vobo" Relationship="registro_presupuestoModel.FK__vobo__id_persona__5AEE82B9" FromRole="personal_vobo" ToRole="vobo" />
+        </EntityType>
+        <EntityType Name="vobo">
+          <Key>
+            <PropertyRef Name="id_vobo" />
+          </Key>
+          <Property Name="id_vobo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_personal_vobo" Type="Int32" />
+          <Property Name="id_detalle_presupuesto" Type="Int32" />
+          <Property Name="id_etapa_vobo" Type="Int32" />
+          <Property Name="instruccion" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+          <Property Name="estado" Type="Int32" />
+          <NavigationProperty Name="detalle_presupuesto" Relationship="registro_presupuestoModel.FK__vobo__id_detalle__5BE2A6F2" FromRole="vobo" ToRole="detalle_presupuesto" />
+          <NavigationProperty Name="etapa_vobo" Relationship="registro_presupuestoModel.FK__vobo__id_etapa_v__5CD6CB2B" FromRole="vobo" ToRole="etapa_vobo" />
+          <NavigationProperty Name="personal_vobo" Relationship="registro_presupuestoModel.FK__vobo__id_persona__5AEE82B9" FromRole="vobo" ToRole="personal_vobo" />
+        </EntityType>
+        <Association Name="FK__vobo__id_detalle__5BE2A6F2">
+          <End Type="registro_presupuestoModel.detalle_presupuesto" Role="detalle_presupuesto" Multiplicity="0..1" />
+          <End Type="registro_presupuestoModel.vobo" Role="vobo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="detalle_presupuesto">
+              <PropertyRef Name="id_detalle_presupuesto" />
+            </Principal>
+            <Dependent Role="vobo">
+              <PropertyRef Name="id_detalle_presupuesto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__vobo__id_etapa_v__5CD6CB2B">
+          <End Type="registro_presupuestoModel.etapa_vobo" Role="etapa_vobo" Multiplicity="0..1" />
+          <End Type="registro_presupuestoModel.vobo" Role="vobo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="etapa_vobo">
+              <PropertyRef Name="id_etapa_vobo" />
+            </Principal>
+            <Dependent Role="vobo">
+              <PropertyRef Name="id_etapa_vobo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__vobo__id_persona__5AEE82B9">
+          <End Type="registro_presupuestoModel.personal_vobo" Role="personal_vobo" Multiplicity="0..1" />
+          <End Type="registro_presupuestoModel.vobo" Role="vobo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="personal_vobo">
+              <PropertyRef Name="id_personal_vobo" />
+            </Principal>
+            <Dependent Role="vobo">
+              <PropertyRef Name="id_personal_vobo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="registro_presupuestoModelStoreContainer" CdmEntityContainer="registro_presupuestoEntities">
+          <EntitySetMapping Name="detalle_presupuesto">
+            <EntityTypeMapping TypeName="registro_presupuestoModel.detalle_presupuesto">
+              <MappingFragment StoreEntitySet="detalle_presupuesto">
+                <ScalarProperty Name="id_detalle_presupuesto" ColumnName="id_detalle_presupuesto" />
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="nombre_proceso" ColumnName="nombre_proceso" />
+                <ScalarProperty Name="id_metodo_contratacion" ColumnName="id_metodo_contratacion" />
+                <ScalarProperty Name="fecha_inicio" ColumnName="fecha_inicio" />
+                <ScalarProperty Name="fecha_fin" ColumnName="fecha_fin" />
+                <ScalarProperty Name="monto" ColumnName="monto" />
+                <ScalarProperty Name="id_fuente_financiamiento" ColumnName="id_fuente_financiamiento" />
+                <ScalarProperty Name="id_unidad_organizativa" ColumnName="id_unidad_organizativa" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="fuente_financiamiento">
+            <EntityTypeMapping TypeName="registro_presupuestoModel.fuente_financiamiento">
+              <MappingFragment StoreEntitySet="fuente_financiamiento">
+                <ScalarProperty Name="id_fuente_financiamiento" ColumnName="id_fuente_financiamiento" />
+                <ScalarProperty Name="valor" ColumnName="valor" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="metodo_contratacion">
+            <EntityTypeMapping TypeName="registro_presupuestoModel.metodo_contratacion">
+              <MappingFragment StoreEntitySet="metodo_contratacion">
+                <ScalarProperty Name="id_metodo_contratacion" ColumnName="id_metodo_contratacion" />
+                <ScalarProperty Name="valor" ColumnName="valor" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="movimiento_detalle_presupuesto">
+            <EntityTypeMapping TypeName="registro_presupuestoModel.movimiento_detalle_presupuesto">
+              <MappingFragment StoreEntitySet="movimiento_detalle_presupuesto">
+                <ScalarProperty Name="id_movimiento_detalle_presupuesto" ColumnName="id_movimiento_detalle_presupuesto" />
+                <ScalarProperty Name="id_detalle_presupuesto" ColumnName="id_detalle_presupuesto" />
+                <ScalarProperty Name="nombre_proceso" ColumnName="nombre_proceso" />
+                <ScalarProperty Name="id_metodo_contratacion" ColumnName="id_metodo_contratacion" />
+                <ScalarProperty Name="fecha_inicio" ColumnName="fecha_inicio" />
+                <ScalarProperty Name="fecha_fin" ColumnName="fecha_fin" />
+                <ScalarProperty Name="monto" ColumnName="monto" />
+                <ScalarProperty Name="id_fuente_financiamiento" ColumnName="id_fuente_financiamiento" />
+                <ScalarProperty Name="id_unidad_organizativa" ColumnName="id_unidad_organizativa" />
+                <ScalarProperty Name="fecha_movimiento" ColumnName="fecha_movimiento" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="menu">
+            <EntityTypeMapping TypeName="registro_presupuestoModel.menu">
+              <MappingFragment StoreEntitySet="menu">
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="id_rol" ColumnName="id_rol" />
+                <ScalarProperty Name="orden" ColumnName="orden" />
+                <ScalarProperty Name="controlador" ColumnName="controlador" />
+                <ScalarProperty Name="accion" ColumnName="accion" />
+                <ScalarProperty Name="menu_nombre" ColumnName="menu_nombre" />
+                <ScalarProperty Name="menu_icono" ColumnName="menu_icono" />
+                <ScalarProperty Name="id_menu" ColumnName="id_menu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sub_menu">
+            <EntityTypeMapping TypeName="registro_presupuestoModel.sub_menu">
+              <MappingFragment StoreEntitySet="sub_menu">
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="id_rol" ColumnName="id_rol" />
+                <ScalarProperty Name="orden" ColumnName="orden" />
+                <ScalarProperty Name="id_menu" ColumnName="id_menu" />
+                <ScalarProperty Name="controlador" ColumnName="controlador" />
+                <ScalarProperty Name="accion" ColumnName="accion" />
+                <ScalarProperty Name="sub_menu_nombre" ColumnName="sub_menu_nombre" />
+                <ScalarProperty Name="sub_menu_icono" ColumnName="sub_menu_icono" />
+                <ScalarProperty Name="id_sub_menu" ColumnName="id_sub_menu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="etapa_vobo">
+            <EntityTypeMapping TypeName="registro_presupuestoModel.etapa_vobo">
+              <MappingFragment StoreEntitySet="etapa_vobo">
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="valor" ColumnName="valor" />
+                <ScalarProperty Name="id_etapa_vobo" ColumnName="id_etapa_vobo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="personal_vobo">
+            <EntityTypeMapping TypeName="registro_presupuestoModel.personal_vobo">
+              <MappingFragment StoreEntitySet="personal_vobo">
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="id_empleado" ColumnName="id_empleado" />
+                <ScalarProperty Name="id_personal_vobo" ColumnName="id_personal_vobo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vobo">
+            <EntityTypeMapping TypeName="registro_presupuestoModel.vobo">
+              <MappingFragment StoreEntitySet="vobo">
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="instruccion" ColumnName="instruccion" />
+                <ScalarProperty Name="id_etapa_vobo" ColumnName="id_etapa_vobo" />
+                <ScalarProperty Name="id_detalle_presupuesto" ColumnName="id_detalle_presupuesto" />
+                <ScalarProperty Name="id_personal_vobo" ColumnName="id_personal_vobo" />
+                <ScalarProperty Name="id_vobo" ColumnName="id_vobo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

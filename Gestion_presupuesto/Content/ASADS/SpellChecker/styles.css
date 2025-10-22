@@ -1,0 +1,94 @@
+/* used as a border of large controls (like grids, diagram) */
+/* used as a background below a page in richedit/diagram */
+/* used as a border of large controls (like grids, diagram) */
+/* used as a background below a page in richedit/diagram */
+.dxwscCheckedTextContainer_ASADS
+{
+    background-color: white;
+    border: solid 1px #c0c0c0;
+    vertical-align: top;
+    overflow: auto;
+    height: 110px;
+    width: 340px;
+    padding: 5px;
+}
+.dxwscErrorWord_ASADS
+{
+    background: url('scErrorUnderline.gif') bottom;
+    background-repeat: repeat-x;
+    padding-bottom: 3px;
+    color: #484848;
+    font-weight: bold;
+}
+/* -- Loading panel -- */
+.dxwscLoadingPanel_ASADS
+{
+    background-color: white;
+    font: 16px 'Museo Sans', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+    color: #484848;
+    -moz-box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16), 0 2px 8px 0 rgba(0,0,0,0.12);
+    -webkit-box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16), 0 2px 8px 0 rgba(0,0,0,0.12);
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16), 0 2px 8px 0 rgba(0,0,0,0.12);
+}
+.dxwscLoadingPanel_ASADS td.dx
+{
+    font-size: 1.17em;
+    white-space: nowrap;
+    text-align: center;
+    padding: 10px 14px;
+}
+.dxwscLoadingPanel_ASADS .dxlp-loadingImage
+{
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -o-border-radius: 50%;
+    -khtml-border-radius: 50%;
+    border-radius: 50%;
+    animation: dxLoadSpinSys 1s linear infinite;
+    border: 4px solid #084298;
+    border-top: 4px solid #EEE;
+    width: 24px;
+    height: 24px;
+}
+/* -- Forms -- */
+.dxwsc-main .dxpcLite_ASADS .dxwscDlgFooter
+{
+    border-top: 1px solid #c0c0c0;
+    padding: 10px 15px;
+    text-align: right;
+}
+.dxwsc-main .dxpcLite_ASADS .dxwscDlgButtonTable
+{
+    margin-left: 3px;
+}
+.dxwsc-main .dxpcLite_ASADS .dxwscDlgChangeToPanelContainer table > tbody > tr:last-child > td
+{
+    padding-top: 8px;
+}
+.dxwsc-main .dxpcLite_ASADS .dxwscDlgButtonTable > tbody > tr > td
+{
+    padding-bottom: 3px;
+}
+.dxwsc-main.dxwsc-rtl .dxpcLite_ASADS .dxwscDlgFooter
+{
+    text-align: left;
+}
+.dxwsc-main .dxpcLite_ASADS .dxwscDlgFooterBtn
+{
+    width: 120px;
+    margin-left: 8px;
+}
+.dxwsc-main.dxwsc-rtl .dxpcLite_ASADS .dxwscDlgFooterBtn
+{
+    margin-right: 8px;
+    margin-left: 0;
+}
+.dxwsc-main .dxpcLite_ASADS .dxwscDlgSpellCheckBtn
+{
+    width: 166px;
+}
+.dxwsc-main .dxpcLite_ASADS .dxrpControl_ASADS .dxrpHeader_ASADS,
+.dxwsc-main .dxpcLite_ASADS .dxrpControl_ASADS .dxrpHeader_ASADS td.dxrp
+{
+    font-size: 1.83em;
+}

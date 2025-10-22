@@ -1,0 +1,632 @@
+/* used as a border of large controls (like grids, diagram) */
+/* used as a background below a page in richedit/diagram */
+/* used as a border of large controls (like grids, diagram) */
+/* used as a background below a page in richedit/diagram */
+.dxvgControl_ASADS,
+.dxvgDisabled_ASADS
+{
+    font: 16px 'Museo Sans', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+    background-color: White;
+    color: #484848;
+    cursor: default;
+}
+.dxvgDisabled_ASADS
+{
+    color: #b8b8b8;
+}
+.dxvgControl_ASADS a.dxeHyperlink:not([href]):not([onclick]):not(.dxbButtonSys)
+{
+    color: #484848;
+    text-decoration: none;
+}
+.dxvgControl_ASADS a
+{
+    color: #084298;
+    text-decoration: none;
+}
+.dxvgControl_ASADS a:hover
+{
+    text-decoration: underline;
+}
+.dxvgControl_ASADS a:hover.dxbDisabled_ASADS
+{
+    color: #BBBBBB;
+    text-decoration: none;
+}
+.dxvgDisabled_ASADS a
+{
+    color: #b8b8b8;
+}
+.dxvgTable_ASADS
+{
+    background-color: White;
+    border: 1px solid #DFDFDF;
+    border-radius: 4px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-collapse: separate !important;
+    overflow: hidden;
+    table-layout: fixed;
+}
+.dxvgTable_ASADS .dxvgHEC
+{
+    background-color: White;
+    border-width: 0;
+    overflow: hidden;
+}
+.dxvgControl_ASADS .dxvgCSD
+{
+    border-bottom: 1px solid #DFDFDF;
+}
+.dxvgControl_ASADS .dxvgCSD,
+.dxvgControl_ASADS .dxvgFC .dxvgHEC
+{
+    border-right: 1px solid #DFDFDF;
+}
+.dxvgCSD .dxvgTable_ASADS
+{
+    border-right: 0;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+.dxvgControl_ASADS .dxvgFCW + .dxvgTable_ASADS
+{
+    border-top: 0;
+    border-radius: 0;
+}
+.dxvgControl_ASADS .dxvgCSD .dxvgTable_ASADS,
+.dxvgControl_ASADS table[id$='DXFixedTable']
+{
+    border-bottom: 0;
+}
+.dxvgControl_ASADS .dxvgCSD + .dxvgSummaryPanel_ASADS,
+.dxvgControl_ASADS .dxvgCSD + .dxvgPagerBottomPanel_ASADS,
+.dxvgControl_ASADS .dxvgCSD + .dxvgFilterBar_ASADS,
+.dxvgControl_ASADS .dxvgCSD + .dxvgStatusBar_ASADS,
+.dxvgTable_ASADS + .dxvgSummaryPanel_ASADS,
+.dxvgTable_ASADS + .dxvgPagerBottomPanel_ASADS,
+.dxvgTable_ASADS + .dxvgFilterBar_ASADS,
+.dxvgTable_ASADS + .dxvgStatusBar_ASADS
+{
+    border-top: 0;
+}
+.dxvgControl_ASADS .dxvgFCSD
+{
+    background-color: White;
+}
+.dxvgHeader_ASADS
+{
+    cursor: pointer;
+    color: black;
+    font: 16px 'Museo Sans', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;font-weight:bold;
+    text-align: left;
+    background-color: white;
+    padding: 21px 10px 17px;
+    border: 1px Solid #DCDCDC;
+    border-width: 0 1px 1px 0;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.dxvgCategory_ASADS
+{
+    color: #939393;
+    font: 16px 'Museo Sans', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;font-weight:bold;
+    background-color: #F4F7FD;
+    padding: 30px 10px 30px;
+    border-bottom: 1px solid #DFDFDF;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.dxvgCSD .dxvgCategory_ASADS:not(.dxvg__I)
+{
+    border-right: 1px solid #DFDFDF;
+}
+.dxvgCategoryRow_ASADS.dxvgER .dxvgCategory_ASADS,
+.dxvgCategoryRow_ASADS.dxvgCR .dxvgCategory_ASADS
+{
+    cursor: pointer;
+}
+.dxvgCategoryRow_ASADS.dxvgER .dxvgCategory_ASADS.dxvg__I,
+.dxvgCategoryRow_ASADS.dxvgCR .dxvgCategory_ASADS.dxvg__I
+{
+    cursor: default;
+}
+.dxvgRecord_ASADS
+{
+    padding: 19px 10px 18px;
+    border: 1px solid #DFDFDF;
+    border-width: 0 1px 1px 0;
+    overflow: hidden;
+}
+.dxvgRecord_ASADS:last-child
+{
+    border-right-width: 0;
+}
+.dxvgRPFC .dxvgRecord_ASADS
+{
+    border-bottom: 1px Solid #DCDCDC;
+}
+.dxvgGLNV .dxvgRecord_ASADS
+{
+    border-right-width: 0;
+}
+.dxvgGLNH .dxvgRecord_ASADS
+{
+    border-bottom-width: 0;
+}
+.dxvgGLNH .dxvgRPFC .dxvgRecord_ASADS
+{
+    border-bottom-width: 1px;
+}
+.dxvgGLNH .dxvgRPFC.dxvgER .dxvgRecord_ASADS
+{
+    border-bottom-width: 0;
+}
+.dxvgFC .dxvgGLNH tr:last-child .dxvgRecord_ASADS
+{
+    border-bottom-width: 1px;
+}
+.dxvgRecordAlt_ASADS
+{
+    background-color: #f5f5f5;
+}
+/* Select, Hover */
+.dxvgSelectedRecord_ASADS,
+.dxvgSelectedRecord_ASADS.dxvgDataRowHover_ASADS,
+.dxvgSelectedCell_ASADS
+{
+    background-color: #F4F7FD;
+}
+.dxvgSelectedRecord_ASADS.dxvgSelectedCell_ASADS
+{
+    background-color: #E0E0E0;
+}
+.dxvgDataRowHover_ASADS .dxvgRecord_ASADS
+{
+    background-color: #EEE;
+}
+/* Command Items */
+.dxvgCommandCell_ASADS
+{
+    padding: 8px 4px;
+}
+.dxvgCommandCell_ASADS a,
+.dxvgHeader_ASADS a.dxvgCommandItem_ASADS
+{
+    margin: 0 5px 0 0;
+}
+.dxvgHeader_ASADS a,
+.dxvgCommandCell_ASADS a
+{
+    color: #084298;
+}
+.dxbButton_ASADS[class~="dxvgCommandItem_ASADS"]
+{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.dxbButton_ASADS[class~="dxvgCommandItem_ASADS"] .dxb
+{
+    padding-top: 0;
+    padding-bottom: 0;
+}
+/* Indents */
+.dxvgControl_ASADS .dxvg__I
+{
+    border-style: solid;
+    border-color: #DCDCDC;
+    border-width: 0 1px 0 0;
+    cursor: default;
+    box-shadow: none;
+}
+.dxvgControl_ASADS .dxvg__I.dxvg__BB
+{
+    border-bottom-width: 1px;
+}
+.dxvgControl_ASADS .dxvgER .dxvg__I.dxvg__BB
+{
+    border-bottom-width: 0;
+}
+.dxvgControl_ASADS .dxvgMHI .dxvg__I
+{
+    border-right-width: 0;
+}
+.dxvgControl_ASADS .dxvgMHI .dxvgER .dxvg__I.dxvg__BB
+{
+    border-bottom-width: 1px;
+}
+/* Title Panel, Status bar, Summary Panel */
+.dxvgTitlePanel_ASADS,
+.dxvgTable_ASADS caption
+{
+    font-size: 1.25em;
+    font-weight: normal;
+    padding: 3px 3px 5px;
+    text-align: center;
+    color: #999999;
+}
+.dxvgStatusBar_ASADS
+{
+    border-top: 1px solid #DFDFDF;
+}
+.dxvgStatusBar_ASADS tr.dxvg
+{
+    height: 20px;
+}
+.dxvgStatusBar_ASADS tr.dxvg > td
+{
+    padding: 24px 0;
+}
+.dxvgStatusBar_ASADS tr.dxvg span .dxbButtonSys:first-child
+{
+    margin-left: 20px;
+}
+.dxvgPagerBottomPanel_ASADS + .dxvgStatusBar_ASADS
+{
+    border-top: none;
+}
+.dxvgSummaryPanel_ASADS
+{
+    border: 1px solid #DFDFDF;
+    background-color: #f4f4f4;
+    color: #8e8e93;
+    padding: 8px 21px 8px;
+}
+.dxvgSummaryItem_ASADS
+{
+    display: inline-block;
+    margin: 5px 8px 5px 0;
+}
+/* Pager */
+.dxvgPagerTopPanel_ASADS,
+.dxvgPagerBottomPanel_ASADS
+{
+    padding: 9px 0 9px;
+}
+.dxvgPagerBottomPanel_ASADS
+{
+    background-color: white;
+    border-bottom: 1px solid #DFDFDF;
+    border-left: 1px solid #DFDFDF;
+    border-right: 1px solid #DFDFDF;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    -moz-box-shadow: 0;
+    -webkit-box-shadow: 0;
+    box-shadow:0;
+    border-top: 1px solid #DFDFDF;
+}
+.dxvgSummaryPanel_ASADS + .dxvgPagerBottomPanel_ASADS
+{
+    border-top-width: 0;
+}
+.dxvgControl_ASADS .dxpLite_ASADS,
+.dxvgDisabled_ASADS .dxpLite_ASADS
+{
+    padding-top: 4px;
+}
+/* Filter Builder, Filter Bar */
+.dxvgFilterBar_ASADS
+{
+    margin-top: 16px;
+    box-shadow: 0;
+    border-radius: 8px;
+    border: 1px solid #DFDFDF;
+    border-collapse: separate;
+}
+.dxvgFilterBar_ASADS a
+{
+    color: #084298;
+    text-decoration: none;
+}
+.dxvgFilterBar_ASADS a:hover
+{
+    text-decoration: underline;
+}
+.dxvgFilterBar_ASADS > tbody > tr > td
+{
+    padding-top: 14px;
+    padding-bottom: 14px;
+}
+.dxvgFilterBarCheckBoxCell_ASADS
+{
+    padding-left: 20px;
+}
+*[dir="rtl"] .dxvgFilterBarCheckBoxCell_ASADS
+{
+    padding-right: 20px;
+}
+.dxvgFilterBarImageCell_ASADS
+{
+    padding: 0 8px 0 20px;
+    cursor: pointer;
+}
+*[dir="rtl"] .dxvgFilterBarImageCell_ASADS
+{
+    padding: 0 20px 0 8px;
+}
+.dxvgFilterBarImageCell_ASADS img
+{
+    margin-top: 3px;
+    margin-left: 0;
+}
+.dxvgFilterBarExpressionCell_ASADS
+{
+    padding: 5px 5px 8px 0;
+    white-space: nowrap;
+}
+.dxvgFilterBarClearButtonCell_ASADS
+{
+    padding: 5px 20px 8px 6px;
+}
+*[dir="rtl"] .dxvgFilterBarClearButtonCell_ASADS
+{
+    padding: 5px 6px 8px 20px;
+}
+.dxvgFilterBuilderMainArea_ASADS
+{
+    background: White none;
+    padding: 6px 2px;
+}
+.dxvgFilterBuilderButtonArea_ASADS
+{
+    border-top: 1px solid #eaeaea;
+    padding: 10px;
+    white-space: nowrap;
+}
+.dxvgFilterBuilderButtonArea_ASADS .dxbButton_ASADS
+{
+    margin-left: 8px;
+}
+.dxvgControl_ASADS .dxpcLite_ASADS
+{
+    -moz-box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16), 0 2px 8px 0 rgba(0,0,0,0.12);
+    -webkit-box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16), 0 2px 8px 0 rgba(0,0,0,0.12);
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16), 0 2px 8px 0 rgba(0,0,0,0.12);
+}
+.dxvgControl_ASADS .dxpcLite_ASADS .dxpc-mainDiv.dxpc-hf
+{
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+/* Header Filter */
+.dxvgControl_ASADS .dxpcLite_ASADS .dxpc-footerContent > table
+{
+    margin: 13px 20px 11px 0px;
+}
+.dxvgControl_ASADS .dxpcLite_ASADS .dxpc-footerContent
+{
+    padding: 12px 20px 7px 12px;
+}
+.dxvgControl_ASADS .dxvgHFC
+{
+    padding-left: 4px;
+}
+.dxvgControl_ASADS .dxvgHFC .dxeCalendar_ASADS
+{
+    margin-top: 3px;
+    margin-left: 7px;
+}
+.dxvgControl_ASADS div[id$='DXEPLPC']
+{
+    height: 53px;
+}
+.dxvgControl_ASADS .dxvgHFSD
+{
+    height: 1px;
+    margin: 2px 0;
+}
+.dxvgControl_ASADS .dxvgHFDRC
+{
+    margin: 15px 15px 25px;
+}
+.dxvgControl_ASADS .dxvgHFDRP
+{
+    margin-left: 15px;
+    margin-right: 15px;
+    padding: 9px 0 6px;
+}
+.dxvgControl_ASADS .dxvgHFDRP[id*="HFFDE"]
+{
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+.dxvgControl_ASADS .dxvgHFDRP[id*="HFTDE"]
+{
+    margin-bottom: 25px;
+}
+/* Batch Edit */
+.dxvgControl_ASADS td.dxvgBatchEditCell_ASADS:not(.dxBatchEditCheckBoxCell)
+{
+    padding: 0 2px;
+}
+.dxvgControl_ASADS td.dxvgBatchEditModifiedCell_ASADS
+{
+    background: #d7f9c7;
+}
+.dxvgBatchEditDeletedItem_ASADS,
+.dxvgBatchEditNewItem_ASADS.dxvgBatchEditDeletedItem_ASADS
+{
+    background: #EFEFEF;
+}
+td.dxvgBatchEditDeletedItem_ASADS:not(.dxvgCommandColumn_ASADS)
+{
+    color: rgba(0,0,0,0.5);
+}
+.dxvgBatchEditDeletedItem_ASADS.dxvgBatchEditModifiedCell_ASADS
+{
+    background: #eefbe7 !important;
+}
+td.dxvgBatchEditModifiedCell_ASADS.dxvgSelectedCell_ASADS
+{
+    background: #c6efce !important;
+}
+.dxvgBatchEditNewItem_ASADS
+{
+    background: #F0FAEA;
+}
+.dxvgControl_ASADS .dxvgErrorCell
+{
+    padding-left: 5px;
+    width: 1px;
+}
+.dxvgControl_ASADS .dxvgErrorCell img
+{
+    margin: -3px 0;
+}
+.dxvgStatusBar_ASADS .dxbButton_ASADS
+{
+    margin-right: 10px;
+}
+.dxvgRecordError_ASADS
+{
+    background-color: #FFC8C8;
+    box-sizing: border-box;
+    color: #FF0000;
+    padding: 6px 10px;
+    height: 100%;
+}
+.dxvgERV .dxvgRecord_ASADS
+{
+    display: none;
+}
+.dxvgEmptyRecord_ASADS
+{
+    display: none;
+    text-align: center;
+}
+.dxvgERV .dxvgEmptyRecord_ASADS
+{
+    display: table-cell;
+}
+/* LoadingPanel */
+.dxvgLoadingPanel_ASADS
+{
+    background-color: white;
+    font: 16px 'Museo Sans', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+    color: #484848;
+    -moz-box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16), 0 2px 8px 0 rgba(0,0,0,0.12);
+    -webkit-box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16), 0 2px 8px 0 rgba(0,0,0,0.12);
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16), 0 2px 8px 0 rgba(0,0,0,0.12);
+}
+.dxvgLoadingPanel_ASADS td.dx
+{
+    font-size: 1.17em;
+    white-space: nowrap;
+    text-align: center;
+    padding: 10px 14px;
+}
+.dxvgLoadingPanel_ASADS .dxlp-loadingImage
+{
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -o-border-radius: 50%;
+    -khtml-border-radius: 50%;
+    border-radius: 50%;
+    animation: dxLoadSpinSys 1s linear infinite;
+    border: 4px solid #084298;
+    border-top: 4px solid #EEE;
+    width: 24px;
+    height: 24px;
+}
+.dxvgLoadingPanelStatusBar_ASADS
+{
+    background-color: Transparent;
+}
+.dxvgLoadingPanelStatusBar_ASADS td
+{
+    white-space: nowrap;
+    text-align: center;
+    padding: 0px 2px;
+}
+.dxvgLoadingPanelStatusBar_ASADS .dxlp-loadingImage
+{
+    background-image: url('../GridView/gvLoadingOnStatusBar.gif');
+    height: 16px;
+    width: 16px;
+}
+/* Search Panel */
+.dxvgSearchPanel_ASADS
+{
+    padding: 7px 0 16px;
+}
+.dxvgSearchPanel_ASADS > table
+{
+    width: 100%;
+}
+.dxvgSearchPanel_ASADS .dxeButtonEdit_ASADS
+{
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -o-border-radius: 4px;
+    -khtml-border-radius: 4px;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.1), 0 2px 10px 0 rgba(0,0,0,0.1);
+    width: 100%;
+}
+.dxvgSearchPanel_ASADS .dxeButtonEdit_ASADS
+{
+    background-color: #FAFAFA;
+}
+.dxvgSearchPanel_ASADS .dxeButtonEdit_ASADS input
+{
+    background-color: #FAFAFA;
+}
+.dxvgSearchPanel_ASADS .dxeButtonEdit_ASADS td.dxic
+{
+    padding: 15px 8px 17px 12px;
+}
+*[dir="rtl"] .dxvgSearchPanel_ASADS .dxeButtonEdit_ASADS td.dxic
+{
+    padding: 15px 12px 17px 8px;
+}
+.dxvgControl_ASADS .dxvgSearchPanel_ASADS .dxbButton_ASADS
+{
+    margin-left: 7px;
+    margin-right: 0;
+}
+*[dir="rtl"].dxvgControl_ASADS .dxvgSearchPanel_ASADS .dxbButton_ASADS
+{
+    margin-left: 0;
+    margin-right: 7px;
+}
+.dxvgControl_ASADS .dxvgHL
+{
+    background: #084298;
+    color: white;
+    font-weight: bold;
+    font-style: normal;
+}
+/* Removes flicking in Material Safari*/
+.dxvgTable_ASADS
+{
+    -webkit-tap-highlight-color: transparent;
+}
+.dxvgRecord_ASADS .dxICheckBox_ASADS,
+.dxvgRecord_ASADS .dxeIRadioButton_ASADS
+{
+    margin: 0 10px 0 10px;
+}
+.dxvgFocusedCell_ASADS
+{
+    -moz-box-shadow: inset 2px 2px 0 #084298, inset -2px -2px 0 #084298;
+    -webkit-box-shadow: inset 2px 2px 0 #084298, inset -2px -2px 0 #084298;
+    box-shadow: inset 2px 2px 0 #084298, inset -2px -2px 0 #084298;
+}
+.dxvgTable_ASADS,
+.dxvgSummaryPanel_ASADS,
+.dxvgControl_ASADS .dxvgCSD
+{
+    -moz-box-shadow: 0;
+    -webkit-box-shadow:0;
+    box-shadow:0;
+}
+/* Ripple */
+.dxvgControl_ASADS .dxvgTable_ASADS .dxvgHeader_ASADS::before,
+.dxvgControl_ASADS .dxvgCustomization_ASADS .dxvgHeader_ASADS::before
+{
+    content: "dxRippleTarget";
+    display: none;
+}

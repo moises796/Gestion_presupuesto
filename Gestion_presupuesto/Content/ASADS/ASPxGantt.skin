@@ -1,0 +1,9 @@
+<%@ Register TagPrefix="dx" Namespace="DevExpress.Data" Assembly="DevExpress.Data.v24.2, Version=24.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+<%@ Register TagPrefix="dx" Namespace="DevExpress.Web.ASPxGantt" Assembly="DevExpress.Web.ASPxGantt.v24.2, Version=24.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+
+<dx:ASPxGantt runat="server" CssFilePath="{0}/styles.css" CssPostfix="ASADS">
+    <Styles CssPostfix="ASADS" CssFilePath="{0}/styles.css" />
+    
+</dx:ASPxGantt>
+
+

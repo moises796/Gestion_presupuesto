@@ -1,0 +1,162 @@
+﻿@{
+    Gestion_presupuesto.Controllers.PresupuestoController clase = new Gestion_presupuesto.Controllers.PresupuestoController();
+    var grid = Html.DevExpress().GridView(settings =>
+    {
+        settings.Name = "GridVobo";
+        settings.CallbackRouteValues = new { Controller = "Vobo", Action = "GridVobo" };
+        settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "Vobo", Action = "GridVoboUpdate" };
+        settings.EnableRowsCache = false;
+        settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+
+        settings.SettingsAdaptivity.AdaptivityMode = GridViewAdaptivityMode.HideDataCells;
+        settings.SettingsSearchPanel.Visible = true;
+        settings.SettingsAdaptivity.AllowOnlyOneAdaptiveDetailExpanded = true;
+        settings.SettingsBehavior.AllowFocusedRow = true;
+        settings.SettingsPopup.EditForm.Modal = true;
+        settings.SettingsEditing.Mode = GridViewEditingMode.PopupEditForm;
+        settings.SettingsPopup.EditForm.VerticalAlign = PopupVerticalAlign.Middle;
+        settings.SettingsPopup.EditForm.HorizontalAlign = PopupHorizontalAlign.Center;
+        settings.SettingsPopup.EditForm.ShowHeader = false;
+        settings.SettingsBehavior.ConfirmDelete = true;
+        settings.CommandColumn.ButtonRenderMode = GridCommandButtonRenderMode.Secondary;
+        settings.CommandColumn.Visible = true;
+        settings.CommandColumn.ShowNewButtonInHeader = false;
+        settings.CommandColumn.ShowDeleteButton = false;
+        settings.CommandColumn.ShowEditButton = true;
+
+        settings.KeyFieldName = "id_vobo";
+
+        settings.SettingsPager.Visible = true;
+        settings.Settings.ShowGroupPanel = false;
+        settings.Settings.ShowFilterRow = false;
+
+
+        settings.SettingsPager.Visible = true;
+        settings.SettingsPager.PageSizeItemSettings.Visible = true;
+        settings.SettingsPager.PageSizeItemSettings.Items = new string[] { "5", "10", "20", "50" };
+        settings.SettingsPager.FirstPageButton.Visible = true;
+        settings.SettingsPager.LastPageButton.Visible = true;
+        settings.SettingsPager.PageSize = 5;
+        settings.SettingsPager.PageSizeItemSettings.Position = PagerPageSizePosition.Left;
+        settings.SettingsPopup.EditForm.VerticalAlign = PopupVerticalAlign.WindowCenter;
+        settings.SettingsPopup.EditForm.HorizontalAlign = PopupHorizontalAlign.WindowCenter;
+        settings.Settings.ShowGroupPanel = false;
+        settings.Settings.ShowFilterRow = false;
+        settings.SettingsBehavior.AllowSelectByRowClick = true;
+
+        settings.EditFormLayoutProperties.SettingsAdaptivity.AdaptivityMode = FormLayoutAdaptivityMode.SingleColumnWindowLimit;
+        settings.EditFormLayoutProperties.SettingsAdaptivity.SwitchToSingleColumnAtWindowInnerWidth = 900;
+        settings.SettingsPopup.EditForm.SettingsAdaptivity.Mode = PopupControlAdaptivityMode.OnWindowInnerWidth;
+        settings.SettingsPopup.EditForm.PopupAnimationType = DevExpress.Web.AnimationType.Fade;
+        settings.SettingsPopup.EditForm.Width = 1000;
+
+        settings.Columns.Add(gridViewColumnSettings =>
+        {
+            gridViewColumnSettings.FieldName = "nombre_proceso";
+            gridViewColumnSettings.Caption = "Nombre del proceso";
+            gridViewColumnSettings.AdaptivePriority = 1;
+            MVCxColumnTextBoxProperties editorProperties = gridViewColumnSettings.PropertiesEdit as MVCxColumnTextBoxProperties;
+            editorProperties.ValidationSettings.RequiredField.IsRequired = true;
+            editorProperties.ValidationSettings.RequiredField.ErrorText = "Este campo es requerido.";
+            gridViewColumnSettings.AdaptivePriority = 1;
+        });
+
+        settings.Columns.Add(c =>
+        {
+            c.FieldName = "id_metodo_contratacion";
+            c.Caption = "Método de contratación";
+            c.EditorProperties().ComboBox(p =>
+            {
+                p.TextField = "valor";
+                p.ValueField = "id_metodo_contratacion";
+                p.ValueType = typeof(int);
+                p.ValidationSettings.RequiredField.IsRequired = true;
+                p.ValidationSettings.RequiredField.ErrorText = "Este campo es requerido.";
+                p.DataSource = clase.GetMetodoContratacion();
+            });
+        });
+
+        //settings.Columns.Add("fecha_inicio");
+        settings.Columns.Add(c =>
+        {
+            c.FieldName = "fecha_inicio";
+            c.Caption = "Inicio (Mes/Año)";
+            c.EditorProperties().DateEdit(p =>
+            {
+                p.EditFormat = EditFormat.Custom;
+                p.EditFormatString = "MM/yyyy";
+                p.DisplayFormatString = "MM/yyyy";
+                p.UseMaskBehavior = true;
+
+                p.CalendarProperties.ShowTodayButton = false;
+                p.ClientSideEvents.DateChanged = "function(s,e){normalizeMonthYear(s,e)}";
+            });
+        });
+
+        settings.Columns.Add(c =>
+        {
+            c.FieldName = "fecha_fin";
+            c.Caption = "Fin (Mes/Año)";
+            c.EditorProperties().DateEdit(p =>
+            {
+                p.EditFormat = EditFormat.Custom;
+                p.EditFormatString = "MM/yyyy";
+                p.DisplayFormatString = "MM/yyyy";
+                p.UseMaskBehavior = true;
+
+                p.CalendarProperties.ShowTodayButton = false;
+                p.ClientSideEvents.DateChanged = "function(s,e){normalizeMonthYear(s,e)}";
+            });
+        });
+
+        settings.Columns.Add(gridViewColumnSettings =>
+        {
+            gridViewColumnSettings.FieldName = "monto";
+            gridViewColumnSettings.Caption = "Monto";
+            gridViewColumnSettings.AdaptivePriority = 4;
+            gridViewColumnSettings.ColumnType = MVCxGridViewColumnType.SpinEdit;
+            ((SpinEditProperties)gridViewColumnSettings.PropertiesEdit).DisplayFormatInEditMode = true;
+            ((SpinEditProperties)gridViewColumnSettings.PropertiesEdit).DisplayFormatString = "c";
+            ((SpinEditProperties)gridViewColumnSettings.PropertiesEdit).ValidationSettings.RequiredField.IsRequired = true;
+            ((SpinEditProperties)gridViewColumnSettings.PropertiesEdit).ValidationSettings.RequiredField.ErrorText = "Este campo es requerido.";
+            ((SpinEditProperties)gridViewColumnSettings.PropertiesEdit).NumberFormat = SpinEditNumberFormat.Currency;
+            //((SpinEditProperties)gridViewColumnSettings.PropertiesEdit).DisplayFormatString = "c";
+            ((SpinEditProperties)gridViewColumnSettings.PropertiesEdit).ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithText;
+            ((SpinEditProperties)gridViewColumnSettings.PropertiesEdit).ValidationSettings.ErrorTextPosition = ErrorTextPosition.Bottom;
+        });
+
+        settings.Columns.Add(c =>
+        {
+            c.FieldName = "id_fuente_financiamiento";
+            c.Caption = "Fuente de financiamiento";
+            c.EditorProperties().ComboBox(p =>
+            {
+                p.TextField = "valor";
+                p.ValueField = "id_fuente_financiamiento";
+                p.ValueType = typeof(int);
+                p.ValidationSettings.RequiredField.IsRequired = true;
+                p.ValidationSettings.RequiredField.ErrorText = "Este campo es requerido.";
+                p.DataSource = clase.GetFuenteFinanciamiento();
+            });
+        });
+        settings.Columns.Add(c =>
+        {
+            c.FieldName = "id_unidad_organizativa";
+            c.Caption = "Unidad organizativa";
+            c.EditorProperties().ComboBox(p =>
+            {
+                p.TextField = "nombre";
+                p.ValueField = "id_estructura";
+                p.ValueType = typeof(int);
+                p.ValidationSettings.RequiredField.IsRequired = true;
+                p.ValidationSettings.RequiredField.ErrorText = "Este campo es requerido.";
+                p.DataSource = clase.GetEstructuras();
+            });
+        });
+    });
+    if (ViewData["EditError"] != null)
+    {
+        grid.SetEditErrorText((string)ViewData["EditError"]);
+    }
+}
+@grid.Bind(Model).GetHtml()

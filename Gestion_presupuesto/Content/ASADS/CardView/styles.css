@@ -1,0 +1,686 @@
+/* used as a border of large controls (like grids, diagram) */
+/* used as a background below a page in richedit/diagram */
+/* used as a border of large controls (like grids, diagram) */
+/* used as a background below a page in richedit/diagram */
+/* used as a border of large controls (like grids, diagram) */
+/* used as a background below a page in richedit/diagram */
+.dxcvCard_ASADS .dxflGroupBoxCaption_ASADS
+{
+    background-color: white;
+}
+.dxcvPopupEditForm_ASADS .dxflGroupBoxCaption_ASADS
+{
+    background-color: white;
+}
+.dxcvCard_ASADS .dxflPCSys .dxflGroupBoxCaption_ASADS
+{
+    background-color: white;
+}
+.dxcvPopupEditForm_ASADS .dxflPCSys .dxflGroupBoxCaption_ASADS
+{
+    background-color: white;
+}
+.dxcvControl_ASADS,
+.dxcvDisabled_ASADS
+{
+    font: 16px 'Museo Sans', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+    background-color: white;
+    color: #000000;
+    cursor: default;
+}
+.dxcvDisabled_ASADS
+{
+    color: #b8b8b8;
+}
+.dxcvControl_ASADS a.dxeHyperlink:not([href]):not([onclick]):not(.dxbButtonSys)
+{
+    color: #000000;
+    text-decoration: none;
+}
+.dxcvControl_ASADS a
+{
+    color: #084298;
+    text-decoration: none;
+}
+.dxcvControl_ASADS a:hover
+{
+    text-decoration: underline;
+}
+.dxcvControl_ASADS a:hover.dxbDisabled_ASADS
+{
+    color: #BBBBBB;
+    text-decoration: none;
+}
+.dxcvDisabled_ASADS a
+{
+    color: #b8b8b8;
+}
+.dxcvLoadingPanel_ASADS
+{
+    background-color: white;
+    font: 16px 'Museo Sans', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+    color: #484848;
+    -moz-box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16), 0 2px 8px 0 rgba(0,0,0,0.12);
+    -webkit-box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16), 0 2px 8px 0 rgba(0,0,0,0.12);
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16), 0 2px 8px 0 rgba(0,0,0,0.12);
+}
+.dxcvLoadingPanel_ASADS td.dx
+{
+    font-size: 1.17em;
+    white-space: nowrap;
+    text-align: center;
+    padding: 10px 14px;
+}
+.dxcvLoadingPanel_ASADS .dxlp-loadingImage
+{
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -o-border-radius: 50%;
+    -khtml-border-radius: 50%;
+    border-radius: 50%;
+    animation: dxLoadSpinSys 1s linear infinite;
+    border: 4px solid #084298;
+    border-top: 4px solid #EEE;
+    width: 24px;
+    height: 24px;
+}
+.dxcvLoadingPanelStatusBar_ASADS .dxlp-loadingImage
+{
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -o-border-radius: 50%;
+    -khtml-border-radius: 50%;
+    border-radius: 50%;
+    animation: dxLoadSpinSys 1s linear infinite;
+    border: 2px solid #084298;
+    border-top: 2px solid #EEE;
+    width: 16px;
+    height: 16px;
+}
+.dxcvLoadingPanelStatusBar_ASADS
+{
+    background-color: Transparent;
+}
+.dxcvLoadingPanelStatusBar_ASADS td
+{
+    white-space: nowrap;
+    text-align: center;
+    padding: 0px 2px;
+}
+.dxcvTable_ASADS,
+.dxcvControl_ASADS .dxcvCSD
+{
+    background-color: #f4f4f4;
+}
+.dxcvTable_ASADS
+{
+    border-width: 0;
+    border-collapse: separate !important;
+    overflow: hidden;
+    padding: 10px 8px 12px 8px;
+    border: 1px solid #DFDFDF;
+}
+.dxcvTable_ASADS,
+.dxcvControl_ASADS .dxcvCSD
+{
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+.dxcvTable_ASADS,
+.dxcvHeaderPanel_ASADS,
+.dxcvSummaryPanel_ASADS
+{
+
+    -moz-box-shadow: 0;
+    -webkit-box-shadow: 0;
+    box-shadow: 0;
+}
+.dxcvHeaderPanel_ASADS + .dxcvTable_ASADS,
+.dxcvHeaderPanel_ASADS + .dxcvCSD,
+.dxcvCSD .dxcvTable_ASADS
+{
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+.dxcvControl_ASADS .dxcvCSD .dxcvTable_ASADS
+{
+    border-width: 0;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+.dxcvControl_ASADS .dxcvCSD
+{
+    border: 1px solid #DFDFDF;
+    box-sizing: border-box;
+}
+.dxcvHeader_ASADS
+{
+    cursor: pointer;
+    border: 1px solid #DFDFDF;
+    white-space: nowrap;
+    padding: 5px 23px 4px;
+    background-color: white;
+    overflow: hidden;
+    font-weight: normal;
+    font: 16px 'Museo Sans', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;font-weight:bold;
+    font-size: 1em;
+    text-align: left;
+}
+.dxcvHeader_ASADS td
+{
+    white-space: nowrap;
+}
+.dxcvHeader_ASADS a
+{
+    color: #084298;
+}
+.dxcvHeader_ASADS a.dxcvCommandItem_ASADS
+{
+    margin: 0 5px 0 0;
+    color: #084298;
+}
+.dxcvCard_ASADS .dxflHARSys.dxflGroupCell_ASADS .dxflCommandItemSys,
+.dxcvBreakpointsCard_ASADS .dxflHARSys.dxflGroupCell_ASADS .dxflCommandItemSys,
+.dxcvFlowCard_ASADS .dxflHARSys.dxflGroupCell_ASADS .dxflCommandItemSys
+{
+    margin-right: -5px;
+}
+.dxcvCard_ASADS .dxflViewFormLayoutSys .dxflGroupCell_ASADS .dxflCommandItemSys,
+.dxcvBreakpointsCard_ASADS .dxflViewFormLayoutSys .dxflGroupCell_ASADS .dxflCommandItemSys,
+.dxcvFlowCard_ASADS .dxflViewFormLayoutSys .dxflGroupCell_ASADS .dxflCommandItemSys
+{
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+.dxcvEditForm_ASADS .dxflFormLayout_ASADS .dxflCommandItemSys,
+.dxcvPopupEditForm_ASADS .dxflFormLayout_ASADS .dxflCommandItemSys
+{
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+.dxcvEditForm_ASADS .dxflFormLayout_ASADS .dxflCommandItemSys a,
+.dxcvPopupEditForm_ASADS .dxflFormLayout_ASADS .dxflCommandItemSys a
+{
+    margin-left: 2px;
+    margin-right: 2px;
+    padding: 8px 16px;
+    margin-top: -8px;
+    margin-bottom: -8px;
+}
+.dxcvEditForm_ASADS .dxflFormLayout_ASADS .dxflCommandItemSys a:hover,
+.dxcvPopupEditForm_ASADS .dxflFormLayout_ASADS .dxflCommandItemSys a:hover
+{
+    background-color: #d1d1d1;
+    text-decoration: none;
+}
+.dxcvEditForm_ASADS .dxflFormLayout_ASADS .dxflTextEditItemSys
+{
+    padding: 2px 0 3px 0;
+}
+.dxcvEditForm_ASADS .dxflFormLayout_ASADS .dxflCaptionCellSys
+{
+    padding-right: 8px;
+}
+.dxcvPopupEditForm_ASADS
+{
+    padding: 4px;
+    margin: 0;
+}
+.dxcvControl_ASADS .dxpcLite_ASADS
+{
+    -moz-box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16), 0 2px 8px 0 rgba(0,0,0,0.12);
+    -webkit-box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16), 0 2px 8px 0 rgba(0,0,0,0.12);
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16), 0 2px 8px 0 rgba(0,0,0,0.12);
+}
+.dxcvControl_ASADS .dxpcLite_ASADS .dxpc-mainDiv.dxpc-hf
+{
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+.dxcvCustomization_ASADS
+{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0 10px 10px 10px;
+    min-width: 220px;
+}
+.dxcvCustomization_ASADS .dxcvHeader_ASADS
+{
+    padding: 10px;
+    background-color: white;
+    color: #484848;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.1), 0 2px 10px 0 rgba(0,0,0,0.1);
+}
+.dxcvTitlePanel_ASADS,
+.dxcvTable_ASADS caption
+{
+    font-size: 1.25em;
+    font-weight: normal;
+    padding: 21px 3px 5px;
+    text-align: center;
+    color: #999999;
+}
+.dxcvStatusBar_ASADS
+{
+    border-top-width: 0;
+}
+.dxcvStatusBar_ASADS tr.dxcv
+{
+    height: 20px;
+}
+.dxcvStatusBar_ASADS tr.dxcv > td
+{
+    padding: 24px;
+}
+.dxcvStatusBar_ASADS tr.dxcv span .dxbButtonSys:first-child
+{
+    margin-left: 20px;
+}
+a.dxcvCommandItem_ASADS
+{
+    margin: 0 5px 0 0;
+    color: #084298;
+}
+.dxbButton_ASADS[class~="dxcvCommandItem_ASADS"],
+.dxcvEditFormTable_ASADS div.dxbButton_ASADS
+{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.dxbButton_ASADS[class~="dxcvCommandItem_ASADS"] .dxb
+{
+    padding-top: 0;
+    padding-bottom: 0;
+}
+.dxcvCard_ASADS .dxflCommandItemSys .dxichSys,
+.dxcvBreakpointsCard_ASADS .dxflCommandItemSys .dxichSys,
+.dxcvFlowCard_ASADS .dxflCommandItemSys .dxichSys
+{
+    margin: -1px 10px 1px 1px;
+}
+.dxcvPagerTopPanel_ASADS,
+.dxcvPagerBottomPanel_ASADS
+{
+    padding: 9px 0 9px;
+}
+.dxcvPagerBottomPanel_ASADS
+{
+    background-color: white;
+    border-bottom: 1px solid #DFDFDF;
+    border-left: 1px solid #DFDFDF;
+    border-right: 1px solid #DFDFDF;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    }
+.dxcvFilterBar_ASADS
+{
+    margin-top: 16px;
+    box-shadow: 0;
+    border-radius: 8px;
+    border: 1px solid #DFDFDF;
+    border-collapse: separate;
+}
+.dxcvFilterBar_ASADS a
+{
+    color: #084298;
+    text-decoration: none;
+}
+.dxcvFilterBar_ASADS a:hover
+{
+    text-decoration: underline;
+}
+.dxcvFilterBar_ASADS > tbody > tr > td
+{
+    padding-top: 14px;
+    padding-bottom: 14px;
+}
+.dxcvFilterBarCheckBoxCell_ASADS
+{
+    padding-left: 20px;
+}
+*[dir="rtl"] .dxcvFilterBarCheckBoxCell_ASADS
+{
+    padding-right: 20px;
+}
+.dxcvFilterBarImageCell_ASADS
+{
+    padding: 0 8px 0 20px;
+    cursor: pointer;
+}
+*[dir="rtl"] .dxcvFilterBarImageCell_ASADS
+{
+    padding: 0 20px 0 8px;
+}
+.dxcvFilterBarExpressionCell_ASADS
+{
+    padding: 5px 5px 8px 0;
+    white-space: nowrap;
+}
+.dxcvFilterBarClearButtonCell_ASADS
+{
+    padding: 5px 20px 8px 6px;
+}
+*[dir="rtl"] .dxcvFilterBarClearButtonCell_ASADS
+{
+    padding: 5px 6px 8px 20px;
+}
+.dxcvFilterBuilderMainArea_ASADS
+{
+    background: White none;
+    padding: 6px 2px;
+}
+.dxcvFilterBuilderButtonArea_ASADS
+{
+    border-top: 1px solid #eaeaea;
+    padding: 10px;
+    white-space: nowrap;
+}
+.dxcvFilterBuilderButtonArea_ASADS .dxbButton_ASADS
+{
+    margin-left: 8px;
+}
+.dxcvControl_ASADS .dxpLite_ASADS,
+.dxcvDisabled_ASADS .dxpLite_ASADS
+{
+    padding-top: 4px;
+}
+.dxcvControl_ASADS div[id$='DXEPLPC']
+{
+    height: 53px;
+}
+.dxcvControl_ASADS .dxcvHFSD
+{
+    height: 1px;
+    margin: 2px 0;
+}
+.dxcvControl_ASADS .dxcvHFDRC
+{
+    margin: 15px 15px 25px;
+}
+.dxcvControl_ASADS .dxcvHFDRP
+{
+    margin-left: 15px;
+    margin-right: 15px;
+    padding: 9px 0 6px;
+}
+.dxcvControl_ASADS .dxcvHFDRP[id*="HFFDE"]
+{
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+.dxcvControl_ASADS .dxcvHFDRP[id*="HFTDE"]
+{
+    margin-bottom: 25px;
+}
+/* Removes flicking in iOS Safari*/
+.dxcvTable_ASADS
+{
+    -webkit-tap-highlight-color: transparent;
+}
+.dxcvSearchPanel_ASADS
+{
+    padding: 7px 0 16px;
+}
+.dxcvSearchPanel_ASADS > table
+{
+    width: 100%;
+}
+.dxcvSearchPanel_ASADS .dxeButtonEdit_ASADS
+{
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -o-border-radius: 4px;
+    -khtml-border-radius: 4px;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.1), 0 2px 10px 0 rgba(0,0,0,0.1);
+    width: 100%;
+}
+.dxcvSearchPanel_ASADS .dxeButtonEdit_ASADS
+{
+    background-color: #FAFAFA;
+}
+.dxcvSearchPanel_ASADS .dxeButtonEdit_ASADS input
+{
+    background-color: #FAFAFA;
+}
+.dxcvSearchPanel_ASADS .dxeButtonEdit_ASADS td.dxic
+{
+    padding: 15px 8px 17px 12px;
+}
+*[dir="rtl"] .dxcvSearchPanel_ASADS .dxeButtonEdit_ASADS td.dxic
+{
+    padding: 15px 12px 17px 8px;
+}
+.dxcvControl_ASADS .dxcvSearchPanel_ASADS .dxbButton_ASADS
+{
+    margin-left: 7px;
+    margin-right: 0;
+}
+*[dir="rtl"].dxcvControl_ASADS .dxcvSearchPanel_ASADS .dxbButton_ASADS
+{
+    margin-left: 0;
+    margin-right: 7px;
+}
+.dxcvControl_ASADS .dxcvHL
+{
+    background: #084298;
+    color: white;
+    font-weight: bold;
+    font-style: normal;
+}
+.dxcvCard_ASADS,
+.dxcvFlowCard_ASADS,
+.dxcvBreakpointsCard_ASADS,
+.dxcvEmptyCard_ASADS,
+.dxcvEmptyHiddenCard_ASADS
+{
+    width: 250px;
+    height: 260px;
+    padding: 12px 2px 48px;
+    vertical-align: top;
+    box-shadow: 0;
+}
+.dxcvCard_ASADS,
+.dxcvFlowCard_ASADS,
+.dxcvBreakpointsCard_ASADS,
+.dxcvEmptyCard_ASADS
+{
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -o-border-radius: 2px;
+    -khtml-border-radius: 2px;
+    border-radius: 2px;
+    background-color: white;
+    color: #262626;
+    outline: none;
+}
+.dxcvEmptyCard_ASADS
+{
+    text-align: center;
+    vertical-align: middle;
+}
+.dxcvEmptyHiddenCard_ASADS
+{
+    border: 1px solid transparent;
+    background-color: transparent;
+    box-shadow: none;
+}
+.dxcvGroupRow_ASADS
+{
+    padding: 10px 10px 9px;
+    font-weight: bold;
+}
+.dxcvGroupRow_ASADS .dxcvGRB
+{
+    display: inline-block;
+    margin-right: 10px;
+    position: relative;
+    top: 1px;
+}
+.dxcvGroupRow_ASADS,
+.dxcvFlowCard_ASADS,
+.dxcvBreakpointsCard_ASADS,
+div.dxcvEmptyCard_ASADS
+{
+    margin: 8px 0 0 8px;
+    overflow: hidden;
+}
+.dxcvFlowCard_ASADS,
+div.dxcvEmptyCard_ASADS
+{
+    display: inline-block;
+}
+div.dxcvEmptyCard_ASADS.dxcvBreakpointsCard_ASADS
+{
+    display: block;
+}
+.dxcvBreakpointsCard_ASADS
+{
+    width: auto;
+    display: block;
+}
+.dxcvSelectedCard_ASADS,
+.dxcvFocusedCard_ASADS
+{
+    box-shadow: inset 0 -3px 0 #084298, 0 2px 4px 0 rgba(0,0,0,0.16), 0 2px 8px 0 rgba(0,0,0,0.12);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.dxcvCardHover_ASADS
+{
+    box-shadow: 0 5px 11px 0 rgba(0,0,0,0.18), 0 4px 15px 0 rgba(0,0,0,0.15);
+}
+.dxcvCard_ASADS .dxflCaption_ASADS,
+.dxcvBreakpointsCard_ASADS .dxflCaption_ASADS,
+.dxcvFlowCard_ASADS .dxflCaption_ASADS
+{
+    color: #7F7F7F;
+}
+.dxcvCard_ASADS .dxflViewFormLayoutSys .dxflCommandItemSys,
+.dxcvBreakpointsCard_ASADS .dxflViewFormLayoutSys .dxflCommandItemSys,
+.dxcvFlowCard_ASADS .dxflViewFormLayoutSys .dxflCommandItemSys
+{
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+.dxcvCard_ASADS .dxflViewFormLayoutSys
+{
+    color: inherit;
+}
+.dxcvHeaderPanel_ASADS
+{
+    border: 1px solid #DFDFDF;
+    border-bottom-width: 0;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    padding: 2px 20px 8px 20px;
+}
+.dxcvHeaderPanel_ASADS .dxcvHPGSC
+{
+    float: right;
+    margin-top: 7px;
+}
+div.dxcvHeader_ASADS
+{
+    display: inline-block;
+    margin-right: 10px;
+    margin-top: 8px;
+}
+.dxcvSummaryPanel_ASADS
+{
+    border: 1px solid #DFDFDF;
+    background-color: #f4f4f4;
+    color: #8e8e93;
+    padding: 8px 21px 8px;
+    border-top-width: 0;
+}
+.dxcvSummaryItem_ASADS
+{
+    display: inline-block;
+    margin: 5px 8px 5px 0;
+}
+.dxcvControl_ASADS .dxcvSeparator_ASADS,
+.dxcvControl_ASADS .dxcvSeparator_ASADS div
+{
+    width: 8px;
+    height: 8px;
+}
+.dxcvControl_ASADS td.dxcvBatchEditCell_ASADS
+{
+    padding: 0;
+    outline-width: 0 !important;
+}
+.dxcvControl_ASADS .dxcvBatchEditModifiedCell_ASADS
+{
+    background: #d7f9c7;
+    outline-style: solid;
+    outline-color: #d7f9c7;
+    outline-width: 2px;
+}
+.dxcvBatchEditDeletedItem_ASADS,
+.dxcvBatchEditDeletedItem_ASADS.dxcvBatchEditNewItem_ASADS
+{
+    background: #F8F8F8;
+}
+.dxcvBatchEditDeletedItem_ASADS td:not(.dxcvCommandColumn_ASADS),
+.dxcvControl_ASADS .dxcvBatchEditDeletedItem_ASADS .dxflCaptionCell_ASADS .dxflCaption_ASADS
+{
+    color: rgba(0,0,0,0.5) !important;
+}
+.dxcvBatchEditDeletedItem_ASADS td.dxcvBatchEditModifiedCell_ASADS
+{
+    background-color: #eefbe7;
+    outline-style: none;
+}
+.dxcvBatchEditNewItem_ASADS
+{
+    background: #F0FAEA;
+}
+.dxcvControl_ASADS .dxcvErrorCell
+{
+    padding-left: 5px;
+    width: 1px;
+}
+.dxcvControl_ASADS .dxcvErrorCell img
+{
+    margin: -3px 0;
+}
+.dxcvStatusBar_ASADS .dxbButton_ASADS
+{
+    margin-right: 10px;
+}
+.dxcvControl_ASADS td.dxcvBatchEditCell_ASADS .dxichCellSys
+{
+    padding-left: 0;
+}
+.dxcvControl_ASADS .dxcvEMBC
+{
+    background: white;
+    text-align: center;
+    padding: 17px 20px 20px;
+}
+.dxcvCardError_ASADS
+{
+    background-color: #FFC8C8;
+    border-top: 1px solid #C0C0C0;
+    color: #FF0000;
+    padding: 6px 13px;
+}
+.dxcvFocusedCell_ASADS
+{
+    -moz-box-shadow: inset 2px 2px 0 #084298, inset -2px -2px 0 #084298;
+    -webkit-box-shadow: inset 2px 2px 0 #084298, inset -2px -2px 0 #084298;
+    box-shadow: inset 2px 2px 0 #084298, inset -2px -2px 0 #084298;
+}
+/* Ripple */
+.dxcvControl_ASADS .dxcvHeaderPanel_ASADS .dxcvHeader_ASADS::before,
+.dxcvControl_ASADS .dxcvCustomization_ASADS .dxcvHeader_ASADS::before
+{
+    content: "dxRippleTarget";
+    display: none;
+}

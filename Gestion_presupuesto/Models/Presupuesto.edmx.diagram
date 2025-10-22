@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b4ab5d5f63304b05866c95a97e8ada42" Name="Diagram1">
+        <EntityTypeShape EntityType="registro_presupuestoModel.detalle_presupuesto" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="registro_presupuestoModel.fuente_financiamiento" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="registro_presupuestoModel.metodo_contratacion" Width="1.5" PointX="0.75" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="registro_presupuestoModel.movimiento_detalle_presupuesto" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="registro_presupuestoModel.FK__detalle_p__id_fu__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="registro_presupuestoModel.FK__detalle_p__id_me__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="registro_presupuestoModel.FK__movimient__id_de__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="registro_presupuestoModel.FK__movimient__id_fu__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="registro_presupuestoModel.FK__movimient__id_me__4316F928" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="registro_presupuestoModel.menu" Width="1.5" PointX="3.375" PointY="6.125" />
+        <EntityTypeShape EntityType="registro_presupuestoModel.sub_menu" Width="1.5" PointX="5.625" PointY="6" />
+        <AssociationConnector Association="registro_presupuestoModel.FK__sub_menu__id_men__5441852A" />
+        <EntityTypeShape EntityType="registro_presupuestoModel.etapa_vobo" Width="1.5" PointX="6" PointY="9.875" />
+        <EntityTypeShape EntityType="registro_presupuestoModel.personal_vobo" Width="1.5" PointX="6" PointY="12.375" />
+        <EntityTypeShape EntityType="registro_presupuestoModel.vobo" Width="1.5" PointX="8.25" PointY="1.625" />
+        <AssociationConnector Association="registro_presupuestoModel.FK__vobo__id_detalle__5BE2A6F2" />
+        <AssociationConnector Association="registro_presupuestoModel.FK__vobo__id_etapa_v__5CD6CB2B" />
+        <AssociationConnector Association="registro_presupuestoModel.FK__vobo__id_persona__5AEE82B9" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

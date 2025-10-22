@@ -1,0 +1,604 @@
+/* used as a border of large controls (like grids, diagram) */
+/* used as a background below a page in richedit/diagram */
+/* used as a border of large controls (like grids, diagram) */
+/* used as a background below a page in richedit/diagram */
+.dxtlControl_ASADS
+{
+    cursor: default;
+    font: 16px 'Museo Sans', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+    color: #484848;
+    border: 1px #DFDFDF;
+}
+.dxtlControl_ASADS caption
+{
+    font-size: 1.25em;
+    font-weight: normal;
+    padding: 3px 3px 5px;
+    text-align: center;
+    color: #999999;
+}
+.dxtlControl_ASADS
+{
+    border-style: none !important;
+}
+.dxtlControl_ASADS .dxtlDataTable
+{
+    border: 1px solid #DFDFDF;
+    overflow: hidden;
+    -moz-box-shadow: 0;
+    -webkit-box-shadow: 0;
+    box-shadow: 0;
+-webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -o-border-radius: 8px;
+    -khtml-border-radius: 8px;
+    border-radius: 8px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+
+}
+.dxtlControl_ASADS .dxtlDataTable,
+.dxtlControl_ASADS .dxtlHSDC,
+.dxtlControl_ASADS .dxtlCSD
+{
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -o-border-radius: 8px;
+    -khtml-border-radius: 8px;
+    border-radius: 8px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+/* Indent cells */
+.dxtlIndent_ASADS,
+.dxtlIndentWithButton_ASADS
+{
+    vertical-align: top;
+    background: white none no-repeat top center;
+}
+.dxtlIndent_ASADS
+{
+    padding: 0 11px;
+}
+.dxtlIndentWithButton_ASADS
+{
+    padding: 8px 7px 3px;
+}
+.dxtlSelectionCell_ASADS
+{
+    padding: 4px 5px 6px 6px;
+    border: 1px solid #DFDFDF;
+}
+/* Tree-lines cells */
+/* Headers */
+.dxtlHeader_ASADS
+{
+    white-space: nowrap;
+    padding: 21px 10px 17px;
+    border: 1px solid #DFDFDF;
+    border-width: 0 0 1px 0;
+    background-color: #2F3745;
+    color: white;
+    overflow: hidden;
+    font-weight: normal;
+    text-align: left;
+    font: 16px 'Museo Sans', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;font-weight:bold;
+    font-size: 1em;
+}
+.dxtlHeader_ASADS table.dxtl
+{
+    border-collapse: collapse;
+    width: 100%;
+}
+.dxtlHeader_ASADS td.dxtl
+{
+    padding: 0;
+}
+.dxtlHeader_ASADS,
+.dxtlHeader_ASADS td.dxtl
+{
+    white-space: nowrap;
+    text-align: left;
+    overflow: hidden;
+}
+/* Nodes */
+.dxtlNode_ASADS
+{
+    background: white none;
+}
+.dxtlAltNode_ASADS
+{
+    background-color: #f5f5f5;
+}
+.dxtlSelectedNode_ASADS,
+.dxtlSelectedCell_ASADS
+{
+    background: #f1f1f1 none;
+}
+.dxtlSelectedNode_ASADS .dxtlSelectedCell_ASADS
+{
+    background: #e0e0e0 none;
+}
+.dxtlFocusedNode_ASADS
+{
+    background: #084298 none;
+    color: white;
+}
+.dxtlInlineEditNode_ASADS
+{
+    background: white none;
+}
+.dxtlEditFormDisplayNode_ASADS
+{
+    background: white none;
+}
+.dxtlNode_ASADS td.dxtl,
+.dxtlAltNode_ASADS td.dxtl,
+.dxtlSelectedNode_ASADS td.dxtl,
+.dxtlFocusedNode_ASADS td.dxtl,
+.dxtlEditFormDisplayNode_ASADS td.dxtl,
+.dxtlCommandCell_ASADS
+{
+    padding: 3px 10px 4px;
+    border: 1px solid #DFDFDF;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.dxtlHeader_ASADS .dxbButton_ASADS,
+.dxtlCommandCell_ASADS .dxbButton_ASADS
+{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.dxtlHeader_ASADS .dxbButton_ASADS .dxb,
+.dxtlCommandCel_ASADS .dxbButton_ASADS .dxb
+{
+    padding-top: 0;
+    padding-bottom: 2px;
+}
+.dxtlInlineEditNode_ASADS td.dxtl
+{
+    border: 1px solid #DFDFDF;
+    padding: 1px;
+}
+/* Scrolling */
+.dxtlControl_ASADS .dxtlHSDC,
+.dxtlControl_ASADS .dxtlCSD,
+.dxtlControl_ASADS .dxtlFSDC
+{
+    border: 1px solid #DFDFDF;
+}
+.dxtlControl_ASADS .dxtlHSDC .dxtlCSD,
+.dxtlControl_ASADS .dxtlFSDC .dxtlCSD,
+.dxtlControl_ASADS .dxtlHSDC .dxtlDataTable,
+.dxtlControl_ASADS .dxtlCSD .dxtlDataTable,
+.dxtlControl_ASADS .dxtlFSDC .dxtlDataTable
+{
+    border: 0;
+}
+.dxtlControl_ASADS .dxtlHSDC,
+.dxtlControl_ASADS .dxtlHSDC .dxtlDataTable,
+.dxtlControl_ASADS .dxtlHSDC .dxtlHeader_ASADS
+{
+    border-bottom-width: 0;
+}
+.dxtlControl_ASADS .dxtlHSDC + .dxtlCSD
+{
+    border-radius: 0;
+}
+/* Preview */
+.dxtlPreview_ASADS
+{
+    color: #999999;
+    padding: 14px;
+    border: 1px solid #DFDFDF;
+    overflow: hidden;
+}
+/* Footers */
+.dxtlGroupFooter_ASADS td.dxtl,
+.dxtlFooter_ASADS td.dxtl
+{
+    padding: 5px 10px 6px;
+    white-space: nowrap;
+    border: 1px solid #DFDFDF;
+    overflow: hidden;
+}
+.dxtlGroupFooter_ASADS .dx-ar > br,
+.dxtlFooter_ASADS .dx-ar > br
+{
+    float: none;
+}
+/* Pagers */
+.dxtlPagerTopPanel_ASADS,
+.dxtlPagerBottomPanel_ASADS
+{
+    padding: 9px 0 9px;
+}
+.dxtlPagerTopPanel_ASADS
+{
+    border-bottom-style: none !important;
+}
+.dxtlPagerBottomPanel_ASADS
+{
+    background-color: white;
+    border-bottom: 1px solid #DFDFDF;
+    border-left: 1px solid #DFDFDF;
+    border-right: 1px solid #DFDFDF;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    -moz-box-shadow: 0;
+    -webkit-box-shadow: 0;
+    box-shadow: 0;
+    border-top-style: none !important;
+}
+/* Editing */
+.dxtlEditForm_ASADS
+{
+    border: 1px solid #DFDFDF;
+    background-color: #f4f4f4;
+    padding: 21px 7px 23px;
+}
+.dxtlEditFormCaption_ASADS,
+.dxtlEditFormEditCell_ASADS
+{
+    padding: 4px;
+}
+.dxtlEditFormCaption_ASADS
+{
+    padding-left: 10px;
+    white-space: nowrap;
+}
+.dxtlError_ASADS
+{
+    background: #FFC8C8 none;
+    color: #FF0000;
+    padding: 6px 10px;
+    border: 1px solid #DFDFDF;
+}
+.dxtlPopupEditForm_ASADS
+{
+    padding: 10px;
+    min-width: 300px;
+}
+.dxtlEditForm_ASADS .dxtlCommandCell_ASADS,
+.dxtlPopupEditForm_ASADS .dxtlCommandCell_ASADS
+{
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+.dxtlEditForm_ASADS .dxtlCommandCell_ASADS a,
+.dxtlPopupEditForm_ASADS .dxtlCommandCell_ASADS a
+{
+    margin-left: 2px;
+    margin-right: 2px;
+    padding: 8px 16px;
+    margin-top: -8px;
+    margin-bottom: -8px;
+}
+.dxtlEditForm_ASADS .dxtlCommandCell_ASADS a:hover,
+.dxtlPopupEditForm_ASADS .dxtlCommandCell_ASADS a:hover
+{
+    background-color: #d1d1d1;
+    text-decoration: none;
+}
+/* Links */
+.dxtlControl_ASADS a.dxeHyperlink:not([href]):not([onclick]):not(.dxbButtonSys)
+{
+    color: #484848;
+    text-decoration: none;
+}
+.dxtlControl_ASADS a
+{
+    color: #084298;
+}
+.dxtlFocusedNode_ASADS a
+{
+    color: white !important;
+}
+.dxtlCommandCell_ASADS a
+{
+    margin-right: 5px;
+}
+/* Customization window */
+.dxtlControl_ASADS .dxpcLite_ASADS .dxpc-content
+{
+    min-width: 220px;
+}
+.dxtlControl_ASADS .dxpcLite_ASADS .dxpc-content .dxtlHeader_ASADS
+{
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    background-color: white;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.1), 0 2px 10px 0 rgba(0,0,0,0.1);
+}
+/* Loading panel */
+.dxtlLoadingPanel_ASADS
+{
+    background-color: white;
+    font: 16px 'Museo Sans', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+    color: #484848;
+    -moz-box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16), 0 2px 8px 0 rgba(0,0,0,0.12);
+    -webkit-box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16), 0 2px 8px 0 rgba(0,0,0,0.12);
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16), 0 2px 8px 0 rgba(0,0,0,0.12);
+}
+.dxtlLoadingPanel_ASADS td.dx
+{
+    font-size: 1.17em;
+    white-space: nowrap;
+    text-align: center;
+    padding: 10px 14px;
+}
+.dxtlLoadingPanel_ASADS .dxlp-loadingImage
+{
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -o-border-radius: 50%;
+    -khtml-border-radius: 50%;
+    border-radius: 50%;
+    animation: dxLoadSpinSys 1s linear infinite;
+    border: 4px solid #084298;
+    border-top: 4px solid #EEE;
+    width: 24px;
+    height: 24px;
+}
+/* Disabled */
+.dxtlDisabled_ASADS,
+.dxtlDisabled_ASADS .dxtl
+{
+    color: #b8b8b8;
+    cursor: default;
+}
+/* Ripple */
+.dxtlControl_ASADS .dxtlDataTable .dxtlHeader_ASADS:not([style*="cursor: w-resize"]):not(.dxtl__IM)::before,
+.dxtlControl_ASADS .dxpcLite_ASADS .dxpc-content .dxtlHeader_ASADS:not(.dxtl__IM)::before
+{
+    content: "dxRippleTarget";
+    display: none;
+}
+.dxtlControl_ASADS .dxpcLite_ASADS
+{
+    -moz-box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16), 0 2px 8px 0 rgba(0,0,0,0.12);
+    -webkit-box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16), 0 2px 8px 0 rgba(0,0,0,0.12);
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16), 0 2px 8px 0 rgba(0,0,0,0.12);
+}
+.dxtlControl_ASADS .dxpcLite_ASADS .dxpc-mainDiv.dxpc-hf
+{
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+/* Filtering */
+.dxtlFilterRow_ASADS
+{
+    background-color: #f4f4f4;
+}
+.dxtlFilterRow_ASADS > td
+{
+    border-bottom: 1px Solid #DFDFDF;
+    border-right: 1px Solid #DFDFDF;
+    border-top-width: 0;
+    border-left-width: 0;
+    padding: 2px;
+    overflow: hidden;
+}
+/* Search Panel */
+.dxtlSearchPanel_ASADS
+{
+    padding: 7px 0 16px;
+}
+.dxtlSearchPanel_ASADS > table
+{
+    width: 100%;
+}
+.dxtlSearchPanel_ASADS .dxeButtonEdit_ASADS
+{
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -o-border-radius: 4px;
+    -khtml-border-radius: 4px;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.1), 0 2px 10px 0 rgba(0,0,0,0.1);
+    width: 100%;
+}
+.dxtlSearchPanel_ASADS .dxeButtonEdit_ASADS
+{
+    background-color: #FAFAFA;
+}
+.dxtlSearchPanel_ASADS .dxeButtonEdit_ASADS input
+{
+    background-color: #FAFAFA;
+}
+.dxtlSearchPanel_ASADS .dxeButtonEdit_ASADS td.dxic
+{
+    padding: 15px 8px 17px 12px;
+}
+*[dir="rtl"] .dxtlSearchPanel_ASADS .dxeButtonEdit_ASADS td.dxic
+{
+    padding: 15px 12px 17px 8px;
+}
+.dxtlControl_ASADS .dxtlSearchPanel_ASADS > table > tbody > tr > td:nth-child(2) a.dxbButton_ASADS
+{
+    margin-left: 16px;
+}
+*[dir="rtl"].dxtlControl_ASADS .dxtlSearchPanel_ASADS > table > tbody > tr > td:nth-child(2) a.dxbButton_ASADS
+{
+    margin-right: 16px;
+    margin-left: 0;
+}
+.dxtlControl_ASADS .dxtlSearchPanel_ASADS > table > tbody > tr > td:last-child a.dxbButton_ASADS
+{
+    margin-right: 16px;
+}
+*[dir="rtl"].dxtlControl_ASADS .dxtlSearchPanel_ASADS > table > tbody > tr > td:last-child a.dxbButton_ASADS
+{
+    margin-left: 16px;
+}
+.dxtlControl_ASADS .dxtlSearchPanel_ASADS > table > tbody > tr > td a.dxbButton_ASADS
+{
+    margin-left: 10px;
+}
+*[dir="rtl"].dxtlControl_ASADS .dxtlSearchPanel_ASADS > table > tbody > tr > td a.dxbButton_ASADS
+{
+    margin-right: 10px;
+}
+.dxtlControl_ASADS .dxtlSearchPanel_ASADS .dxbButton_ASADS
+{
+    margin-left: 8px;
+}
+.dxtlControl_ASADS .dxtlHL
+{
+    background: #084298;
+    color: white;
+}
+/* Filter Builder, Filter Bar */
+.dxtlFilterBar_ASADS
+{
+    margin-top: 16px;
+    box-shadow: 0;
+    border-radius: 4px;
+    border: 1px solid #DFDFDF;
+    border-collapse: separate;
+}
+.dxtlFilterBar_ASADS a
+{
+    color: #084298;
+    text-decoration: none;
+}
+.dxtlFilterBar_ASADS a:hover
+{
+    text-decoration: underline;
+}
+.dxtlFilterBar_ASADS > tbody > tr > td
+{
+    padding-top: 14px;
+    padding-bottom: 14px;
+}
+.dxtlFilterBarCheckBoxCell_ASADS
+{
+    padding-left: 20px;
+}
+*[dir="rtl"] .dxtlFilterBarCheckBoxCell_ASADS
+{
+    padding-right: 20px;
+}
+.dxtlFilterBarCheckBoxCell_ASADS
+{
+    padding-left: 20px;
+}
+*[dir="rtl"] .dxtlFilterBarCheckBoxCell_ASADS
+{
+    padding-right: 20px;
+}
+.dxtlFilterBarImageCell_ASADS
+{
+    padding: 0 8px 0 20px;
+    cursor: pointer;
+}
+*[dir="rtl"] .dxtlFilterBarImageCell_ASADS
+{
+    padding: 0 20px 0 8px;
+}
+.dxtlFilterBarImageCell_ASADS img
+{
+    margin-top: 3px;
+    margin-left: 0;
+}
+.dxtlFilterBarExpressionCell_ASADS
+{
+    padding: 5px 5px 8px 0;
+    white-space: nowrap;
+}
+.dxtlFilterBarClearButtonCell_ASADS
+{
+    padding: 5px 20px 8px 6px;
+}
+*[dir="rtl"] .dxtlFilterBarClearButtonCell_ASADS
+{
+    padding: 5px 6px 8px 20px;
+}
+.dxtlFilterBuilderMainArea_ASADS
+{
+    background: white none;
+    padding: 6px 2px;
+}
+.dxtlFilterBuilderButtonArea_ASADS
+{
+    border-top: 1px solid #eaeaea;
+    padding: 10px;
+    white-space: nowrap;
+}
+.dxtlFilterBuilderButtonArea_ASADS .dxbButton_ASADS
+{
+    margin-left: 8px;
+}
+/*batch*/
+.dxtlControl_ASADS .dxtlBatchEditDeletedNode_ASADS,
+.dxtlControl_ASADS .dxtlBatchEditNewNode_ASADS.dxtlBatchEditDeletedNode_ASADS,
+.dxtlControl_ASADS .dxtlBatchEditDeletedNode_ASADS .dxtlPreview_ASADS
+{
+    background: #EFEFEF;
+}
+.dxtlControl_ASADS td.dxtlBatchEditCell_ASADS:not(.dxBatchEditCheckBoxCell)
+{
+    padding: 0 2px;
+}
+.dxtlControl_ASADS td.dxtlBatchEditModifiedCell_ASADS
+{
+    background: #d7f9c7;
+}
+.dxtlBatchEditDeletedNode_ASADS > td:not(.dxtlCommandColumn)_ASADS
+{
+    color: rgba(0,0,0,0.5);
+}
+.dxtlBatchEditDeletedNode_ASADS td.dxtlBatchEditModifiedCell_ASADS
+{
+    background: #eefbe7;
+}
+td.dxtlBatchEditModifiedCell_ASADS.dxtlSelectedCell_ASADS
+{
+    background: #c6efce;
+}
+.dxtlControl_ASADS .dxtlBatchEditNewNode_ASADS
+{
+    background: #F0FAEA;
+}
+.dxtlFocusedCell_ASADS
+{
+    -moz-box-shadow: inset 2px 2px 0 #084298, inset -2px -2px 0 #084298;
+    -webkit-box-shadow: inset 2px 2px 0 #084298, inset -2px -2px 0 #084298;
+    box-shadow: inset 2px 2px 0 #084298, inset -2px -2px 0 #084298;
+}
+.dxtlControl_ASADS .dxtlErrorCell
+{
+    padding-left: 5px;
+    width: 1px;
+}
+.dxtlControl_ASADS .dxtlErrorCell img
+{
+    margin: -3px 0;
+}
+.dxtlControl_ASADS .dxtlHFSD
+{
+    height: 1px;
+    margin: 2px 0;
+}
+.dxtlControl_ASADS .dxtlHFDRC
+{
+    margin: 15px 15px 25px;
+}
+.dxtlControl_ASADS .dxtlHFDRP
+{
+    margin-left: 15px;
+    margin-right: 15px;
+    padding: 9px 0 6px;
+}
+.dxtlControl_ASADS .dxtlHFDRP[id*="HFFDE"]
+{
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+.dxtlControl_ASADS .dxtlHFDRP[id*="HFTDE"]
+{
+    margin-bottom: 25px;
+}

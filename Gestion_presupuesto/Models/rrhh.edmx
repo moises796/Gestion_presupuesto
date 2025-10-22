@@ -1,0 +1,482 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="rrhhModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Cargo">
+          <Key>
+            <PropertyRef Name="id_cargo" />
+          </Key>
+          <Property Name="id_cargo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_puesto_nominal" Type="int" />
+          <Property Name="id_puesto_funcional" Type="int" />
+          <Property Name="id_estructura" Type="int" />
+          <Property Name="id_empleado" Type="int" />
+          <Property Name="estado" Type="int" />
+        </EntityType>
+        <EntityType Name="Puesto_Funcional">
+          <Key>
+            <PropertyRef Name="id_puesto_funcional" />
+          </Key>
+          <Property Name="id_puesto_funcional" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="150" />
+          <Property Name="estado" Type="int" />
+        </EntityType>
+        <EntityType Name="Estructura">
+          <Key>
+            <PropertyRef Name="id_estructura" />
+          </Key>
+          <Property Name="id_estructura" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_parent" Type="int" />
+          <Property Name="codigo" Type="varchar" MaxLength="50" />
+          <Property Name="nomenclatura" Type="varchar" MaxLength="50" />
+          <Property Name="nombre" Type="varchar(max)" />
+          <Property Name="estado" Type="int" />
+          <Property Name="id_periodo" Type="int" />
+          <Property Name="enlace_id_estructura" Type="int" />
+          <Property Name="id_nivel_organizativo" Type="int" />
+          <Property Name="orden" Type="int" />
+        </EntityType>
+        <EntityType Name="Periodo">
+          <Key>
+            <PropertyRef Name="id_periodo" />
+          </Key>
+          <Property Name="id_periodo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="codigo_periodo" Type="varchar" MaxLength="50" />
+          <Property Name="anio" Type="date" />
+          <Property Name="estado" Type="int" />
+          <Property Name="fecha_aprobacion" Type="date" />
+          <Property Name="documento" Type="varchar" MaxLength="250" />
+          <Property Name="nombreDocumento" Type="varchar" MaxLength="250" />
+          <Property Name="fechaDocumento" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Empleado">
+          <Key>
+            <PropertyRef Name="id_empleado" />
+          </Key>
+          <Property Name="id_empleado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="codigo_empleado" Type="varchar" MaxLength="50" />
+          <Property Name="foto_empleado" Type="varchar(max)" />
+          <Property Name="nombres" Type="varchar" MaxLength="150" />
+          <Property Name="apellidos" Type="varchar" MaxLength="150" />
+          <Property Name="prefijo_academico" Type="varchar" MaxLength="25" />
+          <Property Name="correo_personal" Type="varchar" MaxLength="250" />
+          <Property Name="direccion_empleado" Type="varchar(max)" />
+          <Property Name="telefono_personal" Type="varchar" MaxLength="17" />
+          <Property Name="celular_personal" Type="varchar" MaxLength="17" />
+          <Property Name="id_genero" Type="int" />
+          <Property Name="fecha_nacimiento" Type="datetime" />
+          <Property Name="codigo_pais" Type="varchar" MaxLength="2" />
+          <Property Name="id_departamento_nacimiento" Type="int" />
+          <Property Name="id_municipio_nacimiento" Type="int" />
+          <Property Name="id_ciudad_nacimiento" Type="int" />
+          <Property Name="nacionalidad" Type="varchar" MaxLength="75" />
+          <Property Name="peso" Type="float" />
+          <Property Name="altura" Type="float" />
+          <Property Name="id_tiposangre" Type="int" />
+          <Property Name="id_discapacidad" Type="int" />
+          <Property Name="id_estadocivil" Type="int" />
+          <Property Name="id_tipocontrato" Type="int" />
+          <Property Name="id_tipocontratacion" Type="int" />
+          <Property Name="responsable" Type="varchar(max)" />
+          <Property Name="telefono_responsable" Type="varchar" MaxLength="50" />
+          <Property Name="direccion_responsable" Type="varchar(max)" />
+          <Property Name="correo_institucional" Type="varchar" MaxLength="250" />
+          <Property Name="telefono_institucional" Type="varchar" MaxLength="17" />
+          <Property Name="celular_institucional" Type="varchar" MaxLength="17" />
+          <Property Name="salario" Type="varchar(max)" />
+          <Property Name="nombre_conyuge" Type="varchar" MaxLength="250" />
+          <Property Name="telefono_conyuge" Type="varchar" MaxLength="12" />
+          <Property Name="id_estado_usuario" Type="int" />
+          <Property Name="titular" Type="int" />
+          <Property Name="fecha_contratacion" Type="datetime" />
+          <Property Name="id_detEstadoUsuario" Type="int" />
+          <Property Name="fecha_renuncia" Type="datetime" />
+          <Property Name="id_proyecto" Type="int" />
+          <Property Name="id_profesion" Type="int" />
+          <Property Name="id_marcacion" Type="int" />
+          <Property Name="codigo_marcacion" Type="varchar" MaxLength="300" />
+          <Property Name="usuario_marca" Type="int" />
+        </EntityType>
+        <Association Name="FK__Cargo__id_emplea__2022C2A6">
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="0..1" />
+          <End Role="Cargo" Type="Self.Cargo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleado">
+              <PropertyRef Name="id_empleado" />
+            </Principal>
+            <Dependent Role="Cargo">
+              <PropertyRef Name="id_empleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cargo__id_estruc__1F2E9E6D">
+          <End Role="Estructura" Type="Self.Estructura" Multiplicity="0..1" />
+          <End Role="Cargo" Type="Self.Cargo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estructura">
+              <PropertyRef Name="id_estructura" />
+            </Principal>
+            <Dependent Role="Cargo">
+              <PropertyRef Name="id_estructura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cargo__id_puesto__1E3A7A34">
+          <End Role="Puesto_Funcional" Type="Self.Puesto_Funcional" Multiplicity="0..1" />
+          <End Role="Cargo" Type="Self.Cargo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Puesto_Funcional">
+              <PropertyRef Name="id_puesto_funcional" />
+            </Principal>
+            <Dependent Role="Cargo">
+              <PropertyRef Name="id_puesto_funcional" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Estructur__id_pe__38996AB5">
+          <End Role="Periodo" Type="Self.Periodo" Multiplicity="0..1" />
+          <End Role="Estructura" Type="Self.Estructura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Periodo">
+              <PropertyRef Name="id_periodo" />
+            </Principal>
+            <Dependent Role="Estructura">
+              <PropertyRef Name="id_periodo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="rrhhModelStoreContainer">
+          <EntitySet Name="Cargo" EntityType="Self.Cargo" Schema="CargoEmpleado" store:Type="Tables" />
+          <EntitySet Name="Puesto_Funcional" EntityType="Self.Puesto_Funcional" Schema="CargoEmpleado" store:Type="Tables" />
+          <EntitySet Name="Estructura" EntityType="Self.Estructura" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Periodo" EntityType="Self.Periodo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Empleado" EntityType="Self.Empleado" Schema="FichaEmpleado" store:Type="Tables" />
+          <AssociationSet Name="FK__Cargo__id_emplea__2022C2A6" Association="Self.FK__Cargo__id_emplea__2022C2A6">
+            <End Role="Empleado" EntitySet="Empleado" />
+            <End Role="Cargo" EntitySet="Cargo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cargo__id_estruc__1F2E9E6D" Association="Self.FK__Cargo__id_estruc__1F2E9E6D">
+            <End Role="Estructura" EntitySet="Estructura" />
+            <End Role="Cargo" EntitySet="Cargo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cargo__id_puesto__1E3A7A34" Association="Self.FK__Cargo__id_puesto__1E3A7A34">
+            <End Role="Puesto_Funcional" EntitySet="Puesto_Funcional" />
+            <End Role="Cargo" EntitySet="Cargo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Estructur__id_pe__38996AB5" Association="Self.FK__Estructur__id_pe__38996AB5">
+            <End Role="Periodo" EntitySet="Periodo" />
+            <End Role="Estructura" EntitySet="Estructura" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="rrhhModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Cargo">
+          <Key>
+            <PropertyRef Name="id_cargo" />
+          </Key>
+          <Property Name="id_cargo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_puesto_nominal" Type="Int32" />
+          <Property Name="id_puesto_funcional" Type="Int32" />
+          <Property Name="id_estructura" Type="Int32" />
+          <Property Name="id_empleado" Type="Int32" />
+          <Property Name="estado" Type="Int32" />
+          <NavigationProperty Name="Empleado" Relationship="Self.FK__Cargo__id_emplea__2022C2A6" FromRole="Cargo" ToRole="Empleado" />
+          <NavigationProperty Name="Estructura" Relationship="Self.FK__Cargo__id_estruc__1F2E9E6D" FromRole="Cargo" ToRole="Estructura" />
+          <NavigationProperty Name="Puesto_Funcional" Relationship="Self.FK__Cargo__id_puesto__1E3A7A34" FromRole="Cargo" ToRole="Puesto_Funcional" />
+        </EntityType>
+        <EntityType Name="Puesto_Funcional">
+          <Key>
+            <PropertyRef Name="id_puesto_funcional" />
+          </Key>
+          <Property Name="id_puesto_funcional" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="estado" Type="Int32" />
+          <NavigationProperty Name="Cargo" Relationship="Self.FK__Cargo__id_puesto__1E3A7A34" FromRole="Puesto_Funcional" ToRole="Cargo" />
+        </EntityType>
+        <EntityType Name="Estructura">
+          <Key>
+            <PropertyRef Name="id_estructura" />
+          </Key>
+          <Property Name="id_estructura" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_parent" Type="Int32" />
+          <Property Name="codigo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nomenclatura" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="estado" Type="Int32" />
+          <Property Name="id_periodo" Type="Int32" />
+          <Property Name="enlace_id_estructura" Type="Int32" />
+          <Property Name="id_nivel_organizativo" Type="Int32" />
+          <Property Name="orden" Type="Int32" />
+          <NavigationProperty Name="Cargo" Relationship="Self.FK__Cargo__id_estruc__1F2E9E6D" FromRole="Estructura" ToRole="Cargo" />
+          <NavigationProperty Name="Periodo" Relationship="Self.FK__Estructur__id_pe__38996AB5" FromRole="Estructura" ToRole="Periodo" />
+        </EntityType>
+        <EntityType Name="Periodo">
+          <Key>
+            <PropertyRef Name="id_periodo" />
+          </Key>
+          <Property Name="id_periodo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codigo_periodo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="anio" Type="DateTime" Precision="0" />
+          <Property Name="estado" Type="Int32" />
+          <Property Name="fecha_aprobacion" Type="DateTime" Precision="0" />
+          <Property Name="documento" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="nombreDocumento" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="fechaDocumento" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Estructura" Relationship="Self.FK__Estructur__id_pe__38996AB5" FromRole="Periodo" ToRole="Estructura" />
+        </EntityType>
+        <EntityType Name="Empleado">
+          <Key>
+            <PropertyRef Name="id_empleado" />
+          </Key>
+          <Property Name="id_empleado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codigo_empleado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="foto_empleado" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="nombres" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="apellidos" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="prefijo_academico" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="correo_personal" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="direccion_empleado" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="telefono_personal" Type="String" MaxLength="17" FixedLength="false" Unicode="false" />
+          <Property Name="celular_personal" Type="String" MaxLength="17" FixedLength="false" Unicode="false" />
+          <Property Name="id_genero" Type="Int32" />
+          <Property Name="fecha_nacimiento" Type="DateTime" Precision="3" />
+          <Property Name="codigo_pais" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="id_departamento_nacimiento" Type="Int32" />
+          <Property Name="id_municipio_nacimiento" Type="Int32" />
+          <Property Name="id_ciudad_nacimiento" Type="Int32" />
+          <Property Name="nacionalidad" Type="String" MaxLength="75" FixedLength="false" Unicode="false" />
+          <Property Name="peso" Type="Double" />
+          <Property Name="altura" Type="Double" />
+          <Property Name="id_tiposangre" Type="Int32" />
+          <Property Name="id_discapacidad" Type="Int32" />
+          <Property Name="id_estadocivil" Type="Int32" />
+          <Property Name="id_tipocontrato" Type="Int32" />
+          <Property Name="id_tipocontratacion" Type="Int32" />
+          <Property Name="responsable" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="telefono_responsable" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="direccion_responsable" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="correo_institucional" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="telefono_institucional" Type="String" MaxLength="17" FixedLength="false" Unicode="false" />
+          <Property Name="celular_institucional" Type="String" MaxLength="17" FixedLength="false" Unicode="false" />
+          <Property Name="salario" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="nombre_conyuge" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="telefono_conyuge" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="id_estado_usuario" Type="Int32" />
+          <Property Name="titular" Type="Int32" />
+          <Property Name="fecha_contratacion" Type="DateTime" Precision="3" />
+          <Property Name="id_detEstadoUsuario" Type="Int32" />
+          <Property Name="fecha_renuncia" Type="DateTime" Precision="3" />
+          <Property Name="id_proyecto" Type="Int32" />
+          <Property Name="id_profesion" Type="Int32" />
+          <Property Name="id_marcacion" Type="Int32" />
+          <Property Name="codigo_marcacion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="usuario_marca" Type="Int32" />
+          <NavigationProperty Name="Cargo" Relationship="Self.FK__Cargo__id_emplea__2022C2A6" FromRole="Empleado" ToRole="Cargo" />
+        </EntityType>
+        <Association Name="FK__Cargo__id_emplea__2022C2A6">
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="0..1" />
+          <End Role="Cargo" Type="Self.Cargo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleado">
+              <PropertyRef Name="id_empleado" />
+            </Principal>
+            <Dependent Role="Cargo">
+              <PropertyRef Name="id_empleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cargo__id_estruc__1F2E9E6D">
+          <End Role="Estructura" Type="Self.Estructura" Multiplicity="0..1" />
+          <End Role="Cargo" Type="Self.Cargo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estructura">
+              <PropertyRef Name="id_estructura" />
+            </Principal>
+            <Dependent Role="Cargo">
+              <PropertyRef Name="id_estructura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cargo__id_puesto__1E3A7A34">
+          <End Role="Puesto_Funcional" Type="Self.Puesto_Funcional" Multiplicity="0..1" />
+          <End Role="Cargo" Type="Self.Cargo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Puesto_Funcional">
+              <PropertyRef Name="id_puesto_funcional" />
+            </Principal>
+            <Dependent Role="Cargo">
+              <PropertyRef Name="id_puesto_funcional" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Estructur__id_pe__38996AB5">
+          <End Role="Periodo" Type="Self.Periodo" Multiplicity="0..1" />
+          <End Role="Estructura" Type="Self.Estructura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Periodo">
+              <PropertyRef Name="id_periodo" />
+            </Principal>
+            <Dependent Role="Estructura">
+              <PropertyRef Name="id_periodo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="rrhhEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Cargo" EntityType="Self.Cargo" />
+          <EntitySet Name="Puesto_Funcional" EntityType="Self.Puesto_Funcional" />
+          <EntitySet Name="Estructura" EntityType="Self.Estructura" />
+          <EntitySet Name="Periodo" EntityType="Self.Periodo" />
+          <EntitySet Name="Empleado" EntityType="Self.Empleado" />
+          <AssociationSet Name="FK__Cargo__id_emplea__2022C2A6" Association="Self.FK__Cargo__id_emplea__2022C2A6">
+            <End Role="Empleado" EntitySet="Empleado" />
+            <End Role="Cargo" EntitySet="Cargo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cargo__id_estruc__1F2E9E6D" Association="Self.FK__Cargo__id_estruc__1F2E9E6D">
+            <End Role="Estructura" EntitySet="Estructura" />
+            <End Role="Cargo" EntitySet="Cargo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cargo__id_puesto__1E3A7A34" Association="Self.FK__Cargo__id_puesto__1E3A7A34">
+            <End Role="Puesto_Funcional" EntitySet="Puesto_Funcional" />
+            <End Role="Cargo" EntitySet="Cargo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Estructur__id_pe__38996AB5" Association="Self.FK__Estructur__id_pe__38996AB5">
+            <End Role="Periodo" EntitySet="Periodo" />
+            <End Role="Estructura" EntitySet="Estructura" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="rrhhModelStoreContainer" CdmEntityContainer="rrhhEntities">
+          <EntitySetMapping Name="Cargo">
+            <EntityTypeMapping TypeName="rrhhModel.Cargo">
+              <MappingFragment StoreEntitySet="Cargo">
+                <ScalarProperty Name="id_cargo" ColumnName="id_cargo" />
+                <ScalarProperty Name="id_puesto_nominal" ColumnName="id_puesto_nominal" />
+                <ScalarProperty Name="id_puesto_funcional" ColumnName="id_puesto_funcional" />
+                <ScalarProperty Name="id_estructura" ColumnName="id_estructura" />
+                <ScalarProperty Name="id_empleado" ColumnName="id_empleado" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Puesto_Funcional">
+            <EntityTypeMapping TypeName="rrhhModel.Puesto_Funcional">
+              <MappingFragment StoreEntitySet="Puesto_Funcional">
+                <ScalarProperty Name="id_puesto_funcional" ColumnName="id_puesto_funcional" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Estructura">
+            <EntityTypeMapping TypeName="rrhhModel.Estructura">
+              <MappingFragment StoreEntitySet="Estructura">
+                <ScalarProperty Name="id_estructura" ColumnName="id_estructura" />
+                <ScalarProperty Name="id_parent" ColumnName="id_parent" />
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="nomenclatura" ColumnName="nomenclatura" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="id_periodo" ColumnName="id_periodo" />
+                <ScalarProperty Name="enlace_id_estructura" ColumnName="enlace_id_estructura" />
+                <ScalarProperty Name="id_nivel_organizativo" ColumnName="id_nivel_organizativo" />
+                <ScalarProperty Name="orden" ColumnName="orden" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Periodo">
+            <EntityTypeMapping TypeName="rrhhModel.Periodo">
+              <MappingFragment StoreEntitySet="Periodo">
+                <ScalarProperty Name="id_periodo" ColumnName="id_periodo" />
+                <ScalarProperty Name="codigo_periodo" ColumnName="codigo_periodo" />
+                <ScalarProperty Name="anio" ColumnName="anio" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="fecha_aprobacion" ColumnName="fecha_aprobacion" />
+                <ScalarProperty Name="documento" ColumnName="documento" />
+                <ScalarProperty Name="nombreDocumento" ColumnName="nombreDocumento" />
+                <ScalarProperty Name="fechaDocumento" ColumnName="fechaDocumento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Empleado">
+            <EntityTypeMapping TypeName="rrhhModel.Empleado">
+              <MappingFragment StoreEntitySet="Empleado">
+                <ScalarProperty Name="id_empleado" ColumnName="id_empleado" />
+                <ScalarProperty Name="codigo_empleado" ColumnName="codigo_empleado" />
+                <ScalarProperty Name="foto_empleado" ColumnName="foto_empleado" />
+                <ScalarProperty Name="nombres" ColumnName="nombres" />
+                <ScalarProperty Name="apellidos" ColumnName="apellidos" />
+                <ScalarProperty Name="prefijo_academico" ColumnName="prefijo_academico" />
+                <ScalarProperty Name="correo_personal" ColumnName="correo_personal" />
+                <ScalarProperty Name="direccion_empleado" ColumnName="direccion_empleado" />
+                <ScalarProperty Name="telefono_personal" ColumnName="telefono_personal" />
+                <ScalarProperty Name="celular_personal" ColumnName="celular_personal" />
+                <ScalarProperty Name="id_genero" ColumnName="id_genero" />
+                <ScalarProperty Name="fecha_nacimiento" ColumnName="fecha_nacimiento" />
+                <ScalarProperty Name="codigo_pais" ColumnName="codigo_pais" />
+                <ScalarProperty Name="id_departamento_nacimiento" ColumnName="id_departamento_nacimiento" />
+                <ScalarProperty Name="id_municipio_nacimiento" ColumnName="id_municipio_nacimiento" />
+                <ScalarProperty Name="id_ciudad_nacimiento" ColumnName="id_ciudad_nacimiento" />
+                <ScalarProperty Name="nacionalidad" ColumnName="nacionalidad" />
+                <ScalarProperty Name="peso" ColumnName="peso" />
+                <ScalarProperty Name="altura" ColumnName="altura" />
+                <ScalarProperty Name="id_tiposangre" ColumnName="id_tiposangre" />
+                <ScalarProperty Name="id_discapacidad" ColumnName="id_discapacidad" />
+                <ScalarProperty Name="id_estadocivil" ColumnName="id_estadocivil" />
+                <ScalarProperty Name="id_tipocontrato" ColumnName="id_tipocontrato" />
+                <ScalarProperty Name="id_tipocontratacion" ColumnName="id_tipocontratacion" />
+                <ScalarProperty Name="responsable" ColumnName="responsable" />
+                <ScalarProperty Name="telefono_responsable" ColumnName="telefono_responsable" />
+                <ScalarProperty Name="direccion_responsable" ColumnName="direccion_responsable" />
+                <ScalarProperty Name="correo_institucional" ColumnName="correo_institucional" />
+                <ScalarProperty Name="telefono_institucional" ColumnName="telefono_institucional" />
+                <ScalarProperty Name="celular_institucional" ColumnName="celular_institucional" />
+                <ScalarProperty Name="salario" ColumnName="salario" />
+                <ScalarProperty Name="nombre_conyuge" ColumnName="nombre_conyuge" />
+                <ScalarProperty Name="telefono_conyuge" ColumnName="telefono_conyuge" />
+                <ScalarProperty Name="id_estado_usuario" ColumnName="id_estado_usuario" />
+                <ScalarProperty Name="titular" ColumnName="titular" />
+                <ScalarProperty Name="fecha_contratacion" ColumnName="fecha_contratacion" />
+                <ScalarProperty Name="id_detEstadoUsuario" ColumnName="id_detEstadoUsuario" />
+                <ScalarProperty Name="fecha_renuncia" ColumnName="fecha_renuncia" />
+                <ScalarProperty Name="id_proyecto" ColumnName="id_proyecto" />
+                <ScalarProperty Name="id_profesion" ColumnName="id_profesion" />
+                <ScalarProperty Name="id_marcacion" ColumnName="id_marcacion" />
+                <ScalarProperty Name="codigo_marcacion" ColumnName="codigo_marcacion" />
+                <ScalarProperty Name="usuario_marca" ColumnName="usuario_marca" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

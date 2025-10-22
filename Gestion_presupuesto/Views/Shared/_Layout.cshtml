@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Gesti&oacute;n presupuesto</title>
+    <!-- CSS núcleo -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link href="@Url.Content("~/Content/scss/ASA_DS.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/css/animate.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/css/custom.min.css")" rel="stylesheet" />
+
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;400&display=swap" rel="stylesheet">
+    <link href="~/Content/AdminLTE/adminlte.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    @*<link href="@Url.Content("~/Content/fonts/css/font-awesome.min.css")" rel="stylesheet">*@
+    <link href="@Url.Content("~/Content/css/animate.min.css")" rel="stylesheet">
+    <link href="@Url.Content("~/Content/css/custom.min.css")" rel="stylesheet">
+
+    <link href="~/Content/css/custom.css" rel="stylesheet" />
+    <style>
+        @@font-face {
+            font-family: "Museo Sans 300";
+            src: url("../../Content/fonts/MuseoSans-300.otf");
+        }
+        @@font-face {
+            font-family: "Museo Sans 500";
+            src: url("../../Content/fonts/MuseoSans-500.otf");
+        }
+
+        .encabezado {
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            animation-delay: 0.25s;
+            color: #0A4298;
+            font-family: 'Museo Sans 500';
+        }
+
+        h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1, .dxgvTable_ASADS, td, span {
+            font-family: "Museo Sans 300";
+        }
+
+        html, body, .dxgvAdaptiveGroupPanel_ASADS {
+            height: 100%;
+            background-color: #F5F7FD !important;
+        }
+
+        body {
+            font-family: "Museo Sans 300"
+        }
+
+        .dxgvGroupPanel_ASADS {
+            background-color: #F5F7FD !important;
+        }
+
+        .dxgvControl_ASADS, .dxgvDisabled_ASADS {
+            font-family: "Museo Sans 300" !important;
+            color: #484848;
+            cursor: default;
+        }
+
+        .dxGridView_gvExpandedButton_ASADS {
+            visibility: hidden !important;
+        }
+
+        .dxgvGroupRow_ASADS td.dxgvIndentCell {
+            background-color: #F4F7FD !important;
+        }
+
+        .dxpLite_ASADS {
+            font-family: "Museo Sans 300" !important;
+        }
+
+        .dxgvHeader_ASADS {
+            background-color: #303745 !important;
+        }
+
+        .devex-cell-padding td.dxgv {
+            padding: 8px;
+        }
+
+        .modal-content {
+            overflow: auto;
+            max-height: calc(100vh - 2rem);
+            max-width: 90vw;
+        }
+
+        .right_col {
+            min-height: 100vh;
+        }
+
+        .dxgvHeader_MaterialCompact {
+            color: #2A3F54;
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        .dxgvSearchPanel_MaterialCompact {
+            background-color: #F7F7F7;
+        }
+
+        .dxbButton_MaterialCompact.dxbTSys {
+            border-radius: 10px;
+            font-size: .8rem;
+            height: 2rem;
+        }
+
+        .dxbButton_MaterialCompact:hover {
+            background-color: #2A3F54;
+            color: whitesmoke;
+        }
+
+        .dx-fab-button {
+            position: absolute;
+            bottom: 0;
+            background: transparent;
+            border: 0;
+            border-radius: 28px;
+            box-shadow: 0 4px 16px rgba(0,0,0,.16);
+            transition: transform .3s, opacity .3s;
+        }
+
+            .dx-fab-button > img {
+                background-color: whitesmoke;
+                border-radius: 8px;
+                padding: 8px;
+            }
+
+        .swal2-container {
+            z-index: 100000000000000;
+        }
+
+        .swal2-title, .swal2-text, .swal2-html-container {
+            font-family: "Museo Sans 300";
+        }
+
+        .swal2-confirm {
+            background-color: #49b675;
+        }
+
+            .swal2-confirm:hover {
+                background-color: #49b675;
+            }
+
+        .swal2-cancel {
+            background-color: #E64942;
+            color: #fff;
+        }
+
+            .swal2-cancel:hover {
+                background-color: #E64942;
+                color: #fff;
+            }
+
+        .skip-link {
+            position: absolute;
+            left: -9999px;
+            top: auto;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+
+            .skip-link:focus {
+                left: 1rem;
+                top: 1rem;
+                width: auto;
+                height: auto;
+                z-index: 10000;
+                background: #fff;
+                border: 1px solid #2A3F54;
+                padding: .5rem .75rem;
+                border-radius: .5rem;
+            }
+
+        .cursor-pointer {
+            cursor: pointer;
+        }
+
+
+        .btn-table:hover {
+            background-color: #2980b9; /* azul más oscuro */
+            color: #fff;
+        }
+    </style>
+</head>
+<body class="nav-md">
+    <a class="skip-link" href="#content">Saltar al contenido principal</a>
+
+    <div class="container body">
+        <div class="main_container">
+            <nav class="sidebar" id="sidebar" aria-label="Menú principal">
+
+                <a id="menu_toggle"
+                   href="javascript:;"
+                   class="btn btn-outline-light me-2 justify-content-center border-0 mb-4"
+                   onclick="if (window.innerWidth < 992) { toggleSidebar(); } else { toggleCollapseSidebar(); } return false;"
+                   aria-label="Mostrar/ocultar menú">
+                    <i class="fa fa-bars"></i>
+                </a>
+
+
+                <!-- Logos -->
+                <div class="text-center mb-3">
+
+
+                    <img onclick="window.location.href = '@Url.Action("Inicio","Inicio")';" src="@Url.Content("~/Content/media/logo_expanded.svg")" class="img-fluid logo-expanded cursor-pointer" alt="Logo grande" />
+
+                    <img onclick="window.location.href = '@Url.Action("Inicio","Inicio")';" src="@Url.Content("~/Content/media/logo_minimized.svg")" class="img-fluid logo-minimized d-none cursor-pointer" alt="Logo pequeño" />
+
+
+                </div>
+                <hr class="border-light mx-2 d-none d-md-block" />
+
+
+                <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                    <div class="menu_section">
+                        <h3 class="d-none">General</h3>
+
+                        <ul class="nav side-menu nav-link-cont list-unstyled mb-0">
+
+                            @{
+                                Gestion_presupuesto.Models.registro_presupuestoEntities db = new Gestion_presupuesto.Models.registro_presupuestoEntities();
+                                //var rol = Session["rol"].ToString();
+                                var menu = db.menu.Where(x => x.estado == 1).OrderBy(x => x.orden).ToList();
+
+                                for (int i = 0; i < menu.Count(); i++)
+                                {
+
+                                    //if (menu[i].admin.Split(',').Contains(rol))
+                                    //{
+                                    var id_menu = menu[i].id_menu;
+                                    var submenu = db.sub_menu.Where(x => x.id_menu == id_menu && x.estado == 1).OrderBy(x => x.orden).ToList();
+                                    if (submenu.Count > 0)
+                                    {
+                                        <li class="my-auto">
+                                            <a><i class="+ @menu[i].menu_icono"></i> @menu[i].menu_nombre</a>
+                                            <ul class="nav child_menu">
+                                                @{
+                                                    for (int o = 0; o < submenu.Count(); o++)
+                                                    {
+                                                        <li><a href="@Url.Action(submenu[o].accion, submenu[o].controlador)">@submenu[o].sub_menu_nombre</a></li>
+                                                    }
+                                                }
+                                            </ul>
+                                        </li>
+                                    }
+                                    else
+                                    {
+                                        <li>
+                                            <a href="@Url.Action(menu[i].accion, menu[i].controlador)"><i class="+ @menu[i].menu_icono"></i> @menu[i].menu_nombre</a>
+                                        </li>
+                                    }
+
+                                    //}
+
+                                }
+                            }
+
+                            </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="topbar d-flex align-items-center p-3 position-fixed w-100"
+                 style="top: 0;  height: 64px;">
+
+                <button class="btn btn-outline-light d-lg-none me-2"
+                        type="button"
+                        onclick="toggleSidebar()"
+                        aria-label="Mostrar menú lateral">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <div class="flex-grow-1"></div>
+
+                <div class="user-info d-flex align-items-center gap-2 flex-wrap flex-sm-nowrap">
+                    <div class="dropdown">
+                        <button class="btn btn-link text-light dropdown-toggle px-2 px-sm-3"
+                                type="button"
+                                id="userDropdown"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                                style="text-decoration: none; text-overflow: ellipsis;">
+                            USUARIO @*AQUI IRA EL NOMBRE DE USUARIO*@
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark dropdown-menu-nav w-100" aria-labelledby="userDropdown">
+                            <li>
+                                <a class="dropdown-item text-white" href="https://login.asa.gob.sv/realms/Interno/account">
+                                    <i class="fas fa-cog me-2"></i> Ajustes
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item text-white" href="@Url.Action("CerrarSesion", "Login")">
+                                    <i class="fas fa-sign-out-alt me-2"></i> Cerrar sesión
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                    <div class="flex-shrink-0">
+                        @*<img src="https://sital.asa.gob.sv/Content/ImagenesEmpleado/@ViewBag.Empleado.foto_empleado"
+                             alt="Foto de @ViewBag.Empleado.nombres"
+                             class="rounded-circle border border-1"
+                             style="width: 36px; height: 36px; object-fit: cover;" />*@
+                    </div>
+                </div>
+            </div>
+
+
+  
+            <!-- /Top navigation -->
+            <!-- Contenido -->
+            <div class="content-wrapper" style="margin-top: 40px">
+                <div class="snow"></div>
+                <div class="content p-5">
+
+                    <h1 class="fw-semibold text-dark  text-center h3 animate__animated animate__fadeIn animate__faster mb-4">
+                        @*<i class="@ViewBag.icono_titulo text-primary pe-3"></i>@ViewBag.titulo_pantalla*@
+                    </h1>
+
+
+                    @RenderBody()
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+    <script src="@Url.Content("~/Content/js/bootstrap.bundle.min.js")"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom Theme Scripts -->
+    <script src="@Url.Content("~/Content/js/custom.min.js")"></script>
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment-with-locales.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/localization/messages_es.min.js"></script>
+
+    <script>
+
+        function OnCallBackGridViewGRID() {
+            //CARGO LOS JQUERY EN ACCION DE LA TABLA BUSCAR U OTRA PAGINA
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+            tooltipTriggerList.forEach(function (tooltipTriggerEl) {
+                new bootstrap.Tooltip(tooltipTriggerEl);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+            tooltipTriggerList.forEach(function (tooltipTriggerEl) {
+                new bootstrap.Tooltip(tooltipTriggerEl);
+            });
+        });
+
+        $(function () {
+            $('[data-bs-toggle="tooltip"], [title]').tooltip();
+        });
+
+        function toggleSidebar() {
+            document.getElementById("sidebar").classList.toggle("show");
+        }
+
+        function closeSidebar() {
+            document.getElementById("sidebar").classList.remove("show");
+        }
+
+        function toggleCollapseSidebar() {
+            const sidebar = document.getElementById("sidebar");
+            const content = document.querySelector(".content");
+
+            sidebar.classList.toggle("collapsed");
+            content.classList.toggle("collapsed");
+
+            const icon = document.getElementById("collapse-icon");
+            icon.classList.toggle("fa-angle-left");
+            icon.classList.toggle("fa-angle-right");
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const sidebarLinks = document.querySelectorAll("#sidebar a");
+            sidebarLinks.forEach(link => {
+                link.addEventListener("click", () => {
+                    if (window.innerWidth <= 768) {
+                        closeSidebar();
+                    }
+                });
+            });
+        });
+
+
+        $(function () { $('.dropdown-toggle').dropdown(); });
+
+    </script>
+</body>
+</html>

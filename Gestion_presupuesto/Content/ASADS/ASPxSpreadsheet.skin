@@ -1,0 +1,9 @@
+<%@ Register TagPrefix="dx" Namespace="DevExpress.Data" Assembly="DevExpress.Data.v24.2, Version=24.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+<%@ Register TagPrefix="dx" Namespace="DevExpress.Web.ASPxSpreadsheet" Assembly="DevExpress.Web.ASPxSpreadsheet.v24.2, Version=24.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+
+<dx:ASPxSpreadsheet runat="server">
+    <Images SpriteCssFilePath="{0}/sprite.css"  MenuIconSet="SvgGrayWithWhiteHottrack"></Images>
+    <Styles CssFilePath="{0}/styles.css" CssPostfix="ASADS"></Styles>
+</dx:ASPxSpreadsheet>
+
+
