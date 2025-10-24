@@ -108,8 +108,11 @@ namespace Gestion_presupuesto.Controllers
             lista_vobo.id_etapa_vobo = 1;
             db.SaveChanges();
             var siguiente_vobo = db.vobo.FirstOrDefault(x=>x.id_etapa_vobo == 2 && x.id_detalle_presupuesto == lista_vobo.id_detalle_presupuesto);
-            siguiente_vobo.id_etapa_vobo= 3;
-            db.SaveChanges();
+            if (siguiente_vobo != null)
+            {
+                siguiente_vobo.id_etapa_vobo = 3;
+                db.SaveChanges();
+            }
             return Json(new { data = 1 }, JsonRequestBehavior.AllowGet);
         }
 

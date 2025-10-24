@@ -1,0 +1,27 @@
+﻿@Html.DevExpress().CallbackPanel(settings =>
+{
+    settings.Name = "repComprobante";
+    settings.CallbackRouteValues = new { Controller = "Presupuesto", Action = "ViewerReporteComprobante" };
+    settings.ClientSideEvents.BeginCallback = "function(s,e){e.customArgs[\"id_detalle_presupuesto\"]=localStorage.getItem(\"id_detalle_presupuesto\");}";
+    settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+    settings.Height = 500;
+
+    settings.SetContent(() =>
+    {
+        if (Model != null)
+        {
+            object[] obj = Model;
+
+            @Html.DevExpress().WebDocumentViewer(setting =>
+            {
+                setting.Name = "reporteComprobante";
+                //settings.MobileMode = true;
+                setting.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+                setting.Height = System.Web.UI.WebControls.Unit.Percentage(100);
+
+            }).Bind((DevExpress.XtraReports.UI.XtraReport)obj[0]).GetHtml();
+
+
+        }
+    });
+}).GetHtml()

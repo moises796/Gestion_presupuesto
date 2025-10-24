@@ -18,7 +18,8 @@ namespace Gestion_presupuesto.Reportes
             dsComprobante1.EnforceConstraints = true;
             dsComprobanteTableAdapters.sp_comprobanteTableAdapter c = new dsComprobanteTableAdapters.sp_comprobanteTableAdapter();
             c.Fill(dsComprobante1.sp_comprobante, Convert.ToInt32(id_detalle_presupuesto.Value.ToString()));
-
+            dsComprobanteTableAdapters.sp_voboTableAdapter v = new dsComprobanteTableAdapters.sp_voboTableAdapter();
+            v.Fill(dsComprobante1.sp_vobo, Convert.ToInt32(id_detalle_presupuesto.Value.ToString()));
         }
     }
 }

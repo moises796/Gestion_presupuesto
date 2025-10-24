@@ -69,6 +69,29 @@
     });
 }).GetHtml()
 
+@Html.DevExpress().PopupControl(settings =>
+{
+    settings.Name = "modalviewer";
+    settings.SettingsAdaptivity.Mode = PopupControlAdaptivityMode.OnWindowInnerWidth;
+    settings.Width = 1024;
+    settings.Height = 600;
+    settings.CloseAction = CloseAction.CloseButton;
+    settings.CloseOnEscape = true;
+    settings.PopupAnimationType = DevExpress.Web.AnimationType.Fade;
+    settings.ShowHeader = true;
+    settings.HeaderText = "Comprobante";
+    settings.Modal = true;
+    settings.AllowDragging = false;
+    settings.PopupHorizontalAlign = PopupHorizontalAlign.WindowCenter;
+    settings.PopupVerticalAlign = PopupVerticalAlign.TopSides;
+    settings.SetContent(() =>
+    {
+
+        @Html.RenderAction("ViewerReporteComprobante", "Presupuesto");
+
+    });
+}).GetHtml()
+
 <center>
     <h1 class="animated fadeInUp encabezado mt-2">Gestión de presupuesto</h1>
 </center>
@@ -122,6 +145,15 @@
             modalvobo.Show();
             GridListadoVobo.PerformCallback();
         }
+        else if (e.actionName === "Imprimir") {
+            var index = GridDetallePresupuesto.GetFocusedRowIndex();
+            var data = GridDetallePresupuesto.GetRowKey(index);
+            localStorage.setItem("id_detalle_presupuesto", data);
+            repComprobante.PerformCallback();
+            modalviewer.Show();
+
+        }
+
     }
 
     function OnInit(s, e) {

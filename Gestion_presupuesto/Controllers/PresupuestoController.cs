@@ -75,15 +75,7 @@ namespace Gestion_presupuesto.Controllers
             }
         }
 
-        public ActionResult ViewerReporteComprobante(int? id_detalle_presupuesto)
-        {
-            object[] data = new object[2];
-            XtraReport rp = new Gestion_presupuesto.Reportes.Comprobante();
-            rp.Parameters["id_detalle_presupuesto"].Value = id_detalle_presupuesto;
-            //rp.CreateDocument();
-            data[0] = rp;
-            return PartialView("repCorrespondencia", data);
-        }
+        
 
         [ValidateInput(false)]
         public ActionResult GridDetallePresupuesto()
@@ -204,6 +196,25 @@ namespace Gestion_presupuesto.Controllers
                 }
             }
             return PartialView("~/Views/Presupuesto/_GridDetallePresupuesto.cshtml", model.ToList());
+        }
+
+
+        public ActionResult ViewerReporteComprobante(int? id_detalle_presupuesto)
+        {
+            if (id_detalle_presupuesto != null)
+            {
+                object[] data = new object[2];
+                XtraReport rp = new Gestion_presupuesto.Reportes.Comprobante();
+                rp.Parameters["id_detalle_presupuesto"].Value = id_detalle_presupuesto;
+                rp.CreateDocument();
+                data[0] = rp;
+                return PartialView("~/Views/Presupuesto/repComprobante.cshtml", data);
+            }
+            else
+            {
+                return PartialView("~/Views/Presupuesto/repComprobante.cshtml");
+            }
+            
         }
     }
 }

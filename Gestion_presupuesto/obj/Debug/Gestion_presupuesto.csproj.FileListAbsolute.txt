@@ -229,3 +229,4 @@ C:\repos\Gestion_presupuesto\Gestion_presupuesto\bin\Microsoft.Owin.Host.SystemW
 C:\repos\Gestion_presupuesto\Gestion_presupuesto\bin\Microsoft.Owin.Host.SystemWeb.xml
 C:\repos\Gestion_presupuesto\Gestion_presupuesto\obj\Debug\Gestion_presupuesto.Reportes.Comprobante.resources
 C:\repos\Gestion_presupuesto\Gestion_presupuesto\obj\Debug\Gestion_presupuesto.csproj.GenerateResource.cache
+C:\repos\Gestion_presupuesto\Gestion_presupuesto\obj\Debug\Gestion_presupuesto.Properties.Resources.resources
