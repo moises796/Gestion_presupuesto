@@ -14,6 +14,12 @@ namespace Gestion_presupuesto.Models
     
     public partial class vobo
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public vobo()
+        {
+            this.movimiento_vobo = new HashSet<movimiento_vobo>();
+        }
+    
         public int id_vobo { get; set; }
         public Nullable<int> id_personal_vobo { get; set; }
         public Nullable<int> id_detalle_presupuesto { get; set; }
@@ -24,5 +30,7 @@ namespace Gestion_presupuesto.Models
         public virtual detalle_presupuesto detalle_presupuesto { get; set; }
         public virtual etapa_vobo etapa_vobo { get; set; }
         public virtual personal_vobo personal_vobo { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<movimiento_vobo> movimiento_vobo { get; set; }
     }
 }

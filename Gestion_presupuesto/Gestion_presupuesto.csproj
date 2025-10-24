@@ -193,8 +193,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\Clases.cs" />
     <Compile Include="Models\Cargo.cs">
       <DependentUpon>rrhh.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\consulta_bandeja_vobo_Result.cs">
+      <DependentUpon>Presupuesto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\consulta_bandeja_vobo_Result1.cs">
+      <DependentUpon>Presupuesto.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\detalle_presupuesto.cs">
       <DependentUpon>Presupuesto.tt</DependentUpon>
@@ -218,6 +225,9 @@
       <DependentUpon>Presupuesto.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\movimiento_detalle_presupuesto.cs">
+      <DependentUpon>Presupuesto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\movimiento_vobo.cs">
       <DependentUpon>Presupuesto.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Periodo.cs">
@@ -260,6 +270,9 @@
       <DependentUpon>rrhh.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\sub_menu.cs">
+      <DependentUpon>Presupuesto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tipo_movimiento.cs">
       <DependentUpon>Presupuesto.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\vobo.cs">
@@ -1854,6 +1867,7 @@
     <Content Include="Views\Presupuesto\_GridDetallePresupuesto.cshtml" />
     <Content Include="Views\Vobo\Vobo.cshtml" />
     <Content Include="Views\Vobo\_GridVobo.cshtml" />
+    <Content Include="Views\Vobo\_GridListadoVobo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

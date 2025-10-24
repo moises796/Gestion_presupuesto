@@ -1,4 +1,5 @@
 ﻿using DevExpress.Web.Mvc;
+using Gestion_presupuesto.Models;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -70,6 +71,47 @@ namespace Gestion_presupuesto.Controllers
         {
             var model = db.detalle_presupuesto;
             return PartialView("~/Views/Presupuesto/_GridDetallePresupuesto.cshtml", model.ToList());
+        }
+
+
+        public ActionResult IniciarProceso(int? id_detalle_presupuesto)
+        {
+            var presupuesto = db.detalle_presupuesto.FirstOrDefault(x => x.id_detalle_presupuesto == id_detalle_presupuesto);
+            if (presupuesto != null)
+            {
+                //VALIDAMOS QUE NO HAYA INICIADO EL PROCESO ANTERIORMENTE O NO ESTE OBSERVADO
+                var validacion_proceso = db.vobo.FirstOrDefault(x => x.id_etapa_vobo == 1 || x.id_etapa_vobo == 2);
+                if (validacion_proceso!= null)
+                {
+                    return Json(new { data = -1 }, JsonRequestBehavior.AllowGet);
+                }
+                //OBTENEMOS LOS VOBOS
+                var persona_vobo = db.personal_vobo.Where(x=>x.estado == 1).ToList();
+                //VAMOS A INICIAR EL PROCESO DE VISTOS BUENOS
+                foreach (var item in persona_vobo)
+                {
+                    //VAMOS A VALIDAR QUE SI HAY UNO EN PROCESO LOS DEMÁS SEAN PENDIENTES
+                    var validacion = db.vobo.FirstOrDefault(x => x.id_detalle_presupuesto == id_detalle_presupuesto && x.estado == 1 && x.id_etapa_vobo == 3);
+                    vobo clase = new vobo();
+                    clase.id_personal_vobo = item.id_personal_vobo;
+                    clase.id_detalle_presupuesto = id_detalle_presupuesto;
+                    clase.estado = 1;
+                    if (validacion != null)
+                    {
+                        clase.id_etapa_vobo = 2;
+                    }
+                    else
+                    {
+                        clase.id_etapa_vobo = 3;
+                    }
+
+                    db.vobo.Add(clase);
+                    db.SaveChanges();
+                }
+                
+            }
+
+            return Json(new { data = 1 }, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost, ValidateInput(false)]

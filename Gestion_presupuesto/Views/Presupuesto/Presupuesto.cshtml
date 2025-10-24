@@ -27,7 +27,7 @@
 
     settings.VerticalPosition = FloatingActionButtonVerticalPosition.Top;
     settings.HorizontalPosition = FloatingActionButtonHorizontalPosition.Right;
-    settings.Items.Add(new FABAction("NewRowContext", "Agregar", "Correspondencia"));
+    settings.Items.Add(new FABAction("NewRowContext", "Agregar", "Nueva solicitud"));
     settings.Items.Add(new FABAction("CancelContext", "Cancelar", "Cancelar"));
 
     FABActionGroup focusedRowContext = new FABActionGroup() { ContextName = "ClickTabla" };
@@ -35,16 +35,38 @@
     settings.Items.Add(focusedRowContext);
 
     focusedRowContext.Items.Add(new FABActionItem("Editar", Url.Content("~/Content/gridImg/edit2.svg"), "Editar"));
-    focusedRowContext.Items.Add(new FABActionItem("Adjuntar", Url.Content("~/Content/gridImg/folder.svg"), "Adjuntar"));
-    focusedRowContext.Items.Add(new FABActionItem("Vobos", Url.Content("~/Content/gridImg/vobo.svg"), "V°. b°."));
+    focusedRowContext.Items.Add(new FABActionItem("Notificar", Url.Content("~/Content/gridImg/send.svg"), "Iniciar proceso"));
+    focusedRowContext.Items.Add(new FABActionItem("Vobos", Url.Content("~/Content/gridImg/vobo.svg"), "Detalle V°. b°.(s)"));
 
-    focusedRowContext.Items.Add(new FABActionItem("Imprimir", Url.Content("~/Content/gridImg/doc.svg"), "Visualizar"));
+    focusedRowContext.Items.Add(new FABActionItem("Imprimir", Url.Content("~/Content/gridImg/doc.svg"), "Comprobante finalización"));
 
-    focusedRowContext.Items.Add(new FABActionItem("Notificar", Url.Content("~/Content/gridImg/send.svg"), "Notificar"));
-    focusedRowContext.Items.Add(new FABActionItem("Actividades", Url.Content("~/Content/gridImg/run.svg"), "Seguimiento"));
+
     focusedRowContext.Items.Add(new FABActionItem("Descarta", Url.Content("~/Content/gridImg/deny.svg"), "Descartar"));
 
 
+}).GetHtml()
+
+@Html.DevExpress().PopupControl(settings =>
+{
+    settings.Name = "modalvobo";
+    settings.SettingsAdaptivity.Mode = PopupControlAdaptivityMode.OnWindowInnerWidth;
+    settings.Width = 1024;
+    settings.Height = 600;
+    settings.CloseAction = CloseAction.CloseButton;
+    settings.CloseOnEscape = true;
+    settings.PopupAnimationType = DevExpress.Web.AnimationType.Fade;
+    settings.ShowHeader = true;
+    settings.HeaderText = "Estado de vistos buenos";
+    settings.Modal = true;
+    settings.AllowDragging = false;
+    settings.PopupHorizontalAlign = PopupHorizontalAlign.WindowCenter;
+    settings.PopupVerticalAlign = PopupVerticalAlign.TopSides;
+    settings.SetContent(() =>
+    {
+
+        @Html.RenderAction("GridListadoVobo", "Vobo");
+
+    });
 }).GetHtml()
 
 <center>
@@ -72,98 +94,17 @@
     function OnActionItemClick(s, e) {
         //alert(e.actionName);
         if (e.actionName === "Agregar") {
-            limpiarCajas();
-            abrirModal(1);
-            GridCorrespondencia.SetVerticalScrollPosition(0);
+            GridDetallePresupuesto.AddNewRow()
         } else if (e.actionName === "Editar") {
-            var index = GridCorrespondencia.GetFocusedRowIndex();
-            var data = GridCorrespondencia.GetRowKey(index);
-            var datos = data.split('|');
-
-            //VOY A VALIDAR QUE EL EMPLEADO CRADOR/REMITENTE/ASISTENTE PUEDAN VER CONTENIDO
+            var index = GridDetallePresupuesto.GetFocusedRowIndex();
+            GridDetallePresupuesto.StartEditRow(index);
+        } else if (e.actionName === "Notificar") {
+            var index = GridDetallePresupuesto.GetFocusedRowIndex();
+            var data = GridDetallePresupuesto.GetRowKey(index);
             $.ajax({
                 type: "POST",
-                url: "@Url.Content("~/Correspondencia/validaEmpleCreador")",
-                data: "id_c=" + datos[18]
-            }).done(function (resp) {
-                if (resp.data == 1) {
-                    //alert(datos[10]);
-                    id_c.SetValue(datos[18]);
-                    id_correspondencia.SetValue(datos[0]);
-                    id_documento.SetValue(datos[1]);
-                    if (datos[1] == "1") {
-                        $(".elementMEMO").show();
-                        $(".elementOFICIO").hide();
-                        //MUESTRO O NO LA PRIORIDAD, SOLO CUANDO ES UN MEMO
-                        if (datos[14] == 1) {
-                            //console.log(datos[14]);
-                            informativo.SetValue(true);
-                            $(".elementNoInformativo").hide();
-
-                        } else {
-                            informativo.SetValue(false);
-                            $(".elementNoInformativo").show();
-                        }
-                    } else if (datos[1] == "2") {
-                        $(".elementMEMO").hide();
-                        $(".elementOFICIO").show();
-                    }
-                    //alert(datos[14]);
-
-
-                    if (datos[2] == '/^DXN') {
-                        //id_institucion.SetValue('lolo');
-                    } else {
-                        id_institucion.SetValue(datos[2]);
-                    }
-
-                @*dga.SetValue(datos[7] == '/^DXN' ? '' : datos[7]);*@
-                    //id_estructura_remitente.SetValue(datos[3]);
-                    //remitente.SetValue(datos[4]);
-                    //id_estructura_receptor.SetValue(datos[5]);
-                    //receptor.SetValue(datos[6] == '/^DXN' ? '' : datos[6]);
-                    //copias_cc.SetValue(datos[8]);
-                    asunto.SetValue(datos[9]);
-                    contenido.SetValue(datos[10]);
-
-                    receptorOFICIO.SetValue(datos[12] == '/^DXN' ? '' : datos[12]);
-                    cargoReceptorOFICIO.SetValue(datos[13] == '/^DXN' ? '' : datos[13]);
-                @*referenciaExterna.SetValue(datos[15]);
-                ReqJudicial.SetValue(datos[16] == '/^DXN' ? '' : datos[16]);
-                cic.SetValue(datos[20] == '/^DXN' ? '' : datos[20]);*@
-                    prioridad.SetValue(datos[21]);
-                    //periodo.localStorage.setItem("periodo", datos[17]);
-                    //alert(datos[17]);
-                    localStorage.setItem("periodo", datos[17]);
-                    localStorage.setItem("valorEstrRemite", datos[3]);
-                    localStorage.setItem("valorRemite", datos[4]);
-                    localStorage.setItem("valorPara", datos[6] == '/^DXN' ? '' : datos[6]);
-                    localStorage.setItem("valorCC", datos[8]);
-                    localStorage.setItem("valorEstr", datos[5]);
-                    localStorage.setItem("accioncbRemite", 1);
-                    ComboboxEmpleados.PerformCallback();
-                    ComboboxPara.PerformCallback();
-                    ComboboxCC.PerformCallback();
-                    PanelCBRemite.PerformCallback();
-                    /*PanelCB.PerformCallback();*/
-                    //cbEstructura.SetValue(datos[5]);
-                    abrirModal(2);
-                } else {
-                    swal("¡Importante!", "Únicamente el empleado que elaboró o remite la correspondencia están autorizados", "info");
-                }
-            });
-
-
-        }
-        else if (e.actionName === "Imprimir") {
-            var index = GridCorrespondencia.GetFocusedRowIndex();
-            var data = GridCorrespondencia.GetRowKey(index);
-            var datos = data.split('|');
-            //VOY A VALIDAR QUE EL EMPLEADO CRADOR/REMITENTE/ASISTENTE PUEDAN VER CONTENIDO
-            $.ajax({
-                type: "POST",
-                url: "@Url.Content("~/Correspondencia/validaEmpleCreador")",
-                data: "id_c=" + datos[18]
+                url: "@Url.Content("~/Presupuesto/IniciarProceso")",
+                data: "id_detalle_presupuesto=" + data
             }).done(function (resp) {
                 if (resp.data == 1) {
                     botonesCommand('btnImprimir', datos[18], datos[1]);
@@ -171,6 +112,15 @@
                     swal("¡Importante!", "Únicamente el empleado que elaboró o remite la correspondencia están autorizados", "info");
                 }
             });
+        }
+        else if (e.actionName === "Vobos") {
+            var index = GridDetallePresupuesto.GetFocusedRowIndex();
+            var data = GridDetallePresupuesto.GetRowKey(index);
+
+            //ABRIR MODAL
+            localStorage.setItem("id_detalle_presupuesto", data);
+            modalvobo.Show();
+            GridListadoVobo.PerformCallback();
         }
     }
 
@@ -208,7 +158,7 @@
         var isCollapsedByButton = e.collapseReason === ASPxClientFloatingActionButtonCollapseReason.CollapseButton;
         if (isRowActionContext && isCollapsedByButton) {
             setTimeout(function () {
-                GridCorrespondencia.CancelEdit();
+                GridDetallePresupuesto.CancelEdit();
                 //GridViewAmumas.SetFocusedRowIndex(-1);
                 fab.SetActionContext("NewRowContext");
             }, 100);
@@ -222,7 +172,7 @@
         var isCollapsedByButton = e.collapseReason === ASPxClientFloatingActionButtonCollapseReason.CollapseButton;
         if (isRowActionContext && isCollapsedByButton) {
             setTimeout(function () {
-                GridCorrespondencia.CancelEdit();
+                GridDetallePresupuesto.CancelEdit();
                 //GridViewAmumas.SetFocusedRowIndex(-1);
                 fab.SetActionContext("NewRowContext");
             }, 100);

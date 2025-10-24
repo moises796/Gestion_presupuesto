@@ -8,6 +8,7 @@
         settings.SettingsEditing.AddNewRowRouteValues = new { Controller = "Presupuesto", Action = "GridDetallePresupuestoAddNew" };
         settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "Presupuesto", Action = "GridDetallePresupuestoUpdate" };
         settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "Presupuesto", Action = "GridDetallePresupuestoDelete" };
+        settings.ClientSideEvents.RowClick = "function(s,e){OnRowClick(s,e);}";
         settings.EnableRowsCache = false;
         settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
 
@@ -23,7 +24,7 @@
         settings.SettingsBehavior.ConfirmDelete = true;
         settings.CommandColumn.ButtonRenderMode = GridCommandButtonRenderMode.Secondary;
 
-        settings.CommandColumn.Visible = true;
+        settings.CommandColumn.Visible = false;
         settings.CommandColumn.ShowNewButtonInHeader = true;
         settings.CommandColumn.ShowDeleteButton = false;
         settings.CommandColumn.ShowEditButton = true;

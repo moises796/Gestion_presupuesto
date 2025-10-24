@@ -23,6 +23,12 @@
         <AssociationConnector Association="registro_presupuestoModel.FK__vobo__id_detalle__5BE2A6F2" />
         <AssociationConnector Association="registro_presupuestoModel.FK__vobo__id_etapa_v__5CD6CB2B" />
         <AssociationConnector Association="registro_presupuestoModel.FK__vobo__id_persona__5AEE82B9" />
+        <EntityTypeShape EntityType="registro_presupuestoModel.movimiento_vobo" Width="1.5" PointX="10.5" PointY="6.5" />
+        <EntityTypeShape EntityType="registro_presupuestoModel.tipo_movimiento" Width="1.5" PointX="8.25" PointY="7.125" />
+        <AssociationConnector Association="registro_presupuestoModel.FK__movimient__id_et__6B24EA82" />
+        <AssociationConnector Association="registro_presupuestoModel.FK__movimient__id_pe__693CA210" />
+        <AssociationConnector Association="registro_presupuestoModel.FK__movimient__id_ti__6A30C649" />
+        <AssociationConnector Association="registro_presupuestoModel.FK__movimient__id_vo__68487DD7" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

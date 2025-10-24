@@ -12,6 +12,8 @@ namespace Gestion_presupuesto.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class registro_presupuestoEntities : DbContext
     {
@@ -34,5 +36,16 @@ namespace Gestion_presupuesto.Models
         public virtual DbSet<etapa_vobo> etapa_vobo { get; set; }
         public virtual DbSet<personal_vobo> personal_vobo { get; set; }
         public virtual DbSet<vobo> vobo { get; set; }
+        public virtual DbSet<movimiento_vobo> movimiento_vobo { get; set; }
+        public virtual DbSet<tipo_movimiento> tipo_movimiento { get; set; }
+    
+        public virtual ObjectResult<consulta_bandeja_vobo_Result1> consulta_bandeja_vobo(Nullable<int> id_empleado)
+        {
+            var id_empleadoParameter = id_empleado.HasValue ?
+                new ObjectParameter("id_empleado", id_empleado) :
+                new ObjectParameter("id_empleado", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<consulta_bandeja_vobo_Result1>("consulta_bandeja_vobo", id_empleadoParameter);
+        }
     }
 }

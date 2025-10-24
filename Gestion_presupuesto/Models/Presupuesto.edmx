@@ -73,6 +73,17 @@
           <Property Name="fecha_movimiento" Type="datetime" />
           <Property Name="estado" Type="int" />
         </EntityType>
+        <EntityType Name="movimiento_vobo">
+          <Key>
+            <PropertyRef Name="id_movimiento_vobo" />
+          </Key>
+          <Property Name="id_movimiento_vobo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_vobo" Type="int" />
+          <Property Name="fecha_movimiento" Type="datetime" />
+          <Property Name="id_tipo_movimiento" Type="int" />
+          <Property Name="id_personal_vobo" Type="int" />
+          <Property Name="id_etapa_vobo" Type="int" />
+        </EntityType>
         <EntityType Name="personal_vobo">
           <Key>
             <PropertyRef Name="id_personal_vobo" />
@@ -93,6 +104,14 @@
           <Property Name="id_menu" Type="int" />
           <Property Name="orden" Type="int" />
           <Property Name="id_rol" Type="varchar" MaxLength="250" />
+          <Property Name="estado" Type="int" />
+        </EntityType>
+        <EntityType Name="tipo_movimiento">
+          <Key>
+            <PropertyRef Name="id_tipo_movimiento" />
+          </Key>
+          <Property Name="id_tipo_movimiento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="valor" Type="varchar" MaxLength="150" />
           <Property Name="estado" Type="int" />
         </EntityType>
         <EntityType Name="vobo">
@@ -142,6 +161,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__movimient__id_et__6B24EA82">
+          <End Role="etapa_vobo" Type="Self.etapa_vobo" Multiplicity="0..1" />
+          <End Role="movimiento_vobo" Type="Self.movimiento_vobo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="etapa_vobo">
+              <PropertyRef Name="id_etapa_vobo" />
+            </Principal>
+            <Dependent Role="movimiento_vobo">
+              <PropertyRef Name="id_etapa_vobo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__movimient__id_fu__440B1D61">
           <End Role="fuente_financiamiento" Type="Self.fuente_financiamiento" Multiplicity="0..1" />
           <End Role="movimiento_detalle_presupuesto" Type="Self.movimiento_detalle_presupuesto" Multiplicity="*" />
@@ -163,6 +194,42 @@
             </Principal>
             <Dependent Role="movimiento_detalle_presupuesto">
               <PropertyRef Name="id_metodo_contratacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__movimient__id_pe__693CA210">
+          <End Role="personal_vobo" Type="Self.personal_vobo" Multiplicity="0..1" />
+          <End Role="movimiento_vobo" Type="Self.movimiento_vobo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="personal_vobo">
+              <PropertyRef Name="id_personal_vobo" />
+            </Principal>
+            <Dependent Role="movimiento_vobo">
+              <PropertyRef Name="id_personal_vobo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__movimient__id_ti__6A30C649">
+          <End Role="tipo_movimiento" Type="Self.tipo_movimiento" Multiplicity="0..1" />
+          <End Role="movimiento_vobo" Type="Self.movimiento_vobo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_movimiento">
+              <PropertyRef Name="id_tipo_movimiento" />
+            </Principal>
+            <Dependent Role="movimiento_vobo">
+              <PropertyRef Name="id_tipo_movimiento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__movimient__id_vo__68487DD7">
+          <End Role="vobo" Type="Self.vobo" Multiplicity="0..1" />
+          <End Role="movimiento_vobo" Type="Self.movimiento_vobo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vobo">
+              <PropertyRef Name="id_vobo" />
+            </Principal>
+            <Dependent Role="movimiento_vobo">
+              <PropertyRef Name="id_vobo" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -214,6 +281,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="consulta_bandeja_vobo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_empleado" Type="int" Mode="In" />
+        </Function>
         <EntityContainer Name="registro_presupuestoModelStoreContainer">
           <EntitySet Name="detalle_presupuesto" EntityType="Self.detalle_presupuesto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="etapa_vobo" EntityType="Self.etapa_vobo" Schema="dbo" store:Type="Tables" />
@@ -221,8 +291,10 @@
           <EntitySet Name="menu" EntityType="Self.menu" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="metodo_contratacion" EntityType="Self.metodo_contratacion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="movimiento_detalle_presupuesto" EntityType="Self.movimiento_detalle_presupuesto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="movimiento_vobo" EntityType="Self.movimiento_vobo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="personal_vobo" EntityType="Self.personal_vobo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sub_menu" EntityType="Self.sub_menu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tipo_movimiento" EntityType="Self.tipo_movimiento" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="vobo" EntityType="Self.vobo" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__detalle_p__id_fu__3F466844" Association="Self.FK__detalle_p__id_fu__3F466844">
             <End Role="fuente_financiamiento" EntitySet="fuente_financiamiento" />
@@ -236,6 +308,10 @@
             <End Role="detalle_presupuesto" EntitySet="detalle_presupuesto" />
             <End Role="movimiento_detalle_presupuesto" EntitySet="movimiento_detalle_presupuesto" />
           </AssociationSet>
+          <AssociationSet Name="FK__movimient__id_et__6B24EA82" Association="Self.FK__movimient__id_et__6B24EA82">
+            <End Role="etapa_vobo" EntitySet="etapa_vobo" />
+            <End Role="movimiento_vobo" EntitySet="movimiento_vobo" />
+          </AssociationSet>
           <AssociationSet Name="FK__movimient__id_fu__440B1D61" Association="Self.FK__movimient__id_fu__440B1D61">
             <End Role="fuente_financiamiento" EntitySet="fuente_financiamiento" />
             <End Role="movimiento_detalle_presupuesto" EntitySet="movimiento_detalle_presupuesto" />
@@ -243,6 +319,18 @@
           <AssociationSet Name="FK__movimient__id_me__4316F928" Association="Self.FK__movimient__id_me__4316F928">
             <End Role="metodo_contratacion" EntitySet="metodo_contratacion" />
             <End Role="movimiento_detalle_presupuesto" EntitySet="movimiento_detalle_presupuesto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__movimient__id_pe__693CA210" Association="Self.FK__movimient__id_pe__693CA210">
+            <End Role="personal_vobo" EntitySet="personal_vobo" />
+            <End Role="movimiento_vobo" EntitySet="movimiento_vobo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__movimient__id_ti__6A30C649" Association="Self.FK__movimient__id_ti__6A30C649">
+            <End Role="tipo_movimiento" EntitySet="tipo_movimiento" />
+            <End Role="movimiento_vobo" EntitySet="movimiento_vobo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__movimient__id_vo__68487DD7" Association="Self.FK__movimient__id_vo__68487DD7">
+            <End Role="vobo" EntitySet="vobo" />
+            <End Role="movimiento_vobo" EntitySet="movimiento_vobo" />
           </AssociationSet>
           <AssociationSet Name="FK__sub_menu__id_men__5441852A" Association="Self.FK__sub_menu__id_men__5441852A">
             <End Role="menu" EntitySet="menu" />
@@ -429,6 +517,27 @@
             <End Role="personal_vobo" EntitySet="personal_vobo" />
             <End Role="vobo" EntitySet="vobo" />
           </AssociationSet>
+          <FunctionImport Name="consulta_bandeja_vobo" ReturnType="Collection(registro_presupuestoModel.consulta_bandeja_vobo_Result1)">
+          <Parameter Name="id_empleado" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="movimiento_vobo" EntityType="registro_presupuestoModel.movimiento_vobo" />
+          <EntitySet Name="tipo_movimiento" EntityType="registro_presupuestoModel.tipo_movimiento" />
+          <AssociationSet Name="FK__movimient__id_et__6B24EA82" Association="registro_presupuestoModel.FK__movimient__id_et__6B24EA82">
+            <End Role="etapa_vobo" EntitySet="etapa_vobo" />
+            <End Role="movimiento_vobo" EntitySet="movimiento_vobo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__movimient__id_pe__693CA210" Association="registro_presupuestoModel.FK__movimient__id_pe__693CA210">
+            <End Role="personal_vobo" EntitySet="personal_vobo" />
+            <End Role="movimiento_vobo" EntitySet="movimiento_vobo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__movimient__id_ti__6A30C649" Association="registro_presupuestoModel.FK__movimient__id_ti__6A30C649">
+            <End Role="tipo_movimiento" EntitySet="tipo_movimiento" />
+            <End Role="movimiento_vobo" EntitySet="movimiento_vobo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__movimient__id_vo__68487DD7" Association="registro_presupuestoModel.FK__movimient__id_vo__68487DD7">
+            <End Role="vobo" EntitySet="vobo" />
+            <End Role="movimiento_vobo" EntitySet="movimiento_vobo" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="menu">
           <Key>
@@ -479,6 +588,7 @@
           <Property Name="valor" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="estado" Type="Int32" />
           <NavigationProperty Name="vobo" Relationship="registro_presupuestoModel.FK__vobo__id_etapa_v__5CD6CB2B" FromRole="etapa_vobo" ToRole="vobo" />
+          <NavigationProperty Name="movimiento_vobo" Relationship="registro_presupuestoModel.FK__movimient__id_et__6B24EA82" FromRole="etapa_vobo" ToRole="movimiento_vobo" />
         </EntityType>
         <EntityType Name="personal_vobo">
           <Key>
@@ -488,6 +598,7 @@
           <Property Name="id_empleado" Type="Int32" />
           <Property Name="estado" Type="Int32" />
           <NavigationProperty Name="vobo" Relationship="registro_presupuestoModel.FK__vobo__id_persona__5AEE82B9" FromRole="personal_vobo" ToRole="vobo" />
+          <NavigationProperty Name="movimiento_vobo" Relationship="registro_presupuestoModel.FK__movimient__id_pe__693CA210" FromRole="personal_vobo" ToRole="movimiento_vobo" />
         </EntityType>
         <EntityType Name="vobo">
           <Key>
@@ -502,6 +613,7 @@
           <NavigationProperty Name="detalle_presupuesto" Relationship="registro_presupuestoModel.FK__vobo__id_detalle__5BE2A6F2" FromRole="vobo" ToRole="detalle_presupuesto" />
           <NavigationProperty Name="etapa_vobo" Relationship="registro_presupuestoModel.FK__vobo__id_etapa_v__5CD6CB2B" FromRole="vobo" ToRole="etapa_vobo" />
           <NavigationProperty Name="personal_vobo" Relationship="registro_presupuestoModel.FK__vobo__id_persona__5AEE82B9" FromRole="vobo" ToRole="personal_vobo" />
+          <NavigationProperty Name="movimiento_vobo" Relationship="registro_presupuestoModel.FK__movimient__id_vo__68487DD7" FromRole="vobo" ToRole="movimiento_vobo" />
         </EntityType>
         <Association Name="FK__vobo__id_detalle__5BE2A6F2">
           <End Type="registro_presupuestoModel.detalle_presupuesto" Role="detalle_presupuesto" Multiplicity="0..1" />
@@ -536,6 +648,103 @@
             </Principal>
             <Dependent Role="vobo">
               <PropertyRef Name="id_personal_vobo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="consulta_bandeja_vobo_Result">
+          <Property Type="Int32" Name="id_detalle_presupuesto" Nullable="false" />
+          <Property Type="String" Name="codigo" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="nombre_proceso" Nullable="true" MaxLength="350" />
+          <Property Type="Int32" Name="id_metodo_contratacion" Nullable="true" />
+          <Property Type="DateTime" Name="fecha_inicio" Nullable="true" />
+          <Property Type="DateTime" Name="fecha_fin" Nullable="true" />
+          <Property Type="Double" Name="monto" Nullable="true" />
+          <Property Type="Int32" Name="id_fuente_financiamiento" Nullable="true" />
+          <Property Type="Int32" Name="id_unidad_organizativa" Nullable="true" />
+          <Property Type="Int32" Name="estado" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="consulta_bandeja_vobo_Result1">
+          <Property Type="Int32" Name="id_detalle_presupuesto" Nullable="false" />
+          <Property Type="String" Name="codigo" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="nombre_proceso" Nullable="true" MaxLength="350" />
+          <Property Type="Int32" Name="id_metodo_contratacion" Nullable="true" />
+          <Property Type="DateTime" Name="fecha_inicio" Nullable="true" />
+          <Property Type="DateTime" Name="fecha_fin" Nullable="true" />
+          <Property Type="Double" Name="monto" Nullable="true" />
+          <Property Type="Int32" Name="id_fuente_financiamiento" Nullable="true" />
+          <Property Type="Int32" Name="id_unidad_organizativa" Nullable="true" />
+          <Property Type="Int32" Name="estado" Nullable="true" />
+          <Property Type="Int32" Name="id_vobo" Nullable="false" />
+        </ComplexType>
+        <EntityType Name="movimiento_vobo">
+          <Key>
+            <PropertyRef Name="id_movimiento_vobo" />
+          </Key>
+          <Property Name="id_movimiento_vobo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_vobo" Type="Int32" />
+          <Property Name="fecha_movimiento" Type="DateTime" Precision="3" />
+          <Property Name="id_tipo_movimiento" Type="Int32" />
+          <Property Name="id_personal_vobo" Type="Int32" />
+          <Property Name="id_etapa_vobo" Type="Int32" />
+          <NavigationProperty Name="etapa_vobo" Relationship="registro_presupuestoModel.FK__movimient__id_et__6B24EA82" FromRole="movimiento_vobo" ToRole="etapa_vobo" />
+          <NavigationProperty Name="personal_vobo" Relationship="registro_presupuestoModel.FK__movimient__id_pe__693CA210" FromRole="movimiento_vobo" ToRole="personal_vobo" />
+          <NavigationProperty Name="tipo_movimiento" Relationship="registro_presupuestoModel.FK__movimient__id_ti__6A30C649" FromRole="movimiento_vobo" ToRole="tipo_movimiento" />
+          <NavigationProperty Name="vobo" Relationship="registro_presupuestoModel.FK__movimient__id_vo__68487DD7" FromRole="movimiento_vobo" ToRole="vobo" />
+        </EntityType>
+        <EntityType Name="tipo_movimiento">
+          <Key>
+            <PropertyRef Name="id_tipo_movimiento" />
+          </Key>
+          <Property Name="id_tipo_movimiento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="valor" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="estado" Type="Int32" />
+          <NavigationProperty Name="movimiento_vobo" Relationship="registro_presupuestoModel.FK__movimient__id_ti__6A30C649" FromRole="tipo_movimiento" ToRole="movimiento_vobo" />
+        </EntityType>
+        <Association Name="FK__movimient__id_et__6B24EA82">
+          <End Type="registro_presupuestoModel.etapa_vobo" Role="etapa_vobo" Multiplicity="0..1" />
+          <End Type="registro_presupuestoModel.movimiento_vobo" Role="movimiento_vobo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="etapa_vobo">
+              <PropertyRef Name="id_etapa_vobo" />
+            </Principal>
+            <Dependent Role="movimiento_vobo">
+              <PropertyRef Name="id_etapa_vobo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__movimient__id_pe__693CA210">
+          <End Type="registro_presupuestoModel.personal_vobo" Role="personal_vobo" Multiplicity="0..1" />
+          <End Type="registro_presupuestoModel.movimiento_vobo" Role="movimiento_vobo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="personal_vobo">
+              <PropertyRef Name="id_personal_vobo" />
+            </Principal>
+            <Dependent Role="movimiento_vobo">
+              <PropertyRef Name="id_personal_vobo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__movimient__id_ti__6A30C649">
+          <End Type="registro_presupuestoModel.tipo_movimiento" Role="tipo_movimiento" Multiplicity="0..1" />
+          <End Type="registro_presupuestoModel.movimiento_vobo" Role="movimiento_vobo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_movimiento">
+              <PropertyRef Name="id_tipo_movimiento" />
+            </Principal>
+            <Dependent Role="movimiento_vobo">
+              <PropertyRef Name="id_tipo_movimiento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__movimient__id_vo__68487DD7">
+          <End Type="registro_presupuestoModel.vobo" Role="vobo" Multiplicity="0..1" />
+          <End Type="registro_presupuestoModel.movimiento_vobo" Role="movimiento_vobo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vobo">
+              <PropertyRef Name="id_vobo" />
+            </Principal>
+            <Dependent Role="movimiento_vobo">
+              <PropertyRef Name="id_vobo" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -652,6 +861,44 @@
                 <ScalarProperty Name="id_detalle_presupuesto" ColumnName="id_detalle_presupuesto" />
                 <ScalarProperty Name="id_personal_vobo" ColumnName="id_personal_vobo" />
                 <ScalarProperty Name="id_vobo" ColumnName="id_vobo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="consulta_bandeja_vobo" FunctionName="registro_presupuestoModel.Store.consulta_bandeja_vobo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="registro_presupuestoModel.consulta_bandeja_vobo_Result1">
+                <ScalarProperty Name="id_detalle_presupuesto" ColumnName="id_detalle_presupuesto" />
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="nombre_proceso" ColumnName="nombre_proceso" />
+                <ScalarProperty Name="id_metodo_contratacion" ColumnName="id_metodo_contratacion" />
+                <ScalarProperty Name="fecha_inicio" ColumnName="fecha_inicio" />
+                <ScalarProperty Name="fecha_fin" ColumnName="fecha_fin" />
+                <ScalarProperty Name="monto" ColumnName="monto" />
+                <ScalarProperty Name="id_fuente_financiamiento" ColumnName="id_fuente_financiamiento" />
+                <ScalarProperty Name="id_unidad_organizativa" ColumnName="id_unidad_organizativa" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="id_vobo" ColumnName="id_vobo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="movimiento_vobo">
+            <EntityTypeMapping TypeName="registro_presupuestoModel.movimiento_vobo">
+              <MappingFragment StoreEntitySet="movimiento_vobo">
+                <ScalarProperty Name="id_etapa_vobo" ColumnName="id_etapa_vobo" />
+                <ScalarProperty Name="id_personal_vobo" ColumnName="id_personal_vobo" />
+                <ScalarProperty Name="id_tipo_movimiento" ColumnName="id_tipo_movimiento" />
+                <ScalarProperty Name="fecha_movimiento" ColumnName="fecha_movimiento" />
+                <ScalarProperty Name="id_vobo" ColumnName="id_vobo" />
+                <ScalarProperty Name="id_movimiento_vobo" ColumnName="id_movimiento_vobo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tipo_movimiento">
+            <EntityTypeMapping TypeName="registro_presupuestoModel.tipo_movimiento">
+              <MappingFragment StoreEntitySet="tipo_movimiento">
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="valor" ColumnName="valor" />
+                <ScalarProperty Name="id_tipo_movimiento" ColumnName="id_tipo_movimiento" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

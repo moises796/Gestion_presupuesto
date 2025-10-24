@@ -111,5 +111,43 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="consulta_bandeja_vobo" FunctionName="registro_presupuestoModel.Store.consulta_bandeja_vobo">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="registro_presupuestoModel.consulta_bandeja_vobo_Result1">
+          <ScalarProperty Name="id_detalle_presupuesto" ColumnName="id_detalle_presupuesto" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="nombre_proceso" ColumnName="nombre_proceso" />
+          <ScalarProperty Name="id_metodo_contratacion" ColumnName="id_metodo_contratacion" />
+          <ScalarProperty Name="fecha_inicio" ColumnName="fecha_inicio" />
+          <ScalarProperty Name="fecha_fin" ColumnName="fecha_fin" />
+          <ScalarProperty Name="monto" ColumnName="monto" />
+          <ScalarProperty Name="id_fuente_financiamiento" ColumnName="id_fuente_financiamiento" />
+          <ScalarProperty Name="id_unidad_organizativa" ColumnName="id_unidad_organizativa" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="id_vobo" ColumnName="id_vobo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="movimiento_vobo">
+      <EntityTypeMapping TypeName="registro_presupuestoModel.movimiento_vobo">
+        <MappingFragment StoreEntitySet="movimiento_vobo">
+          <ScalarProperty Name="id_etapa_vobo" ColumnName="id_etapa_vobo" />
+          <ScalarProperty Name="id_personal_vobo" ColumnName="id_personal_vobo" />
+          <ScalarProperty Name="id_tipo_movimiento" ColumnName="id_tipo_movimiento" />
+          <ScalarProperty Name="fecha_movimiento" ColumnName="fecha_movimiento" />
+          <ScalarProperty Name="id_vobo" ColumnName="id_vobo" />
+          <ScalarProperty Name="id_movimiento_vobo" ColumnName="id_movimiento_vobo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipo_movimiento">
+      <EntityTypeMapping TypeName="registro_presupuestoModel.tipo_movimiento">
+        <MappingFragment StoreEntitySet="tipo_movimiento">
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="valor" ColumnName="valor" />
+          <ScalarProperty Name="id_tipo_movimiento" ColumnName="id_tipo_movimiento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

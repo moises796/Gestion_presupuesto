@@ -18,6 +18,7 @@ namespace Gestion_presupuesto.Models
         public personal_vobo()
         {
             this.vobo = new HashSet<vobo>();
+            this.movimiento_vobo = new HashSet<movimiento_vobo>();
         }
     
         public int id_personal_vobo { get; set; }
@@ -26,5 +27,7 @@ namespace Gestion_presupuesto.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<vobo> vobo { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<movimiento_vobo> movimiento_vobo { get; set; }
     }
 }

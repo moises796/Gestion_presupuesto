@@ -1,0 +1,138 @@
+﻿@{
+    Gestion_presupuesto.Models.registro_presupuestoEntities db = new Gestion_presupuesto.Models.registro_presupuestoEntities();
+    Gestion_presupuesto.Controllers.VoboController clase = new Gestion_presupuesto.Controllers.VoboController();
+    var grid = Html.DevExpress().GridView(settings =>
+    {
+    settings.Name = "GridListadoVobo";
+    settings.CallbackRouteValues = new { Controller = "Vobo", Action = "GridListadoVobo" };
+
+    settings.SettingsEditing.AddNewRowRouteValues = new { Controller = "Vobo", Action = "GridListadoVoboAddNew" };
+    settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "Vobo", Action = "GridListadoVoboUpdate" };
+    settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "Vobo", Action = "GridListadoVoboDelete" };
+    settings.ClientSideEvents.BeginCallback = "function(s,e){e.customArgs['id_detalle_presupuesto']=localStorage.getItem('id_detalle_presupuesto');}";
+    settings.EnableRowsCache = false;
+    settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+        @*settings.ControlStyle.CssClass = "grid animated bounceInLeft";*@
+
+        settings.SettingsAdaptivity.AdaptivityMode = GridViewAdaptivityMode.HideDataCells;
+        settings.SettingsSearchPanel.Visible = false;
+        settings.SettingsAdaptivity.AllowOnlyOneAdaptiveDetailExpanded = true;
+        settings.SettingsBehavior.AllowFocusedRow = true;
+        settings.SettingsPopup.EditForm.Modal = true;
+        settings.SettingsEditing.Mode = GridViewEditingMode.PopupEditForm;
+        settings.SettingsPopup.EditForm.VerticalAlign = PopupVerticalAlign.Middle;
+        settings.SettingsPopup.EditForm.HorizontalAlign = PopupHorizontalAlign.Center;
+        settings.SettingsPopup.EditForm.ShowHeader = false;
+        settings.SettingsBehavior.ConfirmDelete = true;
+        settings.CommandColumn.ButtonRenderMode = GridCommandButtonRenderMode.Secondary;
+        settings.CommandColumn.Visible = false;
+        settings.CommandColumn.ShowNewButtonInHeader = true;
+        settings.CommandColumn.ShowDeleteButton = false;
+        settings.CommandColumn.ShowEditButton = true;
+
+        settings.KeyFieldName = "id_vobo;id_etapa_vobo";
+
+        settings.SettingsPager.Visible = true;
+        settings.Settings.ShowGroupPanel = true;
+        settings.Settings.ShowFilterRow = true;
+        settings.SettingsBehavior.AllowSelectByRowClick = true;
+
+        settings.SettingsPager.Visible = true;
+        settings.Settings.ShowGroupPanel = false;
+        settings.Settings.ShowFilterRow = false;
+
+
+        settings.SettingsPager.Visible = true;
+        settings.SettingsPager.PageSizeItemSettings.Visible = true;
+        settings.SettingsPager.PageSizeItemSettings.Items = new string[] { "5", "10", "20", "50" };
+        settings.SettingsPager.FirstPageButton.Visible = true;
+        settings.SettingsPager.LastPageButton.Visible = true;
+        settings.SettingsPager.PageSize = 5;
+        settings.SettingsPager.PageSizeItemSettings.Position = PagerPageSizePosition.Left;
+        settings.Settings.ShowGroupPanel = false;
+        settings.Settings.ShowFilterRow = false;
+        settings.SettingsBehavior.AllowSelectByRowClick = true;
+
+        settings.EditFormLayoutProperties.SettingsAdaptivity.AdaptivityMode = FormLayoutAdaptivityMode.SingleColumnWindowLimit;
+        settings.EditFormLayoutProperties.SettingsAdaptivity.SwitchToSingleColumnAtWindowInnerWidth = 900;
+        settings.SettingsPopup.EditForm.SettingsAdaptivity.Mode = PopupControlAdaptivityMode.OnWindowInnerWidth;
+        settings.SettingsPopup.EditForm.PopupAnimationType = DevExpress.Web.AnimationType.Fade;
+
+
+        settings.Columns.Add(c =>
+        {
+
+            c.FieldName = "id_personal_vobo";
+            c.Caption = "Encargado revisión";
+            c.CellStyle.HorizontalAlign = System.Web.UI.WebControls.HorizontalAlign.Center;
+            c.AdaptivePriority = 6;
+            c.Visible = true;
+            c.EditorProperties().ComboBox(p =>
+            {
+                p.TextField = "nombre_empleado";
+                p.ValueField = "id_personal_vobo";
+                p.DataSource = clase.GetVobos();
+
+            });
+        });
+        //settings.Columns.Add("estadov");
+
+        settings.Columns.Add(gridViewColumnSettings =>
+        {
+            gridViewColumnSettings.FieldName = "estadov";
+            gridViewColumnSettings.Caption = "Estado V°. b°.";
+            gridViewColumnSettings.Settings.AllowSort = DefaultBoolean.False;
+            gridViewColumnSettings.PropertiesEdit.DisplayFormatString = "d";
+            gridViewColumnSettings.CellStyle.HorizontalAlign = System.Web.UI.WebControls.HorizontalAlign.Center;
+            gridViewColumnSettings.SetDataItemTemplateContent((c) =>
+            {
+                var id_vobo = Convert.ToInt32(c.KeyValue.ToString().Split('|')[0]);
+                var estadoVob = Convert.ToInt32(c.KeyValue.ToString().Split('|')[1]);
+                //OBTENIENDO EL TIEMPO EN EL QUE FIRMO
+                var tiempo = (from v in db.vobo
+                              join mv in db.movimiento_vobo on v.id_vobo equals mv.id_vobo
+                              where v.id_vobo == id_vobo && mv.id_etapa_vobo == 1
+                              select new
+                              {
+                                  fecha = mv.fecha_movimiento
+                              }).FirstOrDefault();
+                //OBTENIENDO EL TIEMPO EN EL QUE RECIBIO PARA DAR EL VOBO
+                var tiempoR = (from v in db.vobo
+                               join mv in db.movimiento_vobo on v.id_vobo equals mv.id_vobo
+                               where v.id_vobo == id_vobo && mv.id_etapa_vobo == 3
+                               select new
+                               {
+                                   fecha = mv.fecha_movimiento
+                               }).FirstOrDefault();
+                string fecha = tiempo == null ? "N/A" : Convert.ToDateTime(tiempo.fecha).ToString("dddd, dd MMMM yyyy, HH:mm:ss");
+                string fechaR = tiempoR == null ? "N/A" : Convert.ToDateTime(tiempoR.fecha).ToString("dddd, dd MMMM yyyy, HH:mm:ss");
+                if (estadoVob == 0)
+                {
+                    ViewContext.Writer.Write("N/A");
+                }
+                else if (estadoVob == 1)
+                {
+
+                    ViewContext.Writer.Write("<center><div class=\"alert alert-success\">V°. B°. Aprobado<figcaption>El día <cite>" + fecha + "</cite></figcaption></div></center>");
+                }
+                else if (estadoVob == 2)
+                {
+                    ViewContext.Writer.Write("<center><div class=\"alert alert-warning\">PENDIENTE</div></center>");
+                }
+                else if (estadoVob == 3)
+                {
+                    ViewContext.Writer.Write("<center><div class=\"alert alert-info\">En proceso de V°.B°.<figcaption>Desde el <cite>" + fechaR + "</cite></figcaption></div></center>");
+                }
+
+
+            });
+            gridViewColumnSettings.AdaptivePriority = 3;
+        });
+
+    });
+    if (ViewData["EditError"] != null)
+    {
+        grid.SetEditErrorText((string)ViewData["EditError"]);
+    }
+}
+@grid.Bind(Model).GetHtml()
