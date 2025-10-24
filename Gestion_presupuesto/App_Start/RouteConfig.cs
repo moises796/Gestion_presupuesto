@@ -16,7 +16,7 @@ namespace Gestion_presupuesto
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Presupuesto", action = "Presupuesto", id = UrlParameter.Optional }
             );
         }
     }

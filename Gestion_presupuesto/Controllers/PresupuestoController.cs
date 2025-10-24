@@ -1,4 +1,6 @@
-﻿using DevExpress.Web.Mvc;
+﻿using DevExpress.ClipboardSource.SpreadsheetML;
+using DevExpress.Web.Mvc;
+using DevExpress.XtraReports.UI;
 using Gestion_presupuesto.Models;
 using System;
 using System.Collections;
@@ -9,6 +11,7 @@ using System.Web.Mvc;
 
 namespace Gestion_presupuesto.Controllers
 {
+    [Authorize]
     public class PresupuestoController : Controller
     {
         // GET: Presupuesto
@@ -34,6 +37,12 @@ namespace Gestion_presupuesto.Controllers
             {
                 return "".ToList();
             }
+        }
+
+        public ActionResult GetVerificarStatus()
+        {
+
+            return Json(new { data = 1 }, JsonRequestBehavior.AllowGet);
         }
 
         public IEnumerable GetFuenteFinanciamiento()
@@ -64,6 +73,16 @@ namespace Gestion_presupuesto.Controllers
             {
                 return "".ToList();
             }
+        }
+
+        public ActionResult ViewerReporteComprobante(int? id_detalle_presupuesto)
+        {
+            object[] data = new object[2];
+            XtraReport rp = new Gestion_presupuesto.Reportes.Comprobante();
+            rp.Parameters["id_detalle_presupuesto"].Value = id_detalle_presupuesto;
+            //rp.CreateDocument();
+            data[0] = rp;
+            return PartialView("repCorrespondencia", data);
         }
 
         [ValidateInput(false)]

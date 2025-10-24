@@ -1,9 +1,11 @@
+@using Gestion_presupuesto.Helpers;
+@using Gestion_presupuesto.Models;
 <!DOCTYPE html>
 <html>
 <head>
 
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" charset="utf-8" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Gesti&oacute;n presupuesto</title>
     <!-- CSS núcleo -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
@@ -32,6 +34,7 @@
             font-family: "Museo Sans 300";
             src: url("../../Content/fonts/MuseoSans-300.otf");
         }
+
         @@font-face {
             font-family: "Museo Sans 500";
             src: url("../../Content/fonts/MuseoSans-500.otf");
@@ -213,9 +216,9 @@
                 <div class="text-center mb-3">
 
 
-                    <img onclick="window.location.href = '@Url.Action("Inicio","Inicio")';" src="@Url.Content("~/Content/media/logo_expanded.svg")" class="img-fluid logo-expanded cursor-pointer" alt="Logo grande" />
+                    <img onclick="window.location.href = '@Url.Action("Index","Home")';" src="@Url.Content("~/Content/media/logo_expanded.svg")" class="img-fluid logo-expanded cursor-pointer" alt="Logo grande" />
 
-                    <img onclick="window.location.href = '@Url.Action("Inicio","Inicio")';" src="@Url.Content("~/Content/media/logo_minimized.svg")" class="img-fluid logo-minimized d-none cursor-pointer" alt="Logo pequeño" />
+                    <img onclick="window.location.href = '@Url.Action("Index","Home")';" src="@Url.Content("~/Content/media/logo_minimized.svg")" class="img-fluid logo-minimized d-none cursor-pointer" alt="Logo pequeño" />
 
 
                 </div>
@@ -232,7 +235,11 @@
                                 Gestion_presupuesto.Models.registro_presupuestoEntities db = new Gestion_presupuesto.Models.registro_presupuestoEntities();
                                 //var rol = Session["rol"].ToString();
                                 var menu = db.menu.Where(x => x.estado == 1).OrderBy(x => x.orden).ToList();
-
+                                string codEmpleado = (string)UserClaims.codigoempleado_key;
+                                var id_emp = Convert.ToInt32(UserClaims.idempleado_key);
+                                var nombre_completo_empleado = (string)UserClaims.nombre_key;
+                                var correo_empleado = (string)UserClaims.correo_key;
+                                var foto_empleado = (string)UserClaims.fotoempleado_key;
                                 for (int i = 0; i < menu.Count(); i++)
                                 {
 
@@ -266,7 +273,7 @@
                                 }
                             }
 
-                            </ul>
+                        </ul>
                     </div>
                 </div>
             </nav>
@@ -291,7 +298,8 @@
                                 data-bs-toggle="dropdown"
                                 aria-expanded="false"
                                 style="text-decoration: none; text-overflow: ellipsis;">
-                            USUARIO @*AQUI IRA EL NOMBRE DE USUARIO*@
+                                @*AQUI IRA EL NOMBRE DE USUARIO*@
+                                @nombre_completo_empleado
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark dropdown-menu-nav w-100" aria-labelledby="userDropdown">
                             <li>
@@ -300,8 +308,8 @@
                                 </a>
                             </li>
                             <li>
-                                <a class="dropdown-item text-white" href="@Url.Action("CerrarSesion", "Login")">
-                                    <i class="fas fa-sign-out-alt me-2"></i> Cerrar sesión
+                                <a class="dropdown-item text-white" href="@Url.Action("SignOut", "Login")">
+                                    <i class="fas fa-sign-out-alt me-2"></i> Cerrar sesi&oacute;n
                                 </a>
                             </li>
                         </ul>
@@ -309,26 +317,25 @@
 
 
                     <div class="flex-shrink-0">
-                        @*<img src="https://sital.asa.gob.sv/Content/ImagenesEmpleado/@ViewBag.Empleado.foto_empleado"
-                             alt="Foto de @ViewBag.Empleado.nombres"
-                             class="rounded-circle border border-1"
-                             style="width: 36px; height: 36px; object-fit: cover;" />*@
+                        <img src="https://sital.asa.gob.sv/Content/ImagenesEmpleado/@foto_empleado"
+                            class="rounded-circle border border-1"
+                            style="width: 36px; height: 36px; object-fit: cover;" />
                     </div>
                 </div>
             </div>
 
 
-  
+
             <!-- /Top navigation -->
             <!-- Contenido -->
             <div class="content-wrapper" style="margin-top: 40px">
                 <div class="snow"></div>
-                <div class="content p-5" >
+                <div class="content p-5">
 
                     <div id="contentt">
                         @RenderBody()
                     </div>
-                    
+
                 </div>
 
 

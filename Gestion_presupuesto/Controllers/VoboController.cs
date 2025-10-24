@@ -1,4 +1,5 @@
 ﻿using DevExpress.Web.Mvc;
+using Gestion_presupuesto.Helpers;
 using Microsoft.Ajax.Utilities;
 using System;
 using System.Collections;
@@ -10,6 +11,7 @@ using static Gestion_presupuesto.Helpers.Clases;
 
 namespace Gestion_presupuesto.Controllers
 {
+    [Authorize]
     public class VoboController : Controller
     {
         // GET: Vobo
@@ -24,7 +26,9 @@ namespace Gestion_presupuesto.Controllers
         [ValidateInput(false)]
         public ActionResult GridVobo()
         {
-            var model = db.consulta_bandeja_vobo(13);
+            string codEmp = (string)UserClaims.codigoempleado_key;
+            var id = Convert.ToInt32(UserClaims.idempleado_key);
+            var model = db.consulta_bandeja_vobo(id);
             List<BandejaVobo> clase = new List<BandejaVobo>();
             model.ForEach(x =>
             {
