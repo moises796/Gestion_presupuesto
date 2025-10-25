@@ -117,10 +117,21 @@ namespace Gestion_presupuesto.Controllers
         }
 
         [ValidateInput(false)]
-        public ActionResult GridListadoVobo(int? id_detalle_presupuesto)
+        public ActionResult GridListadoVobo(int? id_detalle_presupuesto, int? id_movimiento_detalle_presupuesto)
         {
-            var model = db.vobo.Where(x=>x.id_detalle_presupuesto==id_detalle_presupuesto && x.estado != 5);
-            return PartialView("~/Views/Vobo/_GridListadoVobo.cshtml", model.ToList());
+            if (id_detalle_presupuesto != null)
+            {
+                var model = db.vobo.Where(x => x.id_detalle_presupuesto == id_detalle_presupuesto && x.estado != 5);
+
+                return PartialView("~/Views/Vobo/_GridListadoVobo.cshtml", model.ToList());
+            }
+            else
+            {
+                var model = db.vobo.Where(x => x.id_movimiento_detalle_presupuesto == id_movimiento_detalle_presupuesto && x.estado != 5);
+
+                return PartialView("~/Views/Vobo/_GridListadoVobo.cshtml", model.ToList());
+            }
+            
         }
 
 

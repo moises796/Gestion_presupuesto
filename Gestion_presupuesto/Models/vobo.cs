@@ -26,11 +26,13 @@ namespace Gestion_presupuesto.Models
         public Nullable<int> id_etapa_vobo { get; set; }
         public string instruccion { get; set; }
         public Nullable<int> estado { get; set; }
+        public Nullable<int> id_movimiento_detalle_presupuesto { get; set; }
     
         public virtual detalle_presupuesto detalle_presupuesto { get; set; }
         public virtual etapa_vobo etapa_vobo { get; set; }
         public virtual personal_vobo personal_vobo { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<movimiento_vobo> movimiento_vobo { get; set; }
+        public virtual movimiento_detalle_presupuesto movimiento_detalle_presupuesto { get; set; }
     }
 }

@@ -29,6 +29,7 @@
         <AssociationConnector Association="registro_presupuestoModel.FK__movimient__id_pe__693CA210" />
         <AssociationConnector Association="registro_presupuestoModel.FK__movimient__id_ti__6A30C649" />
         <AssociationConnector Association="registro_presupuestoModel.FK__movimient__id_vo__68487DD7" />
+        <AssociationConnector Association="registro_presupuestoModel.FK__vobo__id_movimie__73BA3083" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

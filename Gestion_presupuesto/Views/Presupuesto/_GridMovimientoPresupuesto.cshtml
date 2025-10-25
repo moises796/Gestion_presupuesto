@@ -33,7 +33,7 @@
         GridViewCommandColumnCustomButton editButton = new GridViewCommandColumnCustomButton() { ID = "btnEdit", Text = "Editar" };
         editButton.Image.ToolTip = "Editar";
         settings.CommandColumn.CustomButtons.Add(editButton);
-        GridViewCommandColumnCustomButton inicioButton = new GridViewCommandColumnCustomButton() { ID = "btnEdit", Text = "Iniciar proceso" };
+        GridViewCommandColumnCustomButton inicioButton = new GridViewCommandColumnCustomButton() { ID = "btnInicio", Text = "Iniciar proceso" };
         inicioButton.Image.ToolTip = "Iniciar proceso";
         settings.CommandColumn.CustomButtons.Add(inicioButton);
         GridViewCommandColumnCustomButton voboButton = new GridViewCommandColumnCustomButton() { ID = "btnVobo", Text = "Detalle V°. b°." };
@@ -42,6 +42,7 @@
         GridViewCommandColumnCustomButton finButton = new GridViewCommandColumnCustomButton() { ID = "btnFin", Text = "Comprobante" };
         finButton.Image.ToolTip = "Comprobante finalización";
         settings.CommandColumn.CustomButtons.Add(finButton);
+        settings.ClientSideEvents.CustomButtonClick = "function(s,e){ OnCustomButtonClick(s,e); }";
 
         settings.KeyFieldName = "id_movimiento_detalle_presupuesto";
 

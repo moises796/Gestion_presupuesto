@@ -143,12 +143,8 @@
 </div>
 
 
-@*@Html.Action("GridMovimientoPresupuesto", "Presupuesto")*@
-
 
 <script>
-
-
 
     function normalizeMonthYear(s, e) {
         var d = s.GetDate();
@@ -157,6 +153,35 @@
         s.SetDate(new Date(d.getFullYear(), d.getMonth(), 1));
     }
 
+
+    function OnCustomButtonClick(s, e) {
+
+        if (e.buttonID == "btnEdit") {
+            //DESPUES VALIDAR QUE SI ESTA ANULADO NO PUEDA EDITAR
+            var index = GridMovimientoPresupuesto.GetFocusedRowIndex();
+            var data = GridMovimientoPresupuesto.GetRowKey(index);
+            GridMovimientoPresupuesto.StartEditRow(index);
+        } else if (e.buttonID == "btnInicio") {
+            var index = GridMovimientoPresupuesto.GetFocusedRowIndex();
+            var data = GridMovimientoPresupuesto.GetRowKey(index);
+            $.ajax({
+                type: "POST",
+                url: "@Url.Content("~/Presupuesto/IniciarProcesoMovimiento")",
+                data: "id_movimiento_detalle_presupuesto=" + data
+            }).done(function (resp) {
+                
+            });
+        } else if (e.buttonID == "btnVobo") {
+            var index = GridMovimientoPresupuesto.GetFocusedRowIndex();
+            var data = GridMovimientoPresupuesto.GetRowKey(index);
+
+            //ABRIR MODAL
+            localStorage.setItem("id_movimiento_detalle_presupuesto", data);
+            modalvobo.Show();
+            GridListadoVobo.PerformCallback();
+        }
+
+    }
 
 
     //FLOATING
@@ -215,9 +240,9 @@
                 data: "id_detalle_presupuesto=" + data
             }).done(function (resp) {
                 if (resp.data == 1) {
-                    botonesCommand('btnImprimir', datos[18], datos[1]);
+                    
                 } else {
-                    swal("¡Importante!", "Únicamente el empleado que elaboró o remite la correspondencia están autorizados", "info");
+                    
                 }
             });
         }

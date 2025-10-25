@@ -3,15 +3,15 @@
     Gestion_presupuesto.Controllers.VoboController clase = new Gestion_presupuesto.Controllers.VoboController();
     var grid = Html.DevExpress().GridView(settings =>
     {
-    settings.Name = "GridListadoVobo";
-    settings.CallbackRouteValues = new { Controller = "Vobo", Action = "GridListadoVobo" };
+        settings.Name = "GridListadoVobo";
+        settings.CallbackRouteValues = new { Controller = "Vobo", Action = "GridListadoVobo" };
 
-    settings.SettingsEditing.AddNewRowRouteValues = new { Controller = "Vobo", Action = "GridListadoVoboAddNew" };
-    settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "Vobo", Action = "GridListadoVoboUpdate" };
-    settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "Vobo", Action = "GridListadoVoboDelete" };
-    settings.ClientSideEvents.BeginCallback = "function(s,e){e.customArgs['id_detalle_presupuesto']=localStorage.getItem('id_detalle_presupuesto');}";
-    settings.EnableRowsCache = false;
-    settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+        settings.SettingsEditing.AddNewRowRouteValues = new { Controller = "Vobo", Action = "GridListadoVoboAddNew" };
+        settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "Vobo", Action = "GridListadoVoboUpdate" };
+        settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "Vobo", Action = "GridListadoVoboDelete" };
+        settings.ClientSideEvents.BeginCallback = "function(s,e){e.customArgs['id_detalle_presupuesto']=localStorage.getItem('id_detalle_presupuesto');e.customArgs['id_movimiento_detalle_presupuesto']=localStorage.getItem('id_movimiento_detalle_presupuesto');}";
+        settings.EnableRowsCache = false;
+        settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
         @*settings.ControlStyle.CssClass = "grid animated bounceInLeft";*@
 
         settings.SettingsAdaptivity.AdaptivityMode = GridViewAdaptivityMode.HideDataCells;
