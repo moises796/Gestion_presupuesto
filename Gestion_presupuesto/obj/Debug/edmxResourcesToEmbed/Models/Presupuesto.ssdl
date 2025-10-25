@@ -67,6 +67,7 @@
     <Property Name="id_unidad_organizativa" Type="int" />
     <Property Name="fecha_movimiento" Type="datetime" />
     <Property Name="estado" Type="int" />
+    <Property Name="motivo_movimiento" Type="varchar(max)" />
   </EntityType>
   <EntityType Name="movimiento_vobo">
     <Key>

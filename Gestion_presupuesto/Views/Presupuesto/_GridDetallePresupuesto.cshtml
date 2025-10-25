@@ -49,6 +49,9 @@
         settings.Settings.ShowFilterRow = false;
         settings.SettingsBehavior.AllowSelectByRowClick = true;
 
+        settings.SettingsDetail.AllowOnlyOneMasterRowExpanded = true;
+        settings.SettingsDetail.ShowDetailRow = true;
+
         settings.EditFormLayoutProperties.SettingsAdaptivity.AdaptivityMode = FormLayoutAdaptivityMode.SingleColumnWindowLimit;
         settings.EditFormLayoutProperties.SettingsAdaptivity.SwitchToSingleColumnAtWindowInnerWidth = 900;
         settings.SettingsPopup.EditForm.SettingsAdaptivity.Mode = PopupControlAdaptivityMode.OnWindowInnerWidth;
@@ -159,7 +162,19 @@
                 p.DataSource = clase.GetEstructuras();
             });
         });
-        //settings.Columns.Add("estado");
+
+
+        settings.SetDetailRowTemplateContent(c =>
+        {
+            ViewContext.Writer.Write(
+                "<h4><b>Movimientos de la solicitud</b></h4>" +
+                "<br />" +
+                "<div id='contentt2'>"
+            );
+            Html.RenderAction("GridMovimientoPresupuesto", "Presupuesto", new { id_detalle_presupuesto = DataBinder.Eval(c.DataItem, "id_detalle_presupuesto") });
+            ViewContext.Writer.Write("</div>");
+        });
+
     });
     if (ViewData["EditError"] != null){
         grid.SetEditErrorText((string)ViewData["EditError"]);

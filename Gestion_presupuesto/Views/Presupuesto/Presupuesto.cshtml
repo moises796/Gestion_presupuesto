@@ -46,6 +46,8 @@
 
 }).GetHtml()
 
+
+
 @Html.DevExpress().PopupControl(settings =>
 {
     settings.Name = "modalvobo";
@@ -92,6 +94,29 @@
     });
 }).GetHtml()
 
+@*@Html.DevExpress().PopupControl(settings =>
+{
+    settings.Name = "modalmovimiento";
+    settings.SettingsAdaptivity.Mode = PopupControlAdaptivityMode.OnWindowInnerWidth;
+    settings.Width = 1024;
+    settings.Height = 600;
+    settings.CloseAction = CloseAction.CloseButton;
+    settings.CloseOnEscape = true;
+    settings.PopupAnimationType = DevExpress.Web.AnimationType.Fade;
+    settings.ShowHeader = true;
+    settings.HeaderText = "Movimiento(s) solicitud";
+    settings.Modal = true;
+    settings.AllowDragging = false;
+    settings.PopupHorizontalAlign = PopupHorizontalAlign.WindowCenter;
+    settings.PopupVerticalAlign = PopupVerticalAlign.TopSides;
+    settings.SetContent(() =>
+    {
+
+        @Html.RenderAction("GridMovimientoPresupuesto", "Presupuesto");
+
+    });
+}).GetHtml()*@
+
 <center>
     <h1 class="animated fadeInUp encabezado mt-2">Gestión de presupuesto</h1>
 </center>
@@ -102,7 +127,14 @@
     </div>
 </div>
 
+
+@*@Html.Action("GridMovimientoPresupuesto", "Presupuesto")*@
+
+
 <script>
+
+
+
     function normalizeMonthYear(s, e) {
         var d = s.GetDate();
         if (!d) return;
@@ -158,7 +190,7 @@
             });
 
 
-            
+
         } else if (e.actionName === "Notificar") {
             var index = GridDetallePresupuesto.GetFocusedRowIndex();
             var data = GridDetallePresupuesto.GetRowKey(index);

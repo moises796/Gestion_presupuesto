@@ -267,5 +267,78 @@ namespace Gestion_presupuesto.Controllers
             }
             
         }
+
+
+        [ValidateInput(false)]
+        public ActionResult GridMovimientoPresupuesto(int? id_detalle_presupuesto)
+        {
+            var model = db.movimiento_detalle_presupuesto.Where(x=>x.id_detalle_presupuesto == id_detalle_presupuesto);
+            return PartialView("~/Views/Presupuesto/_GridMovimientoPresupuesto.cshtml", model.ToList());
+        }
+
+        [HttpPost, ValidateInput(false)]
+        public ActionResult GridMovimientoPresupuestoAddNew([ModelBinder(typeof(DevExpressEditorsBinder))] Gestion_presupuesto.Models.movimiento_detalle_presupuesto item)
+        {
+            var model = db.movimiento_detalle_presupuesto;
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    model.Add(item);
+                    db.SaveChanges();
+                }
+                catch (Exception e)
+                {
+                    ViewData["EditError"] = e.Message;
+                }
+            }
+            else
+                ViewData["EditError"] = "Please, correct all errors.";
+            return PartialView("~/Views/Presupuesto/_GridMovimientoPresupuesto.cshtml", model.ToList());
+        }
+        [HttpPost, ValidateInput(false)]
+        public ActionResult GridMovimientoPresupuestoUpdate([ModelBinder(typeof(DevExpressEditorsBinder))] Gestion_presupuesto.Models.movimiento_detalle_presupuesto item)
+        {
+            var model = db.movimiento_detalle_presupuesto;
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var modelItem = model.FirstOrDefault(it => it.id_movimiento_detalle_presupuesto == item.id_movimiento_detalle_presupuesto);
+                    if (modelItem != null)
+                    {
+                        this.UpdateModel(modelItem);
+                        db.SaveChanges();
+                    }
+                }
+                catch (Exception e)
+                {
+                    ViewData["EditError"] = e.Message;
+                }
+            }
+            else
+                ViewData["EditError"] = "Please, correct all errors.";
+            return PartialView("~/Views/Presupuesto/_GridMovimientoPresupuesto.cshtml", model.ToList());
+        }
+        [HttpPost, ValidateInput(false)]
+        public ActionResult GridMovimientoPresupuestoDelete(System.Int32 id_movimiento_detalle_presupuesto)
+        {
+            var model = db.movimiento_detalle_presupuesto;
+            if (id_movimiento_detalle_presupuesto >= 0)
+            {
+                try
+                {
+                    var item = model.FirstOrDefault(it => it.id_movimiento_detalle_presupuesto == id_movimiento_detalle_presupuesto);
+                    if (item != null)
+                        model.Remove(item);
+                    db.SaveChanges();
+                }
+                catch (Exception e)
+                {
+                    ViewData["EditError"] = e.Message;
+                }
+            }
+            return PartialView("~/Views/Presupuesto/_GridMovimientoPresupuesto.cshtml", model.ToList());
+        }
     }
 }

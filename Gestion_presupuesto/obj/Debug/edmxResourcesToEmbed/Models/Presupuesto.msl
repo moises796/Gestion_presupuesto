@@ -38,6 +38,7 @@
     <EntitySetMapping Name="movimiento_detalle_presupuesto">
       <EntityTypeMapping TypeName="registro_presupuestoModel.movimiento_detalle_presupuesto">
         <MappingFragment StoreEntitySet="movimiento_detalle_presupuesto">
+          <ScalarProperty Name="motivo_movimiento" ColumnName="motivo_movimiento" />
           <ScalarProperty Name="id_movimiento_detalle_presupuesto" ColumnName="id_movimiento_detalle_presupuesto" />
           <ScalarProperty Name="id_detalle_presupuesto" ColumnName="id_detalle_presupuesto" />
           <ScalarProperty Name="nombre_proceso" ColumnName="nombre_proceso" />

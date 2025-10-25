@@ -57,6 +57,7 @@
     <NavigationProperty Name="detalle_presupuesto" Relationship="Self.FK__movimient__id_de__4222D4EF" FromRole="movimiento_detalle_presupuesto" ToRole="detalle_presupuesto" />
     <NavigationProperty Name="fuente_financiamiento" Relationship="Self.FK__movimient__id_fu__440B1D61" FromRole="movimiento_detalle_presupuesto" ToRole="fuente_financiamiento" />
     <NavigationProperty Name="metodo_contratacion" Relationship="Self.FK__movimient__id_me__4316F928" FromRole="movimiento_detalle_presupuesto" ToRole="metodo_contratacion" />
+    <Property Name="motivo_movimiento" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
   </EntityType>
   <Association Name="FK__detalle_p__id_fu__3F466844">
     <End Role="fuente_financiamiento" Type="Self.fuente_financiamiento" Multiplicity="0..1" />

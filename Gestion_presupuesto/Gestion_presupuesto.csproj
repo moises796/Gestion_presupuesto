@@ -1955,6 +1955,7 @@
     <Content Include="Views\Vobo\_GridVobo.cshtml" />
     <Content Include="Views\Vobo\_GridListadoVobo.cshtml" />
     <Content Include="Views\Presupuesto\repComprobante.cshtml" />
+    <Content Include="Views\Presupuesto\_GridMovimientoPresupuesto.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
