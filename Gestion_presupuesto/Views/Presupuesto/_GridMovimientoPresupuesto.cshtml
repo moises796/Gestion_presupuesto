@@ -1,10 +1,9 @@
 ﻿@{
     Gestion_presupuesto.Controllers.PresupuestoController clase = new Gestion_presupuesto.Controllers.PresupuestoController();
     var grid = Html.DevExpress().GridView(settings => {
-        settings.Name = "c";
+        settings.Name = "GridMovimientoPresupuesto";
         settings.CallbackRouteValues = new { Controller = "Presupuesto", Action = "GridMovimientoPresupuesto" };
 
-        settings.SettingsEditing.AddNewRowRouteValues = new { Controller = "Presupuesto", Action = "GridMovimientoPresupuestoAddNew" };
         settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "Presupuesto", Action = "GridMovimientoPresupuestoUpdate" };
         settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "Presupuesto", Action = "GridMovimientoPresupuestoDelete" };
 
@@ -27,14 +26,21 @@
         settings.CommandColumn.ShowNewButtonInHeader = false;
         settings.CommandColumn.ShowDeleteButton = false;
         settings.CommandColumn.ShowEditButton = false;
+
+        settings.CommandColumn.CellStyle.CssClass = "cmdcol-vertical";
+        settings.CommandColumn.Width = System.Web.UI.WebControls.Unit.Pixel(140);
+
         GridViewCommandColumnCustomButton editButton = new GridViewCommandColumnCustomButton() { ID = "btnEdit", Text = "Editar" };
         editButton.Image.ToolTip = "Editar";
         settings.CommandColumn.CustomButtons.Add(editButton);
+        GridViewCommandColumnCustomButton inicioButton = new GridViewCommandColumnCustomButton() { ID = "btnEdit", Text = "Iniciar proceso" };
+        inicioButton.Image.ToolTip = "Iniciar proceso";
+        settings.CommandColumn.CustomButtons.Add(inicioButton);
         GridViewCommandColumnCustomButton voboButton = new GridViewCommandColumnCustomButton() { ID = "btnVobo", Text = "Detalle V°. b°." };
-        editButton.Image.ToolTip = "Detalle V°. b°.";
+        voboButton.Image.ToolTip = "Detalle V°. b°.";
         settings.CommandColumn.CustomButtons.Add(voboButton);
         GridViewCommandColumnCustomButton finButton = new GridViewCommandColumnCustomButton() { ID = "btnFin", Text = "Comprobante" };
-        editButton.Image.ToolTip = "Comprobante finalización";
+        finButton.Image.ToolTip = "Comprobante finalización";
         settings.CommandColumn.CustomButtons.Add(finButton);
 
         settings.KeyFieldName = "id_movimiento_detalle_presupuesto";

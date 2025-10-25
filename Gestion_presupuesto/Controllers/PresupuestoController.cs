@@ -272,32 +272,19 @@ namespace Gestion_presupuesto.Controllers
         [ValidateInput(false)]
         public ActionResult GridMovimientoPresupuesto(int? id_detalle_presupuesto)
         {
+            if (id_detalle_presupuesto != 0 && id_detalle_presupuesto != null)
+            {
+                Session["idp"] = id_detalle_presupuesto;
+            }
+            var id = Convert.ToInt32(Session["idp"]);
+            id_detalle_presupuesto = id_detalle_presupuesto == 0 || id_detalle_presupuesto == null ? id : id_detalle_presupuesto;
             var model = db.movimiento_detalle_presupuesto.Where(x=>x.id_detalle_presupuesto == id_detalle_presupuesto);
             return PartialView("~/Views/Presupuesto/_GridMovimientoPresupuesto.cshtml", model.ToList());
         }
 
+
         [HttpPost, ValidateInput(false)]
-        public ActionResult GridMovimientoPresupuestoAddNew([ModelBinder(typeof(DevExpressEditorsBinder))] Gestion_presupuesto.Models.movimiento_detalle_presupuesto item)
-        {
-            var model = db.movimiento_detalle_presupuesto;
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    model.Add(item);
-                    db.SaveChanges();
-                }
-                catch (Exception e)
-                {
-                    ViewData["EditError"] = e.Message;
-                }
-            }
-            else
-                ViewData["EditError"] = "Please, correct all errors.";
-            return PartialView("~/Views/Presupuesto/_GridMovimientoPresupuesto.cshtml", model.ToList());
-        }
-        [HttpPost, ValidateInput(false)]
-        public ActionResult GridMovimientoPresupuestoUpdate([ModelBinder(typeof(DevExpressEditorsBinder))] Gestion_presupuesto.Models.movimiento_detalle_presupuesto item)
+        public ActionResult GridMovimientoPresupuestoUpdate([ModelBinder(typeof(DevExpressEditorsBinder))] Gestion_presupuesto.Models.movimiento_detalle_presupuesto item, int? id_detalle_presupuesto)
         {
             var model = db.movimiento_detalle_presupuesto;
             if (ModelState.IsValid)
@@ -307,7 +294,13 @@ namespace Gestion_presupuesto.Controllers
                     var modelItem = model.FirstOrDefault(it => it.id_movimiento_detalle_presupuesto == item.id_movimiento_detalle_presupuesto);
                     if (modelItem != null)
                     {
-                        this.UpdateModel(modelItem);
+                        modelItem.nombre_proceso = item.nombre_proceso;
+                        modelItem.id_metodo_contratacion = item.id_metodo_contratacion;
+                        modelItem.fecha_inicio = item.fecha_inicio;
+                        modelItem.fecha_fin = item.fecha_fin;
+                        modelItem.monto = item.monto;
+                        modelItem.id_fuente_financiamiento = item.id_fuente_financiamiento;
+                        modelItem.id_unidad_organizativa = item.id_unidad_organizativa;
                         db.SaveChanges();
                     }
                 }
@@ -318,7 +311,7 @@ namespace Gestion_presupuesto.Controllers
             }
             else
                 ViewData["EditError"] = "Please, correct all errors.";
-            return PartialView("~/Views/Presupuesto/_GridMovimientoPresupuesto.cshtml", model.ToList());
+            return GridMovimientoPresupuesto(id_detalle_presupuesto);
         }
         [HttpPost, ValidateInput(false)]
         public ActionResult GridMovimientoPresupuestoDelete(System.Int32 id_movimiento_detalle_presupuesto)

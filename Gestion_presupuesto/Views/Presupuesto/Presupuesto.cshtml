@@ -14,6 +14,21 @@
     new Script { ExtensionSuite = ExtensionSuite.GridView }
 )
 
+<style>
+
+    td.cmdcol-vertical {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 6px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        word-break: break-word;
+        box-sizing: border-box;
+    }
+
+</style>
+
 @Html.DevExpress().FloatingActionButton(settings =>
 {
 

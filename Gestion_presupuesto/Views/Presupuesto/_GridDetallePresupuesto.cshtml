@@ -163,6 +163,19 @@
             });
         });
 
+        settings.SettingsCommandButton.CancelButton.RenderMode = GridCommandButtonRenderMode.Danger;
+        settings.SettingsCommandButton.UpdateButton.RenderMode = GridCommandButtonRenderMode.Button;
+       
+        settings.SettingsText.CommandUpdate = "Modificar";
+        settings.EditFormLayoutCreated = (sender, e) =>
+        {
+            MVCxGridView gridView = sender as MVCxGridView;
+            if (gridView.IsNewRowEditing)
+            {
+                gridView.SettingsText.CommandUpdate = "Guardar";
+                return;
+            }
+        };
 
         settings.SetDetailRowTemplateContent(c =>
         {
