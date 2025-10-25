@@ -39,10 +39,61 @@ namespace Gestion_presupuesto.Controllers
             }
         }
 
-        public ActionResult GetVerificarStatus()
+        public ActionResult GetVerificarStatus(int? id_detalle_presupuesto)
         {
+            var status = db.vobo.Where(x => x.id_detalle_presupuesto == id_detalle_presupuesto && x.id_etapa_vobo != 4);
+            if (status.Count() > 0)
+            {
+                var conteo = 0;
+                foreach (var item in status)
+                {
+                    var finalizado = db.vobo.FirstOrDefault(x => x.id_vobo == item.id_vobo && x.id_etapa_vobo == 1);
+                    if (finalizado != null)
+                    {
+                        conteo++;
+                    }
+                }
+                if (conteo == status.Count())
+                {
+                    return Json(new { data = 1 }, JsonRequestBehavior.AllowGet);
+                }
+                else
+                {
+                    return Json(new { data = -1 }, JsonRequestBehavior.AllowGet);
+                }
+                
+            }
+            else
+            {
+                return Json(new { data = -1 }, JsonRequestBehavior.AllowGet);
+            }
+                
+        }
 
-            return Json(new { data = 1 }, JsonRequestBehavior.AllowGet);
+        public ActionResult IniciarModificativa(int? id_detalle_presupuesto)
+        {
+            var presupuesto_original = db.detalle_presupuesto.FirstOrDefault(x => x.id_detalle_presupuesto == id_detalle_presupuesto);
+            if (presupuesto_original != null)
+            {
+                movimiento_detalle_presupuesto clase = new movimiento_detalle_presupuesto();
+                clase.id_detalle_presupuesto = id_detalle_presupuesto;
+                clase.nombre_proceso = presupuesto_original.nombre_proceso;
+                clase.id_metodo_contratacion = presupuesto_original.id_metodo_contratacion;
+                clase.fecha_inicio = presupuesto_original.fecha_inicio;
+                clase.fecha_fin = presupuesto_original.fecha_fin;
+                clase.monto = presupuesto_original.monto;
+                clase.id_fuente_financiamiento = presupuesto_original.id_fuente_financiamiento;
+                clase.id_unidad_organizativa = presupuesto_original.id_unidad_organizativa;
+                clase.estado = presupuesto_original.estado;
+                clase.fecha_movimiento = DateTime.Now;
+                db.movimiento_detalle_presupuesto.Add(clase);
+                db.SaveChanges();
+
+                return Json(new { data = 1 }, JsonRequestBehavior.AllowGet);
+
+            }
+
+            return Json(new { data = -1 }, JsonRequestBehavior.AllowGet);
         }
 
         public IEnumerable GetFuenteFinanciamiento()
