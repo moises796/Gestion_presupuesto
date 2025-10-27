@@ -30,17 +30,21 @@
         settings.CommandColumn.CellStyle.CssClass = "cmdcol-vertical";
         settings.CommandColumn.Width = System.Web.UI.WebControls.Unit.Pixel(140);
 
-        GridViewCommandColumnCustomButton editButton = new GridViewCommandColumnCustomButton() { ID = "btnEdit", Text = "Editar" };
+        GridViewCommandColumnCustomButton editButton = new GridViewCommandColumnCustomButton() { ID = "btnEdit", Text = " " };
+        editButton.Image.IconID = DevExpress.Web.ASPxThemes.IconID.EditEdit16x16;
         editButton.Image.ToolTip = "Editar";
         settings.CommandColumn.CustomButtons.Add(editButton);
-        GridViewCommandColumnCustomButton inicioButton = new GridViewCommandColumnCustomButton() { ID = "btnInicio", Text = "Iniciar proceso" };
+        var inicioButton = new GridViewCommandColumnCustomButton() { ID = "btnInicio", Text = " " };
+        inicioButton.Image.IconID = DevExpress.Web.ASPxThemes.IconID.ArrowsPlay16x16;
         inicioButton.Image.ToolTip = "Iniciar proceso";
         settings.CommandColumn.CustomButtons.Add(inicioButton);
-        GridViewCommandColumnCustomButton voboButton = new GridViewCommandColumnCustomButton() { ID = "btnVobo", Text = "Detalle V°. b°." };
+        var voboButton = new GridViewCommandColumnCustomButton() { ID = "btnVobo", Text = " " };
+        voboButton.Image.IconID = DevExpress.Web.ASPxThemes.IconID.SupportInfo16x16;
         voboButton.Image.ToolTip = "Detalle V°. b°.";
         settings.CommandColumn.CustomButtons.Add(voboButton);
-        GridViewCommandColumnCustomButton finButton = new GridViewCommandColumnCustomButton() { ID = "btnFin", Text = "Comprobante" };
-        finButton.Image.ToolTip = "Comprobante finalización";
+        var finButton = new GridViewCommandColumnCustomButton() { ID = "btnFin", Text = " " };
+        finButton.Image.IconID = DevExpress.Web.ASPxThemes.IconID.ExportExporttopdf16x16;
+        finButton.Image.ToolTip = "Comprobante";
         settings.CommandColumn.CustomButtons.Add(finButton);
         settings.ClientSideEvents.CustomButtonClick = "function(s,e){ OnCustomButtonClick(s,e); }";
 
