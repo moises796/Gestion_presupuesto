@@ -176,6 +176,8 @@
             var data = GridMovimientoPresupuesto.GetRowKey(index);
 
             //ABRIR MODAL
+            localStorage.removeItem("id_detalle_presupuesto");
+            localStorage.removeItem("id_movimiento_detalle_presupuesto");
             localStorage.setItem("id_movimiento_detalle_presupuesto", data);
             modalvobo.Show();
             GridListadoVobo.PerformCallback();
@@ -251,6 +253,8 @@
             var data = GridDetallePresupuesto.GetRowKey(index);
 
             //ABRIR MODAL
+            localStorage.removeItem("id_detalle_presupuesto");
+            localStorage.removeItem("id_movimiento_detalle_presupuesto");
             localStorage.setItem("id_detalle_presupuesto", data);
             modalvobo.Show();
             GridListadoVobo.PerformCallback();

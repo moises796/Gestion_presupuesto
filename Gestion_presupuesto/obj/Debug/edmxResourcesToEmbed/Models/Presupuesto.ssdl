@@ -120,6 +120,7 @@
     <Property Name="id_etapa_vobo" Type="int" />
     <Property Name="instruccion" Type="varchar" MaxLength="400" />
     <Property Name="estado" Type="int" />
+    <Property Name="id_movimiento_detalle_presupuesto" Type="int" />
   </EntityType>
   <Association Name="FK__detalle_p__id_fu__3F466844">
     <End Role="fuente_financiamiento" Type="Self.fuente_financiamiento" Multiplicity="0..1" />
@@ -265,6 +266,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK__vobo__id_movimie__73BA3083">
+    <End Role="movimiento_detalle_presupuesto" Type="Self.movimiento_detalle_presupuesto" Multiplicity="0..1" />
+    <End Role="vobo" Type="Self.vobo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="movimiento_detalle_presupuesto">
+        <PropertyRef Name="id_movimiento_detalle_presupuesto" />
+      </Principal>
+      <Dependent Role="vobo">
+        <PropertyRef Name="id_movimiento_detalle_presupuesto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__vobo__id_persona__5AEE82B9">
     <End Role="personal_vobo" Type="Self.personal_vobo" Multiplicity="0..1" />
     <End Role="vobo" Type="Self.vobo" Multiplicity="*" />
@@ -338,6 +351,10 @@
     </AssociationSet>
     <AssociationSet Name="FK__vobo__id_etapa_v__5CD6CB2B" Association="Self.FK__vobo__id_etapa_v__5CD6CB2B">
       <End Role="etapa_vobo" EntitySet="etapa_vobo" />
+      <End Role="vobo" EntitySet="vobo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__vobo__id_movimie__73BA3083" Association="Self.FK__vobo__id_movimie__73BA3083">
+      <End Role="movimiento_detalle_presupuesto" EntitySet="movimiento_detalle_presupuesto" />
       <End Role="vobo" EntitySet="vobo" />
     </AssociationSet>
     <AssociationSet Name="FK__vobo__id_persona__5AEE82B9" Association="Self.FK__vobo__id_persona__5AEE82B9">

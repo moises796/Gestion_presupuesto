@@ -103,6 +103,7 @@
     <EntitySetMapping Name="vobo">
       <EntityTypeMapping TypeName="registro_presupuestoModel.vobo">
         <MappingFragment StoreEntitySet="vobo">
+          <ScalarProperty Name="id_movimiento_detalle_presupuesto" ColumnName="id_movimiento_detalle_presupuesto" />
           <ScalarProperty Name="estado" ColumnName="estado" />
           <ScalarProperty Name="instruccion" ColumnName="instruccion" />
           <ScalarProperty Name="id_etapa_vobo" ColumnName="id_etapa_vobo" />
