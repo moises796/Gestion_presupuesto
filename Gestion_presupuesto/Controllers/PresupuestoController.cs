@@ -290,21 +290,20 @@ namespace Gestion_presupuesto.Controllers
         }
 
 
-        public ActionResult ViewerReporteComprobante(int? id_detalle_presupuesto)
+        public ActionResult ViewerReporteComprobante(int? id, int? tipo_vobo)
         {
-            if (id_detalle_presupuesto != null)
-            {
-                object[] data = new object[2];
-                XtraReport rp = new Gestion_presupuesto.Reportes.Comprobante();
-                rp.Parameters["id_detalle_presupuesto"].Value = id_detalle_presupuesto;
-                rp.CreateDocument();
-                data[0] = rp;
-                return PartialView("~/Views/Presupuesto/repComprobante.cshtml", data);
-            }
-            else
+            if (id == null)
             {
                 return PartialView("~/Views/Presupuesto/repComprobante.cshtml");
             }
+            
+            object[] data = new object[2];
+            XtraReport rp = new Gestion_presupuesto.Reportes.Comprobante();
+            rp.Parameters["id"].Value = id;
+            rp.Parameters["tipo_vobo"].Value = tipo_vobo;
+            rp.CreateDocument();
+            data[0] = rp;
+            return PartialView("~/Views/Presupuesto/repComprobante.cshtml", data);
             
         }
 

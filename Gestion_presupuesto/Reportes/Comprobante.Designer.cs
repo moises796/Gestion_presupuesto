@@ -41,6 +41,7 @@
             this.VerticalDetail1 = new DevExpress.XtraReports.UI.VerticalDetailBand();
             this.xrLabel17 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel16 = new DevExpress.XtraReports.UI.XRLabel();
+            this.sp_voboTableAdapter1 = new Gestion_presupuesto.Reportes.dsComprobanteTableAdapters.sp_voboTableAdapter();
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
             this.xrLabel14 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel13 = new DevExpress.XtraReports.UI.XRLabel();
@@ -57,7 +58,6 @@
             this.xrLabel2 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
             this.tipo_vobo = new DevExpress.XtraReports.Parameters.Parameter();
-            this.sp_voboTableAdapter1 = new Gestion_presupuesto.Reportes.dsComprobanteTableAdapters.sp_voboTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dsComprobante1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
@@ -82,6 +82,7 @@
             // 
             // id
             // 
+            this.id.AllowNull = true;
             this.id.Description = "Parameter1";
             this.id.Name = "id";
             this.id.Type = typeof(int);
@@ -148,6 +149,10 @@
             this.xrLabel16.StylePriority.UseTextAlignment = false;
             this.xrLabel16.Text = "xrLabel16";
             this.xrLabel16.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            // 
+            // sp_voboTableAdapter1
+            // 
+            this.sp_voboTableAdapter1.ClearBeforeFill = true;
             // 
             // Detail
             // 
@@ -364,14 +369,11 @@
             // 
             // tipo_vobo
             // 
+            this.tipo_vobo.AllowNull = true;
             this.tipo_vobo.Description = "Parameter1";
             this.tipo_vobo.Name = "tipo_vobo";
             this.tipo_vobo.Type = typeof(int);
             this.tipo_vobo.ValueInfo = "0";
-            // 
-            // sp_voboTableAdapter1
-            // 
-            this.sp_voboTableAdapter1.ClearBeforeFill = true;
             // 
             // Comprobante
             // 
@@ -389,7 +391,8 @@
             this.Font = new DevExpress.Drawing.DXFont("Arial", 9.75F);
             this.Margins = new DevExpress.Drawing.DXMargins(35F, 37F, 25.69444F, 27.08333F);
             this.ParameterPanelLayoutItems.AddRange(new DevExpress.XtraReports.Parameters.ParameterPanelLayoutItem[] {
-            new DevExpress.XtraReports.Parameters.ParameterLayoutItem(this.id, DevExpress.XtraReports.Parameters.Orientation.Horizontal)});
+            new DevExpress.XtraReports.Parameters.ParameterLayoutItem(this.id, DevExpress.XtraReports.Parameters.Orientation.Horizontal),
+            new DevExpress.XtraReports.Parameters.ParameterLayoutItem(this.tipo_vobo, DevExpress.XtraReports.Parameters.Orientation.Horizontal)});
             this.Parameters.AddRange(new DevExpress.XtraReports.Parameters.Parameter[] {
             this.id,
             this.tipo_vobo});

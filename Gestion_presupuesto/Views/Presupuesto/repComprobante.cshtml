@@ -2,7 +2,7 @@
 {
     settings.Name = "repComprobante";
     settings.CallbackRouteValues = new { Controller = "Presupuesto", Action = "ViewerReporteComprobante" };
-    settings.ClientSideEvents.BeginCallback = "function(s,e){e.customArgs[\"id_detalle_presupuesto\"]=localStorage.getItem(\"id_detalle_presupuesto\");}";
+    settings.ClientSideEvents.BeginCallback = "function(s,e){e.customArgs[\"id\"]=localStorage.getItem(\"id\");e.customArgs[\"tipo_vobo\"]=localStorage.getItem(\"tipo_vobo\");}";
     settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
     settings.Height = 500;
 

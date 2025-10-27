@@ -181,6 +181,15 @@
             localStorage.setItem("id_movimiento_detalle_presupuesto", data);
             modalvobo.Show();
             GridListadoVobo.PerformCallback();
+        } else if (e.buttonID == "btnFin") {
+            var index = GridDetallePresupuesto.GetFocusedRowIndex();
+            var data = GridDetallePresupuesto.GetRowKey(index);
+            localStorage.removeItem("id");
+            localStorage.removeItem("tipo_vobo");
+            localStorage.setItem("id", data);
+            localStorage.setItem("tipo_vobo", 2);
+            repComprobante.PerformCallback();
+            modalviewer.Show();
         }
 
     }
@@ -262,7 +271,10 @@
         else if (e.actionName === "Imprimir") {
             var index = GridDetallePresupuesto.GetFocusedRowIndex();
             var data = GridDetallePresupuesto.GetRowKey(index);
-            localStorage.setItem("id_detalle_presupuesto", data);
+            localStorage.removeItem("id");
+            localStorage.removeItem("tipo_vobo");
+            localStorage.setItem("id", data);
+            localStorage.setItem("tipo_vobo", 1);
             repComprobante.PerformCallback();
             modalviewer.Show();
 
