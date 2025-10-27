@@ -39,13 +39,13 @@ namespace Gestion_presupuesto.Models
         public virtual DbSet<movimiento_vobo> movimiento_vobo { get; set; }
         public virtual DbSet<tipo_movimiento> tipo_movimiento { get; set; }
     
-        public virtual ObjectResult<consulta_bandeja_vobo_Result1> consulta_bandeja_vobo(Nullable<int> id_empleado)
+        public virtual ObjectResult<consulta_bandeja_vobo_Result3> consulta_bandeja_vobo(Nullable<int> id_empleado)
         {
             var id_empleadoParameter = id_empleado.HasValue ?
                 new ObjectParameter("id_empleado", id_empleado) :
                 new ObjectParameter("id_empleado", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<consulta_bandeja_vobo_Result1>("consulta_bandeja_vobo", id_empleadoParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<consulta_bandeja_vobo_Result3>("consulta_bandeja_vobo", id_empleadoParameter);
         }
     }
 }

@@ -59,6 +59,7 @@
     <NavigationProperty Name="metodo_contratacion" Relationship="Self.FK__movimient__id_me__4316F928" FromRole="movimiento_detalle_presupuesto" ToRole="metodo_contratacion" />
     <Property Name="motivo_movimiento" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="vobo" Relationship="registro_presupuestoModel.FK__vobo__id_movimie__73BA3083" FromRole="movimiento_detalle_presupuesto" ToRole="vobo" />
+    <Property Name="codigo" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
   </EntityType>
   <Association Name="FK__detalle_p__id_fu__3F466844">
     <End Role="fuente_financiamiento" Type="Self.fuente_financiamiento" Multiplicity="0..1" />
@@ -166,9 +167,6 @@
       <End Role="personal_vobo" EntitySet="personal_vobo" />
       <End Role="vobo" EntitySet="vobo" />
     </AssociationSet>
-    <FunctionImport Name="consulta_bandeja_vobo" ReturnType="Collection(registro_presupuestoModel.consulta_bandeja_vobo_Result1)">
-      <Parameter Name="id_empleado" Mode="In" Type="Int32" />
-    </FunctionImport>
     <EntitySet Name="movimiento_vobo" EntityType="registro_presupuestoModel.movimiento_vobo" />
     <EntitySet Name="tipo_movimiento" EntityType="registro_presupuestoModel.tipo_movimiento" />
     <AssociationSet Name="FK__movimient__id_et__6B24EA82" Association="registro_presupuestoModel.FK__movimient__id_et__6B24EA82">
@@ -191,6 +189,9 @@
       <End Role="movimiento_detalle_presupuesto" EntitySet="movimiento_detalle_presupuesto" />
       <End Role="vobo" EntitySet="vobo" />
     </AssociationSet>
+    <FunctionImport Name="consulta_bandeja_vobo" ReturnType="Collection(registro_presupuestoModel.consulta_bandeja_vobo_Result3)">
+      <Parameter Name="id_empleado" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
   <EntityType Name="menu">
     <Key>
@@ -415,4 +416,32 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <ComplexType Name="consulta_bandeja_vobo_Result2">
+    <Property Type="Int32" Name="id" Nullable="true" />
+    <Property Type="String" Name="codigo" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="nombre_proceso" Nullable="true" MaxLength="350" />
+    <Property Type="Int32" Name="id_metodo_contratacion" Nullable="true" />
+    <Property Type="DateTime" Name="fecha_inicio" Nullable="true" />
+    <Property Type="DateTime" Name="fecha_fin" Nullable="true" />
+    <Property Type="Double" Name="Column1" Nullable="true" />
+    <Property Type="Int32" Name="id_fuente_financiamiento" Nullable="true" />
+    <Property Type="Int32" Name="id_unidad_organizativa" Nullable="true" />
+    <Property Type="Int32" Name="estado" Nullable="true" />
+    <Property Type="Int32" Name="id_vobo" Nullable="false" />
+    <Property Type="Int32" Name="tipo_vobo" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="consulta_bandeja_vobo_Result3">
+    <Property Type="Int32" Name="id" Nullable="true" />
+    <Property Type="String" Name="codigo" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="nombre_proceso" Nullable="true" MaxLength="350" />
+    <Property Type="Int32" Name="id_metodo_contratacion" Nullable="true" />
+    <Property Type="DateTime" Name="fecha_inicio" Nullable="true" />
+    <Property Type="DateTime" Name="fecha_fin" Nullable="true" />
+    <Property Type="Double" Name="monto" Nullable="true" />
+    <Property Type="Int32" Name="id_fuente_financiamiento" Nullable="true" />
+    <Property Type="Int32" Name="id_unidad_organizativa" Nullable="true" />
+    <Property Type="Int32" Name="estado" Nullable="true" />
+    <Property Type="Int32" Name="id_vobo" Nullable="false" />
+    <Property Type="Int32" Name="tipo_vobo" Nullable="false" />
+  </ComplexType>
 </Schema>

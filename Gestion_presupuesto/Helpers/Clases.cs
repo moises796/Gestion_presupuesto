@@ -10,7 +10,7 @@ namespace Gestion_presupuesto.Helpers
         public partial class BandejaVobo
         {
             public int? id_vobo {  get; set; }
-            public int? id_detalle_presupuesto { get; set; }
+            public int? id { get; set; }
             public string codigo { get; set; }
             public string nombre_proceso { get; set; }
             public int? id_metodo_contratacion { get; set; }
@@ -20,6 +20,8 @@ namespace Gestion_presupuesto.Helpers
             public int? id_fuente_financiamiento { get; set; }
             public int? id_unidad_organizativa { get; set; }
             public int? estado { get; set; }
+            public int? tipo_vobo { get; set; }
+            
         }
         public partial class EmpleadoVobo
         {

@@ -32,6 +32,7 @@ namespace Gestion_presupuesto.Models
         public Nullable<System.DateTime> fecha_movimiento { get; set; }
         public Nullable<int> estado { get; set; }
         public string motivo_movimiento { get; set; }
+        public string codigo { get; set; }
     
         public virtual detalle_presupuesto detalle_presupuesto { get; set; }
         public virtual fuente_financiamiento fuente_financiamiento { get; set; }

@@ -68,6 +68,7 @@
     <Property Name="fecha_movimiento" Type="datetime" />
     <Property Name="estado" Type="int" />
     <Property Name="motivo_movimiento" Type="varchar(max)" />
+    <Property Name="codigo" Type="varchar" MaxLength="150" />
   </EntityType>
   <EntityType Name="movimiento_vobo">
     <Key>

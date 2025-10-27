@@ -34,7 +34,7 @@ namespace Gestion_presupuesto.Controllers
             {
                 BandejaVobo bv = new BandejaVobo();
                 bv.id_vobo = x.id_vobo;
-                bv.id_detalle_presupuesto = x.id_detalle_presupuesto;
+                bv.id = x.id;
                 bv.codigo = x.codigo;
                 bv.nombre_proceso = x.nombre_proceso;
                 bv.id_metodo_contratacion = x.id_metodo_contratacion;
@@ -44,6 +44,7 @@ namespace Gestion_presupuesto.Controllers
                 bv.id_fuente_financiamiento = x.id_fuente_financiamiento;
                 bv.id_unidad_organizativa = x.id_unidad_organizativa;
                 bv.estado = x.estado;
+                bv.tipo_vobo  = x.tipo_vobo;
                 clase.Add(bv);
             });
 
@@ -52,34 +53,67 @@ namespace Gestion_presupuesto.Controllers
 
 
         [HttpPost, ValidateInput(false)]
-        public ActionResult GridVoboUpdate([ModelBinder(typeof(DevExpressEditorsBinder))] Gestion_presupuesto.Models.detalle_presupuesto item)
+        public ActionResult GridVoboUpdate([ModelBinder(typeof(DevExpressEditorsBinder))] Gestion_presupuesto.Helpers.Clases.BandejaVobo item)
         {
-            var model = db.detalle_presupuesto;
-            if (ModelState.IsValid)
+            if (item.tipo_vobo == 1)
             {
-                try
+                var model = db.detalle_presupuesto;
+                if (ModelState.IsValid)
                 {
-                    var modelItem = model.FirstOrDefault(it => it.id_detalle_presupuesto == item.id_detalle_presupuesto);
-                    if (modelItem != null)
+                    try
                     {
-                        modelItem.nombre_proceso = item.nombre_proceso;
-                        modelItem.id_metodo_contratacion = item.id_metodo_contratacion;
-                        modelItem.fecha_inicio = item.fecha_inicio;
-                        modelItem.fecha_fin = item.fecha_fin;
-                        modelItem.monto = item.monto;
-                        modelItem.id_fuente_financiamiento = item.id_fuente_financiamiento;
-                        modelItem.id_unidad_organizativa = item.id_unidad_organizativa;
-                        db.SaveChanges();
+                        var modelItem = model.FirstOrDefault(it => it.id_detalle_presupuesto == item.id);
+                        if (modelItem != null)
+                        {
+                            modelItem.nombre_proceso = item.nombre_proceso;
+                            modelItem.id_metodo_contratacion = item.id_metodo_contratacion;
+                            modelItem.fecha_inicio = item.fecha_inicio;
+                            modelItem.fecha_fin = item.fecha_fin;
+                            modelItem.monto = item.monto;
+                            modelItem.id_fuente_financiamiento = item.id_fuente_financiamiento;
+                            modelItem.id_unidad_organizativa = item.id_unidad_organizativa;
+                            db.SaveChanges();
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        ViewData["EditError"] = e.Message;
                     }
                 }
-                catch (Exception e)
-                {
-                    ViewData["EditError"] = e.Message;
-                }
+                else
+                    ViewData["EditError"] = "Please, correct all errors.";
+                return GridVobo();
             }
             else
-                ViewData["EditError"] = "Please, correct all errors.";
-            return GridVobo();
+            {
+                var model = db.movimiento_detalle_presupuesto;
+                if (ModelState.IsValid)
+                {
+                    try
+                    {
+                        var modelItem = model.FirstOrDefault(it => it.id_movimiento_detalle_presupuesto == item.id);
+                        if (modelItem != null)
+                        {
+                            modelItem.nombre_proceso = item.nombre_proceso;
+                            modelItem.id_metodo_contratacion = item.id_metodo_contratacion;
+                            modelItem.fecha_inicio = item.fecha_inicio;
+                            modelItem.fecha_fin = item.fecha_fin;
+                            modelItem.monto = item.monto;
+                            modelItem.id_fuente_financiamiento = item.id_fuente_financiamiento;
+                            modelItem.id_unidad_organizativa = item.id_unidad_organizativa;
+                            db.SaveChanges();
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        ViewData["EditError"] = e.Message;
+                    }
+                }
+                else
+                    ViewData["EditError"] = "Please, correct all errors.";
+                return GridVobo();
+            }
+            
         }
 
         public ActionResult Observar(int? id_vobo, int? id_detalle_presupuesto,string instruccion)

@@ -28,8 +28,6 @@ namespace Gestion_presupuesto.Reportes {
         
         private sp_voboDataTable tablesp_vobo;
         
-        private global::System.Data.DataRelation relationsp_comprobante_sp_vobo;
-        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -220,7 +218,6 @@ namespace Gestion_presupuesto.Reportes {
                     this.tablesp_vobo.InitVars();
                 }
             }
-            this.relationsp_comprobante_sp_vobo = this.Relations["sp_comprobante_sp_vobo"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -235,10 +232,6 @@ namespace Gestion_presupuesto.Reportes {
             base.Tables.Add(this.tablesp_comprobante);
             this.tablesp_vobo = new sp_voboDataTable();
             base.Tables.Add(this.tablesp_vobo);
-            this.relationsp_comprobante_sp_vobo = new global::System.Data.DataRelation("sp_comprobante_sp_vobo", new global::System.Data.DataColumn[] {
-                        this.tablesp_comprobante.id_detalle_presupuestoColumn}, new global::System.Data.DataColumn[] {
-                        this.tablesp_vobo.id_detalle_presupuestoColumn}, false);
-            this.Relations.Add(this.relationsp_comprobante_sp_vobo);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -321,13 +314,13 @@ namespace Gestion_presupuesto.Reportes {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class sp_comprobanteDataTable : global::System.Data.TypedTableBase<sp_comprobanteRow> {
             
-            private global::System.Data.DataColumn columnid_detalle_presupuesto;
+            private global::System.Data.DataColumn columnid;
             
             private global::System.Data.DataColumn columncodigo;
             
             private global::System.Data.DataColumn columnnombre_proceso;
             
-            private global::System.Data.DataColumn columnid_metodo_contratacion;
+            private global::System.Data.DataColumn columnmetodo_contratacion;
             
             private global::System.Data.DataColumn columnfecha_inicio;
             
@@ -335,19 +328,11 @@ namespace Gestion_presupuesto.Reportes {
             
             private global::System.Data.DataColumn columnmonto;
             
-            private global::System.Data.DataColumn columnid_fuente_financiamiento;
-            
-            private global::System.Data.DataColumn columnid_unidad_organizativa;
-            
-            private global::System.Data.DataColumn columnestado;
-            
-            private global::System.Data.DataColumn columnmetodo_contratacion;
-            
             private global::System.Data.DataColumn columnfuente_financiamiento;
             
-            private global::System.Data.DataColumn columnnombre;
-            
             private global::System.Data.DataColumn columnunidad_organizativa;
+            
+            private global::System.Data.DataColumn columnestado;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -384,9 +369,9 @@ namespace Gestion_presupuesto.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn id_detalle_presupuestoColumn {
+            public global::System.Data.DataColumn idColumn {
                 get {
-                    return this.columnid_detalle_presupuesto;
+                    return this.columnid;
                 }
             }
             
@@ -408,9 +393,9 @@ namespace Gestion_presupuesto.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn id_metodo_contratacionColumn {
+            public global::System.Data.DataColumn metodo_contratacionColumn {
                 get {
-                    return this.columnid_metodo_contratacion;
+                    return this.columnmetodo_contratacion;
                 }
             }
             
@@ -440,38 +425,6 @@ namespace Gestion_presupuesto.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn id_fuente_financiamientoColumn {
-                get {
-                    return this.columnid_fuente_financiamiento;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn id_unidad_organizativaColumn {
-                get {
-                    return this.columnid_unidad_organizativa;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn estadoColumn {
-                get {
-                    return this.columnestado;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn metodo_contratacionColumn {
-                get {
-                    return this.columnmetodo_contratacion;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn fuente_financiamientoColumn {
                 get {
                     return this.columnfuente_financiamiento;
@@ -480,17 +433,17 @@ namespace Gestion_presupuesto.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn nombreColumn {
+            public global::System.Data.DataColumn unidad_organizativaColumn {
                 get {
-                    return this.columnnombre;
+                    return this.columnunidad_organizativa;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn unidad_organizativaColumn {
+            public global::System.Data.DataColumn estadoColumn {
                 get {
-                    return this.columnunidad_organizativa;
+                    return this.columnestado;
                 }
             }
             
@@ -531,23 +484,19 @@ namespace Gestion_presupuesto.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public sp_comprobanteRow Addsp_comprobanteRow(string codigo, string nombre_proceso, int id_metodo_contratacion, System.DateTime fecha_inicio, System.DateTime fecha_fin, double monto, int id_fuente_financiamiento, int id_unidad_organizativa, int estado, string metodo_contratacion, string fuente_financiamiento, string nombre, string unidad_organizativa) {
+            public sp_comprobanteRow Addsp_comprobanteRow(string codigo, string nombre_proceso, string metodo_contratacion, System.DateTime fecha_inicio, System.DateTime fecha_fin, double monto, string fuente_financiamiento, string unidad_organizativa, int estado) {
                 sp_comprobanteRow rowsp_comprobanteRow = ((sp_comprobanteRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         codigo,
                         nombre_proceso,
-                        id_metodo_contratacion,
+                        metodo_contratacion,
                         fecha_inicio,
                         fecha_fin,
                         monto,
-                        id_fuente_financiamiento,
-                        id_unidad_organizativa,
-                        estado,
-                        metodo_contratacion,
                         fuente_financiamiento,
-                        nombre,
-                        unidad_organizativa};
+                        unidad_organizativa,
+                        estado};
                 rowsp_comprobanteRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowsp_comprobanteRow);
                 return rowsp_comprobanteRow;
@@ -555,9 +504,9 @@ namespace Gestion_presupuesto.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public sp_comprobanteRow FindByid_detalle_presupuesto(int id_detalle_presupuesto) {
+            public sp_comprobanteRow FindByid(int id) {
                 return ((sp_comprobanteRow)(this.Rows.Find(new object[] {
-                            id_detalle_presupuesto})));
+                            id})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -577,66 +526,53 @@ namespace Gestion_presupuesto.Reportes {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
-                this.columnid_detalle_presupuesto = base.Columns["id_detalle_presupuesto"];
+                this.columnid = base.Columns["id"];
                 this.columncodigo = base.Columns["codigo"];
                 this.columnnombre_proceso = base.Columns["nombre_proceso"];
-                this.columnid_metodo_contratacion = base.Columns["id_metodo_contratacion"];
+                this.columnmetodo_contratacion = base.Columns["metodo_contratacion"];
                 this.columnfecha_inicio = base.Columns["fecha_inicio"];
                 this.columnfecha_fin = base.Columns["fecha_fin"];
                 this.columnmonto = base.Columns["monto"];
-                this.columnid_fuente_financiamiento = base.Columns["id_fuente_financiamiento"];
-                this.columnid_unidad_organizativa = base.Columns["id_unidad_organizativa"];
-                this.columnestado = base.Columns["estado"];
-                this.columnmetodo_contratacion = base.Columns["metodo_contratacion"];
                 this.columnfuente_financiamiento = base.Columns["fuente_financiamiento"];
-                this.columnnombre = base.Columns["nombre"];
                 this.columnunidad_organizativa = base.Columns["unidad_organizativa"];
+                this.columnestado = base.Columns["estado"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             private void InitClass() {
-                this.columnid_detalle_presupuesto = new global::System.Data.DataColumn("id_detalle_presupuesto", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnid_detalle_presupuesto);
+                this.columnid = new global::System.Data.DataColumn("id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid);
                 this.columncodigo = new global::System.Data.DataColumn("codigo", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncodigo);
                 this.columnnombre_proceso = new global::System.Data.DataColumn("nombre_proceso", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnombre_proceso);
-                this.columnid_metodo_contratacion = new global::System.Data.DataColumn("id_metodo_contratacion", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnid_metodo_contratacion);
+                this.columnmetodo_contratacion = new global::System.Data.DataColumn("metodo_contratacion", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnmetodo_contratacion);
                 this.columnfecha_inicio = new global::System.Data.DataColumn("fecha_inicio", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnfecha_inicio);
                 this.columnfecha_fin = new global::System.Data.DataColumn("fecha_fin", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnfecha_fin);
                 this.columnmonto = new global::System.Data.DataColumn("monto", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnmonto);
-                this.columnid_fuente_financiamiento = new global::System.Data.DataColumn("id_fuente_financiamiento", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnid_fuente_financiamiento);
-                this.columnid_unidad_organizativa = new global::System.Data.DataColumn("id_unidad_organizativa", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnid_unidad_organizativa);
-                this.columnestado = new global::System.Data.DataColumn("estado", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnestado);
-                this.columnmetodo_contratacion = new global::System.Data.DataColumn("metodo_contratacion", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnmetodo_contratacion);
                 this.columnfuente_financiamiento = new global::System.Data.DataColumn("fuente_financiamiento", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnfuente_financiamiento);
-                this.columnnombre = new global::System.Data.DataColumn("nombre", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnnombre);
                 this.columnunidad_organizativa = new global::System.Data.DataColumn("unidad_organizativa", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnunidad_organizativa);
+                this.columnestado = new global::System.Data.DataColumn("estado", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnestado);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnid_detalle_presupuesto}, true));
-                this.columnid_detalle_presupuesto.AutoIncrement = true;
-                this.columnid_detalle_presupuesto.AutoIncrementSeed = -1;
-                this.columnid_detalle_presupuesto.AutoIncrementStep = -1;
-                this.columnid_detalle_presupuesto.AllowDBNull = false;
-                this.columnid_detalle_presupuesto.ReadOnly = true;
-                this.columnid_detalle_presupuesto.Unique = true;
+                                this.columnid}, true));
+                this.columnid.AutoIncrement = true;
+                this.columnid.AutoIncrementSeed = -1;
+                this.columnid.AutoIncrementStep = -1;
+                this.columnid.AllowDBNull = false;
+                this.columnid.ReadOnly = true;
+                this.columnid.Unique = true;
                 this.columncodigo.MaxLength = 150;
                 this.columnnombre_proceso.MaxLength = 350;
                 this.columnmetodo_contratacion.MaxLength = 250;
                 this.columnfuente_financiamiento.MaxLength = 250;
-                this.columnnombre.MaxLength = 2147483647;
                 this.columnunidad_organizativa.MaxLength = 2147483647;
             }
             
@@ -771,7 +707,7 @@ namespace Gestion_presupuesto.Reportes {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class sp_voboDataTable : global::System.Data.TypedTableBase<sp_voboRow> {
             
-            private global::System.Data.DataColumn columnid_detalle_presupuesto;
+            private global::System.Data.DataColumn columnid;
             
             private global::System.Data.DataColumn columnnombre_empleado_vobo;
             
@@ -812,9 +748,9 @@ namespace Gestion_presupuesto.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn id_detalle_presupuestoColumn {
+            public global::System.Data.DataColumn idColumn {
                 get {
-                    return this.columnid_detalle_presupuesto;
+                    return this.columnid;
                 }
             }
             
@@ -871,15 +807,12 @@ namespace Gestion_presupuesto.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public sp_voboRow Addsp_voboRow(sp_comprobanteRow parentsp_comprobanteRowBysp_comprobante_sp_vobo, string nombre_empleado_vobo, System.DateTime fecha_movimiento) {
+            public sp_voboRow Addsp_voboRow(int id, string nombre_empleado_vobo, System.DateTime fecha_movimiento) {
                 sp_voboRow rowsp_voboRow = ((sp_voboRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        null,
+                        id,
                         nombre_empleado_vobo,
                         fecha_movimiento};
-                if ((parentsp_comprobanteRowBysp_comprobante_sp_vobo != null)) {
-                    columnValuesArray[0] = parentsp_comprobanteRowBysp_comprobante_sp_vobo[0];
-                }
                 rowsp_voboRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowsp_voboRow);
                 return rowsp_voboRow;
@@ -902,7 +835,7 @@ namespace Gestion_presupuesto.Reportes {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
-                this.columnid_detalle_presupuesto = base.Columns["id_detalle_presupuesto"];
+                this.columnid = base.Columns["id"];
                 this.columnnombre_empleado_vobo = base.Columns["nombre_empleado_vobo"];
                 this.columnfecha_movimiento = base.Columns["fecha_movimiento"];
             }
@@ -910,14 +843,14 @@ namespace Gestion_presupuesto.Reportes {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             private void InitClass() {
-                this.columnid_detalle_presupuesto = new global::System.Data.DataColumn("id_detalle_presupuesto", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnid_detalle_presupuesto);
+                this.columnid = new global::System.Data.DataColumn("id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid);
                 this.columnnombre_empleado_vobo = new global::System.Data.DataColumn("nombre_empleado_vobo", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnombre_empleado_vobo);
                 this.columnfecha_movimiento = new global::System.Data.DataColumn("fecha_movimiento", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnfecha_movimiento);
                 this.columnnombre_empleado_vobo.ReadOnly = true;
-                this.columnnombre_empleado_vobo.MaxLength = 301;
+                this.columnnombre_empleado_vobo.MaxLength = 315;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1060,12 +993,12 @@ namespace Gestion_presupuesto.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int id_detalle_presupuesto {
+            public int id {
                 get {
-                    return ((int)(this[this.tablesp_comprobante.id_detalle_presupuestoColumn]));
+                    return ((int)(this[this.tablesp_comprobante.idColumn]));
                 }
                 set {
-                    this[this.tablesp_comprobante.id_detalle_presupuestoColumn] = value;
+                    this[this.tablesp_comprobante.idColumn] = value;
                 }
             }
             
@@ -1103,18 +1036,18 @@ namespace Gestion_presupuesto.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int id_metodo_contratacion {
+            public string metodo_contratacion {
                 get {
                     try {
-                        return ((int)(this[this.tablesp_comprobante.id_metodo_contratacionColumn]));
+                        return ((string)(this[this.tablesp_comprobante.metodo_contratacionColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'id_metodo_contratacion\' de la tabla \'sp_comprobante\' es D" +
-                                "BNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'metodo_contratacion\' de la tabla \'sp_comprobante\' es DBNu" +
+                                "ll.", e);
                     }
                 }
                 set {
-                    this[this.tablesp_comprobante.id_metodo_contratacionColumn] = value;
+                    this[this.tablesp_comprobante.metodo_contratacionColumn] = value;
                 }
             }
             
@@ -1168,73 +1101,6 @@ namespace Gestion_presupuesto.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int id_fuente_financiamiento {
-                get {
-                    try {
-                        return ((int)(this[this.tablesp_comprobante.id_fuente_financiamientoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'id_fuente_financiamiento\' de la tabla \'sp_comprobante\' es" +
-                                " DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_comprobante.id_fuente_financiamientoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int id_unidad_organizativa {
-                get {
-                    try {
-                        return ((int)(this[this.tablesp_comprobante.id_unidad_organizativaColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'id_unidad_organizativa\' de la tabla \'sp_comprobante\' es D" +
-                                "BNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_comprobante.id_unidad_organizativaColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int estado {
-                get {
-                    try {
-                        return ((int)(this[this.tablesp_comprobante.estadoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'estado\' de la tabla \'sp_comprobante\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_comprobante.estadoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string metodo_contratacion {
-                get {
-                    try {
-                        return ((string)(this[this.tablesp_comprobante.metodo_contratacionColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'metodo_contratacion\' de la tabla \'sp_comprobante\' es DBNu" +
-                                "ll.", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_comprobante.metodo_contratacionColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string fuente_financiamiento {
                 get {
                     try {
@@ -1252,22 +1118,6 @@ namespace Gestion_presupuesto.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string nombre {
-                get {
-                    try {
-                        return ((string)(this[this.tablesp_comprobante.nombreColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'nombre\' de la tabla \'sp_comprobante\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_comprobante.nombreColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string unidad_organizativa {
                 get {
                     try {
@@ -1280,6 +1130,22 @@ namespace Gestion_presupuesto.Reportes {
                 }
                 set {
                     this[this.tablesp_comprobante.unidad_organizativaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int estado {
+                get {
+                    try {
+                        return ((int)(this[this.tablesp_comprobante.estadoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'estado\' de la tabla \'sp_comprobante\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_comprobante.estadoColumn] = value;
                 }
             }
             
@@ -1309,14 +1175,14 @@ namespace Gestion_presupuesto.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Isid_metodo_contratacionNull() {
-                return this.IsNull(this.tablesp_comprobante.id_metodo_contratacionColumn);
+            public bool Ismetodo_contratacionNull() {
+                return this.IsNull(this.tablesp_comprobante.metodo_contratacionColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Setid_metodo_contratacionNull() {
-                this[this.tablesp_comprobante.id_metodo_contratacionColumn] = global::System.Convert.DBNull;
+            public void Setmetodo_contratacionNull() {
+                this[this.tablesp_comprobante.metodo_contratacionColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1357,54 +1223,6 @@ namespace Gestion_presupuesto.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Isid_fuente_financiamientoNull() {
-                return this.IsNull(this.tablesp_comprobante.id_fuente_financiamientoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Setid_fuente_financiamientoNull() {
-                this[this.tablesp_comprobante.id_fuente_financiamientoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Isid_unidad_organizativaNull() {
-                return this.IsNull(this.tablesp_comprobante.id_unidad_organizativaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Setid_unidad_organizativaNull() {
-                this[this.tablesp_comprobante.id_unidad_organizativaColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsestadoNull() {
-                return this.IsNull(this.tablesp_comprobante.estadoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetestadoNull() {
-                this[this.tablesp_comprobante.estadoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Ismetodo_contratacionNull() {
-                return this.IsNull(this.tablesp_comprobante.metodo_contratacionColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Setmetodo_contratacionNull() {
-                this[this.tablesp_comprobante.metodo_contratacionColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool Isfuente_financiamientoNull() {
                 return this.IsNull(this.tablesp_comprobante.fuente_financiamientoColumn);
             }
@@ -1413,18 +1231,6 @@ namespace Gestion_presupuesto.Reportes {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void Setfuente_financiamientoNull() {
                 this[this.tablesp_comprobante.fuente_financiamientoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsnombreNull() {
-                return this.IsNull(this.tablesp_comprobante.nombreColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetnombreNull() {
-                this[this.tablesp_comprobante.nombreColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1441,13 +1247,14 @@ namespace Gestion_presupuesto.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public sp_voboRow[] Getsp_voboRows() {
-                if ((this.Table.ChildRelations["sp_comprobante_sp_vobo"] == null)) {
-                    return new sp_voboRow[0];
-                }
-                else {
-                    return ((sp_voboRow[])(base.GetChildRows(this.Table.ChildRelations["sp_comprobante_sp_vobo"])));
-                }
+            public bool IsestadoNull() {
+                return this.IsNull(this.tablesp_comprobante.estadoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetestadoNull() {
+                this[this.tablesp_comprobante.estadoColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1467,17 +1274,17 @@ namespace Gestion_presupuesto.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int id_detalle_presupuesto {
+            public int id {
                 get {
                     try {
-                        return ((int)(this[this.tablesp_vobo.id_detalle_presupuestoColumn]));
+                        return ((int)(this[this.tablesp_vobo.idColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'id_detalle_presupuesto\' de la tabla \'sp_vobo\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'id\' de la tabla \'sp_vobo\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablesp_vobo.id_detalle_presupuestoColumn] = value;
+                    this[this.tablesp_vobo.idColumn] = value;
                 }
             }
             
@@ -1515,25 +1322,14 @@ namespace Gestion_presupuesto.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public sp_comprobanteRow sp_comprobanteRow {
-                get {
-                    return ((sp_comprobanteRow)(this.GetParentRow(this.Table.ParentRelations["sp_comprobante_sp_vobo"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["sp_comprobante_sp_vobo"]);
-                }
+            public bool IsidNull() {
+                return this.IsNull(this.tablesp_vobo.idColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Isid_detalle_presupuestoNull() {
-                return this.IsNull(this.tablesp_vobo.id_detalle_presupuestoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Setid_detalle_presupuestoNull() {
-                this[this.tablesp_vobo.id_detalle_presupuestoColumn] = global::System.Convert.DBNull;
+            public void SetidNull() {
+                this[this.tablesp_vobo.idColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1754,20 +1550,16 @@ namespace Gestion_presupuesto.Reportes.dsComprobanteTableAdapters {
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "sp_comprobante";
-            tableMapping.ColumnMappings.Add("id_detalle_presupuesto", "id_detalle_presupuesto");
+            tableMapping.ColumnMappings.Add("id", "id");
             tableMapping.ColumnMappings.Add("codigo", "codigo");
             tableMapping.ColumnMappings.Add("nombre_proceso", "nombre_proceso");
-            tableMapping.ColumnMappings.Add("id_metodo_contratacion", "id_metodo_contratacion");
+            tableMapping.ColumnMappings.Add("metodo_contratacion", "metodo_contratacion");
             tableMapping.ColumnMappings.Add("fecha_inicio", "fecha_inicio");
             tableMapping.ColumnMappings.Add("fecha_fin", "fecha_fin");
             tableMapping.ColumnMappings.Add("monto", "monto");
-            tableMapping.ColumnMappings.Add("id_fuente_financiamiento", "id_fuente_financiamiento");
-            tableMapping.ColumnMappings.Add("id_unidad_organizativa", "id_unidad_organizativa");
-            tableMapping.ColumnMappings.Add("estado", "estado");
-            tableMapping.ColumnMappings.Add("metodo_contratacion", "metodo_contratacion");
             tableMapping.ColumnMappings.Add("fuente_financiamiento", "fuente_financiamiento");
-            tableMapping.ColumnMappings.Add("nombre", "nombre");
             tableMapping.ColumnMappings.Add("unidad_organizativa", "unidad_organizativa");
+            tableMapping.ColumnMappings.Add("estado", "estado");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -1775,9 +1567,7 @@ namespace Gestion_presupuesto.Reportes.dsComprobanteTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=192.168.3.162\\SVASADBPRD;Initial Catalog=registro_presupuesto;User ID" +
-                "=aplicaciones;Password=r8jAK_VjQtfLva#;MultipleActiveResultSets=True;TrustServer" +
-                "Certificate=True;Application Name=EntityFramework";
+            this._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["registro_presupuestoConnectionString"].ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1789,20 +1579,27 @@ namespace Gestion_presupuesto.Reportes.dsComprobanteTableAdapters {
             this._commandCollection[0].CommandText = "dbo.sp_comprobante";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_detalle_presupuesto", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tipo_vobo", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(dsComprobante.sp_comprobanteDataTable dataTable, global::System.Nullable<int> id_detalle_presupuesto) {
+        public virtual int Fill(dsComprobante.sp_comprobanteDataTable dataTable, global::System.Nullable<int> id, global::System.Nullable<int> tipo_vobo) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((id_detalle_presupuesto.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(id_detalle_presupuesto.Value));
+            if ((id.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(id.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((tipo_vobo.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(tipo_vobo.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -1815,13 +1612,19 @@ namespace Gestion_presupuesto.Reportes.dsComprobanteTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual dsComprobante.sp_comprobanteDataTable GetData(global::System.Nullable<int> id_detalle_presupuesto) {
+        public virtual dsComprobante.sp_comprobanteDataTable GetData(global::System.Nullable<int> id, global::System.Nullable<int> tipo_vobo) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((id_detalle_presupuesto.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(id_detalle_presupuesto.Value));
+            if ((id.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(id.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((tipo_vobo.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(tipo_vobo.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             dsComprobante.sp_comprobanteDataTable dataTable = new dsComprobante.sp_comprobanteDataTable();
             this.Adapter.Fill(dataTable);
@@ -1950,7 +1753,7 @@ namespace Gestion_presupuesto.Reportes.dsComprobanteTableAdapters {
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "sp_vobo";
-            tableMapping.ColumnMappings.Add("id_detalle_presupuesto", "id_detalle_presupuesto");
+            tableMapping.ColumnMappings.Add("id", "id");
             tableMapping.ColumnMappings.Add("nombre_empleado_vobo", "nombre_empleado_vobo");
             tableMapping.ColumnMappings.Add("fecha_movimiento", "fecha_movimiento");
             this._adapter.TableMappings.Add(tableMapping);
@@ -1972,20 +1775,27 @@ namespace Gestion_presupuesto.Reportes.dsComprobanteTableAdapters {
             this._commandCollection[0].CommandText = "dbo.sp_vobo";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_detalle_presupuesto", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tipo_vobo", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(dsComprobante.sp_voboDataTable dataTable, global::System.Nullable<int> id_detalle_presupuesto) {
+        public virtual int Fill(dsComprobante.sp_voboDataTable dataTable, global::System.Nullable<int> id, global::System.Nullable<int> tipo_vobo) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((id_detalle_presupuesto.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(id_detalle_presupuesto.Value));
+            if ((id.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(id.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((tipo_vobo.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(tipo_vobo.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -1998,13 +1808,19 @@ namespace Gestion_presupuesto.Reportes.dsComprobanteTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual dsComprobante.sp_voboDataTable GetData(global::System.Nullable<int> id_detalle_presupuesto) {
+        public virtual dsComprobante.sp_voboDataTable GetData(global::System.Nullable<int> id, global::System.Nullable<int> tipo_vobo) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((id_detalle_presupuesto.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(id_detalle_presupuesto.Value));
+            if ((id.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(id.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((tipo_vobo.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(tipo_vobo.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             dsComprobante.sp_voboDataTable dataTable = new dsComprobante.sp_voboDataTable();
             this.Adapter.Fill(dataTable);
