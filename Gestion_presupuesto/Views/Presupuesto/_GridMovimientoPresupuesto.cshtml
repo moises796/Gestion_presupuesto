@@ -182,19 +182,19 @@
                 p.DataSource = clase.GetEstructuras();
             });
         });
-        //settings.Columns.Add(gridViewColumnSettings =>
-        //{
-        //    gridViewColumnSettings.FieldName = "motivo_movimiento";
-        //    gridViewColumnSettings.Caption = "Especifique el motivo de la modificación";
-        //    //gridViewColumnSettings.Visible = false;
-        //    gridViewColumnSettings.EditorProperties().Memo(p =>
-        //    {
-        //        p.Rows = 4;
-        //    });
-        //    MVCxColumnMemoProperties editorProperties = gridViewColumnSettings.PropertiesEdit as MVCxColumnMemoProperties;
-        //    editorProperties.ValidationSettings.RequiredField.IsRequired = true;
-        //    editorProperties.ValidationSettings.RequiredField.ErrorText = "Este campo es requerido";
-        //});
+        settings.Columns.Add(gridViewColumnSettings =>
+        {
+            gridViewColumnSettings.FieldName = "motivo_movimiento";
+            gridViewColumnSettings.Caption = "Especifique el motivo de la modificación";
+            gridViewColumnSettings.Visible = false;
+            gridViewColumnSettings.EditorProperties().Memo(p =>
+            {
+                p.Rows = 4;
+            });
+            MVCxColumnMemoProperties editorProperties = gridViewColumnSettings.PropertiesEdit as MVCxColumnMemoProperties;
+            editorProperties.ValidationSettings.RequiredField.IsRequired = true;
+            editorProperties.ValidationSettings.RequiredField.ErrorText = "Este campo es requerido";
+        });
 
         settings.EditFormLayoutProperties.Items.AddGroupItem(tabbedGroupSettings =>
         {
@@ -205,7 +205,8 @@
             tabbedGroupSettings.Items.Add("fecha_fin");
             tabbedGroupSettings.Items.Add("monto");
             tabbedGroupSettings.Items.Add("id_fuente_financiamiento");
-            tabbedGroupSettings.Items.Add("id_unidad_organizativa");
+            tabbedGroupSettings.Items.Add("id_unidad_organizativa"); 
+            tabbedGroupSettings.Items.Add("motivo_movimiento");
         });
         settings.EditFormLayoutProperties.Items.AddCommandItem(commandItem =>
         {
