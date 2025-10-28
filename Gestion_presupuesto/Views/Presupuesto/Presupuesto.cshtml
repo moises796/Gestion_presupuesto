@@ -49,7 +49,7 @@
     focusedRowContext.Text = "Acciones";
     settings.Items.Add(focusedRowContext);
 
-    focusedRowContext.Items.Add(new FABActionItem("Editar", Url.Content("~/Content/gridImg/edit2.svg"), "Editar"));
+    focusedRowContext.Items.Add(new FABActionItem("Editar", Url.Content(DevExpress.Web.ASPxThemes.IconID.ArrowsPlay16x16), "Editar"));
     focusedRowContext.Items.Add(new FABActionItem("Notificar", Url.Content("~/Content/gridImg/send.svg"), "Iniciar proceso"));
     focusedRowContext.Items.Add(new FABActionItem("Vobos", Url.Content("~/Content/gridImg/vobo.svg"), "Detalle V°. b°.(s)"));
 
@@ -182,8 +182,8 @@
             modalvobo.Show();
             GridListadoVobo.PerformCallback();
         } else if (e.buttonID == "btnFin") {
-            var index = GridDetallePresupuesto.GetFocusedRowIndex();
-            var data = GridDetallePresupuesto.GetRowKey(index);
+            var index = GridMovimientoPresupuesto.GetFocusedRowIndex();
+            var data = GridMovimientoPresupuesto.GetRowKey(index);
             localStorage.removeItem("id");
             localStorage.removeItem("tipo_vobo");
             localStorage.setItem("id", data);

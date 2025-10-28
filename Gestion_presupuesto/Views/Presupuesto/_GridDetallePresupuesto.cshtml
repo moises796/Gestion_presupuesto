@@ -20,7 +20,8 @@
         settings.SettingsEditing.Mode = GridViewEditingMode.PopupEditForm;
         settings.SettingsPopup.EditForm.VerticalAlign = PopupVerticalAlign.Middle;
         settings.SettingsPopup.EditForm.HorizontalAlign = PopupHorizontalAlign.Center;
-        settings.SettingsPopup.EditForm.ShowHeader = false;
+        settings.SettingsPopup.EditForm.ShowHeader = true;
+        settings.SettingsText.PopupEditFormCaption = "Gestión presupuesto";
         settings.SettingsBehavior.ConfirmDelete = true;
         settings.CommandColumn.ButtonRenderMode = GridCommandButtonRenderMode.Secondary;
 
@@ -163,9 +164,27 @@
             });
         });
 
+        settings.EditFormLayoutProperties.Items.AddGroupItem(tabbedGroupSettings =>
+        {
+            tabbedGroupSettings.GroupBoxDecoration = GroupBoxDecoration.None;
+            tabbedGroupSettings.Items.Add("nombre_proceso");
+            tabbedGroupSettings.Items.Add("id_metodo_contratacion");
+            tabbedGroupSettings.Items.Add("fecha_inicio");
+            tabbedGroupSettings.Items.Add("fecha_fin");
+            tabbedGroupSettings.Items.Add("monto");
+            tabbedGroupSettings.Items.Add("id_fuente_financiamiento");
+            tabbedGroupSettings.Items.Add("id_unidad_organizativa");
+        });
+        settings.EditFormLayoutProperties.Items.AddCommandItem(commandItem =>
+        {
+            commandItem.Width = 100;
+            commandItem.VerticalAlign = FormLayoutVerticalAlign.Bottom;
+            commandItem.HorizontalAlign = FormLayoutHorizontalAlign.Center;
+
+        });
         settings.SettingsCommandButton.CancelButton.RenderMode = GridCommandButtonRenderMode.Danger;
         settings.SettingsCommandButton.UpdateButton.RenderMode = GridCommandButtonRenderMode.Button;
-       
+        settings.SettingsText.CommandCancel = "Cancelar";
         settings.SettingsText.CommandUpdate = "Modificar";
         settings.EditFormLayoutCreated = (sender, e) =>
         {

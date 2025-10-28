@@ -67,64 +67,64 @@
   <xs:element name="dsComprobante" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="dsComprobante" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsComprobante">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="sp_comprobante" msprop:Generator_RowEvHandlerName="sp_comprobanteRowChangeEventHandler" msprop:Generator_RowDeletedName="sp_comprobanteRowDeleted" msprop:Generator_RowDeletingName="sp_comprobanteRowDeleting" msprop:Generator_RowEvArgName="sp_comprobanteRowChangeEvent" msprop:Generator_TablePropName="sp_comprobante" msprop:Generator_RowChangedName="sp_comprobanteRowChanged" msprop:Generator_RowChangingName="sp_comprobanteRowChanging" msprop:Generator_TableClassName="sp_comprobanteDataTable" msprop:Generator_RowClassName="sp_comprobanteRow" msprop:Generator_TableVarName="tablesp_comprobante" msprop:Generator_UserTableName="sp_comprobante">
+        <xs:element name="sp_comprobante" msprop:Generator_RowClassName="sp_comprobanteRow" msprop:Generator_RowEvHandlerName="sp_comprobanteRowChangeEventHandler" msprop:Generator_RowDeletedName="sp_comprobanteRowDeleted" msprop:Generator_RowDeletingName="sp_comprobanteRowDeleting" msprop:Generator_RowEvArgName="sp_comprobanteRowChangeEvent" msprop:Generator_TablePropName="sp_comprobante" msprop:Generator_RowChangedName="sp_comprobanteRowChanged" msprop:Generator_UserTableName="sp_comprobante" msprop:Generator_RowChangingName="sp_comprobanteRowChanging" msprop:Generator_TableClassName="sp_comprobanteDataTable" msprop:Generator_TableVarName="tablesp_comprobante">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_UserColumnName="id" type="xs:int" />
-              <xs:element name="codigo" msprop:Generator_ColumnPropNameInRow="codigo" msprop:Generator_ColumnPropNameInTable="codigoColumn" msprop:Generator_ColumnVarNameInTable="columncodigo" msprop:Generator_UserColumnName="codigo" minOccurs="0">
+              <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnVarNameInTable="columnid" type="xs:int" />
+              <xs:element name="codigo" msprop:Generator_UserColumnName="codigo" msprop:Generator_ColumnPropNameInTable="codigoColumn" msprop:Generator_ColumnPropNameInRow="codigo" msprop:Generator_ColumnVarNameInTable="columncodigo" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="150" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="nombre_proceso" msprop:Generator_ColumnPropNameInRow="nombre_proceso" msprop:Generator_ColumnPropNameInTable="nombre_procesoColumn" msprop:Generator_ColumnVarNameInTable="columnnombre_proceso" msprop:Generator_UserColumnName="nombre_proceso" minOccurs="0">
+              <xs:element name="nombre_proceso" msprop:Generator_UserColumnName="nombre_proceso" msprop:Generator_ColumnPropNameInTable="nombre_procesoColumn" msprop:Generator_ColumnPropNameInRow="nombre_proceso" msprop:Generator_ColumnVarNameInTable="columnnombre_proceso" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="350" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="metodo_contratacion" msprop:Generator_ColumnPropNameInRow="metodo_contratacion" msprop:Generator_ColumnPropNameInTable="metodo_contratacionColumn" msprop:Generator_ColumnVarNameInTable="columnmetodo_contratacion" msprop:Generator_UserColumnName="metodo_contratacion" minOccurs="0">
+              <xs:element name="metodo_contratacion" msprop:Generator_UserColumnName="metodo_contratacion" msprop:Generator_ColumnPropNameInTable="metodo_contratacionColumn" msprop:Generator_ColumnPropNameInRow="metodo_contratacion" msprop:Generator_ColumnVarNameInTable="columnmetodo_contratacion" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="250" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="fecha_inicio" msprop:Generator_ColumnPropNameInRow="fecha_inicio" msprop:Generator_ColumnPropNameInTable="fecha_inicioColumn" msprop:Generator_ColumnVarNameInTable="columnfecha_inicio" msprop:Generator_UserColumnName="fecha_inicio" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="fecha_fin" msprop:Generator_ColumnPropNameInRow="fecha_fin" msprop:Generator_ColumnPropNameInTable="fecha_finColumn" msprop:Generator_ColumnVarNameInTable="columnfecha_fin" msprop:Generator_UserColumnName="fecha_fin" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="monto" msprop:Generator_ColumnPropNameInRow="monto" msprop:Generator_ColumnPropNameInTable="montoColumn" msprop:Generator_ColumnVarNameInTable="columnmonto" msprop:Generator_UserColumnName="monto" type="xs:double" minOccurs="0" />
-              <xs:element name="fuente_financiamiento" msprop:Generator_ColumnPropNameInRow="fuente_financiamiento" msprop:Generator_ColumnPropNameInTable="fuente_financiamientoColumn" msprop:Generator_ColumnVarNameInTable="columnfuente_financiamiento" msprop:Generator_UserColumnName="fuente_financiamiento" minOccurs="0">
+              <xs:element name="fecha_inicio" msprop:Generator_UserColumnName="fecha_inicio" msprop:Generator_ColumnPropNameInTable="fecha_inicioColumn" msprop:Generator_ColumnPropNameInRow="fecha_inicio" msprop:Generator_ColumnVarNameInTable="columnfecha_inicio" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="fecha_fin" msprop:Generator_UserColumnName="fecha_fin" msprop:Generator_ColumnPropNameInTable="fecha_finColumn" msprop:Generator_ColumnPropNameInRow="fecha_fin" msprop:Generator_ColumnVarNameInTable="columnfecha_fin" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="monto" msprop:Generator_UserColumnName="monto" msprop:Generator_ColumnPropNameInTable="montoColumn" msprop:Generator_ColumnPropNameInRow="monto" msprop:Generator_ColumnVarNameInTable="columnmonto" type="xs:double" minOccurs="0" />
+              <xs:element name="fuente_financiamiento" msprop:Generator_UserColumnName="fuente_financiamiento" msprop:Generator_ColumnPropNameInTable="fuente_financiamientoColumn" msprop:Generator_ColumnPropNameInRow="fuente_financiamiento" msprop:Generator_ColumnVarNameInTable="columnfuente_financiamiento" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="250" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="unidad_organizativa" msprop:Generator_ColumnPropNameInRow="unidad_organizativa" msprop:Generator_ColumnPropNameInTable="unidad_organizativaColumn" msprop:Generator_ColumnVarNameInTable="columnunidad_organizativa" msprop:Generator_UserColumnName="unidad_organizativa" minOccurs="0">
+              <xs:element name="unidad_organizativa" msprop:Generator_UserColumnName="unidad_organizativa" msprop:Generator_ColumnPropNameInTable="unidad_organizativaColumn" msprop:Generator_ColumnPropNameInRow="unidad_organizativa" msprop:Generator_ColumnVarNameInTable="columnunidad_organizativa" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="estado" msprop:Generator_ColumnPropNameInRow="estado" msprop:Generator_ColumnPropNameInTable="estadoColumn" msprop:Generator_ColumnVarNameInTable="columnestado" msprop:Generator_UserColumnName="estado" type="xs:int" minOccurs="0" />
+              <xs:element name="estado" msprop:Generator_UserColumnName="estado" msprop:Generator_ColumnPropNameInTable="estadoColumn" msprop:Generator_ColumnPropNameInRow="estado" msprop:Generator_ColumnVarNameInTable="columnestado" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="sp_vobo" msprop:Generator_RowEvHandlerName="sp_voboRowChangeEventHandler" msprop:Generator_RowDeletedName="sp_voboRowDeleted" msprop:Generator_RowDeletingName="sp_voboRowDeleting" msprop:Generator_RowEvArgName="sp_voboRowChangeEvent" msprop:Generator_TablePropName="sp_vobo" msprop:Generator_RowChangedName="sp_voboRowChanged" msprop:Generator_RowChangingName="sp_voboRowChanging" msprop:Generator_TableClassName="sp_voboDataTable" msprop:Generator_RowClassName="sp_voboRow" msprop:Generator_TableVarName="tablesp_vobo" msprop:Generator_UserTableName="sp_vobo">
+        <xs:element name="sp_vobo" msprop:Generator_RowClassName="sp_voboRow" msprop:Generator_RowEvHandlerName="sp_voboRowChangeEventHandler" msprop:Generator_RowDeletedName="sp_voboRowDeleted" msprop:Generator_RowDeletingName="sp_voboRowDeleting" msprop:Generator_RowEvArgName="sp_voboRowChangeEvent" msprop:Generator_TablePropName="sp_vobo" msprop:Generator_RowChangedName="sp_voboRowChanged" msprop:Generator_UserTableName="sp_vobo" msprop:Generator_RowChangingName="sp_voboRowChanging" msprop:Generator_TableClassName="sp_voboDataTable" msprop:Generator_TableVarName="tablesp_vobo">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="id" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_UserColumnName="id" type="xs:int" minOccurs="0" />
-              <xs:element name="nombre_empleado_vobo" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="nombre_empleado_vobo" msprop:Generator_ColumnPropNameInTable="nombre_empleado_voboColumn" msprop:Generator_ColumnVarNameInTable="columnnombre_empleado_vobo" msprop:Generator_UserColumnName="nombre_empleado_vobo" minOccurs="0">
+              <xs:element name="id" msprop:Generator_UserColumnName="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnVarNameInTable="columnid" type="xs:int" minOccurs="0" />
+              <xs:element name="nombre_empleado_vobo" msdata:ReadOnly="true" msprop:Generator_UserColumnName="nombre_empleado_vobo" msprop:Generator_ColumnPropNameInTable="nombre_empleado_voboColumn" msprop:Generator_ColumnPropNameInRow="nombre_empleado_vobo" msprop:Generator_ColumnVarNameInTable="columnnombre_empleado_vobo" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="315" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="fecha_movimiento" msprop:Generator_ColumnPropNameInRow="fecha_movimiento" msprop:Generator_ColumnPropNameInTable="fecha_movimientoColumn" msprop:Generator_ColumnVarNameInTable="columnfecha_movimiento" msprop:Generator_UserColumnName="fecha_movimiento" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="fecha_movimiento" msprop:Generator_UserColumnName="fecha_movimiento" msprop:Generator_ColumnPropNameInTable="fecha_movimientoColumn" msprop:Generator_ColumnPropNameInRow="fecha_movimiento" msprop:Generator_ColumnVarNameInTable="columnfecha_movimiento" type="xs:dateTime" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -135,4 +135,9 @@
       <xs:field xpath="mstns:id" />
     </xs:unique>
   </xs:element>
+  <xs:annotation>
+    <xs:appinfo>
+      <msdata:Relationship name="sp_comprobante_sp_vobo" msdata:parent="sp_comprobante" msdata:child="sp_vobo" msdata:parentkey="id" msdata:childkey="id" msprop:Generator_UserParentTable="sp_comprobante" msprop:Generator_UserChildTable="sp_vobo" msprop:Generator_RelationVarName="relationsp_comprobante_sp_vobo" msprop:Generator_ChildPropName="Getsp_voboRows" msprop:Generator_ParentPropName="sp_comprobanteRow" msprop:Generator_UserRelationName="sp_comprobante_sp_vobo" />
+    </xs:appinfo>
+  </xs:annotation>
 </xs:schema>

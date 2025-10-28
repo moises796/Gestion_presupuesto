@@ -18,9 +18,10 @@
         settings.SettingsEditing.Mode = GridViewEditingMode.PopupEditForm;
         settings.SettingsPopup.EditForm.VerticalAlign = PopupVerticalAlign.Middle;
         settings.SettingsPopup.EditForm.HorizontalAlign = PopupHorizontalAlign.Center;
-        settings.SettingsPopup.EditForm.ShowHeader = false;
+        settings.SettingsPopup.EditForm.ShowHeader = true;
+        settings.SettingsText.PopupEditFormCaption = "Gestión presupuesto";
         settings.SettingsBehavior.ConfirmDelete = true;
-        settings.CommandColumn.ButtonRenderMode = GridCommandButtonRenderMode.Secondary;
+        settings.CommandColumn.ButtonRenderMode = GridCommandButtonRenderMode.Image;
 
         settings.CommandColumn.Visible = true;
         settings.CommandColumn.ShowNewButtonInHeader = false;
@@ -31,19 +32,19 @@
         settings.CommandColumn.Width = System.Web.UI.WebControls.Unit.Pixel(140);
 
         GridViewCommandColumnCustomButton editButton = new GridViewCommandColumnCustomButton() { ID = "btnEdit", Text = " " };
-        editButton.Image.IconID = DevExpress.Web.ASPxThemes.IconID.EditEdit16x16;
+        editButton.Image.IconID = DevExpress.Web.ASPxThemes.IconID.ActionsEditname32x32;
         editButton.Image.ToolTip = "Editar";
         settings.CommandColumn.CustomButtons.Add(editButton);
         var inicioButton = new GridViewCommandColumnCustomButton() { ID = "btnInicio", Text = " " };
-        inicioButton.Image.IconID = DevExpress.Web.ASPxThemes.IconID.ArrowsPlay16x16;
+        inicioButton.Image.IconID = DevExpress.Web.ASPxThemes.IconID.ArrowsPlay32x32;
         inicioButton.Image.ToolTip = "Iniciar proceso";
         settings.CommandColumn.CustomButtons.Add(inicioButton);
         var voboButton = new GridViewCommandColumnCustomButton() { ID = "btnVobo", Text = " " };
-        voboButton.Image.IconID = DevExpress.Web.ASPxThemes.IconID.SupportInfo16x16;
+        voboButton.Image.IconID = DevExpress.Web.ASPxThemes.IconID.SupportInfo32x32;
         voboButton.Image.ToolTip = "Detalle V°. b°.";
         settings.CommandColumn.CustomButtons.Add(voboButton);
         var finButton = new GridViewCommandColumnCustomButton() { ID = "btnFin", Text = " " };
-        finButton.Image.IconID = DevExpress.Web.ASPxThemes.IconID.ExportExporttopdf16x16;
+        finButton.Image.IconID = DevExpress.Web.ASPxThemes.IconID.ExportExporttopdf32x32;
         finButton.Image.ToolTip = "Comprobante";
         settings.CommandColumn.CustomButtons.Add(finButton);
         settings.ClientSideEvents.CustomButtonClick = "function(s,e){ OnCustomButtonClick(s,e); }";
@@ -53,7 +54,6 @@
         settings.SettingsPager.Visible = true;
         settings.Settings.ShowGroupPanel = false;
         settings.Settings.ShowFilterRow = false;
-
 
         settings.SettingsPager.Visible = true;
         settings.SettingsPager.PageSizeItemSettings.Visible = true;
@@ -67,6 +67,7 @@
         settings.Settings.ShowGroupPanel = false;
         settings.Settings.ShowFilterRow = false;
         settings.SettingsBehavior.AllowSelectByRowClick = true;
+
 
         //settings.SettingsDetail.AllowOnlyOneMasterRowExpanded = true;
         //settings.SettingsDetail.ShowDetailRow = true;
@@ -181,6 +182,51 @@
                 p.DataSource = clase.GetEstructuras();
             });
         });
+        //settings.Columns.Add(gridViewColumnSettings =>
+        //{
+        //    gridViewColumnSettings.FieldName = "motivo_movimiento";
+        //    gridViewColumnSettings.Caption = "Especifique el motivo de la modificación";
+        //    //gridViewColumnSettings.Visible = false;
+        //    gridViewColumnSettings.EditorProperties().Memo(p =>
+        //    {
+        //        p.Rows = 4;
+        //    });
+        //    MVCxColumnMemoProperties editorProperties = gridViewColumnSettings.PropertiesEdit as MVCxColumnMemoProperties;
+        //    editorProperties.ValidationSettings.RequiredField.IsRequired = true;
+        //    editorProperties.ValidationSettings.RequiredField.ErrorText = "Este campo es requerido";
+        //});
+
+        settings.EditFormLayoutProperties.Items.AddGroupItem(tabbedGroupSettings =>
+        {
+            tabbedGroupSettings.GroupBoxDecoration = GroupBoxDecoration.None;
+            tabbedGroupSettings.Items.Add("nombre_proceso");
+            tabbedGroupSettings.Items.Add("id_metodo_contratacion");
+            tabbedGroupSettings.Items.Add("fecha_inicio");
+            tabbedGroupSettings.Items.Add("fecha_fin");
+            tabbedGroupSettings.Items.Add("monto");
+            tabbedGroupSettings.Items.Add("id_fuente_financiamiento");
+            tabbedGroupSettings.Items.Add("id_unidad_organizativa");
+        });
+        settings.EditFormLayoutProperties.Items.AddCommandItem(commandItem =>
+        {
+            commandItem.Width = 100;
+            commandItem.VerticalAlign = FormLayoutVerticalAlign.Bottom;
+            commandItem.HorizontalAlign = FormLayoutHorizontalAlign.Center;
+
+        });
+        settings.SettingsCommandButton.CancelButton.RenderMode = GridCommandButtonRenderMode.Danger;
+        settings.SettingsCommandButton.UpdateButton.RenderMode = GridCommandButtonRenderMode.Button;
+        settings.SettingsText.CommandCancel = "Cancelar";
+        settings.SettingsText.CommandUpdate = "Modificar";
+        settings.EditFormLayoutCreated = (sender, e) =>
+        {
+            MVCxGridView gridView = sender as MVCxGridView;
+            if (gridView.IsNewRowEditing)
+            {
+                gridView.SettingsText.CommandUpdate = "Guardar";
+                return;
+            }
+        };
     });
     if (ViewData["EditError"] != null){
         grid.SetEditErrorText((string)ViewData["EditError"]);

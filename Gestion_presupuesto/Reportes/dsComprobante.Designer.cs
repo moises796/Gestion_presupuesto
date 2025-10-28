@@ -28,6 +28,8 @@ namespace Gestion_presupuesto.Reportes {
         
         private sp_voboDataTable tablesp_vobo;
         
+        private global::System.Data.DataRelation relationsp_comprobante_sp_vobo;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -218,6 +220,7 @@ namespace Gestion_presupuesto.Reportes {
                     this.tablesp_vobo.InitVars();
                 }
             }
+            this.relationsp_comprobante_sp_vobo = this.Relations["sp_comprobante_sp_vobo"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -232,6 +235,10 @@ namespace Gestion_presupuesto.Reportes {
             base.Tables.Add(this.tablesp_comprobante);
             this.tablesp_vobo = new sp_voboDataTable();
             base.Tables.Add(this.tablesp_vobo);
+            this.relationsp_comprobante_sp_vobo = new global::System.Data.DataRelation("sp_comprobante_sp_vobo", new global::System.Data.DataColumn[] {
+                        this.tablesp_comprobante.idColumn}, new global::System.Data.DataColumn[] {
+                        this.tablesp_vobo.idColumn}, false);
+            this.Relations.Add(this.relationsp_comprobante_sp_vobo);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -807,12 +814,15 @@ namespace Gestion_presupuesto.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public sp_voboRow Addsp_voboRow(int id, string nombre_empleado_vobo, System.DateTime fecha_movimiento) {
+            public sp_voboRow Addsp_voboRow(sp_comprobanteRow parentsp_comprobanteRowBysp_comprobante_sp_vobo, string nombre_empleado_vobo, System.DateTime fecha_movimiento) {
                 sp_voboRow rowsp_voboRow = ((sp_voboRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        id,
+                        null,
                         nombre_empleado_vobo,
                         fecha_movimiento};
+                if ((parentsp_comprobanteRowBysp_comprobante_sp_vobo != null)) {
+                    columnValuesArray[0] = parentsp_comprobanteRowBysp_comprobante_sp_vobo[0];
+                }
                 rowsp_voboRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowsp_voboRow);
                 return rowsp_voboRow;
@@ -1256,6 +1266,17 @@ namespace Gestion_presupuesto.Reportes {
             public void SetestadoNull() {
                 this[this.tablesp_comprobante.estadoColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public sp_voboRow[] Getsp_voboRows() {
+                if ((this.Table.ChildRelations["sp_comprobante_sp_vobo"] == null)) {
+                    return new sp_voboRow[0];
+                }
+                else {
+                    return ((sp_voboRow[])(base.GetChildRows(this.Table.ChildRelations["sp_comprobante_sp_vobo"])));
+                }
+            }
         }
         
         /// <summary>
@@ -1317,6 +1338,17 @@ namespace Gestion_presupuesto.Reportes {
                 }
                 set {
                     this[this.tablesp_vobo.fecha_movimientoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public sp_comprobanteRow sp_comprobanteRow {
+                get {
+                    return ((sp_comprobanteRow)(this.GetParentRow(this.Table.ParentRelations["sp_comprobante_sp_vobo"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["sp_comprobante_sp_vobo"]);
                 }
             }
             
