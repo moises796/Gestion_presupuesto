@@ -177,11 +177,11 @@
             // xrLabel14
             // 
             this.xrLabel14.Font = new DevExpress.Drawing.DXFont("Lucida Sans Unicode", 9F);
-            this.xrLabel14.LocationFloat = new DevExpress.Utils.PointFloat(23.3334F, 271.1389F);
+            this.xrLabel14.LocationFloat = new DevExpress.Utils.PointFloat(25F, 275F);
             this.xrLabel14.Multiline = true;
             this.xrLabel14.Name = "xrLabel14";
             this.xrLabel14.Padding = new DevExpress.XtraPrinting.PaddingInfo(2F, 2F, 0F, 0F, 100F);
-            this.xrLabel14.SizeF = new System.Drawing.SizeF(730.1389F, 23F);
+            this.xrLabel14.SizeF = new System.Drawing.SizeF(725F, 25F);
             this.xrLabel14.StylePriority.UseFont = false;
             this.xrLabel14.StylePriority.UseTextAlignment = false;
             this.xrLabel14.Text = resources.GetString("xrLabel14.Text");

@@ -168,6 +168,29 @@ namespace Gestion_presupuesto.Controllers
             
         }
 
+        //public ActionResult ObtenerEstadoVobo(int? id, int? tipo_vobo)
+        //{
+        //    if (id != null && tipo_vobo != null)
+        //    {
+        //        if (tipo_vobo == 1)
+        //        {
+        //            //SACAMOS TODOS LOS VOBOS
+        //            var listado = db.vobo.Where(x => x.id_detalle_presupuesto == id && x.id_etapa_vobo != 5).ToList();
+        //            //SACAMOS LOS APROBADOS
+        //            return Json(new { data = 1 }, JsonRequestBehavior.AllowGet);
+        //        }
+        //        else
+        //        {
+        //            return Json(new { data = 1 }, JsonRequestBehavior.AllowGet);
+        //        }
+        //    }
+        //    else
+        //    {
+        //        return Json(new { data = -1 }, JsonRequestBehavior.AllowGet);
+        //    }
+            
+        //}
+
 
         public IEnumerable GetVobos()
         {

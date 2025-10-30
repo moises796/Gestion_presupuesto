@@ -1440,6 +1440,13 @@
     <Content Include="Content\dx.material.teal.light.css" />
     <Content Include="Content\dx.softblue.compact.css" />
     <Content Include="Content\dx.softblue.css" />
+    <Content Include="Content\img\chat.png" />
+    <Content Include="Content\img\delete.png" />
+    <Content Include="Content\img\edit.png" />
+    <Content Include="Content\img\edit2.png" />
+    <Content Include="Content\img\play.png" />
+    <Content Include="Content\img\see.png" />
+    <Content Include="Content\img\vobo.png" />
     <Content Include="Content\media\Logo_AD.svg" />
     <Content Include="Content\media\logo_expanded.svg" />
     <Content Include="Content\media\logo_minimized.svg" />

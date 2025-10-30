@@ -164,6 +164,24 @@
             });
         });
 
+        settings.Columns.Add(gridViewColumnSettings =>
+        {
+            gridViewColumnSettings.FieldName = "indice";
+            gridViewColumnSettings.Caption = "Estado";
+            gridViewColumnSettings.CellStyle.Wrap = DefaultBoolean.False;
+            gridViewColumnSettings.AdaptivePriority = 1;
+            gridViewColumnSettings.UnboundType = DevExpress.Data.UnboundColumnType.String;
+            gridViewColumnSettings.Settings.AutoFilterCondition = AutoFilterCondition.Contains;
+            gridViewColumnSettings.Settings.FilterMode = ColumnFilterMode.DisplayText;
+            gridViewColumnSettings.SetDataItemTemplateContent((c) =>
+            {
+                var id_detalle_presupuesto = Convert.ToInt32(c.KeyValue.ToString().Split('|')[0]);
+                var detalle = clase.GetVerificarStatus(id_detalle_presupuesto);
+                //var variable = detalle["data"];
+
+            });
+        });
+
         settings.EditFormLayoutProperties.Items.AddGroupItem(tabbedGroupSettings =>
         {
             tabbedGroupSettings.GroupBoxDecoration = GroupBoxDecoration.None;

@@ -32,20 +32,28 @@
         settings.CommandColumn.Width = System.Web.UI.WebControls.Unit.Pixel(140);
 
         GridViewCommandColumnCustomButton editButton = new GridViewCommandColumnCustomButton() { ID = "btnEdit", Text = " " };
-        editButton.Image.IconID = DevExpress.Web.ASPxThemes.IconID.ActionsEditname32x32;
-        editButton.Image.ToolTip = "Editar";
+        editButton.Image.Url = Url.Content("~/Content/img/edit2.png");
+        editButton.Image.ToolTip = "Modificar";
+        editButton.Image.Width = 30;
+        editButton.Image.Height = 30;
         settings.CommandColumn.CustomButtons.Add(editButton);
         var inicioButton = new GridViewCommandColumnCustomButton() { ID = "btnInicio", Text = " " };
-        inicioButton.Image.IconID = DevExpress.Web.ASPxThemes.IconID.ArrowsPlay32x32;
+        inicioButton.Image.Url = Url.Content("~/Content/img/play.png");
         inicioButton.Image.ToolTip = "Iniciar proceso";
+        inicioButton.Image.Width = 30;
+        inicioButton.Image.Height = 30;
         settings.CommandColumn.CustomButtons.Add(inicioButton);
         var voboButton = new GridViewCommandColumnCustomButton() { ID = "btnVobo", Text = " " };
-        voboButton.Image.IconID = DevExpress.Web.ASPxThemes.IconID.SupportInfo32x32;
+        voboButton.Image.Url = Url.Content("~/Content/img/vobo.png");
         voboButton.Image.ToolTip = "Detalle V°. b°.";
+        voboButton.Image.Width = 30;
+        voboButton.Image.Height = 30;
         settings.CommandColumn.CustomButtons.Add(voboButton);
         var finButton = new GridViewCommandColumnCustomButton() { ID = "btnFin", Text = " " };
-        finButton.Image.IconID = DevExpress.Web.ASPxThemes.IconID.ExportExporttopdf32x32;
+        finButton.Image.Url = Url.Content("~/Content/img/see.png");
         finButton.Image.ToolTip = "Comprobante";
+        finButton.Image.Width = 30;
+        finButton.Image.Height = 30;
         settings.CommandColumn.CustomButtons.Add(finButton);
         settings.ClientSideEvents.CustomButtonClick = "function(s,e){ OnCustomButtonClick(s,e); }";
 
@@ -205,7 +213,7 @@
             tabbedGroupSettings.Items.Add("fecha_fin");
             tabbedGroupSettings.Items.Add("monto");
             tabbedGroupSettings.Items.Add("id_fuente_financiamiento");
-            tabbedGroupSettings.Items.Add("id_unidad_organizativa"); 
+            tabbedGroupSettings.Items.Add("id_unidad_organizativa");
             tabbedGroupSettings.Items.Add("motivo_movimiento");
         });
         settings.EditFormLayoutProperties.Items.AddCommandItem(commandItem =>
