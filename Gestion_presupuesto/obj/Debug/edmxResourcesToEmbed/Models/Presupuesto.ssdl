@@ -294,6 +294,9 @@
   <Function Name="consulta_bandeja_vobo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="id_empleado" Type="int" Mode="In" />
   </Function>
+  <Function Name="sp_consulta_procesos_compra" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_unidad_organizativa" Type="int" Mode="In" />
+  </Function>
   <EntityContainer Name="registro_presupuestoModelStoreContainer">
     <EntitySet Name="detalle_presupuesto" EntityType="Self.detalle_presupuesto" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="etapa_vobo" EntityType="Self.etapa_vobo" Schema="dbo" store:Type="Tables" />

@@ -400,6 +400,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>rrhh.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\sp_consulta_procesos_compra_Result.cs">
+      <DependentUpon>Presupuesto.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\sub_menu.cs">
       <DependentUpon>Presupuesto.tt</DependentUpon>
     </Compile>

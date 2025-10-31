@@ -47,5 +47,14 @@ namespace Gestion_presupuesto.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<consulta_bandeja_vobo_Result3>("consulta_bandeja_vobo", id_empleadoParameter);
         }
+    
+        public virtual ObjectResult<sp_consulta_procesos_compra_Result> sp_consulta_procesos_compra(Nullable<int> id_unidad_organizativa)
+        {
+            var id_unidad_organizativaParameter = id_unidad_organizativa.HasValue ?
+                new ObjectParameter("id_unidad_organizativa", id_unidad_organizativa) :
+                new ObjectParameter("id_unidad_organizativa", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_consulta_procesos_compra_Result>("sp_consulta_procesos_compra", id_unidad_organizativaParameter);
+        }
     }
 }

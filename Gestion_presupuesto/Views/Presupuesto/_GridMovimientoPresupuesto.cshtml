@@ -20,6 +20,7 @@
         settings.SettingsPopup.EditForm.HorizontalAlign = PopupHorizontalAlign.Center;
         settings.SettingsPopup.EditForm.ShowHeader = true;
         settings.SettingsText.PopupEditFormCaption = "Gestión presupuesto";
+        settings.SetEmptyDataRowTemplateContent("Aún no posee movimiento(s) dicha solicitud");
         settings.SettingsBehavior.ConfirmDelete = true;
         settings.CommandColumn.ButtonRenderMode = GridCommandButtonRenderMode.Image;
 
@@ -207,14 +208,70 @@
         settings.EditFormLayoutProperties.Items.AddGroupItem(tabbedGroupSettings =>
         {
             tabbedGroupSettings.GroupBoxDecoration = GroupBoxDecoration.None;
-            tabbedGroupSettings.Items.Add("nombre_proceso");
-            tabbedGroupSettings.Items.Add("id_metodo_contratacion");
-            tabbedGroupSettings.Items.Add("fecha_inicio");
-            tabbedGroupSettings.Items.Add("fecha_fin");
-            tabbedGroupSettings.Items.Add("monto");
-            tabbedGroupSettings.Items.Add("id_fuente_financiamiento");
-            tabbedGroupSettings.Items.Add("id_unidad_organizativa");
-            tabbedGroupSettings.Items.Add("motivo_movimiento");
+            tabbedGroupSettings.ColumnCount = 2;
+            tabbedGroupSettings.Items.Add(item =>
+            {
+                item.Name = "nombre_proceso";
+                item.ColumnName = "nombre_proceso";
+                item.ColumnSpan = 2;
+                item.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
+            });
+
+            tabbedGroupSettings.Items.Add(item =>
+            {
+                item.Name = "id_metodo_contratacion";
+                item.ColumnName = "id_metodo_contratacion";
+                item.ColumnSpan = 2;
+                item.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
+            });
+
+            tabbedGroupSettings.Items.Add(item =>
+            {
+                item.Name = "fecha_inicio";
+                item.ColumnName = "fecha_inicio";
+                item.ColumnSpan = 1;
+                item.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
+            });
+
+            tabbedGroupSettings.Items.Add(item =>
+            {
+                item.Name = "fecha_fin";
+                item.ColumnName = "fecha_fin";
+                item.ColumnSpan = 1;
+                item.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
+            });
+
+            tabbedGroupSettings.Items.Add(item =>
+            {
+                item.Name = "monto";
+                item.ColumnName = "monto";
+                item.ColumnSpan = 2;
+                item.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
+            });
+
+            tabbedGroupSettings.Items.Add(item =>
+            {
+                item.Name = "id_fuente_financiamiento";
+                item.ColumnName = "id_fuente_financiamiento";
+                item.ColumnSpan = 2;
+                item.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
+            });
+
+            tabbedGroupSettings.Items.Add(item =>
+            {
+                item.Name = "id_unidad_organizativa";
+                item.ColumnName = "id_unidad_organizativa";
+                item.ColumnSpan = 2;
+                item.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
+            });
+
+            tabbedGroupSettings.Items.Add(item =>
+            {
+                item.Name = "motivo_movimiento";
+                item.ColumnName = "motivo_movimiento";
+                item.ColumnSpan = 2;
+                item.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
+            });
         });
         settings.EditFormLayoutProperties.Items.AddCommandItem(commandItem =>
         {

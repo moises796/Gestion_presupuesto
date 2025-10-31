@@ -23,6 +23,24 @@ namespace Gestion_presupuesto.Helpers
             public int? tipo_vobo { get; set; }
             
         }
+
+        public partial class BandejaProcesoCompra
+        {
+            public int? id_detalle_presupuesto { get; set; }
+            public string codigo { get; set; }
+            public string nombre_proceso { get; set; }
+            public int? id_metodo_contratacion { get; set; }
+            public DateTime? fecha_inicio { get; set; }
+            public DateTime? fecha_fin { get; set; }
+            public double? monto { get; set; }
+            public int? id_fuente_financiamiento { get; set; }
+            public int? id_unidad_organizativa { get; set; }
+            public int? estado { get; set; }
+            public string metodo_contratacion { get; set; }
+            public string fuente_financiamiento { get; set; }
+            public string estatus_proceso { get; set; }
+            public string estatus_general { get; set; }
+        }
         public partial class EmpleadoVobo
         {
             public int? id_personal_vobo { get; set; }

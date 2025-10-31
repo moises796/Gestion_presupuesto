@@ -1,13 +1,17 @@
 ﻿using DevExpress.ClipboardSource.SpreadsheetML;
 using DevExpress.Web.Mvc;
 using DevExpress.XtraReports.UI;
+using Gestion_presupuesto.Helpers;
 using Gestion_presupuesto.Models;
+using Microsoft.Ajax.Utilities;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI;
+using static Gestion_presupuesto.Helpers.Clases;
 
 namespace Gestion_presupuesto.Controllers
 {
@@ -131,8 +135,81 @@ namespace Gestion_presupuesto.Controllers
         [ValidateInput(false)]
         public ActionResult GridDetallePresupuesto()
         {
-            var model = db.detalle_presupuesto;
+            //var model = db.detalle_presupuesto;
+            string codEmp = (string)UserClaims.codigoempleado_key;
+            var id = Convert.ToInt32(UserClaims.idempleado_key);
+            var model = db.sp_consulta_procesos_compra(id).ToList();
+            List<BandejaProcesoCompra> clase = new List<BandejaProcesoCompra>();
+            model.ForEach(x =>
+            {
+                BandejaProcesoCompra bpc = new BandejaProcesoCompra();
+                bpc.id_detalle_presupuesto = x.id_detalle_presupuesto;
+                bpc.codigo = x.codigo;
+                bpc.nombre_proceso = x.nombre_proceso;
+                bpc.id_metodo_contratacion = x.id_metodo_contratacion;
+                bpc.fecha_inicio = x.fecha_inicio;
+                bpc.fecha_fin = x.fecha_fin;
+                bpc.monto = x.monto;
+                bpc.id_fuente_financiamiento = x.id_fuente_financiamiento;
+                bpc.id_unidad_organizativa = x.id_unidad_organizativa;
+                bpc.estado = x.estado;
+                bpc.metodo_contratacion = x.metodo_contratacion;
+                bpc.fuente_financiamiento = x.fuente_financiamiento;
+                bpc.estatus_proceso = x.estatus_proceso;
+                bpc.estatus_general = x.estatus_general;
+                clase.Add(bpc);
+            });
+
             return PartialView("~/Views/Presupuesto/_GridDetallePresupuesto.cshtml", model.ToList());
+        }
+
+        public ActionResult ValidarProceso(int? id_detalle_presupuesto)
+        {
+            var validacion_proceso = db.vobo.FirstOrDefault(x => (x.id_etapa_vobo == 1 || x.id_etapa_vobo == 2) && x.id_detalle_presupuesto == id_detalle_presupuesto);
+            if (validacion_proceso != null)
+            {
+                return Json(new { data = -1 }, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return Json(new { data = 1 }, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        public ActionResult ValidarAnulacion(int? id_detalle_presupuesto)
+        {
+            var validacion_proceso = db.detalle_presupuesto.FirstOrDefault(x => x.id_detalle_presupuesto == id_detalle_presupuesto && x.estado == 1);
+            if (validacion_proceso != null)
+            {
+                return Json(new { data = 1 }, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return Json(new { data = -1 }, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        public ActionResult AnulacionProceso(int? id_detalle_presupuesto)
+        {
+            if (id_detalle_presupuesto != null)
+            {
+                var detalle_presupuesto = db.detalle_presupuesto.FirstOrDefault(x => x.id_detalle_presupuesto == id_detalle_presupuesto);
+                if (detalle_presupuesto != null)
+                {
+                    detalle_presupuesto.estado = 0;
+                    db.SaveChanges();
+                    return Json(new { data = 1 }, JsonRequestBehavior.AllowGet);
+                }
+                else
+                {
+                    return Json(new { data = -1 }, JsonRequestBehavior.AllowGet);
+                }
+            }
+            else
+            {
+                return Json(new { data = -1 }, JsonRequestBehavior.AllowGet);
+            }
+
         }
 
 
@@ -236,7 +313,7 @@ namespace Gestion_presupuesto.Controllers
             }
             else
                 ViewData["EditError"] = "Please, correct all errors.";
-            return PartialView("~/Views/Presupuesto/_GridDetallePresupuesto.cshtml", model.ToList());
+            return GridDetallePresupuesto();
         }
         [HttpPost, ValidateInput(false)]
         public ActionResult GridDetallePresupuestoUpdate([ModelBinder(typeof(DevExpressEditorsBinder))] Gestion_presupuesto.Models.detalle_presupuesto item)
@@ -266,7 +343,7 @@ namespace Gestion_presupuesto.Controllers
             }
             else
                 ViewData["EditError"] = "Please, correct all errors.";
-            return PartialView("~/Views/Presupuesto/_GridDetallePresupuesto.cshtml", model.ToList());
+            return GridDetallePresupuesto();
         }
         [HttpPost, ValidateInput(false)]
         public ActionResult GridDetallePresupuestoDelete(System.Int32 id_detalle_presupuesto)
