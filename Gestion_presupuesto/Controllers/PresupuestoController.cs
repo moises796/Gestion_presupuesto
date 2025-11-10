@@ -1,4 +1,5 @@
 ﻿using DevExpress.ClipboardSource.SpreadsheetML;
+using DevExpress.Utils.Serializing;
 using DevExpress.Web.Mvc;
 using DevExpress.XtraReports.UI;
 using Gestion_presupuesto.Helpers;
@@ -79,6 +80,21 @@ namespace Gestion_presupuesto.Controllers
             var presupuesto_original = db.detalle_presupuesto.FirstOrDefault(x => x.id_detalle_presupuesto == id_detalle_presupuesto);
             if (presupuesto_original != null)
             {
+
+
+                //AHORA ANULAMOS TODAS LA SOLICITUDES ANTERIORES QUE NO ESTEN FINALIZADAS
+                var solicitudes = db.movimiento_detalle_presupuesto.Where(x => x.id_detalle_presupuesto == id_detalle_presupuesto).ToList();
+                solicitudes.ForEach(x => {
+                    //if (!GetVerificarStatusMovimiento_backoffice(x.id_movimiento_detalle_presupuesto))
+                    //{
+                    //    x.estado = 0;
+                    //    db.SaveChanges();
+                    //}
+                    x.estado = 0;
+                    db.SaveChanges();
+
+                });
+
                 movimiento_detalle_presupuesto clase = new movimiento_detalle_presupuesto();
                 clase.id_detalle_presupuesto = id_detalle_presupuesto;
                 clase.nombre_proceso = presupuesto_original.nombre_proceso;
@@ -93,6 +109,7 @@ namespace Gestion_presupuesto.Controllers
                 db.movimiento_detalle_presupuesto.Add(clase);
                 db.SaveChanges();
 
+                
                 return Json(new { data = 1 }, JsonRequestBehavior.AllowGet);
 
             }
@@ -105,8 +122,8 @@ namespace Gestion_presupuesto.Controllers
             try
             {
                 var Get = (from ff in db.fuente_financiamiento
-                                      where ff.estado == 1
-                                      select ff);
+                            where ff.estado == 1
+                            select ff);
                 return Get.ToList();
             }
             catch (Exception)
@@ -211,6 +228,121 @@ namespace Gestion_presupuesto.Controllers
             }
 
         }
+
+
+        public ActionResult ValidarProcesoMovimiento(int? id_movimiento_detalle_presupuesto)
+        {
+            var validacion_proceso = db.vobo.FirstOrDefault(x => (x.id_etapa_vobo == 1 || x.id_etapa_vobo == 2) && x.id_movimiento_detalle_presupuesto == id_movimiento_detalle_presupuesto);
+            if (validacion_proceso != null)
+            {
+                return Json(new { data = -1 }, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return Json(new { data = 1 }, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+
+        public ActionResult ValidarAnulacionMovimiento(int? id_movimiento_detalle_presupuesto)
+        {
+            var validacion_proceso = db.movimiento_detalle_presupuesto.FirstOrDefault(x => x.id_movimiento_detalle_presupuesto == id_movimiento_detalle_presupuesto && x.estado == 1);
+            if (validacion_proceso != null)
+            {
+                return Json(new { data = 1 }, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return Json(new { data = -1 }, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        public ActionResult AnulacionProcesoMovimiento(int? id_movimiento_detalle_presupuesto)
+        {
+            if (id_movimiento_detalle_presupuesto != null)
+            {
+                var detalle_presupuesto = db.movimiento_detalle_presupuesto.FirstOrDefault(x => x.id_movimiento_detalle_presupuesto == id_movimiento_detalle_presupuesto);
+                if (detalle_presupuesto != null)
+                {
+                    detalle_presupuesto.estado = 0;
+                    db.SaveChanges();
+                    return Json(new { data = 1 }, JsonRequestBehavior.AllowGet);
+                }
+                else
+                {
+                    return Json(new { data = -1 }, JsonRequestBehavior.AllowGet);
+                }
+            }
+            else
+            {
+                return Json(new { data = -1 }, JsonRequestBehavior.AllowGet);
+            }
+
+        }
+
+        public ActionResult GetVerificarStatusMovimiento(int? id_movimiento_detalle_presupuesto)
+        {
+            var status = db.vobo.Where(x => x.id_movimiento_detalle_presupuesto == id_movimiento_detalle_presupuesto && x.id_etapa_vobo != 4);
+            if (status.Count() > 0)
+            {
+                var conteo = 0;
+                foreach (var item in status)
+                {
+                    var finalizado = db.vobo.FirstOrDefault(x => x.id_vobo == item.id_vobo && x.id_etapa_vobo == 1);
+                    if (finalizado != null)
+                    {
+                        conteo++;
+                    }
+                }
+                if (conteo == status.Count())
+                {
+                    return Json(new { data = 1 }, JsonRequestBehavior.AllowGet);
+                }
+                else
+                {
+                    return Json(new { data = -1 }, JsonRequestBehavior.AllowGet);
+                }
+                
+            }
+            else
+            {
+                return Json(new { data = -1 }, JsonRequestBehavior.AllowGet);
+            }
+                
+        }
+
+
+        public bool GetVerificarStatusMovimiento_backoffice(int? id_movimiento_detalle_presupuesto)
+        {
+            var status = db.vobo.Where(x => x.id_movimiento_detalle_presupuesto == id_movimiento_detalle_presupuesto && x.id_etapa_vobo != 4);
+            if (status.Count() > 0)
+            {
+                var conteo = 0;
+                foreach (var item in status)
+                {
+                    var finalizado = db.vobo.FirstOrDefault(x => x.id_vobo == item.id_vobo && x.id_etapa_vobo == 1);
+                    if (finalizado != null)
+                    {
+                        conteo++;
+                    }
+                }
+                if (conteo == status.Count())
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
 
 
         public ActionResult IniciarProceso(int? id_detalle_presupuesto)
@@ -394,8 +526,33 @@ namespace Gestion_presupuesto.Controllers
             }
             var id = Convert.ToInt32(Session["idp"]);
             id_detalle_presupuesto = id_detalle_presupuesto == 0 || id_detalle_presupuesto == null ? id : id_detalle_presupuesto;
-            var model = db.movimiento_detalle_presupuesto.Where(x=>x.id_detalle_presupuesto == id_detalle_presupuesto);
-            return PartialView("~/Views/Presupuesto/_GridMovimientoPresupuesto.cshtml", model.ToList());
+
+            //var model = db.movimiento_detalle_presupuesto.Where(x=>x.id_detalle_presupuesto == id_detalle_presupuesto);
+
+            var model = db.sp_consulta_procesos_movimiento_compra(id_detalle_presupuesto).ToList();
+            List<BandejaProcesoMovimientoCompra> clase = new List<BandejaProcesoMovimientoCompra>();
+            model.ForEach(x =>
+            {
+                BandejaProcesoMovimientoCompra bpc = new BandejaProcesoMovimientoCompra();
+                bpc.id_movimiento_detalle_presupuesto = x.id_movimiento_detalle_presupuesto;
+                bpc.id_detalle_presupuesto = x.id_detalle_presupuesto;
+                bpc.codigo = x.codigo;
+                bpc.nombre_proceso = x.nombre_proceso;
+                bpc.id_metodo_contratacion = x.id_metodo_contratacion;
+                bpc.fecha_inicio = x.fecha_inicio;
+                bpc.fecha_fin = x.fecha_fin;
+                bpc.monto = x.monto;
+                bpc.id_fuente_financiamiento = x.id_fuente_financiamiento;
+                bpc.id_unidad_organizativa = x.id_unidad_organizativa;
+                bpc.estado = x.estado;
+                bpc.motivo_movimiento = x.motivo_movimiento;
+                bpc.metodo_contratacion = x.metodo_contratacion;
+                bpc.fuente_financiamiento = x.fuente_financiamiento;
+                bpc.estatus_general = x.estatus_general;
+                clase.Add(bpc);
+            });
+
+            return PartialView("~/Views/Presupuesto/_GridMovimientoPresupuesto.cshtml", model.ToList().OrderByDescending(x=>x.id_movimiento_detalle_presupuesto));
         }
 
 

@@ -302,6 +302,9 @@
         <Function Name="sp_consulta_procesos_compra" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id_unidad_organizativa" Type="int" Mode="In" />
         </Function>
+        <Function Name="sp_consulta_procesos_movimiento_compra" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_detalle_presupuesto" Type="int" Mode="In" />
+        </Function>
         <EntityContainer Name="registro_presupuestoModelStoreContainer">
           <EntitySet Name="detalle_presupuesto" EntityType="Self.detalle_presupuesto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="etapa_vobo" EntityType="Self.etapa_vobo" Schema="dbo" store:Type="Tables" />
@@ -564,11 +567,14 @@
             <End Role="movimiento_detalle_presupuesto" EntitySet="movimiento_detalle_presupuesto" />
             <End Role="vobo" EntitySet="vobo" />
           </AssociationSet>
-          <FunctionImport Name="consulta_bandeja_vobo" ReturnType="Collection(registro_presupuestoModel.consulta_bandeja_vobo_Result3)">
-          <Parameter Name="id_empleado" Mode="In" Type="Int32" />
-          </FunctionImport>
           <FunctionImport Name="sp_consulta_procesos_compra" ReturnType="Collection(registro_presupuestoModel.sp_consulta_procesos_compra_Result)">
-            <Parameter Name="id_unidad_organizativa" Mode="In" Type="Int32" />
+          <Parameter Name="id_unidad_organizativa" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_consulta_procesos_movimiento_compra" ReturnType="Collection(registro_presupuestoModel.sp_consulta_procesos_movimiento_compra_Result)">
+          <Parameter Name="id_detalle_presupuesto" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="consulta_bandeja_vobo" ReturnType="Collection(registro_presupuestoModel.consulta_bandeja_vobo_Result5)">
+            <Parameter Name="id_empleado" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <EntityType Name="menu">
@@ -838,6 +844,55 @@
           <Property Type="String" Name="estatus_proceso" Nullable="false" MaxLength="56" />
           <Property Type="String" Name="estatus_general" Nullable="false" MaxLength="11" />
         </ComplexType>
+        <ComplexType Name="sp_consulta_procesos_movimiento_compra_Result">
+          <Property Type="Int32" Name="id_movimiento_detalle_presupuesto" Nullable="false" />
+          <Property Type="Int32" Name="id_detalle_presupuesto" Nullable="true" />
+          <Property Type="String" Name="nombre_proceso" Nullable="true" MaxLength="350" />
+          <Property Type="Int32" Name="id_metodo_contratacion" Nullable="true" />
+          <Property Type="DateTime" Name="fecha_inicio" Nullable="true" />
+          <Property Type="DateTime" Name="fecha_fin" Nullable="true" />
+          <Property Type="Double" Name="monto" Nullable="true" />
+          <Property Type="Int32" Name="id_fuente_financiamiento" Nullable="true" />
+          <Property Type="Int32" Name="id_unidad_organizativa" Nullable="true" />
+          <Property Type="DateTime" Name="fecha_movimiento" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="estado" Nullable="true" />
+          <Property Type="String" Name="motivo_movimiento" Nullable="true" />
+          <Property Type="String" Name="codigo" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="metodo_contratacion" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="fuente_financiamiento" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="estatus_general" Nullable="false" MaxLength="59" />
+        </ComplexType>
+        <ComplexType Name="consulta_bandeja_vobo_Result4">
+          <Property Type="Int32" Name="id" Nullable="true" />
+          <Property Type="String" Name="codigo" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="nombre_proceso" Nullable="true" MaxLength="350" />
+          <Property Type="Int32" Name="id_metodo_contratacion" Nullable="true" />
+          <Property Type="DateTime" Name="fecha_inicio" Nullable="true" />
+          <Property Type="DateTime" Name="fecha_fin" Nullable="true" />
+          <Property Type="Double" Name="monto" Nullable="true" />
+          <Property Type="Int32" Name="id_fuente_financiamiento" Nullable="true" />
+          <Property Type="Int32" Name="id_unidad_organizativa" Nullable="true" />
+          <Property Type="Int32" Name="estado" Nullable="true" />
+          <Property Type="Int32" Name="id_vobo" Nullable="false" />
+          <Property Type="Int32" Name="tipo_vobo" Nullable="false" />
+          <Property Type="String" Name="motivo_movimiento" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="consulta_bandeja_vobo_Result5">
+          <Property Type="Int32" Name="id" Nullable="true" />
+          <Property Type="String" Name="codigo" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="nombre_proceso" Nullable="true" MaxLength="350" />
+          <Property Type="Int32" Name="id_metodo_contratacion" Nullable="true" />
+          <Property Type="DateTime" Name="fecha_inicio" Nullable="true" />
+          <Property Type="DateTime" Name="fecha_fin" Nullable="true" />
+          <Property Type="Double" Name="monto" Nullable="true" />
+          <Property Type="Int32" Name="id_fuente_financiamiento" Nullable="true" />
+          <Property Type="Int32" Name="id_unidad_organizativa" Nullable="true" />
+          <Property Type="Int32" Name="estado" Nullable="true" />
+          <Property Type="Int32" Name="id_vobo" Nullable="false" />
+          <Property Type="Int32" Name="tipo_vobo" Nullable="false" />
+          <Property Type="String" Name="motivo_movimiento" Nullable="true" />
+          <Property Type="String" Name="proceso_column" Nullable="false" MaxLength="365" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -978,24 +1033,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="consulta_bandeja_vobo" FunctionName="registro_presupuestoModel.Store.consulta_bandeja_vobo">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="registro_presupuestoModel.consulta_bandeja_vobo_Result3">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="codigo" ColumnName="codigo" />
-                <ScalarProperty Name="nombre_proceso" ColumnName="nombre_proceso" />
-                <ScalarProperty Name="id_metodo_contratacion" ColumnName="id_metodo_contratacion" />
-                <ScalarProperty Name="fecha_inicio" ColumnName="fecha_inicio" />
-                <ScalarProperty Name="fecha_fin" ColumnName="fecha_fin" />
-                <ScalarProperty Name="monto" ColumnName="monto" />
-                <ScalarProperty Name="id_fuente_financiamiento" ColumnName="id_fuente_financiamiento" />
-                <ScalarProperty Name="id_unidad_organizativa" ColumnName="id_unidad_organizativa" />
-                <ScalarProperty Name="estado" ColumnName="estado" />
-                <ScalarProperty Name="id_vobo" ColumnName="id_vobo" />
-                <ScalarProperty Name="tipo_vobo" ColumnName="tipo_vobo" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_consulta_procesos_compra" FunctionName="registro_presupuestoModel.Store.sp_consulta_procesos_compra">
             <ResultMapping>
               <ComplexTypeMapping TypeName="registro_presupuestoModel.sp_consulta_procesos_compra_Result">
@@ -1013,6 +1050,48 @@
                 <ScalarProperty Name="fuente_financiamiento" ColumnName="fuente_financiamiento" />
                 <ScalarProperty Name="estatus_proceso" ColumnName="estatus_proceso" />
                 <ScalarProperty Name="estatus_general" ColumnName="estatus_general" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_consulta_procesos_movimiento_compra" FunctionName="registro_presupuestoModel.Store.sp_consulta_procesos_movimiento_compra">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="registro_presupuestoModel.sp_consulta_procesos_movimiento_compra_Result">
+                <ScalarProperty Name="id_movimiento_detalle_presupuesto" ColumnName="id_movimiento_detalle_presupuesto" />
+                <ScalarProperty Name="id_detalle_presupuesto" ColumnName="id_detalle_presupuesto" />
+                <ScalarProperty Name="nombre_proceso" ColumnName="nombre_proceso" />
+                <ScalarProperty Name="id_metodo_contratacion" ColumnName="id_metodo_contratacion" />
+                <ScalarProperty Name="fecha_inicio" ColumnName="fecha_inicio" />
+                <ScalarProperty Name="fecha_fin" ColumnName="fecha_fin" />
+                <ScalarProperty Name="monto" ColumnName="monto" />
+                <ScalarProperty Name="id_fuente_financiamiento" ColumnName="id_fuente_financiamiento" />
+                <ScalarProperty Name="id_unidad_organizativa" ColumnName="id_unidad_organizativa" />
+                <ScalarProperty Name="fecha_movimiento" ColumnName="fecha_movimiento" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="motivo_movimiento" ColumnName="motivo_movimiento" />
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="metodo_contratacion" ColumnName="metodo_contratacion" />
+                <ScalarProperty Name="fuente_financiamiento" ColumnName="fuente_financiamiento" />
+                <ScalarProperty Name="estatus_general" ColumnName="estatus_general" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="consulta_bandeja_vobo" FunctionName="registro_presupuestoModel.Store.consulta_bandeja_vobo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="registro_presupuestoModel.consulta_bandeja_vobo_Result5">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="nombre_proceso" ColumnName="nombre_proceso" />
+                <ScalarProperty Name="id_metodo_contratacion" ColumnName="id_metodo_contratacion" />
+                <ScalarProperty Name="fecha_inicio" ColumnName="fecha_inicio" />
+                <ScalarProperty Name="fecha_fin" ColumnName="fecha_fin" />
+                <ScalarProperty Name="monto" ColumnName="monto" />
+                <ScalarProperty Name="id_fuente_financiamiento" ColumnName="id_fuente_financiamiento" />
+                <ScalarProperty Name="id_unidad_organizativa" ColumnName="id_unidad_organizativa" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="id_vobo" ColumnName="id_vobo" />
+                <ScalarProperty Name="tipo_vobo" ColumnName="tipo_vobo" />
+                <ScalarProperty Name="motivo_movimiento" ColumnName="motivo_movimiento" />
+                <ScalarProperty Name="proceso_column" ColumnName="proceso_column" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

@@ -39,15 +39,6 @@ namespace Gestion_presupuesto.Models
         public virtual DbSet<movimiento_vobo> movimiento_vobo { get; set; }
         public virtual DbSet<tipo_movimiento> tipo_movimiento { get; set; }
     
-        public virtual ObjectResult<consulta_bandeja_vobo_Result3> consulta_bandeja_vobo(Nullable<int> id_empleado)
-        {
-            var id_empleadoParameter = id_empleado.HasValue ?
-                new ObjectParameter("id_empleado", id_empleado) :
-                new ObjectParameter("id_empleado", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<consulta_bandeja_vobo_Result3>("consulta_bandeja_vobo", id_empleadoParameter);
-        }
-    
         public virtual ObjectResult<sp_consulta_procesos_compra_Result> sp_consulta_procesos_compra(Nullable<int> id_unidad_organizativa)
         {
             var id_unidad_organizativaParameter = id_unidad_organizativa.HasValue ?
@@ -55,6 +46,24 @@ namespace Gestion_presupuesto.Models
                 new ObjectParameter("id_unidad_organizativa", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_consulta_procesos_compra_Result>("sp_consulta_procesos_compra", id_unidad_organizativaParameter);
+        }
+    
+        public virtual ObjectResult<sp_consulta_procesos_movimiento_compra_Result> sp_consulta_procesos_movimiento_compra(Nullable<int> id_detalle_presupuesto)
+        {
+            var id_detalle_presupuestoParameter = id_detalle_presupuesto.HasValue ?
+                new ObjectParameter("id_detalle_presupuesto", id_detalle_presupuesto) :
+                new ObjectParameter("id_detalle_presupuesto", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_consulta_procesos_movimiento_compra_Result>("sp_consulta_procesos_movimiento_compra", id_detalle_presupuestoParameter);
+        }
+    
+        public virtual ObjectResult<consulta_bandeja_vobo_Result5> consulta_bandeja_vobo(Nullable<int> id_empleado)
+        {
+            var id_empleadoParameter = id_empleado.HasValue ?
+                new ObjectParameter("id_empleado", id_empleado) :
+                new ObjectParameter("id_empleado", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<consulta_bandeja_vobo_Result5>("consulta_bandeja_vobo", id_empleadoParameter);
         }
     }
 }

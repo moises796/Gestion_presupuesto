@@ -19,7 +19,7 @@
         settings.SettingsPopup.EditForm.VerticalAlign = PopupVerticalAlign.Middle;
         settings.SettingsPopup.EditForm.HorizontalAlign = PopupHorizontalAlign.Center;
         settings.SettingsPopup.EditForm.ShowHeader = true;
-        settings.SettingsText.PopupEditFormCaption = "Gestión presupuesto";
+        settings.SettingsText.PopupEditFormCaption = "Gestión proceso de compra";
         settings.SetEmptyDataRowTemplateContent("Aún no posee movimiento(s) dicha solicitud");
         settings.SettingsBehavior.ConfirmDelete = true;
         settings.CommandColumn.ButtonRenderMode = GridCommandButtonRenderMode.Image;
@@ -57,6 +57,13 @@
         finButton.Image.Height = 30;
         settings.CommandColumn.CustomButtons.Add(finButton);
         settings.ClientSideEvents.CustomButtonClick = "function(s,e){ OnCustomButtonClick(s,e); }";
+        var anularButton = new GridViewCommandColumnCustomButton() { ID = "btnAnular", Text = " " };
+        anularButton.Image.Url = Url.Content("~/Content/img/delete.png");
+        anularButton.Image.ToolTip = "Descartar";
+        anularButton.Image.Width = 30;
+        anularButton.Image.Height = 30;
+        settings.CommandColumn.CustomButtons.Add(anularButton);
+        settings.ClientSideEvents.CustomButtonClick = "function(s,e){ OnCustomButtonClick(s,e); }";
 
         settings.KeyFieldName = "id_movimiento_detalle_presupuesto";
 
@@ -87,12 +94,24 @@
         settings.SettingsPopup.EditForm.PopupAnimationType = DevExpress.Web.AnimationType.Fade;
         settings.SettingsPopup.EditForm.Width = 1000;
 
+        settings.Columns.Add(gridViewColumnSettings =>
+        {
+            gridViewColumnSettings.FieldName = "estatus_general";
+            gridViewColumnSettings.Caption = "Nombre del proceso";
+            gridViewColumnSettings.CellStyle.Wrap = DefaultBoolean.True;
+            gridViewColumnSettings.AdaptivePriority = 1;
+            gridViewColumnSettings.PropertiesEdit.EncodeHtml = false;
+            gridViewColumnSettings.UnboundType = DevExpress.Data.UnboundColumnType.String;
+            gridViewColumnSettings.Settings.AutoFilterCondition = AutoFilterCondition.Contains;
+            gridViewColumnSettings.Settings.FilterMode = ColumnFilterMode.DisplayText;
+        });
 
         settings.Columns.Add(gridViewColumnSettings =>
         {
             gridViewColumnSettings.FieldName = "nombre_proceso";
             gridViewColumnSettings.Caption = "Nombre del proceso";
             gridViewColumnSettings.AdaptivePriority = 1;
+            gridViewColumnSettings.Visible = false;
             MVCxColumnTextBoxProperties editorProperties = gridViewColumnSettings.PropertiesEdit as MVCxColumnTextBoxProperties;
             editorProperties.ValidationSettings.RequiredField.IsRequired = true;
             editorProperties.ValidationSettings.RequiredField.ErrorText = "Este campo es requerido.";
@@ -103,6 +122,7 @@
         {
             c.FieldName = "id_metodo_contratacion";
             c.Caption = "Método de contratación";
+            c.AdaptivePriority = 5;
             c.EditorProperties().ComboBox(p =>
             {
                 p.TextField = "valor";
@@ -119,6 +139,7 @@
         {
             c.FieldName = "fecha_inicio";
             c.Caption = "Inicio (Mes/Año)";
+            c.AdaptivePriority = 3;
             c.EditorProperties().DateEdit(p =>
             {
                 p.EditFormat = EditFormat.Custom;
@@ -135,6 +156,7 @@
         {
             c.FieldName = "fecha_fin";
             c.Caption = "Fin (Mes/Año)";
+            c.AdaptivePriority = 4;
             c.EditorProperties().DateEdit(p =>
             {
                 p.EditFormat = EditFormat.Custom;
@@ -151,7 +173,7 @@
         {
             gridViewColumnSettings.FieldName = "monto";
             gridViewColumnSettings.Caption = "Monto";
-            gridViewColumnSettings.AdaptivePriority = 4;
+            gridViewColumnSettings.AdaptivePriority = 2;
             gridViewColumnSettings.ColumnType = MVCxGridViewColumnType.SpinEdit;
             ((SpinEditProperties)gridViewColumnSettings.PropertiesEdit).DisplayFormatInEditMode = true;
             ((SpinEditProperties)gridViewColumnSettings.PropertiesEdit).DisplayFormatString = "c";
@@ -167,6 +189,7 @@
         {
             c.FieldName = "id_fuente_financiamiento";
             c.Caption = "Fuente de financiamiento";
+            c.AdaptivePriority = 6;
             c.EditorProperties().ComboBox(p =>
             {
                 p.TextField = "valor";
@@ -181,6 +204,7 @@
         {
             c.FieldName = "id_unidad_organizativa";
             c.Caption = "Unidad organizativa";
+            c.AdaptivePriority = 7;
             c.EditorProperties().ComboBox(p =>
             {
                 p.TextField = "nombre";

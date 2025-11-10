@@ -44,7 +44,9 @@ namespace Gestion_presupuesto.Controllers
                 bv.id_fuente_financiamiento = x.id_fuente_financiamiento;
                 bv.id_unidad_organizativa = x.id_unidad_organizativa;
                 bv.estado = x.estado;
+                bv.motivo_movimiento = x.motivo_movimiento == null ? "N/A" : x.motivo_movimiento;
                 bv.tipo_vobo  = x.tipo_vobo;
+                bv.proceso_column = x.proceso_column;
                 clase.Add(bv);
             });
 

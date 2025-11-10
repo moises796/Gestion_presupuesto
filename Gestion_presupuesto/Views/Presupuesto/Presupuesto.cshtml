@@ -95,7 +95,7 @@
     settings.Modal = true;
     settings.AllowDragging = false;
     settings.PopupHorizontalAlign = PopupHorizontalAlign.WindowCenter;
-    settings.PopupVerticalAlign = PopupVerticalAlign.TopSides;
+    settings.PopupVerticalAlign = PopupVerticalAlign.WindowCenter;
     settings.SetContent(() =>
     {
 
@@ -155,36 +155,161 @@
             //DESPUES VALIDAR QUE SI ESTA ANULADO NO PUEDA EDITAR
             var index = GridMovimientoPresupuesto.GetFocusedRowIndex();
             var data = GridMovimientoPresupuesto.GetRowKey(index);
-            GridMovimientoPresupuesto.StartEditRow(index);
+            
+            $.ajax({
+                type: "POST",
+                url: "@Url.Content("~/Presupuesto/ValidarAnulacionMovimiento")",
+                data: "id_movimiento_detalle_presupuesto=" + data
+            }).done(function (resp) {
+                if (resp.data == "1") {
+                    GridMovimientoPresupuesto.StartEditRow(index);
+                } else {
+                    Swal.fire("¡Solicitud descartada!", "No se puede realizar la acción ya que la solicitud fue descartada previamente", "error");
+                }
+            });
         } else if (e.buttonID == "btnInicio") {
             var index = GridMovimientoPresupuesto.GetFocusedRowIndex();
             var data = GridMovimientoPresupuesto.GetRowKey(index);
+
             $.ajax({
                 type: "POST",
-                url: "@Url.Content("~/Presupuesto/IniciarProcesoMovimiento")",
+                url: "@Url.Content("~/Presupuesto/ValidarAnulacionMovimiento")",
                 data: "id_movimiento_detalle_presupuesto=" + data
             }).done(function (resp) {
-                
+                if (resp.data == "1") {
+                    $.ajax({
+                        type: "POST",
+                        url: "@Url.Content("~/Presupuesto/ValidarProcesoMovimiento")",
+                        data: "id_movimiento_detalle_presupuesto=" + data
+                    }).done(function (resp) {
+                        if (resp.data == "1") {
+                            Swal.fire({
+                                title: "¿Desea iniciar el proceso de la solicitud?",
+                                text: "Esta acción iniciará el proceso de vistos buenos por el personal autorizado dentro de dicha solicitud.",
+                                icon: "warning",
+                                showCancelButton: true,
+                                confirmButtonColor: "#3085d6",
+                                cancelButtonColor: "#d33",
+                                confirmButtonText: "Sí",
+                                cancelButtonText: "No"
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    $.ajax({
+                                        type: "POST",
+                                        url: "@Url.Content("~/Presupuesto/IniciarProcesoMovimiento")",
+                                        data: "id_movimiento_detalle_presupuesto=" + data
+                                    }).done(function (resp) {
+                                        if (resp.data == 1) {
+                                            Swal.fire("¡Listo!", "Se inició el proceso de vistos buenos para dicha solicitud", "success");
+                                            GridDetallePresupuesto.PerformCallback();
+                                        } else {
+                                            Swal.fire("¡Lo siento!", "Algo salió mal, intente nuevamente, por favor", "error");
+                                        }
+                                    });
+                                }
+                            });
+                        } else {
+                            Swal.fire("¡Acción no permitida!", "Se ha identificado que la solicitud ya está en proceso de validación o ya ha sido finalizada", "warning");
+                        }
+                    });
+                } else {
+                    Swal.fire("¡Solicitud descartada!", "No se puede realizar la acción ya que la solicitud fue descartada previamente", "error");
+                }
             });
+
         } else if (e.buttonID == "btnVobo") {
             var index = GridMovimientoPresupuesto.GetFocusedRowIndex();
             var data = GridMovimientoPresupuesto.GetRowKey(index);
 
-            //ABRIR MODAL
-            localStorage.removeItem("id_detalle_presupuesto");
-            localStorage.removeItem("id_movimiento_detalle_presupuesto");
-            localStorage.setItem("id_movimiento_detalle_presupuesto", data);
-            modalvobo.Show();
-            GridListadoVobo.PerformCallback();
+            $.ajax({
+                type: "POST",
+                url: "@Url.Content("~/Presupuesto/ValidarAnulacionMovimiento")",
+                data: "id_movimiento_detalle_presupuesto=" + data
+            }).done(function (resp) {
+                if (resp.data == "1") {
+                    //ABRIR MODAL
+                    localStorage.removeItem("id_detalle_presupuesto");
+                    localStorage.removeItem("id_movimiento_detalle_presupuesto");
+                    localStorage.setItem("id_movimiento_detalle_presupuesto", data);
+                    modalvobo.Show();
+                    GridListadoVobo.PerformCallback();
+                } else {
+                    Swal.fire("¡Solicitud descartada!", "No se puede realizar la acción ya que la solicitud fue descartada previamente", "error");
+                }
+            });
+
         } else if (e.buttonID == "btnFin") {
             var index = GridMovimientoPresupuesto.GetFocusedRowIndex();
             var data = GridMovimientoPresupuesto.GetRowKey(index);
-            localStorage.removeItem("id");
-            localStorage.removeItem("tipo_vobo");
-            localStorage.setItem("id", data);
-            localStorage.setItem("tipo_vobo", 2);
-            repComprobante.PerformCallback();
-            modalviewer.Show();
+
+            $.ajax({
+                type: "POST",
+                url: "@Url.Content("~/Presupuesto/ValidarAnulacionMovimiento")",
+                data: "id_movimiento_detalle_presupuesto=" + data
+            }).done(function (resp) {
+                if (resp.data == "1") {
+                    $.ajax({
+                        type: "POST",
+                        url: "@Url.Content("~/Presupuesto/GetVerificarStatusMovimiento")",
+                        data: "id_movimiento_detalle_presupuesto=" + data
+                    }).done(function (resp) {
+                        if (resp.data == "1") {
+                            localStorage.removeItem("id");
+                            localStorage.removeItem("tipo_vobo");
+                            localStorage.setItem("id", data);
+                            localStorage.setItem("tipo_vobo", 2);
+                            repComprobante.PerformCallback();
+                            modalviewer.Show();
+                        } else {
+                            Swal.fire("¡Solicitud no finalizada!", "La solicitud se encuentra pendiente de validación, por ende no está disponible para visualización", "error");
+                        }
+                    });
+                } else {
+                    Swal.fire("¡Solicitud descartada!", "No se puede realizar la acción ya que la solicitud fue descartada previamente", "error");
+                }
+            });
+
+        } else if (e.buttonID == "btnAnular") {
+            var index = GridMovimientoPresupuesto.GetFocusedRowIndex();
+            var data = GridMovimientoPresupuesto.GetRowKey(index);
+
+            $.ajax({
+                type: "POST",
+                url: "@Url.Content("~/Presupuesto/ValidarAnulacionMovimiento")",
+                data: "id_movimiento_detalle_presupuesto=" + data
+            }).done(function (resp) {
+                if (resp.data == "1") {
+                    Swal.fire({
+                        title: "¿Desea descartar la solicitud?",
+                        text: "Esta acción anulará la solicitud, es importante mencionar que no se podrá revertir. ¿Desea continuar?",
+                        icon: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#3085d6",
+                        cancelButtonColor: "#d33",
+                        confirmButtonText: "Sí",
+                        cancelButtonText: "No"
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            $.ajax({
+                                type: "POST",
+                                url: "@Url.Content("~/Presupuesto/AnulacionProcesoMovimiento")",
+                                data: "id_movimiento_detalle_presupuesto=" + data
+                            }).done(function (resp) {
+                                if (resp.data == "1") {
+                                    Swal.fire("¡Listo!", "Se ha descartado la solicitud", "success");
+                                    GridDetallePresupuesto.PerformCallback();
+                                    GridMovimientoPresupuesto.PerformCallback();
+                                } else {
+                                    Swal.fire("¡Lo siento!", "Algo salió mal, intente nuevamente, por favor", "error");
+                                }
+                            });
+                        }
+                    });
+                } else {
+                    Swal.fire("¡Solicitud descartada!", "No se puede realizar la acción ya que la solicitud fue descartada previamente", "error");
+                }
+            });
+
         }
 
     }
@@ -288,7 +413,7 @@
                                 }
                             });
                         } else {
-                            Swal.fire("¡Acción no permitida!", "Se ha identificado que la solicitud ya está en proceso de validación o ya ha sido finalizada", "warning");
+                            Swal.fire("¡Acción no permitida!", "Se ha identificado que la solicitud ya está en proceso de validación o se encuentra finalizada", "warning");
                         }
                     });
                 }else{

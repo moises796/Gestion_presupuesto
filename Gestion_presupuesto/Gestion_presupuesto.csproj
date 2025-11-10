@@ -334,6 +334,12 @@
     <Compile Include="Models\consulta_bandeja_vobo_Result3.cs">
       <DependentUpon>Presupuesto.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\consulta_bandeja_vobo_Result4.cs">
+      <DependentUpon>Presupuesto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\consulta_bandeja_vobo_Result5.cs">
+      <DependentUpon>Presupuesto.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\detalle_presupuesto.cs">
       <DependentUpon>Presupuesto.tt</DependentUpon>
     </Compile>
@@ -401,6 +407,9 @@
       <DependentUpon>rrhh.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_consulta_procesos_compra_Result.cs">
+      <DependentUpon>Presupuesto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_consulta_procesos_movimiento_compra_Result.cs">
       <DependentUpon>Presupuesto.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sub_menu.cs">
