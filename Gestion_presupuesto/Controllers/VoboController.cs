@@ -118,7 +118,7 @@ namespace Gestion_presupuesto.Controllers
             
         }
 
-        public ActionResult Observar(int? id_vobo, int? id_detalle_presupuesto,string instruccion)
+        public ActionResult Observar(int? id_vobo, string instruccion)
         {
             var vobo = db.vobo.FirstOrDefault(x => x.id_vobo == id_vobo);
             if (vobo == null)
@@ -128,13 +128,28 @@ namespace Gestion_presupuesto.Controllers
             vobo.instruccion = instruccion;
             db.SaveChanges();
             //VAMOS A PASAR TODO A LA ETAPA 4 DE OBSERVADO
-            var lista_vobo = db.vobo.Where(x => x.id_detalle_presupuesto == id_detalle_presupuesto).ToList();
-            lista_vobo.ForEach(x => { 
-                x.id_etapa_vobo = 4;
-                db.SaveChanges(); 
-            });
+            if (vobo.id_detalle_presupuesto!=null)
+            {
+                var lista_vobo = db.vobo.Where(x => x.id_detalle_presupuesto == vobo.id_detalle_presupuesto).ToList();
+                lista_vobo.ForEach(x => {
+                    x.id_etapa_vobo = 4;
+                    db.SaveChanges();
+                });
 
-            return Json(new { data = 1 }, JsonRequestBehavior.AllowGet);
+                return Json(new { data = 1 }, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                var lista_vobo = db.vobo.Where(x => x.id_movimiento_detalle_presupuesto == vobo.id_movimiento_detalle_presupuesto).ToList();
+                lista_vobo.ForEach(x => {
+                    x.id_etapa_vobo = 4;
+                    db.SaveChanges();
+                });
+
+                return Json(new { data = 1 }, JsonRequestBehavior.AllowGet);
+            }
+
+            
         }
 
         public ActionResult Aprobar(int? id_vobo)
@@ -143,13 +158,28 @@ namespace Gestion_presupuesto.Controllers
             var lista_vobo = db.vobo.FirstOrDefault(x=>x.id_vobo == id_vobo);
             lista_vobo.id_etapa_vobo = 1;
             db.SaveChanges();
-            var siguiente_vobo = db.vobo.FirstOrDefault(x=>x.id_etapa_vobo == 2 && x.id_detalle_presupuesto == lista_vobo.id_detalle_presupuesto);
-            if (siguiente_vobo != null)
+
+            if (lista_vobo.id_detalle_presupuesto != null)
             {
-                siguiente_vobo.id_etapa_vobo = 3;
-                db.SaveChanges();
+                var siguiente_vobo = db.vobo.FirstOrDefault(x => x.id_etapa_vobo == 2 && x.id_detalle_presupuesto == lista_vobo.id_detalle_presupuesto);
+                if (siguiente_vobo != null)
+                {
+                    siguiente_vobo.id_etapa_vobo = 3;
+                    db.SaveChanges();
+                }
+                return Json(new { data = 1 }, JsonRequestBehavior.AllowGet);
             }
-            return Json(new { data = 1 }, JsonRequestBehavior.AllowGet);
+            else
+            {
+                var siguiente_vobo = db.vobo.FirstOrDefault(x => x.id_etapa_vobo == 2 && x.id_movimiento_detalle_presupuesto == lista_vobo.id_movimiento_detalle_presupuesto);
+                if (siguiente_vobo != null)
+                {
+                    siguiente_vobo.id_etapa_vobo = 3;
+                    db.SaveChanges();
+                }
+                return Json(new { data = 1 }, JsonRequestBehavior.AllowGet);
+            }
+            
         }
 
         [ValidateInput(false)]
@@ -157,13 +187,13 @@ namespace Gestion_presupuesto.Controllers
         {
             if (id_detalle_presupuesto != null)
             {
-                var model = db.vobo.Where(x => x.id_detalle_presupuesto == id_detalle_presupuesto && x.estado != 5);
+                var model = db.vobo.Where(x => x.id_detalle_presupuesto == id_detalle_presupuesto && x.id_etapa_vobo != 4);
 
                 return PartialView("~/Views/Vobo/_GridListadoVobo.cshtml", model.ToList());
             }
             else
             {
-                var model = db.vobo.Where(x => x.id_movimiento_detalle_presupuesto == id_movimiento_detalle_presupuesto && x.estado != 5);
+                var model = db.vobo.Where(x => x.id_movimiento_detalle_presupuesto == id_movimiento_detalle_presupuesto && x.id_etapa_vobo != 4);
 
                 return PartialView("~/Views/Vobo/_GridListadoVobo.cshtml", model.ToList());
             }

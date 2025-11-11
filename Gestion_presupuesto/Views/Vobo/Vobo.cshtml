@@ -93,7 +93,6 @@
                                 url: "@Url.Content("~/Vobo/Observar")",
                                 data: {
                                     id_vobo: datos[1],
-                                    id_detalle_presupuesto: datos[0],
                                     instruccion: r.value.trim()
                                 }
                             }).done(function (resp) {
@@ -136,6 +135,7 @@
                     }).done(function (resp) {
                         if (resp.data == 1) {
                             Swal.fire("Listo", "La solicitud ya cuenta con su visto bueno", "success");
+                            GridVobo.PerformCallback();
                         } else {
                             swal("¡Importante!", "Únicamente el empleado que elaboró o remite la correspondencia están autorizados", "info");
                         }
