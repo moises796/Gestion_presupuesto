@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "Consulta";
+}
+
+
+
+@Html.DevExpress().GetStyleSheets(
+    new StyleSheet { ExtensionSuite = ExtensionSuite.NavigationAndLayout },
+    new StyleSheet { ExtensionSuite = ExtensionSuite.Editors },
+    new StyleSheet { ExtensionSuite = ExtensionSuite.GridView }
+)
+@Html.DevExpress().GetScripts(
+    new Script { ExtensionSuite = ExtensionSuite.NavigationAndLayout },
+    new Script { ExtensionSuite = ExtensionSuite.Editors },
+    new Script { ExtensionSuite = ExtensionSuite.GridView }
+)
+
+
+<center>
+    <h1 class="animated fadeInUp encabezado mt-2">Consulta general procesos de compra</h1>
+</center>
+
+<div class="card border-0 rounded-4 shadow-sm p-1 p-sm-2 p-md-3 p-lg-5 ">
+    <div class="d-flex justify-content-between align-items-start mb-3">
+        @{
+            Html.DevExpress().TextBox(x =>
+            {
+                x.Name = "anio";
+                x.Properties.Caption = "Año de consulta";
+                x.ClientEnabled = true;
+                x.Properties.MaskSettings.Mask = "####";
+                x.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+                x.Properties.ClientSideEvents.ValueChanged = "function(s,e){localStorage.setItem(\"anio\",s.GetText());repConsulta.PerformCallback();}";
+            }).GetHtml();
+
+            Html.RenderAction("ViewerReporteConsulta", "Consulta");
+
+        }
+
+    </div>
+</div>
+
+

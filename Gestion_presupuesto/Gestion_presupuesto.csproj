@@ -308,6 +308,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\ConsultaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PresupuestoController.cs" />
@@ -412,6 +413,9 @@
     <Compile Include="Models\sp_consulta_procesos_movimiento_compra_Result.cs">
       <DependentUpon>Presupuesto.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\sp_general_proceso_compra_Result.cs">
+      <DependentUpon>Presupuesto.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\sub_menu.cs">
       <DependentUpon>Presupuesto.tt</DependentUpon>
     </Compile>
@@ -433,10 +437,21 @@
     <Compile Include="Reportes\Comprobante.Designer.cs">
       <DependentUpon>Comprobante.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\Consulta.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\Consulta.Designer.cs">
+      <DependentUpon>Consulta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\dsComprobante.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsComprobante.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\dsConsulta.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsConsulta.xsd</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -1958,6 +1973,17 @@
     <Content Include="Reportes\dsComprobante.xss">
       <DependentUpon>dsComprobante.xsd</DependentUpon>
     </Content>
+    <Content Include="Reportes\dsConsulta.xsc">
+      <DependentUpon>dsConsulta.xsd</DependentUpon>
+    </Content>
+    <None Include="Reportes\dsConsulta.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsConsulta.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Reportes\dsConsulta.xss">
+      <DependentUpon>dsConsulta.xsd</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\dx-diagram.js" />
     <Content Include="Scripts\dx-diagram.min.js" />
@@ -2051,6 +2077,8 @@
     <Content Include="Views\Vobo\_GridListadoVobo.cshtml" />
     <Content Include="Views\Presupuesto\repComprobante.cshtml" />
     <Content Include="Views\Presupuesto\_GridMovimientoPresupuesto.cshtml" />
+    <Content Include="Views\Consulta\Consulta.cshtml" />
+    <Content Include="Views\Consulta\repConsulta.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2093,6 +2121,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\Comprobante.resx">
       <DependentUpon>Comprobante.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Consulta.resx">
+      <DependentUpon>Consulta.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

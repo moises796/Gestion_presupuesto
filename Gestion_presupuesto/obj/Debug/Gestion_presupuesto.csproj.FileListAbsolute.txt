@@ -278,3 +278,4 @@ C:\repos\Gestion_presupuesto\Gestion_presupuesto\bin\ru\Microsoft.Data.SqlClient
 C:\repos\Gestion_presupuesto\Gestion_presupuesto\bin\tr\Microsoft.Data.SqlClient.resources.dll
 C:\repos\Gestion_presupuesto\Gestion_presupuesto\bin\zh-Hans\Microsoft.Data.SqlClient.resources.dll
 C:\repos\Gestion_presupuesto\Gestion_presupuesto\bin\zh-Hant\Microsoft.Data.SqlClient.resources.dll
+C:\repos\Gestion_presupuesto\Gestion_presupuesto\obj\Debug\Gestion_presupuesto.Reportes.Consulta.resources
