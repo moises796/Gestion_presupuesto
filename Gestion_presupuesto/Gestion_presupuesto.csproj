@@ -1979,6 +1979,7 @@
       <DependentUpon>dsComprobante.xsd</DependentUpon>
     </Content>
     <Content Include="Content\js\jquery.min.map" />
+    <Compile Include="Models\registro_presupuestoEntities.Audit.partial.cs" />
     <None Include="Reportes\dsComprobante.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
