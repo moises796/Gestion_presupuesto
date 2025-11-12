@@ -6,7 +6,7 @@
 
         settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "Presupuesto", Action = "GridMovimientoPresupuestoUpdate" };
         settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "Presupuesto", Action = "GridMovimientoPresupuestoDelete" };
-
+        settings.ClientSideEvents.EndCallback = "function(s,e){OnCallBackGridViewGRID();}";
         settings.EnableRowsCache = false;
         settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
 
@@ -288,13 +288,13 @@
                 item.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
             });
 
-            tabbedGroupSettings.Items.Add(item =>
-            {
-                item.Name = "id_unidad_organizativa";
-                item.ColumnName = "id_unidad_organizativa";
-                item.ColumnSpan = 2;
-                item.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
-            });
+            //tabbedGroupSettings.Items.Add(item =>
+            //{
+            //    item.Name = "id_unidad_organizativa";
+            //    item.ColumnName = "id_unidad_organizativa";
+            //    item.ColumnSpan = 2;
+            //    item.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
+            //});
 
             tabbedGroupSettings.Items.Add(item =>
             {

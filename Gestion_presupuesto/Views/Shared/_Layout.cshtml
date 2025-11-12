@@ -376,6 +376,14 @@
             });
         }
 
+        function OnCallBackGridViewGRIDTooltip() {
+            $('[data-toggle="tooltip"]').tooltip();
+            $('.popover-dismiss').popover({
+                trigger: 'hover'
+            });
+        }
+
+
         document.addEventListener('DOMContentLoaded', function () {
             var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
             tooltipTriggerList.forEach(function (tooltipTriggerEl) {
@@ -420,6 +428,8 @@
 
 
         $(function () { $('.dropdown-toggle').dropdown(); });
+
+
 
     </script>
 </body>
