@@ -3,20 +3,24 @@
   "WorkspaceRootPath": "C:\\repos\\Gestion_presupuesto\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{19438833-143F-4F1F-B0BA-B8A53352B9CD}|Gestion_presupuesto\\Gestion_presupuesto.csproj|c:\\repos\\gestion_presupuesto\\gestion_presupuesto\\views\\fuentefinanciamiento\\fuentefinanciamiento.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{19438833-143F-4F1F-B0BA-B8A53352B9CD}|Gestion_presupuesto\\Gestion_presupuesto.csproj|solutionrelative:gestion_presupuesto\\views\\fuentefinanciamiento\\fuentefinanciamiento.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{19438833-143F-4F1F-B0BA-B8A53352B9CD}|Gestion_presupuesto\\Gestion_presupuesto.csproj|c:\\repos\\gestion_presupuesto\\gestion_presupuesto\\views\\metodocontratacion\\_gridmetodocontratacion.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{19438833-143F-4F1F-B0BA-B8A53352B9CD}|Gestion_presupuesto\\Gestion_presupuesto.csproj|solutionrelative:gestion_presupuesto\\views\\metodocontratacion\\_gridmetodocontratacion.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{19438833-143F-4F1F-B0BA-B8A53352B9CD}|Gestion_presupuesto\\Gestion_presupuesto.csproj|c:\\repos\\gestion_presupuesto\\gestion_presupuesto\\controllers\\fuentefinanciamientocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{19438833-143F-4F1F-B0BA-B8A53352B9CD}|Gestion_presupuesto\\Gestion_presupuesto.csproj|solutionrelative:gestion_presupuesto\\controllers\\fuentefinanciamientocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{19438833-143F-4F1F-B0BA-B8A53352B9CD}|Gestion_presupuesto\\Gestion_presupuesto.csproj|c:\\repos\\gestion_presupuesto\\gestion_presupuesto\\views\\fuentefinanciamiento\\_gridfuentefinanciamiento.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{19438833-143F-4F1F-B0BA-B8A53352B9CD}|Gestion_presupuesto\\Gestion_presupuesto.csproj|solutionrelative:gestion_presupuesto\\views\\fuentefinanciamiento\\_gridfuentefinanciamiento.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{19438833-143F-4F1F-B0BA-B8A53352B9CD}|Gestion_presupuesto\\Gestion_presupuesto.csproj|c:\\repos\\gestion_presupuesto\\gestion_presupuesto\\views\\metodocontratacion\\metodocontratacion.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{19438833-143F-4F1F-B0BA-B8A53352B9CD}|Gestion_presupuesto\\Gestion_presupuesto.csproj|solutionrelative:gestion_presupuesto\\views\\metodocontratacion\\metodocontratacion.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{19438833-143F-4F1F-B0BA-B8A53352B9CD}|Gestion_presupuesto\\Gestion_presupuesto.csproj|C:\\repos\\Gestion_presupuesto\\gestion_presupuesto\\views\\presupuesto\\_griddetallepresupuesto.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{19438833-143F-4F1F-B0BA-B8A53352B9CD}|Gestion_presupuesto\\Gestion_presupuesto.csproj|solutionrelative:gestion_presupuesto\\views\\presupuesto\\_griddetallepresupuesto.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{19438833-143F-4F1F-B0BA-B8A53352B9CD}|Gestion_presupuesto\\Gestion_presupuesto.csproj|c:\\repos\\gestion_presupuesto\\gestion_presupuesto\\controllers\\metodocontratacioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{19438833-143F-4F1F-B0BA-B8A53352B9CD}|Gestion_presupuesto\\Gestion_presupuesto.csproj|solutionrelative:gestion_presupuesto\\controllers\\metodocontratacioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{19438833-143F-4F1F-B0BA-B8A53352B9CD}|Gestion_presupuesto\\Gestion_presupuesto.csproj|c:\\repos\\gestion_presupuesto\\gestion_presupuesto\\views\\personalvobo\\_gridpersonalvobo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{19438833-143F-4F1F-B0BA-B8A53352B9CD}|Gestion_presupuesto\\Gestion_presupuesto.csproj|solutionrelative:gestion_presupuesto\\views\\personalvobo\\_gridpersonalvobo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{19438833-143F-4F1F-B0BA-B8A53352B9CD}|Gestion_presupuesto\\Gestion_presupuesto.csproj|c:\\repos\\gestion_presupuesto\\gestion_presupuesto\\views\\personalvobo\\personalvobo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{19438833-143F-4F1F-B0BA-B8A53352B9CD}|Gestion_presupuesto\\Gestion_presupuesto.csproj|solutionrelative:gestion_presupuesto\\views\\personalvobo\\personalvobo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{19438833-143F-4F1F-B0BA-B8A53352B9CD}|Gestion_presupuesto\\Gestion_presupuesto.csproj|c:\\repos\\gestion_presupuesto\\gestion_presupuesto\\controllers\\personalvobocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -39,28 +43,8 @@
       "RelativeMoniker": "D:0:0:{19438833-143F-4F1F-B0BA-B8A53352B9CD}|Gestion_presupuesto\\Gestion_presupuesto.csproj|solutionrelative:gestion_presupuesto\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{19438833-143F-4F1F-B0BA-B8A53352B9CD}|Gestion_presupuesto\\Gestion_presupuesto.csproj|C:\\repos\\Gestion_presupuesto\\gestion_presupuesto\\views\\vobo\\vobo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{19438833-143F-4F1F-B0BA-B8A53352B9CD}|Gestion_presupuesto\\Gestion_presupuesto.csproj|solutionrelative:gestion_presupuesto\\views\\vobo\\vobo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{19438833-143F-4F1F-B0BA-B8A53352B9CD}|Gestion_presupuesto\\Gestion_presupuesto.csproj|c:\\repos\\gestion_presupuesto\\gestion_presupuesto\\views\\personalvobo\\_gridpersonalvobo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{19438833-143F-4F1F-B0BA-B8A53352B9CD}|Gestion_presupuesto\\Gestion_presupuesto.csproj|solutionrelative:gestion_presupuesto\\views\\personalvobo\\_gridpersonalvobo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{19438833-143F-4F1F-B0BA-B8A53352B9CD}|Gestion_presupuesto\\Gestion_presupuesto.csproj|C:\\repos\\Gestion_presupuesto\\gestion_presupuesto\\views\\presupuesto\\_griddetallepresupuesto.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{19438833-143F-4F1F-B0BA-B8A53352B9CD}|Gestion_presupuesto\\Gestion_presupuesto.csproj|solutionrelative:gestion_presupuesto\\views\\presupuesto\\_griddetallepresupuesto.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{19438833-143F-4F1F-B0BA-B8A53352B9CD}|Gestion_presupuesto\\Gestion_presupuesto.csproj|c:\\repos\\gestion_presupuesto\\gestion_presupuesto\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{19438833-143F-4F1F-B0BA-B8A53352B9CD}|Gestion_presupuesto\\Gestion_presupuesto.csproj|solutionrelative:gestion_presupuesto\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{19438833-143F-4F1F-B0BA-B8A53352B9CD}|Gestion_presupuesto\\Gestion_presupuesto.csproj|C:\\repos\\Gestion_presupuesto\\gestion_presupuesto\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{19438833-143F-4F1F-B0BA-B8A53352B9CD}|Gestion_presupuesto\\Gestion_presupuesto.csproj|solutionrelative:gestion_presupuesto\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{19438833-143F-4F1F-B0BA-B8A53352B9CD}|Gestion_presupuesto\\Gestion_presupuesto.csproj|c:\\repos\\gestion_presupuesto\\gestion_presupuesto\\views\\personalvobo\\personalvobo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{19438833-143F-4F1F-B0BA-B8A53352B9CD}|Gestion_presupuesto\\Gestion_presupuesto.csproj|solutionrelative:gestion_presupuesto\\views\\personalvobo\\personalvobo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{19438833-143F-4F1F-B0BA-B8A53352B9CD}|Gestion_presupuesto\\Gestion_presupuesto.csproj|c:\\repos\\gestion_presupuesto\\gestion_presupuesto\\controllers\\consultacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -142,115 +126,50 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "FuenteFinanciamiento.cshtml",
-              "DocumentMoniker": "C:\\repos\\Gestion_presupuesto\\Gestion_presupuesto\\Views\\FuenteFinanciamiento\\FuenteFinanciamiento.cshtml",
-              "RelativeDocumentMoniker": "Gestion_presupuesto\\Views\\FuenteFinanciamiento\\FuenteFinanciamiento.cshtml",
-              "ToolTip": "C:\\repos\\Gestion_presupuesto\\Gestion_presupuesto\\Views\\FuenteFinanciamiento\\FuenteFinanciamiento.cshtml",
-              "RelativeToolTip": "Gestion_presupuesto\\Views\\FuenteFinanciamiento\\FuenteFinanciamiento.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-12T15:14:28.82Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "MetodoContratacion.cshtml",
-              "DocumentMoniker": "C:\\repos\\Gestion_presupuesto\\Gestion_presupuesto\\Views\\MetodoContratacion\\MetodoContratacion.cshtml",
-              "RelativeDocumentMoniker": "Gestion_presupuesto\\Views\\MetodoContratacion\\MetodoContratacion.cshtml",
-              "ToolTip": "C:\\repos\\Gestion_presupuesto\\Gestion_presupuesto\\Views\\MetodoContratacion\\MetodoContratacion.cshtml",
-              "RelativeToolTip": "Gestion_presupuesto\\Views\\MetodoContratacion\\MetodoContratacion.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-12T15:14:12.744Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "MetodoContratacionController.cs",
-              "DocumentMoniker": "C:\\repos\\Gestion_presupuesto\\Gestion_presupuesto\\Controllers\\MetodoContratacionController.cs",
-              "RelativeDocumentMoniker": "Gestion_presupuesto\\Controllers\\MetodoContratacionController.cs",
-              "ToolTip": "C:\\repos\\Gestion_presupuesto\\Gestion_presupuesto\\Controllers\\MetodoContratacionController.cs",
-              "RelativeToolTip": "Gestion_presupuesto\\Controllers\\MetodoContratacionController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-12T15:13:44.112Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "FuenteFinanciamientoController.cs",
-              "DocumentMoniker": "C:\\repos\\Gestion_presupuesto\\Gestion_presupuesto\\Controllers\\FuenteFinanciamientoController.cs",
-              "RelativeDocumentMoniker": "Gestion_presupuesto\\Controllers\\FuenteFinanciamientoController.cs",
-              "ToolTip": "C:\\repos\\Gestion_presupuesto\\Gestion_presupuesto\\Controllers\\FuenteFinanciamientoController.cs",
-              "RelativeToolTip": "Gestion_presupuesto\\Controllers\\FuenteFinanciamientoController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-12T15:13:22.372Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Vobo.cshtml",
-              "DocumentMoniker": "C:\\repos\\Gestion_presupuesto\\Gestion_presupuesto\\Views\\Vobo\\Vobo.cshtml",
-              "RelativeDocumentMoniker": "Gestion_presupuesto\\Views\\Vobo\\Vobo.cshtml",
-              "ToolTip": "C:\\repos\\Gestion_presupuesto\\Gestion_presupuesto\\Views\\Vobo\\Vobo.cshtml",
-              "RelativeToolTip": "Gestion_presupuesto\\Views\\Vobo\\Vobo.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "Title": "_GridFuenteFinanciamiento.cshtml",
+              "DocumentMoniker": "C:\\repos\\Gestion_presupuesto\\Gestion_presupuesto\\Views\\FuenteFinanciamiento\\_GridFuenteFinanciamiento.cshtml",
+              "RelativeDocumentMoniker": "Gestion_presupuesto\\Views\\FuenteFinanciamiento\\_GridFuenteFinanciamiento.cshtml",
+              "ToolTip": "C:\\repos\\Gestion_presupuesto\\Gestion_presupuesto\\Views\\FuenteFinanciamiento\\_GridFuenteFinanciamiento.cshtml",
+              "RelativeToolTip": "Gestion_presupuesto\\Views\\FuenteFinanciamiento\\_GridFuenteFinanciamiento.cshtml",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAAADgAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-29T20:18:52.462Z",
+              "WhenOpened": "2025-11-12T15:18:19.141Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "PresupuestoController.cs",
-              "DocumentMoniker": "C:\\repos\\Gestion_presupuesto\\Gestion_presupuesto\\Controllers\\PresupuestoController.cs",
-              "RelativeDocumentMoniker": "Gestion_presupuesto\\Controllers\\PresupuestoController.cs",
-              "ToolTip": "C:\\repos\\Gestion_presupuesto\\Gestion_presupuesto\\Controllers\\PresupuestoController.cs",
-              "RelativeToolTip": "Gestion_presupuesto\\Controllers\\PresupuestoController.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAAwB4AAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-24T20:29:49.752Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "_GridDetallePresupuesto.cshtml",
-              "DocumentMoniker": "C:\\repos\\Gestion_presupuesto\\Gestion_presupuesto\\Views\\Presupuesto\\_GridDetallePresupuesto.cshtml",
-              "RelativeDocumentMoniker": "Gestion_presupuesto\\Views\\Presupuesto\\_GridDetallePresupuesto.cshtml",
-              "ToolTip": "C:\\repos\\Gestion_presupuesto\\Gestion_presupuesto\\Views\\Presupuesto\\_GridDetallePresupuesto.cshtml",
-              "RelativeToolTip": "Gestion_presupuesto\\Views\\Presupuesto\\_GridDetallePresupuesto.cshtml",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAIwBcAAABPAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "_GridMetodoContratacion.cshtml",
+              "DocumentMoniker": "C:\\repos\\Gestion_presupuesto\\Gestion_presupuesto\\Views\\MetodoContratacion\\_GridMetodoContratacion.cshtml",
+              "RelativeDocumentMoniker": "Gestion_presupuesto\\Views\\MetodoContratacion\\_GridMetodoContratacion.cshtml",
+              "ToolTip": "C:\\repos\\Gestion_presupuesto\\Gestion_presupuesto\\Views\\MetodoContratacion\\_GridMetodoContratacion.cshtml",
+              "RelativeToolTip": "Gestion_presupuesto\\Views\\MetodoContratacion\\_GridMetodoContratacion.cshtml",
+              "ViewState": "AgIAAEkAAAAAAAAAAAAwwFQAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-22T15:59:57.682Z",
+              "WhenOpened": "2025-11-12T15:17:16.388Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 4,
               "Title": "PersonalVobo.cshtml",
               "DocumentMoniker": "C:\\repos\\Gestion_presupuesto\\Gestion_presupuesto\\Views\\PersonalVobo\\PersonalVobo.cshtml",
               "RelativeDocumentMoniker": "Gestion_presupuesto\\Views\\PersonalVobo\\PersonalVobo.cshtml",
               "ToolTip": "C:\\repos\\Gestion_presupuesto\\Gestion_presupuesto\\Views\\PersonalVobo\\PersonalVobo.cshtml",
               "RelativeToolTip": "Gestion_presupuesto\\Views\\PersonalVobo\\PersonalVobo.cshtml",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAAABYAAAA/AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-11-11T22:17:04.76Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\repos\\Gestion_presupuesto\\Gestion_presupuesto\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "Gestion_presupuesto\\Views\\Shared\\_Layout.cshtml",
@@ -263,7 +182,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "repConsulta.cshtml",
               "DocumentMoniker": "C:\\repos\\Gestion_presupuesto\\Gestion_presupuesto\\Views\\Consulta\\repConsulta.cshtml",
               "RelativeDocumentMoniker": "Gestion_presupuesto\\Views\\Consulta\\repConsulta.cshtml",
@@ -276,7 +195,46 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
+              "Title": "_GridPersonalVobo.cshtml",
+              "DocumentMoniker": "C:\\repos\\Gestion_presupuesto\\Gestion_presupuesto\\Views\\PersonalVobo\\_GridPersonalVobo.cshtml",
+              "RelativeDocumentMoniker": "Gestion_presupuesto\\Views\\PersonalVobo\\_GridPersonalVobo.cshtml",
+              "ToolTip": "C:\\repos\\Gestion_presupuesto\\Gestion_presupuesto\\Views\\PersonalVobo\\_GridPersonalVobo.cshtml",
+              "RelativeToolTip": "Gestion_presupuesto\\Views\\PersonalVobo\\_GridPersonalVobo.cshtml",
+              "ViewState": "AgIAADkAAAAAAAAAAAAAAEgAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-11T22:19:26.037Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "_GridDetallePresupuesto.cshtml",
+              "DocumentMoniker": "C:\\repos\\Gestion_presupuesto\\Gestion_presupuesto\\Views\\Presupuesto\\_GridDetallePresupuesto.cshtml",
+              "RelativeDocumentMoniker": "Gestion_presupuesto\\Views\\Presupuesto\\_GridDetallePresupuesto.cshtml",
+              "ToolTip": "C:\\repos\\Gestion_presupuesto\\Gestion_presupuesto\\Views\\Presupuesto\\_GridDetallePresupuesto.cshtml",
+              "RelativeToolTip": "Gestion_presupuesto\\Views\\Presupuesto\\_GridDetallePresupuesto.cshtml",
+              "ViewState": "AgIAAEoAAAAAAAAAAAAIwFcAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-22T15:59:57.682Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "PresupuestoController.cs",
+              "DocumentMoniker": "C:\\repos\\Gestion_presupuesto\\Gestion_presupuesto\\Controllers\\PresupuestoController.cs",
+              "RelativeDocumentMoniker": "Gestion_presupuesto\\Controllers\\PresupuestoController.cs",
+              "ToolTip": "C:\\repos\\Gestion_presupuesto\\Gestion_presupuesto\\Controllers\\PresupuestoController.cs",
+              "RelativeToolTip": "Gestion_presupuesto\\Controllers\\PresupuestoController.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAAwB4AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-24T20:29:49.752Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "PersonalVoboController.cs",
               "DocumentMoniker": "C:\\repos\\Gestion_presupuesto\\Gestion_presupuesto\\Controllers\\PersonalVoboController.cs",
               "RelativeDocumentMoniker": "Gestion_presupuesto\\Controllers\\PersonalVoboController.cs",
@@ -289,7 +247,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "Consulta.cshtml",
               "DocumentMoniker": "C:\\repos\\Gestion_presupuesto\\Gestion_presupuesto\\Views\\Consulta\\Consulta.cshtml",
               "RelativeDocumentMoniker": "Gestion_presupuesto\\Views\\Consulta\\Consulta.cshtml",
@@ -303,32 +261,6 @@
             {
               "$type": "Document",
               "DocumentIndex": 10,
-              "Title": "_GridPersonalVobo.cshtml",
-              "DocumentMoniker": "C:\\repos\\Gestion_presupuesto\\Gestion_presupuesto\\Views\\PersonalVobo\\_GridPersonalVobo.cshtml",
-              "RelativeDocumentMoniker": "Gestion_presupuesto\\Views\\PersonalVobo\\_GridPersonalVobo.cshtml",
-              "ToolTip": "C:\\repos\\Gestion_presupuesto\\Gestion_presupuesto\\Views\\PersonalVobo\\_GridPersonalVobo.cshtml",
-              "RelativeToolTip": "Gestion_presupuesto\\Views\\PersonalVobo\\_GridPersonalVobo.cshtml",
-              "ViewState": "AgIAACcAAAAAAAAAAAAAADoAAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-11T22:19:26.037Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Web.config",
-              "DocumentMoniker": "C:\\repos\\Gestion_presupuesto\\Gestion_presupuesto\\Web.config",
-              "RelativeDocumentMoniker": "Gestion_presupuesto\\Web.config",
-              "ToolTip": "C:\\repos\\Gestion_presupuesto\\Gestion_presupuesto\\Web.config",
-              "RelativeToolTip": "Gestion_presupuesto\\Web.config",
-              "ViewState": "AgIAANsAAAAAAAAAAAAAAOEAAAAPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2025-11-11T22:27:34.263Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
               "Title": "Startup.cs",
               "DocumentMoniker": "C:\\repos\\Gestion_presupuesto\\Gestion_presupuesto\\Startup.cs",
               "RelativeDocumentMoniker": "Gestion_presupuesto\\Startup.cs",
@@ -341,7 +273,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 13,
               "Title": "repComprobante.cshtml",
               "DocumentMoniker": "C:\\repos\\Gestion_presupuesto\\Gestion_presupuesto\\Views\\Presupuesto\\repComprobante.cshtml",
               "RelativeDocumentMoniker": "Gestion_presupuesto\\Views\\Presupuesto\\repComprobante.cshtml",
@@ -354,7 +286,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 14,
               "Title": "Comprobante.cs",
               "DocumentMoniker": "C:\\repos\\Gestion_presupuesto\\Gestion_presupuesto\\Reportes\\Comprobante.cs",
               "RelativeDocumentMoniker": "Gestion_presupuesto\\Reportes\\Comprobante.cs",
@@ -367,7 +299,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 11,
               "Title": "ConsultaController.cs",
               "DocumentMoniker": "C:\\repos\\Gestion_presupuesto\\Gestion_presupuesto\\Controllers\\ConsultaController.cs",
               "RelativeDocumentMoniker": "Gestion_presupuesto\\Controllers\\ConsultaController.cs",
@@ -380,7 +312,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 12,
               "Title": "Presupuesto.cshtml",
               "DocumentMoniker": "C:\\repos\\Gestion_presupuesto\\Gestion_presupuesto\\Views\\Presupuesto\\Presupuesto.cshtml",
               "RelativeDocumentMoniker": "Gestion_presupuesto\\Views\\Presupuesto\\Presupuesto.cshtml",
@@ -393,7 +325,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 15,
               "Title": "Consulta.cs",
               "DocumentMoniker": "C:\\repos\\Gestion_presupuesto\\Gestion_presupuesto\\Reportes\\Consulta.cs",
               "RelativeDocumentMoniker": "Gestion_presupuesto\\Reportes\\Consulta.cs",
@@ -406,7 +338,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 18,
               "Title": "_GridMovimientoPresupuesto.cshtml",
               "DocumentMoniker": "C:\\repos\\Gestion_presupuesto\\Gestion_presupuesto\\Views\\Presupuesto\\_GridMovimientoPresupuesto.cshtml",
               "RelativeDocumentMoniker": "Gestion_presupuesto\\Views\\Presupuesto\\_GridMovimientoPresupuesto.cshtml",
@@ -419,7 +351,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 16,
               "Title": "_GridVobo.cshtml",
               "DocumentMoniker": "C:\\repos\\Gestion_presupuesto\\Gestion_presupuesto\\Views\\Vobo\\_GridVobo.cshtml",
               "RelativeDocumentMoniker": "Gestion_presupuesto\\Views\\Vobo\\_GridVobo.cshtml",
@@ -432,7 +364,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 19,
               "Title": "_GridListadoVobo.cshtml",
               "DocumentMoniker": "C:\\repos\\Gestion_presupuesto\\Gestion_presupuesto\\Views\\Vobo\\_GridListadoVobo.cshtml",
               "RelativeDocumentMoniker": "Gestion_presupuesto\\Views\\Vobo\\_GridListadoVobo.cshtml",
@@ -445,7 +377,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 17,
               "Title": "VoboController.cs",
               "DocumentMoniker": "C:\\repos\\Gestion_presupuesto\\Gestion_presupuesto\\Controllers\\VoboController.cs",
               "RelativeDocumentMoniker": "Gestion_presupuesto\\Controllers\\VoboController.cs",
@@ -458,7 +390,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 20,
               "Title": "Clases.cs",
               "DocumentMoniker": "C:\\repos\\Gestion_presupuesto\\Gestion_presupuesto\\Helpers\\Clases.cs",
               "RelativeDocumentMoniker": "Gestion_presupuesto\\Helpers\\Clases.cs",
@@ -471,7 +403,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 26,
               "Title": "UserClaims.cs",
               "DocumentMoniker": "C:\\repos\\Gestion_presupuesto\\Gestion_presupuesto\\Helpers\\UserClaims.cs",
               "RelativeDocumentMoniker": "Gestion_presupuesto\\Helpers\\UserClaims.cs",
@@ -484,7 +416,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 27,
               "Title": "DecodeToken.cs",
               "DocumentMoniker": "C:\\repos\\Gestion_presupuesto\\Gestion_presupuesto\\Helpers\\DecodeToken.cs",
               "RelativeDocumentMoniker": "Gestion_presupuesto\\Helpers\\DecodeToken.cs",
@@ -497,7 +429,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 28,
               "Title": "Global.asax.cs",
               "DocumentMoniker": "C:\\repos\\Gestion_presupuesto\\Gestion_presupuesto\\Global.asax.cs",
               "RelativeDocumentMoniker": "Gestion_presupuesto\\Global.asax.cs",
@@ -510,7 +442,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 21,
               "Title": "LoginController.cs",
               "DocumentMoniker": "C:\\repos\\Gestion_presupuesto\\Gestion_presupuesto\\Controllers\\LoginController.cs",
               "RelativeDocumentMoniker": "Gestion_presupuesto\\Controllers\\LoginController.cs",
@@ -523,7 +455,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 23,
               "Title": "BundleConfig.cs",
               "DocumentMoniker": "C:\\repos\\Gestion_presupuesto\\Gestion_presupuesto\\App_Start\\BundleConfig.cs",
               "RelativeDocumentMoniker": "Gestion_presupuesto\\App_Start\\BundleConfig.cs",
@@ -536,7 +468,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 22,
               "Title": "FilterConfig.cs",
               "DocumentMoniker": "C:\\repos\\Gestion_presupuesto\\Gestion_presupuesto\\App_Start\\FilterConfig.cs",
               "RelativeDocumentMoniker": "Gestion_presupuesto\\App_Start\\FilterConfig.cs",
@@ -549,7 +481,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 24,
               "Title": "DevExtremeBundleConfig.cs",
               "DocumentMoniker": "C:\\repos\\Gestion_presupuesto\\Gestion_presupuesto\\App_Start\\DevExtremeBundleConfig.cs",
               "RelativeDocumentMoniker": "Gestion_presupuesto\\App_Start\\DevExtremeBundleConfig.cs",
@@ -562,7 +494,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 25,
               "Title": "RouteConfig.cs",
               "DocumentMoniker": "C:\\repos\\Gestion_presupuesto\\Gestion_presupuesto\\App_Start\\RouteConfig.cs",
               "RelativeDocumentMoniker": "Gestion_presupuesto\\App_Start\\RouteConfig.cs",

@@ -71,18 +71,18 @@
             gridViewColumnSettings.Settings.FilterMode = ColumnFilterMode.DisplayText;
         });
 
-        settings.Columns.Add(gridViewColumnSettings =>
-        {
-            gridViewColumnSettings.FieldName = "estatus_general";
-            gridViewColumnSettings.Caption = "Estatus del proceso";
-            gridViewColumnSettings.CellStyle.Wrap = DefaultBoolean.True;
-            gridViewColumnSettings.CellStyle.HorizontalAlign = System.Web.UI.WebControls.HorizontalAlign.Center;
-            gridViewColumnSettings.AdaptivePriority = 1;
-            gridViewColumnSettings.PropertiesEdit.EncodeHtml = false;
-            gridViewColumnSettings.UnboundType = DevExpress.Data.UnboundColumnType.String;
-            gridViewColumnSettings.Settings.AutoFilterCondition = AutoFilterCondition.Contains;
-            gridViewColumnSettings.Settings.FilterMode = ColumnFilterMode.DisplayText;
-        });
+        //settings.Columns.Add(gridViewColumnSettings =>
+        //{
+        //    gridViewColumnSettings.FieldName = "estatus_general";
+        //    gridViewColumnSettings.Caption = "Estatus del proceso";
+        //    gridViewColumnSettings.CellStyle.Wrap = DefaultBoolean.True;
+        //    gridViewColumnSettings.CellStyle.HorizontalAlign = System.Web.UI.WebControls.HorizontalAlign.Center;
+        //    gridViewColumnSettings.AdaptivePriority = 1;
+        //    gridViewColumnSettings.PropertiesEdit.EncodeHtml = false;
+        //    gridViewColumnSettings.UnboundType = DevExpress.Data.UnboundColumnType.String;
+        //    gridViewColumnSettings.Settings.AutoFilterCondition = AutoFilterCondition.Contains;
+        //    gridViewColumnSettings.Settings.FilterMode = ColumnFilterMode.DisplayText;
+        //});
 
 
         settings.Columns.Add(gridViewColumnSettings =>
@@ -285,8 +285,7 @@
         settings.SetDetailRowTemplateContent(c =>
         {
             ViewContext.Writer.Write(
-                "<h4><b>Movimientos de la solicitud</b></h4>" +
-                "<br />" +
+                "<h4><b>Modificaciones del proceso:</b></h4>" +
                 "<div id='contentt2'>"
             );
             Html.RenderAction("GridMovimientoPresupuesto", "Presupuesto", new { id_detalle_presupuesto = DataBinder.Eval(c.DataItem, "id_detalle_presupuesto") });

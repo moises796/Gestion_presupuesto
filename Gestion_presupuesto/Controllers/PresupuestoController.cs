@@ -400,7 +400,7 @@ namespace Gestion_presupuesto.Controllers
 
                 //ANTES VAMOS A VALIDAR QUE HAYA INGRESADO EL MOTIVO DE LA MODIFICACION
                 var motivo_modificacion = db.movimiento_detalle_presupuesto.FirstOrDefault(x => x.id_movimiento_detalle_presupuesto == id_movimiento_detalle_presupuesto);
-                if (motivo_modificacion.motivo_movimiento == null)
+                if (motivo_modificacion.motivo_movimiento == null || motivo_modificacion.motivo_movimiento == "")
                 {
                     return Json(new { data = -2 }, JsonRequestBehavior.AllowGet);
                 }
