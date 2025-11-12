@@ -309,8 +309,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\ConsultaController.cs" />
+    <Compile Include="Controllers\FuenteFinanciamientoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\MetodoContratacionController.cs" />
+    <Compile Include="Controllers\PersonalVoboController.cs" />
     <Compile Include="Controllers\PresupuestoController.cs" />
     <Compile Include="Controllers\VoboController.cs" />
     <Compile Include="Global.asax.cs">
@@ -1474,6 +1477,16 @@
     <Content Include="Content\img\play.png" />
     <Content Include="Content\img\see.png" />
     <Content Include="Content\img\vobo.png" />
+    <Content Include="Content\js\bootstrap.bundle.js" />
+    <Content Include="Content\js\bootstrap.bundle.min.js" />
+    <Content Include="Content\js\bootstrap.min.js" />
+    <Content Include="Content\js\custom.js" />
+    <Content Include="Content\js\custom.min.js" />
+    <Content Include="Content\js\jquery.js" />
+    <Content Include="Content\js\jquery.min.js" />
+    <Content Include="Content\js\jquerys.min.js" />
+    <Content Include="Content\js\shBrushXml.js" />
+    <Content Include="Content\js\shCore.js" />
     <Content Include="Content\media\Logo_AD.svg" />
     <Content Include="Content\media\logo_expanded.svg" />
     <Content Include="Content\media\logo_minimized.svg" />
@@ -1965,6 +1978,7 @@
     <Content Include="Reportes\dsComprobante.xsc">
       <DependentUpon>dsComprobante.xsd</DependentUpon>
     </Content>
+    <Content Include="Content\js\jquery.min.map" />
     <None Include="Reportes\dsComprobante.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
@@ -2079,6 +2093,12 @@
     <Content Include="Views\Presupuesto\_GridMovimientoPresupuesto.cshtml" />
     <Content Include="Views\Consulta\Consulta.cshtml" />
     <Content Include="Views\Consulta\repConsulta.cshtml" />
+    <Content Include="Views\PersonalVobo\PersonalVobo.cshtml" />
+    <Content Include="Views\PersonalVobo\_GridPersonalVobo.cshtml" />
+    <Content Include="Views\MetodoContratacion\MetodoContratacion.cshtml" />
+    <Content Include="Views\FuenteFinanciamiento\FuenteFinanciamiento.cshtml" />
+    <Content Include="Views\MetodoContratacion\_GridMetodoContratacion.cshtml" />
+    <Content Include="Views\FuenteFinanciamiento\_GridFuenteFinanciamiento.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

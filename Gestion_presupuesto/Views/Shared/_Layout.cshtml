@@ -253,7 +253,7 @@
                                     var submenu = db.sub_menu.Where(x => x.id_menu == id_menu && x.estado == 1).OrderBy(x => x.orden).ToList();
                                     if (submenu.Count > 0)
                                     {
-                                        <li class="my-auto">
+                                        <li>
                                             <a><i class="+ @menu[i].menu_icono"></i> @menu[i].menu_nombre</a>
                                             <ul class="nav child_menu">
                                                 @{
@@ -302,8 +302,8 @@
                                 data-bs-toggle="dropdown"
                                 aria-expanded="false"
                                 style="text-decoration: none; text-overflow: ellipsis;">
-                                @*AQUI IRA EL NOMBRE DE USUARIO*@
-                                @nombre_completo_empleado
+                            @*AQUI IRA EL NOMBRE DE USUARIO*@
+                            @nombre_completo_empleado
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark dropdown-menu-nav w-100" aria-labelledby="userDropdown">
                             <li>
@@ -322,8 +322,8 @@
 
                     <div class="flex-shrink-0">
                         <img src="https://sital.asa.gob.sv/Content/ImagenesEmpleado/@foto_empleado"
-                            class="rounded-circle border border-1"
-                            style="width: 36px; height: 36px; object-fit: cover;" />
+                             class="rounded-circle border border-1"
+                             style="width: 36px; height: 36px; object-fit: cover;" />
                     </div>
                 </div>
             </div>
@@ -349,9 +349,7 @@
     </div>
 
 
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
-
+    <!-- Bootstrap -->
     <script src="@Url.Content("~/Content/js/bootstrap.bundle.min.js")"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
