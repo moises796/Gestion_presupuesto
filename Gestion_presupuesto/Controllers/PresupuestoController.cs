@@ -1,5 +1,6 @@
 ﻿using DevExpress.ClipboardSource.SpreadsheetML;
 using DevExpress.Utils.Serializing;
+using DevExpress.Web.Internal;
 using DevExpress.Web.Mvc;
 using DevExpress.XtraReports.UI;
 using Gestion_presupuesto.Helpers;
@@ -396,6 +397,14 @@ namespace Gestion_presupuesto.Controllers
                 {
                     return Json(new { data = -1 }, JsonRequestBehavior.AllowGet);
                 }
+
+                //ANTES VAMOS A VALIDAR QUE HAYA INGRESADO EL MOTIVO DE LA MODIFICACION
+                var motivo_modificacion = db.movimiento_detalle_presupuesto.FirstOrDefault(x => x.id_movimiento_detalle_presupuesto == id_movimiento_detalle_presupuesto);
+                if (motivo_modificacion.motivo_movimiento == null)
+                {
+                    return Json(new { data = -2 }, JsonRequestBehavior.AllowGet);
+                }
+
                 //OBTENEMOS LOS VOBOS
                 var persona_vobo = db.personal_vobo.Where(x => x.estado == 1).ToList();
                 //VAMOS A INICIAR EL PROCESO DE VISTOS BUENOS

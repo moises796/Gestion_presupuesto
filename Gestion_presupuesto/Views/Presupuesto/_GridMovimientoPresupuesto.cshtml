@@ -114,6 +114,7 @@
             gridViewColumnSettings.Visible = false;
             MVCxColumnTextBoxProperties editorProperties = gridViewColumnSettings.PropertiesEdit as MVCxColumnTextBoxProperties;
             editorProperties.ValidationSettings.RequiredField.IsRequired = true;
+            editorProperties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.None;
             editorProperties.ValidationSettings.RequiredField.ErrorText = "Este campo es requerido.";
             gridViewColumnSettings.AdaptivePriority = 1;
         });
@@ -129,6 +130,7 @@
                 p.ValueField = "id_metodo_contratacion";
                 p.ValueType = typeof(int);
                 p.ValidationSettings.RequiredField.IsRequired = true;
+                p.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.None;
                 p.ValidationSettings.RequiredField.ErrorText = "Este campo es requerido.";
                 p.DataSource = clase.GetMetodoContratacion();
             });
@@ -146,7 +148,8 @@
                 p.EditFormatString = "MM/yyyy";
                 p.DisplayFormatString = "MM/yyyy";
                 p.UseMaskBehavior = true;
-
+                p.ValidationSettings.RequiredField.IsRequired = true;
+                p.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.None;
                 p.CalendarProperties.ShowTodayButton = false;
                 p.ClientSideEvents.DateChanged = "function(s,e){normalizeMonthYear(s,e)}";
             });
@@ -163,7 +166,8 @@
                 p.EditFormatString = "MM/yyyy";
                 p.DisplayFormatString = "MM/yyyy";
                 p.UseMaskBehavior = true;
-
+                p.ValidationSettings.RequiredField.IsRequired = true;
+                p.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.None;
                 p.CalendarProperties.ShowTodayButton = false;
                 p.ClientSideEvents.DateChanged = "function(s,e){normalizeMonthYear(s,e)}";
             });
@@ -178,11 +182,11 @@
             ((SpinEditProperties)gridViewColumnSettings.PropertiesEdit).DisplayFormatInEditMode = true;
             ((SpinEditProperties)gridViewColumnSettings.PropertiesEdit).DisplayFormatString = "c";
             ((SpinEditProperties)gridViewColumnSettings.PropertiesEdit).ValidationSettings.RequiredField.IsRequired = true;
+            ((SpinEditProperties)gridViewColumnSettings.PropertiesEdit).ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.None;
             ((SpinEditProperties)gridViewColumnSettings.PropertiesEdit).ValidationSettings.RequiredField.ErrorText = "Este campo es requerido.";
             ((SpinEditProperties)gridViewColumnSettings.PropertiesEdit).NumberFormat = SpinEditNumberFormat.Currency;
             //((SpinEditProperties)gridViewColumnSettings.PropertiesEdit).DisplayFormatString = "c";
-            ((SpinEditProperties)gridViewColumnSettings.PropertiesEdit).ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithText;
-            ((SpinEditProperties)gridViewColumnSettings.PropertiesEdit).ValidationSettings.ErrorTextPosition = ErrorTextPosition.Bottom;
+
         });
 
         settings.Columns.Add(c =>
@@ -196,6 +200,7 @@
                 p.ValueField = "id_fuente_financiamiento";
                 p.ValueType = typeof(int);
                 p.ValidationSettings.RequiredField.IsRequired = true;
+                p.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.None;
                 p.ValidationSettings.RequiredField.ErrorText = "Este campo es requerido.";
                 p.DataSource = clase.GetFuenteFinanciamiento();
             });
@@ -211,6 +216,7 @@
                 p.ValueField = "id_estructura";
                 p.ValueType = typeof(int);
                 p.ValidationSettings.RequiredField.IsRequired = true;
+                p.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.None;
                 p.ValidationSettings.RequiredField.ErrorText = "Este campo es requerido.";
                 p.DataSource = clase.GetEstructuras();
             });
@@ -226,6 +232,7 @@
             });
             MVCxColumnMemoProperties editorProperties = gridViewColumnSettings.PropertiesEdit as MVCxColumnMemoProperties;
             editorProperties.ValidationSettings.RequiredField.IsRequired = true;
+            editorProperties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.None;
             editorProperties.ValidationSettings.RequiredField.ErrorText = "Este campo es requerido";
         });
 

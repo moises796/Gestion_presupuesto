@@ -61,6 +61,7 @@
             gridViewColumnSettings.AdaptivePriority = 2;
             MVCxColumnTextBoxProperties editorProperties = gridViewColumnSettings.PropertiesEdit as MVCxColumnTextBoxProperties;
             editorProperties.ValidationSettings.RequiredField.IsRequired = true;
+            editorProperties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.None;
             editorProperties.ValidationSettings.RequiredField.ErrorText = "Este campo es requerido.";
             gridViewColumnSettings.AdaptivePriority = 1;
         });

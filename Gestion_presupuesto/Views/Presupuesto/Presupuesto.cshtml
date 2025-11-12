@@ -128,7 +128,7 @@
 }).GetHtml()*@
 
 <center>
-    <h1 class="animated fadeInUp encabezado mt-2">Gestión de procesos de compra</h1>
+    <h1 class="animated fadeInUp encabezado mt-2">Procesos de compra</h1>
 </center>
 
 <div class="card border-0 rounded-4 shadow-sm p-1 p-sm-2 p-md-3 p-lg-5 ">
@@ -202,7 +202,11 @@
                                         if (resp.data == 1) {
                                             Swal.fire("¡Listo!", "Se inició el proceso de vistos buenos para dicha solicitud", "success");
                                             GridDetallePresupuesto.PerformCallback();
-                                        } else {
+                                        }
+                                        else if (resp.data == -2) {
+                                            Swal.fire("¡Atención!", "Previamente debe especificar el motivo de la modificación para poder proceder con la revisión", "warning");
+                                        }
+                                        else {
                                             Swal.fire("¡Lo siento!", "Algo salió mal, intente nuevamente, por favor", "error");
                                         }
                                     });

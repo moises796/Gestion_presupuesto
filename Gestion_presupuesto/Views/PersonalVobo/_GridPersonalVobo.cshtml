@@ -65,6 +65,7 @@
                 p.ValueField = "id_empleado";
                 p.ValueType = typeof(int);
                 p.ValidationSettings.RequiredField.IsRequired = true;
+                p.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.None;
                 p.ValidationSettings.RequiredField.ErrorText = "Este campo es requerido.";
                 p.DataSource = clase.GetEmpleados();
             });
