@@ -178,7 +178,7 @@ namespace Gestion_presupuesto.Controllers
                 clase.Add(bpc);
             });
 
-            return PartialView("~/Views/Presupuesto/_GridDetallePresupuesto.cshtml", model.ToList());
+            return PartialView("~/Views/Presupuesto/_GridDetallePresupuesto.cshtml", model.ToList().OrderByDescending(x=>x.id_detalle_presupuesto));
         }
 
         public ActionResult ValidarProceso(int? id_detalle_presupuesto)
@@ -216,6 +216,14 @@ namespace Gestion_presupuesto.Controllers
                 {
                     detalle_presupuesto.estado = 0;
                     db.SaveChanges();
+
+                    //AHORA VAMOS A VALIDAR QUE SI POSEE MODIFICACIONES LAS ANULE TODAS TAMBIEN
+                    var listaMovimiento = db.movimiento_detalle_presupuesto.Where(x => x.id_detalle_presupuesto == id_detalle_presupuesto).ToList();
+                    listaMovimiento.ForEach(x =>
+                    {
+                        x.estado = 0;
+                        db.SaveChanges();
+                    });
                     return Json(new { data = 1 }, JsonRequestBehavior.AllowGet);
                 }
                 else

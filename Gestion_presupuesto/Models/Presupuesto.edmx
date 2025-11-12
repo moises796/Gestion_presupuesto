@@ -93,6 +93,7 @@
           <Property Name="id_personal_vobo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="id_empleado" Type="int" />
           <Property Name="estado" Type="int" />
+          <Property Name="reporte" Type="int" />
         </EntityType>
         <EntityType Name="sub_menu">
           <Key>
@@ -580,7 +581,7 @@
           <Parameter Name="id_empleado" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_general_proceso_compra" ReturnType="Collection(registro_presupuestoModel.sp_general_proceso_compra_Result)">
-            <Parameter Name="anio" Mode="In" Type="Int32" />
+          <Parameter Name="anio" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <EntityType Name="menu">
@@ -643,6 +644,7 @@
           <Property Name="estado" Type="Int32" />
           <NavigationProperty Name="vobo" Relationship="registro_presupuestoModel.FK__vobo__id_persona__5AEE82B9" FromRole="personal_vobo" ToRole="vobo" />
           <NavigationProperty Name="movimiento_vobo" Relationship="registro_presupuestoModel.FK__movimient__id_pe__693CA210" FromRole="personal_vobo" ToRole="movimiento_vobo" />
+          <Property Name="reporte" Type="Int32" />
         </EntityType>
         <EntityType Name="vobo">
           <Key>
@@ -1012,6 +1014,7 @@
           <EntitySetMapping Name="personal_vobo">
             <EntityTypeMapping TypeName="registro_presupuestoModel.personal_vobo">
               <MappingFragment StoreEntitySet="personal_vobo">
+                <ScalarProperty Name="reporte" ColumnName="reporte" />
                 <ScalarProperty Name="estado" ColumnName="estado" />
                 <ScalarProperty Name="id_empleado" ColumnName="id_empleado" />
                 <ScalarProperty Name="id_personal_vobo" ColumnName="id_personal_vobo" />

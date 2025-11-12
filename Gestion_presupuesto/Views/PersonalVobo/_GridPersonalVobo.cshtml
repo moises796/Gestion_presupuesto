@@ -70,6 +70,14 @@
                 p.DataSource = clase.GetEmpleados();
             });
         });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "reporte";
+            column.Caption = "¿Participa en reporte?";
+            column.ColumnType = MVCxGridViewColumnType.CheckBox;
+            ((CheckBoxProperties)column.PropertiesEdit).ToggleSwitchDisplayMode = ToggleSwitchDisplayMode.Always;
+            column.AdaptivePriority = 2;
+        });
 
         settings.Columns.Add(column =>
         {
@@ -77,7 +85,7 @@
             column.Caption = "Estado";
             column.ColumnType = MVCxGridViewColumnType.CheckBox;
             ((CheckBoxProperties)column.PropertiesEdit).ToggleSwitchDisplayMode = ToggleSwitchDisplayMode.Always;
-            column.AdaptivePriority = 2;
+            column.AdaptivePriority = 3;
         });
 
 
@@ -89,6 +97,13 @@
             {
                 item.Name = "id_empleado";
                 item.ColumnName = "id_empleado";
+                item.ColumnSpan = 2;
+                item.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
+            });
+            tabbedGroupSettings.Items.Add(item =>
+            {
+                item.Name = "reporte";
+                item.ColumnName = "reporte";
                 item.ColumnSpan = 2;
                 item.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
             });

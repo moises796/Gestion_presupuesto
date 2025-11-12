@@ -508,6 +508,7 @@
                                 if (resp.data == "1") {
                                     Swal.fire("¡Listo!", "Se ha descartado la solicitud", "success");
                                     GridDetallePresupuesto.PerformCallback();
+                                    GridMovimientoPresupuesto.PerformCallback();
                                 } else {
                                     Swal.fire("¡Lo siento!", "Algo salió mal, intente nuevamente, por favor", "error");
                                 }

@@ -262,6 +262,7 @@
     <Property Name="estado" Type="Int32" />
     <NavigationProperty Name="vobo" Relationship="registro_presupuestoModel.FK__vobo__id_persona__5AEE82B9" FromRole="personal_vobo" ToRole="vobo" />
     <NavigationProperty Name="movimiento_vobo" Relationship="registro_presupuestoModel.FK__movimient__id_pe__693CA210" FromRole="personal_vobo" ToRole="movimiento_vobo" />
+    <Property Name="reporte" Type="Int32" />
   </EntityType>
   <EntityType Name="vobo">
     <Key>

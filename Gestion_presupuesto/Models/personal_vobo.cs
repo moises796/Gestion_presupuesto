@@ -24,6 +24,7 @@ namespace Gestion_presupuesto.Models
         public int id_personal_vobo { get; set; }
         public Nullable<int> id_empleado { get; set; }
         public Nullable<int> estado { get; set; }
+        public Nullable<int> reporte { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<vobo> vobo { get; set; }

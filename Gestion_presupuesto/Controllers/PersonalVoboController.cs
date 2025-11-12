@@ -76,6 +76,7 @@ namespace Gestion_presupuesto.Controllers
                     if (modelItem != null)
                     {
                         modelItem.id_empleado = item.id_empleado;
+                        modelItem.reporte = item.reporte;
                         modelItem.estado = item.estado;
                         db.SaveChanges();
                     }

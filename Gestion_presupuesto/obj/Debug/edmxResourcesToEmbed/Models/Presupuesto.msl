@@ -95,6 +95,7 @@
     <EntitySetMapping Name="personal_vobo">
       <EntityTypeMapping TypeName="registro_presupuestoModel.personal_vobo">
         <MappingFragment StoreEntitySet="personal_vobo">
+          <ScalarProperty Name="reporte" ColumnName="reporte" />
           <ScalarProperty Name="estado" ColumnName="estado" />
           <ScalarProperty Name="id_empleado" ColumnName="id_empleado" />
           <ScalarProperty Name="id_personal_vobo" ColumnName="id_personal_vobo" />
