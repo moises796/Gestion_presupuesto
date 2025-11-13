@@ -38,6 +38,8 @@ namespace Gestion_presupuesto.Models
         public virtual DbSet<vobo> vobo { get; set; }
         public virtual DbSet<movimiento_vobo> movimiento_vobo { get; set; }
         public virtual DbSet<tipo_movimiento> tipo_movimiento { get; set; }
+        public virtual DbSet<rol_usuario> rol_usuario { get; set; }
+        public virtual DbSet<usuario> usuario { get; set; }
     
         public virtual ObjectResult<sp_consulta_procesos_compra_Result> sp_consulta_procesos_compra(Nullable<int> id_unidad_organizativa)
         {
@@ -73,6 +75,11 @@ namespace Gestion_presupuesto.Models
                 new ObjectParameter("anio", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_general_proceso_compra_Result>("sp_general_proceso_compra", anioParameter);
+        }
+    
+        public virtual ObjectResult<sp_persona_unidad_organizativa_Result> sp_persona_unidad_organizativa()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_persona_unidad_organizativa_Result>("sp_persona_unidad_organizativa");
         }
     }
 }

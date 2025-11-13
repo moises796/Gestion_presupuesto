@@ -315,6 +315,7 @@
     <Compile Include="Controllers\MetodoContratacionController.cs" />
     <Compile Include="Controllers\PersonalVoboController.cs" />
     <Compile Include="Controllers\PresupuestoController.cs" />
+    <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Controllers\VoboController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -395,6 +396,9 @@
     <Compile Include="Models\Puesto_Funcional.cs">
       <DependentUpon>rrhh.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\rol_usuario.cs">
+      <DependentUpon>Presupuesto.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\rrhh.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -419,10 +423,16 @@
     <Compile Include="Models\sp_general_proceso_compra_Result.cs">
       <DependentUpon>Presupuesto.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\sp_persona_unidad_organizativa_Result.cs">
+      <DependentUpon>Presupuesto.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\sub_menu.cs">
       <DependentUpon>Presupuesto.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tipo_movimiento.cs">
+      <DependentUpon>Presupuesto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usuario.cs">
       <DependentUpon>Presupuesto.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\vobo.cs">
@@ -2100,6 +2110,8 @@
     <Content Include="Views\FuenteFinanciamiento\FuenteFinanciamiento.cshtml" />
     <Content Include="Views\MetodoContratacion\_GridMetodoContratacion.cshtml" />
     <Content Include="Views\FuenteFinanciamiento\_GridFuenteFinanciamiento.cshtml" />
+    <Content Include="Views\Usuario\Usuario.cshtml" />
+    <Content Include="Views\Usuario\_GridUsuario.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

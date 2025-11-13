@@ -215,5 +215,33 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_persona_unidad_organizativa" FunctionName="registro_presupuestoModel.Store.sp_persona_unidad_organizativa">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="registro_presupuestoModel.sp_persona_unidad_organizativa_Result">
+          <ScalarProperty Name="id_empleado" ColumnName="id_empleado" />
+          <ScalarProperty Name="nombre_empleado" ColumnName="nombre_empleado" />
+          <ScalarProperty Name="unidad_organizativa" ColumnName="unidad_organizativa" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="rol_usuario">
+      <EntityTypeMapping TypeName="registro_presupuestoModel.rol_usuario">
+        <MappingFragment StoreEntitySet="rol_usuario">
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="valor" ColumnName="valor" />
+          <ScalarProperty Name="id_rol_usuario" ColumnName="id_rol_usuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usuario">
+      <EntityTypeMapping TypeName="registro_presupuestoModel.usuario">
+        <MappingFragment StoreEntitySet="usuario">
+          <ScalarProperty Name="id_rol_usuario" ColumnName="id_rol_usuario" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="id_empleado" ColumnName="id_empleado" />
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

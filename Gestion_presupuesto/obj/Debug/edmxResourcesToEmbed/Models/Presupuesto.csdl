@@ -201,6 +201,13 @@
     <FunctionImport Name="sp_general_proceso_compra" ReturnType="Collection(registro_presupuestoModel.sp_general_proceso_compra_Result)">
       <Parameter Name="anio" Mode="In" Type="Int32" />
     </FunctionImport>
+    <FunctionImport Name="sp_persona_unidad_organizativa" ReturnType="Collection(registro_presupuestoModel.sp_persona_unidad_organizativa_Result)" />
+    <EntitySet Name="rol_usuario" EntityType="registro_presupuestoModel.rol_usuario" />
+    <EntitySet Name="usuario" EntityType="registro_presupuestoModel.usuario" />
+    <AssociationSet Name="FK__usuario__id_rol___123EB7A3" Association="registro_presupuestoModel.FK__usuario__id_rol___123EB7A3">
+      <End Role="rol_usuario" EntitySet="rol_usuario" />
+      <End Role="usuario" EntitySet="usuario" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="menu">
     <Key>
@@ -532,4 +539,40 @@
     <Property Type="String" Name="unidad_organizativa" Nullable="true" MaxLength="300" />
     <Property Type="Boolean" Name="estatus_vobo" Nullable="true" />
   </ComplexType>
+  <ComplexType Name="sp_persona_unidad_organizativa_Result">
+    <Property Type="Int32" Name="id_empleado" Nullable="false" />
+    <Property Type="String" Name="nombre_empleado" Nullable="false" MaxLength="301" />
+    <Property Type="String" Name="unidad_organizativa" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="rol_usuario">
+    <Key>
+      <PropertyRef Name="id_rol_usuario" />
+    </Key>
+    <Property Name="id_rol_usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="valor" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="estado" Type="Int32" />
+    <NavigationProperty Name="usuario" Relationship="registro_presupuestoModel.FK__usuario__id_rol___123EB7A3" FromRole="rol_usuario" ToRole="usuario" />
+  </EntityType>
+  <EntityType Name="usuario">
+    <Key>
+      <PropertyRef Name="id_usuario" />
+    </Key>
+    <Property Name="id_usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_empleado" Type="Int32" />
+    <Property Name="estado" Type="Int32" />
+    <Property Name="id_rol_usuario" Type="Int32" />
+    <NavigationProperty Name="rol_usuario" Relationship="registro_presupuestoModel.FK__usuario__id_rol___123EB7A3" FromRole="usuario" ToRole="rol_usuario" />
+  </EntityType>
+  <Association Name="FK__usuario__id_rol___123EB7A3">
+    <End Type="registro_presupuestoModel.rol_usuario" Role="rol_usuario" Multiplicity="0..1" />
+    <End Type="registro_presupuestoModel.usuario" Role="usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rol_usuario">
+        <PropertyRef Name="id_rol_usuario" />
+      </Principal>
+      <Dependent Role="usuario">
+        <PropertyRef Name="id_rol_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

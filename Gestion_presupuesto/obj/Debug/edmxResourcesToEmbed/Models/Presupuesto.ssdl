@@ -90,6 +90,14 @@
     <Property Name="estado" Type="int" />
     <Property Name="reporte" Type="int" />
   </EntityType>
+  <EntityType Name="rol_usuario">
+    <Key>
+      <PropertyRef Name="id_rol_usuario" />
+    </Key>
+    <Property Name="id_rol_usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="valor" Type="varchar" MaxLength="300" />
+    <Property Name="estado" Type="int" />
+  </EntityType>
   <EntityType Name="sub_menu">
     <Key>
       <PropertyRef Name="id_sub_menu" />
@@ -111,6 +119,15 @@
     <Property Name="id_tipo_movimiento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="valor" Type="varchar" MaxLength="150" />
     <Property Name="estado" Type="int" />
+  </EntityType>
+  <EntityType Name="usuario">
+    <Key>
+      <PropertyRef Name="id_usuario" />
+    </Key>
+    <Property Name="id_usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_empleado" Type="int" />
+    <Property Name="estado" Type="int" />
+    <Property Name="id_rol_usuario" Type="int" />
   </EntityType>
   <EntityType Name="vobo">
     <Key>
@@ -244,6 +261,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK__usuario__id_rol___123EB7A3">
+    <End Role="rol_usuario" Type="Self.rol_usuario" Multiplicity="0..1" />
+    <End Role="usuario" Type="Self.usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rol_usuario">
+        <PropertyRef Name="id_rol_usuario" />
+      </Principal>
+      <Dependent Role="usuario">
+        <PropertyRef Name="id_rol_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__vobo__id_detalle__5BE2A6F2">
     <End Role="detalle_presupuesto" Type="Self.detalle_presupuesto" Multiplicity="0..1" />
     <End Role="vobo" Type="Self.vobo" Multiplicity="*" />
@@ -304,6 +333,7 @@
   <Function Name="sp_general_proceso_compra" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="anio" Type="int" Mode="In" />
   </Function>
+  <Function Name="sp_persona_unidad_organizativa" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <EntityContainer Name="registro_presupuestoModelStoreContainer">
     <EntitySet Name="detalle_presupuesto" EntityType="Self.detalle_presupuesto" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="etapa_vobo" EntityType="Self.etapa_vobo" Schema="dbo" store:Type="Tables" />
@@ -313,8 +343,10 @@
     <EntitySet Name="movimiento_detalle_presupuesto" EntityType="Self.movimiento_detalle_presupuesto" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="movimiento_vobo" EntityType="Self.movimiento_vobo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="personal_vobo" EntityType="Self.personal_vobo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="rol_usuario" EntityType="Self.rol_usuario" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sub_menu" EntityType="Self.sub_menu" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tipo_movimiento" EntityType="Self.tipo_movimiento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="usuario" EntityType="Self.usuario" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="vobo" EntityType="Self.vobo" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK__detalle_p__id_fu__3F466844" Association="Self.FK__detalle_p__id_fu__3F466844">
       <End Role="fuente_financiamiento" EntitySet="fuente_financiamiento" />
@@ -355,6 +387,10 @@
     <AssociationSet Name="FK__sub_menu__id_men__5441852A" Association="Self.FK__sub_menu__id_men__5441852A">
       <End Role="menu" EntitySet="menu" />
       <End Role="sub_menu" EntitySet="sub_menu" />
+    </AssociationSet>
+    <AssociationSet Name="FK__usuario__id_rol___123EB7A3" Association="Self.FK__usuario__id_rol___123EB7A3">
+      <End Role="rol_usuario" EntitySet="rol_usuario" />
+      <End Role="usuario" EntitySet="usuario" />
     </AssociationSet>
     <AssociationSet Name="FK__vobo__id_detalle__5BE2A6F2" Association="Self.FK__vobo__id_detalle__5BE2A6F2">
       <End Role="detalle_presupuesto" EntitySet="detalle_presupuesto" />

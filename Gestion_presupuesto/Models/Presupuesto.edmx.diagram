@@ -30,6 +30,9 @@
         <AssociationConnector Association="registro_presupuestoModel.FK__movimient__id_ti__6A30C649" />
         <AssociationConnector Association="registro_presupuestoModel.FK__movimient__id_vo__68487DD7" />
         <AssociationConnector Association="registro_presupuestoModel.FK__vobo__id_movimie__73BA3083" />
+        <EntityTypeShape EntityType="registro_presupuestoModel.rol_usuario" Width="1.5" PointX="0.75" PointY="10" />
+        <EntityTypeShape EntityType="registro_presupuestoModel.usuario" Width="1.5" PointX="3" PointY="9.875" />
+        <AssociationConnector Association="registro_presupuestoModel.FK__usuario__id_rol___123EB7A3" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -590,7 +590,6 @@ namespace Gestion_presupuesto.Controllers
                         modelItem.fecha_fin = item.fecha_fin;
                         modelItem.monto = item.monto;
                         modelItem.id_fuente_financiamiento = item.id_fuente_financiamiento;
-                        modelItem.id_unidad_organizativa = item.id_unidad_organizativa;
                         modelItem.motivo_movimiento = item.motivo_movimiento;
                         db.SaveChanges();
                     }

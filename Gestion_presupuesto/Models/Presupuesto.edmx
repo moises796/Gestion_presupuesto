@@ -95,6 +95,14 @@
           <Property Name="estado" Type="int" />
           <Property Name="reporte" Type="int" />
         </EntityType>
+        <EntityType Name="rol_usuario">
+          <Key>
+            <PropertyRef Name="id_rol_usuario" />
+          </Key>
+          <Property Name="id_rol_usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="valor" Type="varchar" MaxLength="300" />
+          <Property Name="estado" Type="int" />
+        </EntityType>
         <EntityType Name="sub_menu">
           <Key>
             <PropertyRef Name="id_sub_menu" />
@@ -116,6 +124,15 @@
           <Property Name="id_tipo_movimiento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="valor" Type="varchar" MaxLength="150" />
           <Property Name="estado" Type="int" />
+        </EntityType>
+        <EntityType Name="usuario">
+          <Key>
+            <PropertyRef Name="id_usuario" />
+          </Key>
+          <Property Name="id_usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_empleado" Type="int" />
+          <Property Name="estado" Type="int" />
+          <Property Name="id_rol_usuario" Type="int" />
         </EntityType>
         <EntityType Name="vobo">
           <Key>
@@ -249,6 +266,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__usuario__id_rol___123EB7A3">
+          <End Role="rol_usuario" Type="Self.rol_usuario" Multiplicity="0..1" />
+          <End Role="usuario" Type="Self.usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="rol_usuario">
+              <PropertyRef Name="id_rol_usuario" />
+            </Principal>
+            <Dependent Role="usuario">
+              <PropertyRef Name="id_rol_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__vobo__id_detalle__5BE2A6F2">
           <End Role="detalle_presupuesto" Type="Self.detalle_presupuesto" Multiplicity="0..1" />
           <End Role="vobo" Type="Self.vobo" Multiplicity="*" />
@@ -309,6 +338,7 @@
         <Function Name="sp_general_proceso_compra" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="anio" Type="int" Mode="In" />
         </Function>
+        <Function Name="sp_persona_unidad_organizativa" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="registro_presupuestoModelStoreContainer">
           <EntitySet Name="detalle_presupuesto" EntityType="Self.detalle_presupuesto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="etapa_vobo" EntityType="Self.etapa_vobo" Schema="dbo" store:Type="Tables" />
@@ -318,8 +348,10 @@
           <EntitySet Name="movimiento_detalle_presupuesto" EntityType="Self.movimiento_detalle_presupuesto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="movimiento_vobo" EntityType="Self.movimiento_vobo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="personal_vobo" EntityType="Self.personal_vobo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="rol_usuario" EntityType="Self.rol_usuario" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sub_menu" EntityType="Self.sub_menu" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tipo_movimiento" EntityType="Self.tipo_movimiento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="usuario" EntityType="Self.usuario" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="vobo" EntityType="Self.vobo" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__detalle_p__id_fu__3F466844" Association="Self.FK__detalle_p__id_fu__3F466844">
             <End Role="fuente_financiamiento" EntitySet="fuente_financiamiento" />
@@ -360,6 +392,10 @@
           <AssociationSet Name="FK__sub_menu__id_men__5441852A" Association="Self.FK__sub_menu__id_men__5441852A">
             <End Role="menu" EntitySet="menu" />
             <End Role="sub_menu" EntitySet="sub_menu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__usuario__id_rol___123EB7A3" Association="Self.FK__usuario__id_rol___123EB7A3">
+            <End Role="rol_usuario" EntitySet="rol_usuario" />
+            <End Role="usuario" EntitySet="usuario" />
           </AssociationSet>
           <AssociationSet Name="FK__vobo__id_detalle__5BE2A6F2" Association="Self.FK__vobo__id_detalle__5BE2A6F2">
             <End Role="detalle_presupuesto" EntitySet="detalle_presupuesto" />
@@ -583,6 +619,13 @@
           <FunctionImport Name="sp_general_proceso_compra" ReturnType="Collection(registro_presupuestoModel.sp_general_proceso_compra_Result)">
           <Parameter Name="anio" Mode="In" Type="Int32" />
           </FunctionImport>
+          <FunctionImport Name="sp_persona_unidad_organizativa" ReturnType="Collection(registro_presupuestoModel.sp_persona_unidad_organizativa_Result)" />
+          <EntitySet Name="rol_usuario" EntityType="registro_presupuestoModel.rol_usuario" />
+          <EntitySet Name="usuario" EntityType="registro_presupuestoModel.usuario" />
+          <AssociationSet Name="FK__usuario__id_rol___123EB7A3" Association="registro_presupuestoModel.FK__usuario__id_rol___123EB7A3">
+            <End Role="rol_usuario" EntitySet="rol_usuario" />
+            <End Role="usuario" EntitySet="usuario" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="menu">
           <Key>
@@ -914,6 +957,42 @@
           <Property Type="String" Name="unidad_organizativa" Nullable="true" MaxLength="300" />
           <Property Type="Boolean" Name="estatus_vobo" Nullable="true" />
         </ComplexType>
+        <ComplexType Name="sp_persona_unidad_organizativa_Result">
+          <Property Type="Int32" Name="id_empleado" Nullable="false" />
+          <Property Type="String" Name="nombre_empleado" Nullable="false" MaxLength="301" />
+          <Property Type="String" Name="unidad_organizativa" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="rol_usuario">
+          <Key>
+            <PropertyRef Name="id_rol_usuario" />
+          </Key>
+          <Property Name="id_rol_usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="valor" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="estado" Type="Int32" />
+          <NavigationProperty Name="usuario" Relationship="registro_presupuestoModel.FK__usuario__id_rol___123EB7A3" FromRole="rol_usuario" ToRole="usuario" />
+        </EntityType>
+        <EntityType Name="usuario">
+          <Key>
+            <PropertyRef Name="id_usuario" />
+          </Key>
+          <Property Name="id_usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_empleado" Type="Int32" />
+          <Property Name="estado" Type="Int32" />
+          <Property Name="id_rol_usuario" Type="Int32" />
+          <NavigationProperty Name="rol_usuario" Relationship="registro_presupuestoModel.FK__usuario__id_rol___123EB7A3" FromRole="usuario" ToRole="rol_usuario" />
+        </EntityType>
+        <Association Name="FK__usuario__id_rol___123EB7A3">
+          <End Type="registro_presupuestoModel.rol_usuario" Role="rol_usuario" Multiplicity="0..1" />
+          <End Type="registro_presupuestoModel.usuario" Role="usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="rol_usuario">
+              <PropertyRef Name="id_rol_usuario" />
+            </Principal>
+            <Dependent Role="usuario">
+              <PropertyRef Name="id_rol_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1134,6 +1213,34 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_persona_unidad_organizativa" FunctionName="registro_presupuestoModel.Store.sp_persona_unidad_organizativa">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="registro_presupuestoModel.sp_persona_unidad_organizativa_Result">
+                <ScalarProperty Name="id_empleado" ColumnName="id_empleado" />
+                <ScalarProperty Name="nombre_empleado" ColumnName="nombre_empleado" />
+                <ScalarProperty Name="unidad_organizativa" ColumnName="unidad_organizativa" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="rol_usuario">
+            <EntityTypeMapping TypeName="registro_presupuestoModel.rol_usuario">
+              <MappingFragment StoreEntitySet="rol_usuario">
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="valor" ColumnName="valor" />
+                <ScalarProperty Name="id_rol_usuario" ColumnName="id_rol_usuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="usuario">
+            <EntityTypeMapping TypeName="registro_presupuestoModel.usuario">
+              <MappingFragment StoreEntitySet="usuario">
+                <ScalarProperty Name="id_rol_usuario" ColumnName="id_rol_usuario" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="id_empleado" ColumnName="id_empleado" />
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
