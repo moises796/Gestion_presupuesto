@@ -156,29 +156,36 @@ namespace Gestion_presupuesto.Controllers
             //var model = db.detalle_presupuesto;
             string codEmp = (string)UserClaims.codigoempleado_key;
             var id = Convert.ToInt32(UserClaims.idempleado_key);
-            var model = db.sp_consulta_procesos_compra(id).ToList();
-            List<BandejaProcesoCompra> clase = new List<BandejaProcesoCompra>();
-            model.ForEach(x =>
-            {
-                BandejaProcesoCompra bpc = new BandejaProcesoCompra();
-                bpc.id_detalle_presupuesto = x.id_detalle_presupuesto;
-                bpc.codigo = x.codigo;
-                bpc.nombre_proceso = x.nombre_proceso;
-                bpc.id_metodo_contratacion = x.id_metodo_contratacion;
-                bpc.fecha_inicio = x.fecha_inicio;
-                bpc.fecha_fin = x.fecha_fin;
-                bpc.monto = x.monto;
-                bpc.id_fuente_financiamiento = x.id_fuente_financiamiento;
-                bpc.id_unidad_organizativa = x.id_unidad_organizativa;
-                bpc.estado = x.estado;
-                bpc.metodo_contratacion = x.metodo_contratacion;
-                bpc.fuente_financiamiento = x.fuente_financiamiento;
-                bpc.estatus_proceso = x.estatus_proceso;
-                bpc.estatus_general = x.estatus_general;
-                clase.Add(bpc);
-            });
 
-            return PartialView("~/Views/Presupuesto/_GridDetallePresupuesto.cshtml", model.ToList().OrderByDescending(x=>x.id_detalle_presupuesto));
+            var unidad_organizativa = db2.Cargo.Where(x => x.id_empleado == id && x.estado == 1).ToList();
+            List<BandejaProcesoCompra> clase = new List<BandejaProcesoCompra>();
+
+            foreach (var item in unidad_organizativa)
+            {
+                var model = db.sp_consulta_procesos_compra(item.id_estructura).ToList();
+
+                model.ForEach(x =>
+                {
+                    BandejaProcesoCompra bpc = new BandejaProcesoCompra();
+                    bpc.id_detalle_presupuesto = x.id_detalle_presupuesto;
+                    bpc.codigo = x.codigo;
+                    bpc.nombre_proceso = x.nombre_proceso;
+                    bpc.id_metodo_contratacion = x.id_metodo_contratacion;
+                    bpc.fecha_inicio = x.fecha_inicio;
+                    bpc.fecha_fin = x.fecha_fin;
+                    bpc.monto = x.monto;
+                    bpc.id_fuente_financiamiento = x.id_fuente_financiamiento;
+                    bpc.id_unidad_organizativa = x.id_unidad_organizativa;
+                    bpc.estado = x.estado;
+                    bpc.metodo_contratacion = x.metodo_contratacion;
+                    bpc.fuente_financiamiento = x.fuente_financiamiento;
+                    bpc.estatus_proceso = x.estatus_proceso;
+                    bpc.estatus_general = x.estatus_general;
+                    clase.Add(bpc);
+                });
+            }
+
+            return PartialView("~/Views/Presupuesto/_GridDetallePresupuesto.cshtml", clase.ToList().OrderByDescending(x=>x.id_detalle_presupuesto));
         }
 
         public ActionResult ValidarProceso(int? id_detalle_presupuesto)

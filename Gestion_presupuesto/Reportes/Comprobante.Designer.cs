@@ -43,6 +43,7 @@
             this.xrLabel16 = new DevExpress.XtraReports.UI.XRLabel();
             this.sp_voboTableAdapter1 = new Gestion_presupuesto.Reportes.dsComprobanteTableAdapters.sp_voboTableAdapter();
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
+            this.xrLabel15 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel14 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel13 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel12 = new DevExpress.XtraReports.UI.XRLabel();
@@ -60,7 +61,8 @@
             this.tipo_vobo = new DevExpress.XtraReports.Parameters.Parameter();
             this.PageFooter = new DevExpress.XtraReports.UI.PageFooterBand();
             this.xrPageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
-            this.xrLabel15 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel18 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel19 = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this.dsComprobante1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
@@ -164,6 +166,8 @@
             // Detail
             // 
             this.Detail.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrLabel19,
+            this.xrLabel18,
             this.xrLabel15,
             this.xrLabel14,
             this.xrLabel13,
@@ -181,6 +185,21 @@
             this.xrLabel1});
             this.Detail.HeightF = 330.5833F;
             this.Detail.Name = "Detail";
+            // 
+            // xrLabel15
+            // 
+            this.xrLabel15.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[unidad_organizativa]")});
+            this.xrLabel15.Font = new DevExpress.Drawing.DXFont("Lucida Sans Unicode", 14F, ((DevExpress.Drawing.DXFontStyle)((DevExpress.Drawing.DXFontStyle.Bold | DevExpress.Drawing.DXFontStyle.Italic))));
+            this.xrLabel15.LocationFloat = new DevExpress.Utils.PointFloat(23.3334F, 33.00002F);
+            this.xrLabel15.Multiline = true;
+            this.xrLabel15.Name = "xrLabel15";
+            this.xrLabel15.Padding = new DevExpress.XtraPrinting.PaddingInfo(2F, 2F, 0F, 0F, 100F);
+            this.xrLabel15.SizeF = new System.Drawing.SizeF(413.4722F, 23F);
+            this.xrLabel15.StylePriority.UseFont = false;
+            this.xrLabel15.StylePriority.UseTextAlignment = false;
+            this.xrLabel15.Text = "Unidad solicita";
+            this.xrLabel15.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
             // xrLabel14
             // 
@@ -287,11 +306,11 @@
             this.xrLabel7.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Solicitado por:")});
             this.xrLabel7.Font = new DevExpress.Drawing.DXFont("Lucida Sans Unicode", 14F, DevExpress.Drawing.DXFontStyle.Bold);
-            this.xrLabel7.LocationFloat = new DevExpress.Utils.PointFloat(23.3333F, 9.999996F);
+            this.xrLabel7.LocationFloat = new DevExpress.Utils.PointFloat(23.3334F, 10.00002F);
             this.xrLabel7.Multiline = true;
             this.xrLabel7.Name = "xrLabel7";
             this.xrLabel7.Padding = new DevExpress.XtraPrinting.PaddingInfo(2F, 2F, 0F, 0F, 100F);
-            this.xrLabel7.SizeF = new System.Drawing.SizeF(730.1389F, 23F);
+            this.xrLabel7.SizeF = new System.Drawing.SizeF(164.8611F, 23F);
             this.xrLabel7.StylePriority.UseFont = false;
             this.xrLabel7.StylePriority.UseTextAlignment = false;
             this.xrLabel7.Text = "Solicitado por:";
@@ -403,20 +422,35 @@
             this.xrPageInfo1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             this.xrPageInfo1.TextFormatString = "Página {0} de {1}";
             // 
-            // xrLabel15
+            // xrLabel18
             // 
-            this.xrLabel15.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[unidad_organizativa]")});
-            this.xrLabel15.Font = new DevExpress.Drawing.DXFont("Lucida Sans Unicode", 14F, ((DevExpress.Drawing.DXFontStyle)((DevExpress.Drawing.DXFontStyle.Bold | DevExpress.Drawing.DXFontStyle.Italic))));
-            this.xrLabel15.LocationFloat = new DevExpress.Utils.PointFloat(23.3333F, 32.99999F);
-            this.xrLabel15.Multiline = true;
-            this.xrLabel15.Name = "xrLabel15";
-            this.xrLabel15.Padding = new DevExpress.XtraPrinting.PaddingInfo(2F, 2F, 0F, 0F, 100F);
-            this.xrLabel15.SizeF = new System.Drawing.SizeF(730.1389F, 23F);
-            this.xrLabel15.StylePriority.UseFont = false;
-            this.xrLabel15.StylePriority.UseTextAlignment = false;
-            this.xrLabel15.Text = "Unidad solicita";
-            this.xrLabel15.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            this.xrLabel18.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[codigo]")});
+            this.xrLabel18.Font = new DevExpress.Drawing.DXFont("Lucida Sans Unicode", 14F, DevExpress.Drawing.DXFontStyle.Bold);
+            this.xrLabel18.LocationFloat = new DevExpress.Utils.PointFloat(436.8055F, 33.00002F);
+            this.xrLabel18.Multiline = true;
+            this.xrLabel18.Name = "xrLabel18";
+            this.xrLabel18.Padding = new DevExpress.XtraPrinting.PaddingInfo(2F, 2F, 0F, 0F, 100F);
+            this.xrLabel18.SizeF = new System.Drawing.SizeF(316.6667F, 23F);
+            this.xrLabel18.StylePriority.UseFont = false;
+            this.xrLabel18.StylePriority.UseTextAlignment = false;
+            this.xrLabel18.Text = "xrLabel18";
+            this.xrLabel18.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            // 
+            // xrLabel19
+            // 
+            this.xrLabel19.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Código proceso:")});
+            this.xrLabel19.Font = new DevExpress.Drawing.DXFont("Lucida Sans Unicode", 14F, DevExpress.Drawing.DXFontStyle.Bold);
+            this.xrLabel19.LocationFloat = new DevExpress.Utils.PointFloat(540.6945F, 10.00002F);
+            this.xrLabel19.Multiline = true;
+            this.xrLabel19.Name = "xrLabel19";
+            this.xrLabel19.Padding = new DevExpress.XtraPrinting.PaddingInfo(2F, 2F, 0F, 0F, 100F);
+            this.xrLabel19.SizeF = new System.Drawing.SizeF(212.7777F, 23F);
+            this.xrLabel19.StylePriority.UseFont = false;
+            this.xrLabel19.StylePriority.UseTextAlignment = false;
+            this.xrLabel19.Text = "Código proceso:";
+            this.xrLabel19.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             // 
             // Comprobante
             // 
@@ -486,5 +520,7 @@
         private DevExpress.XtraReports.UI.PageFooterBand PageFooter;
         private DevExpress.XtraReports.UI.XRPageInfo xrPageInfo1;
         private DevExpress.XtraReports.UI.XRLabel xrLabel15;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel18;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel19;
     }
 }
