@@ -17,13 +17,17 @@ namespace Gestion_presupuesto.Helpers
             public DateTime? fecha_inicio { get; set; }
             public DateTime? fecha_fin { get; set; }
             public double? monto { get; set; }
+            public double? monto_goes { get; set; }
+            public double? monto_propio { get; set; }
+            public double? monto_proyectos { get; set; }
+            public double? monto_compensacion { get; set; }
             public int? id_fuente_financiamiento { get; set; }
             public int? id_unidad_organizativa { get; set; }
             public int? estado { get; set; }
             public int? tipo_vobo { get; set; }
             public string motivo_movimiento { get; set; }
             public string proceso_column { get; set; }
-
+            public DateTime? fecha_movimiento { get; set; }
 
         }
 
@@ -36,7 +40,12 @@ namespace Gestion_presupuesto.Helpers
             public DateTime? fecha_inicio { get; set; }
             public DateTime? fecha_fin { get; set; }
             public double? monto { get; set; }
+            public double? monto_goes { get; set; }
+            public double? monto_propio { get; set; }
+            public double? monto_proyectos { get; set; }
+            public double? monto_compensacion { get; set; }
             public int? id_fuente_financiamiento { get; set; }
+            public int? identificador_fuente_financiamiento { get; set; }
             public int? id_unidad_organizativa { get; set; }
             public int? estado { get; set; }
             public string metodo_contratacion { get; set; }
@@ -54,7 +63,12 @@ namespace Gestion_presupuesto.Helpers
             public DateTime? fecha_inicio { get; set; }
             public DateTime? fecha_fin { get; set; }
             public double? monto { get; set; }
+            public double? monto_goes { get; set; }
+            public double? monto_propio { get; set; }
+            public double? monto_proyectos { get; set; }
+            public double? monto_compensacion { get; set; }
             public int? id_fuente_financiamiento { get; set; }
+            public int? identificador_fuente_financiamiento { get; set; }
             public int? id_unidad_organizativa { get; set; }
             public int? estado { get; set; }
             public string motivo_movimiento { get; set; }

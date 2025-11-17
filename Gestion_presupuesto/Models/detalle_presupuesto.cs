@@ -19,6 +19,7 @@ namespace Gestion_presupuesto.Models
         {
             this.movimiento_detalle_presupuesto = new HashSet<movimiento_detalle_presupuesto>();
             this.vobo = new HashSet<vobo>();
+            this.detalle_presupuesto_anulacion = new HashSet<detalle_presupuesto_anulacion>();
         }
     
         public int id_detalle_presupuesto { get; set; }
@@ -31,6 +32,10 @@ namespace Gestion_presupuesto.Models
         public Nullable<int> id_fuente_financiamiento { get; set; }
         public Nullable<int> id_unidad_organizativa { get; set; }
         public Nullable<int> estado { get; set; }
+        public Nullable<double> monto_goes { get; set; }
+        public Nullable<double> monto_propio { get; set; }
+        public Nullable<double> monto_proyectos { get; set; }
+        public Nullable<double> monto_compensacion { get; set; }
     
         public virtual fuente_financiamiento fuente_financiamiento { get; set; }
         public virtual metodo_contratacion metodo_contratacion { get; set; }
@@ -38,5 +43,7 @@ namespace Gestion_presupuesto.Models
         public virtual ICollection<movimiento_detalle_presupuesto> movimiento_detalle_presupuesto { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<vobo> vobo { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<detalle_presupuesto_anulacion> detalle_presupuesto_anulacion { get; set; }
     }
 }

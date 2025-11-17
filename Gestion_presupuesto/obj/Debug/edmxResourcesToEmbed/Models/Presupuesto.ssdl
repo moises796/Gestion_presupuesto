@@ -14,6 +14,20 @@
     <Property Name="id_fuente_financiamiento" Type="int" />
     <Property Name="id_unidad_organizativa" Type="int" />
     <Property Name="estado" Type="int" />
+    <Property Name="monto_goes" Type="float" />
+    <Property Name="monto_propio" Type="float" />
+    <Property Name="monto_proyectos" Type="float" />
+    <Property Name="monto_compensacion" Type="float" />
+  </EntityType>
+  <EntityType Name="detalle_presupuesto_anulacion">
+    <Key>
+      <PropertyRef Name="id_detalle_presupuesto_anulacion" />
+    </Key>
+    <Property Name="id_detalle_presupuesto_anulacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_detalle_presupuesto" Type="int" />
+    <Property Name="id_vobo" Type="int" />
+    <Property Name="instruccion" Type="varchar" MaxLength="400" />
+    <Property Name="estado" Type="int" />
   </EntityType>
   <EntityType Name="etapa_vobo">
     <Key>
@@ -69,6 +83,10 @@
     <Property Name="estado" Type="int" />
     <Property Name="motivo_movimiento" Type="varchar(max)" />
     <Property Name="codigo" Type="varchar" MaxLength="150" />
+    <Property Name="monto_goes" Type="float" />
+    <Property Name="monto_propio" Type="float" />
+    <Property Name="monto_proyectos" Type="float" />
+    <Property Name="monto_compensacion" Type="float" />
   </EntityType>
   <EntityType Name="movimiento_vobo">
     <Key>
@@ -141,6 +159,18 @@
     <Property Name="estado" Type="int" />
     <Property Name="id_movimiento_detalle_presupuesto" Type="int" />
   </EntityType>
+  <Association Name="FK__detalle_p__id_de__151B244E">
+    <End Role="detalle_presupuesto" Type="Self.detalle_presupuesto" Multiplicity="0..1" />
+    <End Role="detalle_presupuesto_anulacion" Type="Self.detalle_presupuesto_anulacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="detalle_presupuesto">
+        <PropertyRef Name="id_detalle_presupuesto" />
+      </Principal>
+      <Dependent Role="detalle_presupuesto_anulacion">
+        <PropertyRef Name="id_detalle_presupuesto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__detalle_p__id_fu__3F466844">
     <End Role="fuente_financiamiento" Type="Self.fuente_financiamiento" Multiplicity="0..1" />
     <End Role="detalle_presupuesto" Type="Self.detalle_presupuesto" Multiplicity="*" />
@@ -162,6 +192,18 @@
       </Principal>
       <Dependent Role="detalle_presupuesto">
         <PropertyRef Name="id_metodo_contratacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__detalle_p__id_vo__160F4887">
+    <End Role="vobo" Type="Self.vobo" Multiplicity="0..1" />
+    <End Role="detalle_presupuesto_anulacion" Type="Self.detalle_presupuesto_anulacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="vobo">
+        <PropertyRef Name="id_vobo" />
+      </Principal>
+      <Dependent Role="detalle_presupuesto_anulacion">
+        <PropertyRef Name="id_vobo" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -336,6 +378,7 @@
   <Function Name="sp_persona_unidad_organizativa" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <EntityContainer Name="registro_presupuestoModelStoreContainer">
     <EntitySet Name="detalle_presupuesto" EntityType="Self.detalle_presupuesto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="detalle_presupuesto_anulacion" EntityType="Self.detalle_presupuesto_anulacion" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="etapa_vobo" EntityType="Self.etapa_vobo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="fuente_financiamiento" EntityType="Self.fuente_financiamiento" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="menu" EntityType="Self.menu" Schema="dbo" store:Type="Tables" />
@@ -348,6 +391,10 @@
     <EntitySet Name="tipo_movimiento" EntityType="Self.tipo_movimiento" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="usuario" EntityType="Self.usuario" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="vobo" EntityType="Self.vobo" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__detalle_p__id_de__151B244E" Association="Self.FK__detalle_p__id_de__151B244E">
+      <End Role="detalle_presupuesto" EntitySet="detalle_presupuesto" />
+      <End Role="detalle_presupuesto_anulacion" EntitySet="detalle_presupuesto_anulacion" />
+    </AssociationSet>
     <AssociationSet Name="FK__detalle_p__id_fu__3F466844" Association="Self.FK__detalle_p__id_fu__3F466844">
       <End Role="fuente_financiamiento" EntitySet="fuente_financiamiento" />
       <End Role="detalle_presupuesto" EntitySet="detalle_presupuesto" />
@@ -355,6 +402,10 @@
     <AssociationSet Name="FK__detalle_p__id_me__3E52440B" Association="Self.FK__detalle_p__id_me__3E52440B">
       <End Role="metodo_contratacion" EntitySet="metodo_contratacion" />
       <End Role="detalle_presupuesto" EntitySet="detalle_presupuesto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__detalle_p__id_vo__160F4887" Association="Self.FK__detalle_p__id_vo__160F4887">
+      <End Role="vobo" EntitySet="vobo" />
+      <End Role="detalle_presupuesto_anulacion" EntitySet="detalle_presupuesto_anulacion" />
     </AssociationSet>
     <AssociationSet Name="FK__movimient__id_de__4222D4EF" Association="Self.FK__movimient__id_de__4222D4EF">
       <End Role="detalle_presupuesto" EntitySet="detalle_presupuesto" />

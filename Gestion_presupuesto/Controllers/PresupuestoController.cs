@@ -103,6 +103,10 @@ namespace Gestion_presupuesto.Controllers
                 clase.fecha_inicio = presupuesto_original.fecha_inicio;
                 clase.fecha_fin = presupuesto_original.fecha_fin;
                 clase.monto = presupuesto_original.monto;
+                clase.monto_goes = presupuesto_original.monto_goes;
+                clase.monto_propio = presupuesto_original.monto_propio;
+                clase.monto_proyectos = presupuesto_original.monto_proyectos;
+                clase.monto_compensacion = presupuesto_original.monto_compensacion;
                 clase.id_fuente_financiamiento = presupuesto_original.id_fuente_financiamiento;
                 clase.id_unidad_organizativa = presupuesto_original.id_unidad_organizativa;
                 clase.estado = presupuesto_original.estado;
@@ -174,7 +178,12 @@ namespace Gestion_presupuesto.Controllers
                     bpc.fecha_inicio = x.fecha_inicio;
                     bpc.fecha_fin = x.fecha_fin;
                     bpc.monto = x.monto;
+                    bpc.monto_goes = x.monto_goes;
+                    bpc.monto_propio = x.monto_propio;
+                    bpc.monto_proyectos = x.monto_proyectos;
+                    bpc.monto_compensacion = x.monto_compensacion;
                     bpc.id_fuente_financiamiento = x.id_fuente_financiamiento;
+                    bpc.identificador_fuente_financiamiento = x.id_fuente_financiamiento;
                     bpc.id_unidad_organizativa = x.id_unidad_organizativa;
                     bpc.estado = x.estado;
                     bpc.metodo_contratacion = x.metodo_contratacion;
@@ -206,7 +215,17 @@ namespace Gestion_presupuesto.Controllers
             var validacion_proceso = db.detalle_presupuesto.FirstOrDefault(x => x.id_detalle_presupuesto == id_detalle_presupuesto && x.estado == 1);
             if (validacion_proceso != null)
             {
-                return Json(new { data = 1 }, JsonRequestBehavior.AllowGet);
+                //VAMOS A VALIDAR QUE NO ESTE EN PROCESO DE ELIMINACION
+                var eliminacion_proceso = db.detalle_presupuesto_anulacion.FirstOrDefault(x => x.id_detalle_presupuesto == id_detalle_presupuesto && x.estado == 1);
+                if (eliminacion_proceso !=null)
+                {
+                    return Json(new { data = -2 }, JsonRequestBehavior.AllowGet);
+                }
+                else
+                {
+                    return Json(new { data = 1 }, JsonRequestBehavior.AllowGet);
+                }
+                
             }
             else
             {
@@ -401,6 +420,59 @@ namespace Gestion_presupuesto.Controllers
             return Json(new { data = 1 }, JsonRequestBehavior.AllowGet);
         }
 
+
+        public ActionResult AnularFinalizado(int? id_detalle_presupuesto, string instruccion)
+        {
+            //VAMOS A BUSCAR LOS ID_VOBO QUE ESTAN EN OK PARA SALVARLOS
+            var listado_vobo = db.vobo.Where(x => x.id_detalle_presupuesto == id_detalle_presupuesto && x.id_etapa_vobo == 1).ToList();
+            listado_vobo.ForEach(x => {
+                detalle_presupuesto_anulacion clase = new detalle_presupuesto_anulacion();
+                clase.id_detalle_presupuesto = id_detalle_presupuesto;
+                clase.id_vobo = x.id_vobo;
+                clase.instruccion = instruccion;
+                clase.estado = 1;
+                db.detalle_presupuesto_anulacion.Add(clase);
+                db.SaveChanges();
+            });
+
+            //ANULAMOS TODOS LOS VOBOS
+            var lista_vobo = db.vobo.Where(x => x.id_detalle_presupuesto == id_detalle_presupuesto).ToList();
+            lista_vobo.ForEach(x => {
+                x.id_etapa_vobo = 4;
+                db.SaveChanges();
+            });
+
+
+            //OBTENEMOS LOS VOBOS PARA INICIAR
+            var persona_vobo = db.personal_vobo.Where(x => x.estado == 1).ToList();
+            //VAMOS A INICIAR EL PROCESO DE VISTOS BUENOS
+            foreach (var item in persona_vobo)
+            {
+                //VAMOS A VALIDAR QUE SI HAY UNO EN PROCESO LOS DEMÁS SEAN PENDIENTES
+                var validacion = db.vobo.FirstOrDefault(x => x.id_detalle_presupuesto == id_detalle_presupuesto && x.estado == 1 && x.id_etapa_vobo == 3);
+                vobo clase = new vobo();
+                clase.id_personal_vobo = item.id_personal_vobo;
+                clase.id_detalle_presupuesto = id_detalle_presupuesto;
+                clase.estado = 1;
+                if (validacion != null)
+                {
+                    clase.id_etapa_vobo = 2;
+                }
+                else
+                {
+                    clase.id_etapa_vobo = 3;
+                }
+
+                db.vobo.Add(clase);
+                db.SaveChanges();
+            }
+
+
+
+
+            return Json(new { data = 1 }, JsonRequestBehavior.AllowGet);
+        }
+
         public ActionResult IniciarProcesoMovimiento(int? id_movimiento_detalle_presupuesto)
         {
             var presupuesto = db.movimiento_detalle_presupuesto.FirstOrDefault(x => x.id_movimiento_detalle_presupuesto == id_movimiento_detalle_presupuesto);
@@ -457,6 +529,12 @@ namespace Gestion_presupuesto.Controllers
             {
                 try
                 {
+                    if (item.id_fuente_financiamiento == 5)
+                    {
+                        //ES MIXTO
+                        item.monto = item.monto_goes + item.monto_propio + item.monto_proyectos + item.monto_compensacion;
+                    }
+                    
 
                     item.estado = 1;
                     model.Add(item);
@@ -486,7 +564,26 @@ namespace Gestion_presupuesto.Controllers
                         modelItem.id_metodo_contratacion = item.id_metodo_contratacion;
                         modelItem.fecha_inicio = item.fecha_inicio;
                         modelItem.fecha_fin = item.fecha_fin;
-                        modelItem.monto = item.monto;
+
+
+                        if (item.id_fuente_financiamiento == 5)
+                        {
+                            //ES MIXTO
+                            modelItem.monto_goes = item.monto_goes;
+                            modelItem.monto_propio = item.monto_propio;
+                            modelItem.monto_proyectos = item.monto_proyectos;
+                            modelItem.monto_compensacion = item.monto_compensacion;
+                            modelItem.monto = item.monto_goes + item.monto_propio + item.monto_proyectos + item.monto_compensacion;
+                        }
+                        else
+                        {
+                            modelItem.monto_goes = 0;
+                            modelItem.monto_propio = 0;
+                            modelItem.monto_proyectos = 0;
+                            modelItem.monto_compensacion = 0;
+                            modelItem.monto = item.monto;
+                        }
+
                         modelItem.id_fuente_financiamiento = item.id_fuente_financiamiento;
                         modelItem.id_unidad_organizativa = item.id_unidad_organizativa;
                         db.SaveChanges();
@@ -566,7 +663,12 @@ namespace Gestion_presupuesto.Controllers
                 bpc.fecha_inicio = x.fecha_inicio;
                 bpc.fecha_fin = x.fecha_fin;
                 bpc.monto = x.monto;
+                bpc.monto_goes = x.monto_goes;
+                bpc.monto_propio = x.monto_propio;
+                bpc.monto_proyectos = x.monto_proyectos;
+                bpc.monto_compensacion = x.monto_compensacion;
                 bpc.id_fuente_financiamiento = x.id_fuente_financiamiento;
+                bpc.identificador_fuente_financiamiento = x.id_fuente_financiamiento;
                 bpc.id_unidad_organizativa = x.id_unidad_organizativa;
                 bpc.estado = x.estado;
                 bpc.motivo_movimiento = x.motivo_movimiento;
@@ -595,7 +697,25 @@ namespace Gestion_presupuesto.Controllers
                         modelItem.id_metodo_contratacion = item.id_metodo_contratacion;
                         modelItem.fecha_inicio = item.fecha_inicio;
                         modelItem.fecha_fin = item.fecha_fin;
-                        modelItem.monto = item.monto;
+
+                        if (item.id_fuente_financiamiento == 5)
+                        {
+                            //ES MIXTO
+                            modelItem.monto_goes = item.monto_goes;
+                            modelItem.monto_propio = item.monto_propio;
+                            modelItem.monto_proyectos = item.monto_proyectos;
+                            modelItem.monto_compensacion = item.monto_compensacion;
+                            modelItem.monto = item.monto_goes + item.monto_propio + item.monto_proyectos + item.monto_compensacion;
+                        }
+                        else
+                        {
+                            modelItem.monto_goes = 0;
+                            modelItem.monto_propio = 0;
+                            modelItem.monto_proyectos = 0;
+                            modelItem.monto_compensacion = 0;
+                            modelItem.monto = item.monto;
+                        }
+
                         modelItem.id_fuente_financiamiento = item.id_fuente_financiamiento;
                         modelItem.motivo_movimiento = item.motivo_movimiento;
                         db.SaveChanges();

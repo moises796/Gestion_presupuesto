@@ -33,6 +33,9 @@
         <EntityTypeShape EntityType="registro_presupuestoModel.rol_usuario" Width="1.5" PointX="0.75" PointY="10" />
         <EntityTypeShape EntityType="registro_presupuestoModel.usuario" Width="1.5" PointX="3" PointY="9.875" />
         <AssociationConnector Association="registro_presupuestoModel.FK__usuario__id_rol___123EB7A3" />
+        <EntityTypeShape EntityType="registro_presupuestoModel.detalle_presupuesto_anulacion" Width="1.5" PointX="10.5" PointY="2.25" />
+        <AssociationConnector Association="registro_presupuestoModel.FK__detalle_p__id_de__151B244E" />
+        <AssociationConnector Association="registro_presupuestoModel.FK__detalle_p__id_vo__160F4887" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

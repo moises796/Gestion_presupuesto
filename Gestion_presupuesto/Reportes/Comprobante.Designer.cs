@@ -426,7 +426,8 @@
             // 
             this.xrLabel18.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[codigo]")});
-            this.xrLabel18.Font = new DevExpress.Drawing.DXFont("Lucida Sans Unicode", 14F, DevExpress.Drawing.DXFontStyle.Bold);
+            this.xrLabel18.Font = new DevExpress.Drawing.DXFont("Lucida Sans Unicode", 14F, ((DevExpress.Drawing.DXFontStyle)(((DevExpress.Drawing.DXFontStyle.Bold | DevExpress.Drawing.DXFontStyle.Italic) 
+                | DevExpress.Drawing.DXFontStyle.Underline))));
             this.xrLabel18.LocationFloat = new DevExpress.Utils.PointFloat(436.8055F, 33.00002F);
             this.xrLabel18.Multiline = true;
             this.xrLabel18.Name = "xrLabel18";

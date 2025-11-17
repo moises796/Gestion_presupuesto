@@ -1,9 +1,12 @@
-﻿using DevExpress.Web.Mvc;
+﻿using DevExpress.CodeParser.VB;
+using DevExpress.Web.Mvc;
 using Gestion_presupuesto.Helpers;
+using Gestion_presupuesto.Models;
 using Microsoft.Ajax.Utilities;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -16,6 +19,12 @@ namespace Gestion_presupuesto.Controllers
     {
         // GET: Vobo
         public ActionResult Vobo()
+        {
+            return View();
+        }
+
+
+        public ActionResult VoboPresidencia()
         {
             return View();
         }
@@ -41,23 +50,37 @@ namespace Gestion_presupuesto.Controllers
                 bv.fecha_inicio = x.fecha_inicio;
                 bv.fecha_fin = x.fecha_fin;
                 bv.monto = x.monto;
+                bv.monto_goes = x.monto_goes;
+                bv.monto_propio = x.monto_propio;
+                bv.monto_proyectos = x.monto_proyectos;
+                bv.monto_compensacion = x.monto_compensacion;
                 bv.id_fuente_financiamiento = x.id_fuente_financiamiento;
                 bv.id_unidad_organizativa = x.id_unidad_organizativa;
                 bv.estado = x.estado;
                 bv.motivo_movimiento = x.motivo_movimiento == null ? "N/A" : x.motivo_movimiento;
                 bv.tipo_vobo  = x.tipo_vobo;
                 bv.proceso_column = x.proceso_column;
+                bv.fecha_movimiento = x.fecha_movimiento;
                 clase.Add(bv);
             });
 
-            return PartialView("~/Views/Vobo/_GridVobo.cshtml", clase.ToList());
+            if (clase.ToList().Count>0)
+            {
+                return PartialView("~/Views/Vobo/_GridVobo.cshtml", clase.ToList().OrderByDescending(x => x.fecha_movimiento));
+            }
+            else
+            {
+                return PartialView("~/Views/Vobo/_GridVobo.cshtml");
+            }
+
+            
         }
 
 
         [HttpPost, ValidateInput(false)]
         public ActionResult GridVoboUpdate([ModelBinder(typeof(DevExpressEditorsBinder))] Gestion_presupuesto.Helpers.Clases.BandejaVobo item)
         {
-            if (item.tipo_vobo == 1)
+            if (item.tipo_vobo == 1 || item.tipo_vobo == 3)
             {
                 var model = db.detalle_presupuesto;
                 if (ModelState.IsValid)
@@ -71,7 +94,23 @@ namespace Gestion_presupuesto.Controllers
                             modelItem.id_metodo_contratacion = item.id_metodo_contratacion;
                             modelItem.fecha_inicio = item.fecha_inicio;
                             modelItem.fecha_fin = item.fecha_fin;
-                            modelItem.monto = item.monto;
+                            if (item.id_fuente_financiamiento == 5)
+                            {
+                                //ES MIXTO
+                                modelItem.monto_goes = item.monto_goes;
+                                modelItem.monto_propio = item.monto_propio;
+                                modelItem.monto_proyectos = item.monto_proyectos;
+                                modelItem.monto_compensacion = item.monto_compensacion;
+                                modelItem.monto = item.monto_goes + item.monto_propio + item.monto_proyectos + item.monto_compensacion;
+                            }
+                            else
+                            {
+                                modelItem.monto_goes = 0;
+                                modelItem.monto_propio = 0;
+                                modelItem.monto_proyectos = 0;
+                                modelItem.monto_compensacion = 0;
+                                modelItem.monto = item.monto;
+                            }
                             modelItem.id_fuente_financiamiento = item.id_fuente_financiamiento;
                             modelItem.id_unidad_organizativa = item.id_unidad_organizativa;
                             db.SaveChanges();
@@ -86,7 +125,7 @@ namespace Gestion_presupuesto.Controllers
                     ViewData["EditError"] = "Please, correct all errors.";
                 return GridVobo();
             }
-            else
+            else 
             {
                 var model = db.movimiento_detalle_presupuesto;
                 if (ModelState.IsValid)
@@ -100,7 +139,23 @@ namespace Gestion_presupuesto.Controllers
                             modelItem.id_metodo_contratacion = item.id_metodo_contratacion;
                             modelItem.fecha_inicio = item.fecha_inicio;
                             modelItem.fecha_fin = item.fecha_fin;
-                            modelItem.monto = item.monto;
+                            if (item.id_fuente_financiamiento == 5)
+                            {
+                                //ES MIXTO
+                                modelItem.monto_goes = item.monto_goes;
+                                modelItem.monto_propio = item.monto_propio;
+                                modelItem.monto_proyectos = item.monto_proyectos;
+                                modelItem.monto_compensacion = item.monto_compensacion;
+                                modelItem.monto = item.monto_goes + item.monto_propio + item.monto_proyectos + item.monto_compensacion;
+                            }
+                            else
+                            {
+                                modelItem.monto_goes = null;
+                                modelItem.monto_propio = null;
+                                modelItem.monto_proyectos = null;
+                                modelItem.monto_compensacion = null;
+                                modelItem.monto = item.monto;
+                            }
                             modelItem.id_fuente_financiamiento = item.id_fuente_financiamiento;
                             modelItem.id_unidad_organizativa = item.id_unidad_organizativa;
                             db.SaveChanges();
@@ -116,6 +171,39 @@ namespace Gestion_presupuesto.Controllers
                 return GridVobo();
             }
             
+        }
+
+        public ActionResult ObservarAnulacion(int? id_vobo)
+        {
+            var detalle_presupuesto = db.vobo.FirstOrDefault(x => x.id_vobo == id_vobo);
+            if (detalle_presupuesto != null)
+            {
+                //ANULAMOS TODOS LOS VOBOS
+                var id_detalle_presupuesto = detalle_presupuesto.id_detalle_presupuesto;
+                var lista_vobo = db.vobo.Where(x => x.id_detalle_presupuesto == id_detalle_presupuesto).ToList();
+                lista_vobo.ForEach(x => {
+                    x.id_etapa_vobo = 4;
+                    db.SaveChanges();
+                });
+
+                //VAMOS A TRAER LOS VOBOS ANTERIORES PARA PASARLOS A ESTADO 1
+                var vobos_anteriores = db.detalle_presupuesto_anulacion.Where(x => x.id_detalle_presupuesto == id_detalle_presupuesto && x.estado == 1).ToList();
+                vobos_anteriores.ForEach(x => {
+                    var vobo = db.vobo.FirstOrDefault(y => y.id_vobo == x.id_vobo);
+                    vobo.id_etapa_vobo = 1;
+                    db.SaveChanges();
+                });
+
+                //AHORA PASAMOS A ESTADO CERO LOS VOBOS DE ANULACION
+                vobos_anteriores.ForEach(x =>
+                {
+                    x.estado = 0;
+                    db.SaveChanges();
+                });
+
+            }
+
+            return Json(new { data = 1 }, JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult Observar(int? id_vobo, string instruccion)
@@ -167,7 +255,27 @@ namespace Gestion_presupuesto.Controllers
                     siguiente_vobo.id_etapa_vobo = 3;
                     db.SaveChanges();
                 }
-                return Json(new { data = 1 }, JsonRequestBehavior.AllowGet);
+                else
+                {
+                    //QUIERE DECIR QUE YA TERMINO, AHORA DEBO VALIDAR QUE SEA SOLICITUD DE ELIMINACION
+                    var solicitud_eliminacion = db.detalle_presupuesto_anulacion.Where(x => x.id_detalle_presupuesto == lista_vobo.id_detalle_presupuesto && x.estado==1).ToList();
+                    if (solicitud_eliminacion.Count > 0)
+                    {
+                        solicitud_eliminacion.ForEach(x => {
+                            x.estado = 0;
+                            db.SaveChanges();
+                        });
+
+                        //AHORA PASO A ANULADA LA SOLICITUD
+                        var detalle = db.detalle_presupuesto.FirstOrDefault(x => x.id_detalle_presupuesto == lista_vobo.id_detalle_presupuesto);
+                        detalle.estado = 0;
+                        db.SaveChanges();
+                    }
+
+                    
+
+                }
+                    return Json(new { data = 1 }, JsonRequestBehavior.AllowGet);
             }
             else
             {

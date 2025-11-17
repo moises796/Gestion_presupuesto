@@ -1,4 +1,5 @@
 ﻿
+
 @{
     ViewBag.Title = "Vobo";
 }
@@ -36,7 +37,6 @@
     settings.Items.Add(focusedRowContext);
 
     focusedRowContext.Items.Add(new FABActionItem("Editar", Url.Content("~/Content/img/edit2.png"), "Editar"));
-    focusedRowContext.Items.Add(new FABActionItem("Observar", Url.Content("~/Content/img/chat.png"), "Observar"));
     focusedRowContext.Items.Add(new FABActionItem("Aprobar", Url.Content("~/Content/img/edit.png"), "Aprobar"));
 
 }).GetHtml()
@@ -98,53 +98,35 @@
                 cancelButtonText : "No"
             }).then((result) => {
                 if (result.isConfirmed) {
-                    
-                    //AQUI VOY A VALIDAR QUE SI ES UNA SOLICITUD DE ELIMINACION NO PIDA UNA OBSERVACION SINO QUE DE UNA VEZ LO MANDE AL INCIO
-                    if (datos[2]!=3) {
-
-                        Swal.fire({
-                            title: "Observaciones",
-                            input: "textarea",
-                            inputPlaceholder: "Máx. 300 caracteres",
-                            inputAttributes: { maxlength: 300, "aria-label": "Observaciones" },
-                            inputValidator: (val) => {
-                                if (!val || !val.trim()) return "Este campo es obligatorio";
-                            },
-                            showCancelButton: true,
-                            confirmButtonText: "Guardar"
-                        }).then((r) => {
-                            if (r.isConfirmed) {
-                                $.ajax({
-                                    type: "POST",
-                                    url: "@Url.Content("~/Vobo/Observar")",
-                                    data: {
-                                        id_vobo: datos[1],
-                                        instruccion: r.value.trim()
-                                    }
-                                }).done(function (resp) {
-                                    if (resp.data == 1) {
-                                        Swal.fire("Listo", "Comentario enviado", "success");
-                                        GridVobo.PerformCallback();
-                                    } 
-                                });
-                            }
-                        });
-                    } else {
-                        
-                        $.ajax({
-                            type: "POST",
-                            url: "@Url.Content("~/Vobo/ObservarAnulacion")",
-                            data: {
-                                id_vobo: datos[1]
-                            }
-                        }).done(function (resp) {
-                            if (resp.data == 1) {
-                                Swal.fire("De acuerdo", "No se procedió con la solicitud de eliminación", "success");
-                                GridVobo.PerformCallback();
-                            } 
-                        });
-                    }
-                    
+                    Swal.fire({
+                        title: "Observaciones",
+                        input: "textarea",
+                        inputPlaceholder: "Máx. 300 caracteres",
+                        inputAttributes: { maxlength: 300, "aria-label": "Observaciones" },
+                        inputValidator: (val) => {
+                            if (!val || !val.trim()) return "Este campo es obligatorio";
+                        },
+                        showCancelButton: true,
+                        confirmButtonText: "Guardar"
+                    }).then((r) => {
+                        if (r.isConfirmed) {
+                            $.ajax({
+                                type: "POST",
+                                url: "@Url.Content("~/Vobo/Observar")",
+                                data: {
+                                    id_vobo: datos[1],
+                                    instruccion: r.value.trim()
+                                }
+                            }).done(function (resp) {
+                                if (resp.data == 1) {
+                                    Swal.fire("Listo", "Comentario enviado", "success");
+                                    GridVobo.PerformCallback();
+                                } else {
+                                    swal("¡Importante!", "Únicamente el empleado que elaboró o remite la correspondencia están autorizados", "info");
+                                }
+                            });
+                        }
+                    });
 
                 }
             });
@@ -176,11 +158,13 @@
                         if (resp.data == 1) {
                             Swal.fire("Listo", "La solicitud ya cuenta con su visto bueno", "success");
                             GridVobo.PerformCallback();
-                        } 
+                        } else {
+                            swal("¡Importante!", "Únicamente el empleado que elaboró o remite la correspondencia están autorizados", "info");
+                        }
                     });
                 }
             });
-            
+
         }
     }
 

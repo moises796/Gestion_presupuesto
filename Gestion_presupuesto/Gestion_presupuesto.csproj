@@ -345,7 +345,16 @@
     <Compile Include="Models\consulta_bandeja_vobo_Result5.cs">
       <DependentUpon>Presupuesto.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\consulta_bandeja_vobo_Result6.cs">
+      <DependentUpon>Presupuesto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\consulta_bandeja_vobo_Result7.cs">
+      <DependentUpon>Presupuesto.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\detalle_presupuesto.cs">
+      <DependentUpon>Presupuesto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\detalle_presupuesto_anulacion.cs">
       <DependentUpon>Presupuesto.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Empleado.cs">
@@ -417,7 +426,13 @@
     <Compile Include="Models\sp_consulta_procesos_compra_Result.cs">
       <DependentUpon>Presupuesto.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\sp_consulta_procesos_compra_Result1.cs">
+      <DependentUpon>Presupuesto.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\sp_consulta_procesos_movimiento_compra_Result.cs">
+      <DependentUpon>Presupuesto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_consulta_procesos_movimiento_compra_Result1.cs">
       <DependentUpon>Presupuesto.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_general_proceso_compra_Result.cs">
@@ -2112,6 +2127,7 @@
     <Content Include="Views\FuenteFinanciamiento\_GridFuenteFinanciamiento.cshtml" />
     <Content Include="Views\Usuario\Usuario.cshtml" />
     <Content Include="Views\Usuario\_GridUsuario.cshtml" />
+    <Content Include="Views\Vobo\VoboPresidencia.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
