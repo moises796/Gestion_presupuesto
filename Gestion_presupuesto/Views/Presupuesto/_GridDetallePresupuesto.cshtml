@@ -1,14 +1,16 @@
-﻿
+﻿@using Gestion_presupuesto.Helpers;
 @{
     Gestion_presupuesto.Controllers.PresupuestoController clase = new Gestion_presupuesto.Controllers.PresupuestoController();
-    var grid = Html.DevExpress().GridView(settings => {
+    var id_emp = Convert.ToInt32(UserClaims.idempleado_key);
+    var grid = Html.DevExpress().GridView(settings =>
+    {
         settings.Name = "GridDetallePresupuesto";
         settings.CallbackRouteValues = new { Controller = "Presupuesto", Action = "GridDetallePresupuesto" };
 
         settings.SettingsEditing.AddNewRowRouteValues = new { Controller = "Presupuesto", Action = "GridDetallePresupuestoAddNew" };
         settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "Presupuesto", Action = "GridDetallePresupuestoUpdate" };
         settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "Presupuesto", Action = "GridDetallePresupuestoDelete" };
-        settings.ClientSideEvents.RowClick = "function(s,e){OnRowClick(s,e);}"; 
+        settings.ClientSideEvents.RowClick = "function(s,e){OnRowClick(s,e);}";
         settings.ClientSideEvents.EndCallback = "function(s,e){OnCallBackGridViewGRID();}";
         settings.EnableRowsCache = false;
         settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
@@ -43,7 +45,7 @@
         settings.SettingsPager.PageSizeItemSettings.Items = new string[] { "20", "50", "100", "250", "500" };
         settings.SettingsPager.FirstPageButton.Visible = true;
         settings.SettingsPager.LastPageButton.Visible = true;
-        settings.SettingsPager.PageSize =20;
+        settings.SettingsPager.PageSize = 20;
         settings.SettingsPager.PageSizeItemSettings.Position = PagerPageSizePosition.Left;
         settings.SettingsPopup.EditForm.VerticalAlign = PopupVerticalAlign.WindowCenter;
         settings.SettingsPopup.EditForm.HorizontalAlign = PopupHorizontalAlign.WindowCenter;
@@ -295,7 +297,7 @@
                 p.ValidationSettings.RequiredField.IsRequired = true;
                 p.ValidationSettings.RequiredField.ErrorText = "Este campo es requerido.";
                 p.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.None;
-                p.DataSource = clase.GetEstructuras();
+                p.DataSource = clase.GetEstructurasEmpleado(id_emp);
             });
         });
 
@@ -432,7 +434,8 @@
         });
 
     });
-    if (ViewData["EditError"] != null){
+    if (ViewData["EditError"] != null)
+    {
         grid.SetEditErrorText((string)ViewData["EditError"]);
     }
 }

@@ -112,7 +112,7 @@ namespace Gestion_presupuesto.Controllers
                                 modelItem.monto = item.monto;
                             }
                             modelItem.id_fuente_financiamiento = item.id_fuente_financiamiento;
-                            modelItem.id_unidad_organizativa = item.id_unidad_organizativa;
+                            //modelItem.id_unidad_organizativa = item.id_unidad_organizativa;
                             db.SaveChanges();
                         }
                     }

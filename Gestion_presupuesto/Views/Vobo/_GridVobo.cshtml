@@ -20,7 +20,7 @@
         settings.SettingsPopup.EditForm.ShowHeader = false;
         settings.SettingsBehavior.ConfirmDelete = true;
         settings.SettingsPopup.EditForm.ShowHeader = true;
-        settings.SettingsText.PopupEditFormCaption = "Gestión proceso de compra";
+        settings.SettingsText.PopupEditFormCaption = "Gestión plan de compra";
         settings.CommandColumn.ButtonRenderMode = GridCommandButtonRenderMode.Secondary;
 
         settings.CommandColumn.Visible = false;
@@ -297,13 +297,6 @@
                 item.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
             });
 
-            tabbedGroupSettings.Items.Add(item =>
-            {
-                item.Name = "id_unidad_organizativa";
-                item.ColumnName = "id_unidad_organizativa";
-                item.ColumnSpan = 2;
-                item.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
-            });
 
             tabbedGroupSettings.Items.Add(item =>
             {

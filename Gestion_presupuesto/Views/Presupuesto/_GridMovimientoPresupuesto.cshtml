@@ -1,5 +1,7 @@
-﻿@{
+﻿@using Gestion_presupuesto.Helpers;
+@{
     Gestion_presupuesto.Controllers.PresupuestoController clase = new Gestion_presupuesto.Controllers.PresupuestoController();
+    var id_emp = Convert.ToInt32(UserClaims.idempleado_key);
     var grid = Html.DevExpress().GridView(settings => {
         settings.Name = "GridMovimientoPresupuesto";
         settings.CallbackRouteValues = new { Controller = "Presupuesto", Action = "GridMovimientoPresupuesto" };
@@ -297,7 +299,7 @@
                 p.ValidationSettings.RequiredField.IsRequired = true;
                 p.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.None;
                 p.ValidationSettings.RequiredField.ErrorText = "Este campo es requerido.";
-                p.DataSource = clase.GetEstructuras();
+                p.DataSource = clase.GetEstructurasEmpleado(id_emp);
             });
         });
         settings.Columns.Add(gridViewColumnSettings =>
@@ -413,7 +415,7 @@
                 item.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
             });
 
-            
+
 
             //tabbedGroupSettings.Items.Add(item =>
             //{
@@ -423,7 +425,7 @@
             //    item.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
             //});
 
-            
+
         });
         settings.EditFormLayoutProperties.Items.AddCommandItem(commandItem =>
         {

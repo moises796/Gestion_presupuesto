@@ -50,6 +50,24 @@ namespace Gestion_presupuesto.Controllers
             }
         }
 
+        public IEnumerable GetEstructurasEmpleado(int? id_empleado)
+        {
+            //OBTENEMOS LAS UNIDADES ORGANIZATIVAS DEL EMPLEADO
+            try
+            {
+                var Get = (from e in db2.Estructura
+                           join p in db2.Periodo on e.id_periodo equals p.id_periodo
+                           join c in db2.Cargo on e.id_estructura equals c.id_estructura
+                           where p.estado == 1 && c.id_empleado == id_empleado && c.estado == 1
+                           select e);
+                return Get.ToList();
+            }
+            catch (Exception)
+            {
+                return "".ToList();
+            }
+        }
+
         public ActionResult VerificarModificacion(int? id_detalle_presupuesto)
         {
             var movimiento_detalle = db.movimiento_detalle_presupuesto.FirstOrDefault(x=>x.id_detalle_presupuesto == id_detalle_presupuesto && x.estado == 1);
@@ -214,7 +232,16 @@ namespace Gestion_presupuesto.Controllers
                 });
             }
 
-            return PartialView("~/Views/Presupuesto/_GridDetallePresupuesto.cshtml", clase.ToList().OrderByDescending(x=>x.id_detalle_presupuesto));
+            if (clase.ToList().Count > 0)
+            {
+                return PartialView("~/Views/Presupuesto/_GridDetallePresupuesto.cshtml", clase.ToList().OrderByDescending(x => x.id_detalle_presupuesto));
+            }
+            else
+            {
+                return PartialView("~/Views/Presupuesto/_GridDetallePresupuesto.cshtml", clase);
+            }
+
+                
         }
 
         public ActionResult ValidarProceso(int? id_detalle_presupuesto)
