@@ -245,38 +245,39 @@
                                 var menu = db.menu.Where(x => x.estado == 1).OrderBy(x => x.orden).ToList();
                                 string codEmpleado = (string)UserClaims.codigoempleado_key;
                                 var id_emp = Convert.ToInt32(UserClaims.idempleado_key);
+                                var rol = db.usuario.FirstOrDefault(x => x.id_empleado == id_emp && x.estado == 1).id_rol_usuario;
                                 var nombre_completo_empleado = (string)UserClaims.nombre_key;
                                 var correo_empleado = (string)UserClaims.correo_key;
                                 var foto_empleado = (string)UserClaims.fotoempleado_key;
                                 for (int i = 0; i < menu.Count(); i++)
                                 {
 
-                                    //if (menu[i].admin.Split(',').Contains(rol))
-                                    //{
-                                    var id_menu = menu[i].id_menu;
-                                    var submenu = db.sub_menu.Where(x => x.id_menu == id_menu && x.estado == 1).OrderBy(x => x.orden).ToList();
-                                    if (submenu.Count > 0)
+                                    if (menu[i].id_rol.Split(',').Contains(rol.ToString()))
                                     {
-                                        <li>
-                                            <a><i class="+ @menu[i].menu_icono"></i> @menu[i].menu_nombre</a>
-                                            <ul class="nav child_menu">
-                                                @{
-                                                    for (int o = 0; o < submenu.Count(); o++)
-                                                    {
-                                                        <li><a href="@Url.Action(submenu[o].accion, submenu[o].controlador)">@submenu[o].sub_menu_nombre</a></li>
+                                        var id_menu = menu[i].id_menu;
+                                        var submenu = db.sub_menu.Where(x => x.id_menu == id_menu && x.estado == 1).OrderBy(x => x.orden).ToList();
+                                        if (submenu.Count > 0)
+                                        {
+                                            <li>
+                                                <a><i class="+ @menu[i].menu_icono"></i> @menu[i].menu_nombre</a>
+                                                <ul class="nav child_menu">
+                                                    @{
+                                                        for (int o = 0; o < submenu.Count(); o++)
+                                                        {
+                                                            <li><a href="@Url.Action(submenu[o].accion, submenu[o].controlador)">@submenu[o].sub_menu_nombre</a></li>
+                                                        }
                                                     }
-                                                }
-                                            </ul>
-                                        </li>
-                                    }
-                                    else
-                                    {
-                                        <li>
-                                            <a href="@Url.Action(menu[i].accion, menu[i].controlador)"><i class="+ @menu[i].menu_icono"></i> @menu[i].menu_nombre</a>
-                                        </li>
-                                    }
+                                                </ul>
+                                            </li>
+                                        }
+                                        else
+                                        {
+                                            <li>
+                                                <a href="@Url.Action(menu[i].accion, menu[i].controlador)"><i class="+ @menu[i].menu_icono"></i> @menu[i].menu_nombre</a>
+                                            </li>
+                                        }
 
-                                    //}
+                                    }
 
                                 }
                             }
