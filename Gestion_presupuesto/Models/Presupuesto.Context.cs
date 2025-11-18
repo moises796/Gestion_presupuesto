@@ -82,5 +82,10 @@ namespace Gestion_presupuesto.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<consulta_bandeja_vobo_Result7>("consulta_bandeja_vobo", id_empleadoParameter);
         }
+    
+        public virtual ObjectResult<sp_general_proceso_compra_auditoria_Result> sp_general_proceso_compra_auditoria()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_general_proceso_compra_auditoria_Result>("sp_general_proceso_compra_auditoria");
+        }
     }
 }

@@ -1,5 +1,4 @@
 ﻿
-
 @{
     ViewBag.Title = "Vobo";
 }
@@ -89,7 +88,7 @@
             var datos = data.split('|');
             Swal.fire({
                 title: "¿Está seguro(a)?",
-                text: "Al observar la solicitud reiniciará su flujo",
+                text: "Al rechazar la solicitud reiniciará su flujo",
                 icon: "warning",
                 showCancelButton: true,
                 confirmButtonColor: "#3085d6",
@@ -123,7 +122,7 @@
                                     }
                                 }).done(function (resp) {
                                     if (resp.data == 1) {
-                                        Swal.fire("Listo", "Comentario enviado", "success");
+                                        Swal.fire("Listo", "Observaciones enviadas", "success");
                                         GridVobo.PerformCallback();
                                     }
                                 });
@@ -139,7 +138,7 @@
                             }
                         }).done(function (resp) {
                             if (resp.data == 1) {
-                                Swal.fire("De acuerdo", "No se procedió con la solicitud de eliminación", "success");
+                                Swal.fire("De acuerdo", "Se denegó la solicitud de eliminación", "success");
                                 GridVobo.PerformCallback();
                             }
                         });

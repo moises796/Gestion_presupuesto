@@ -26,6 +26,11 @@ namespace Gestion_presupuesto.Controllers
             return View();
         }
 
+        public ActionResult ConsultaPresupuesto()
+        {
+            return View();
+        }
+
         Gestion_presupuesto.Models.registro_presupuestoEntities db = new Gestion_presupuesto.Models.registro_presupuestoEntities();
         Gestion_presupuesto.Models.rrhhEntities db2 = new Models.rrhhEntities();
 
@@ -42,6 +47,21 @@ namespace Gestion_presupuesto.Controllers
             catch (Exception)
             {
                 return "".ToList();
+            }
+        }
+
+        public ActionResult VerificarModificacion(int? id_detalle_presupuesto)
+        {
+            var movimiento_detalle = db.movimiento_detalle_presupuesto.FirstOrDefault(x=>x.id_detalle_presupuesto == id_detalle_presupuesto && x.estado == 1);
+            if (movimiento_detalle != null)
+            {
+                //POSEE MODIFICACION
+                return Json(new { data = -1 }, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                //NO POSEE MODIFICACION
+                return Json(new { data = 1 }, JsonRequestBehavior.AllowGet);
             }
         }
 
@@ -750,5 +770,13 @@ namespace Gestion_presupuesto.Controllers
             }
             return PartialView("~/Views/Presupuesto/_GridMovimientoPresupuesto.cshtml", model.ToList());
         }
+
+        [ValidateInput(false)]
+        public ActionResult GridConsultaPresupuesto()
+        {
+            var model = db.sp_general_proceso_compra_auditoria();
+            return PartialView("~/Views/Presupuesto/_GridConsultaPresupuesto.cshtml", model.ToList());
+        }
+
     }
 }

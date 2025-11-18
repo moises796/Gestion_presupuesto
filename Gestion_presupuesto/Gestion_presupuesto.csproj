@@ -435,6 +435,9 @@
     <Compile Include="Models\sp_consulta_procesos_movimiento_compra_Result1.cs">
       <DependentUpon>Presupuesto.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\sp_general_proceso_compra_auditoria_Result.cs">
+      <DependentUpon>Presupuesto.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\sp_general_proceso_compra_Result.cs">
       <DependentUpon>Presupuesto.tt</DependentUpon>
     </Compile>
@@ -2128,6 +2131,8 @@
     <Content Include="Views\Usuario\Usuario.cshtml" />
     <Content Include="Views\Usuario\_GridUsuario.cshtml" />
     <Content Include="Views\Vobo\VoboPresidencia.cshtml" />
+    <Content Include="Views\Presupuesto\ConsultaPresupuesto.cshtml" />
+    <Content Include="Views\Presupuesto\_GridConsultaPresupuesto.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -275,5 +275,22 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_general_proceso_compra_auditoria" FunctionName="registro_presupuestoModel.Store.sp_general_proceso_compra_auditoria">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="registro_presupuestoModel.sp_general_proceso_compra_auditoria_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="tipo_proceso" ColumnName="tipo_proceso" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="nombre_proceso" ColumnName="nombre_proceso" />
+          <ScalarProperty Name="metodo_contratacion" ColumnName="metodo_contratacion" />
+          <ScalarProperty Name="fecha_inicio" ColumnName="fecha_inicio" />
+          <ScalarProperty Name="fecha_fin" ColumnName="fecha_fin" />
+          <ScalarProperty Name="monto" ColumnName="monto" />
+          <ScalarProperty Name="fuente_financiamiento" ColumnName="fuente_financiamiento" />
+          <ScalarProperty Name="unidad_organizativa" ColumnName="unidad_organizativa" />
+          <ScalarProperty Name="estatus_vobo" ColumnName="estatus_vobo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -226,6 +226,7 @@
     <FunctionImport Name="consulta_bandeja_vobo" ReturnType="Collection(registro_presupuestoModel.consulta_bandeja_vobo_Result7)">
       <Parameter Name="id_empleado" Mode="In" Type="Int32" />
     </FunctionImport>
+    <FunctionImport Name="sp_general_proceso_compra_auditoria" ReturnType="Collection(registro_presupuestoModel.sp_general_proceso_compra_auditoria_Result)" />
   </EntityContainer>
   <EntityType Name="menu">
     <Key>
@@ -712,5 +713,18 @@
     <Property Type="String" Name="motivo_movimiento" Nullable="true" />
     <Property Type="String" Name="proceso_column" Nullable="false" MaxLength="520" />
     <Property Type="DateTime" Name="fecha_movimiento" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="sp_general_proceso_compra_auditoria_Result">
+    <Property Type="Int32" Name="id" Nullable="true" />
+    <Property Type="String" Name="tipo_proceso" Nullable="true" MaxLength="300" />
+    <Property Type="String" Name="codigo" Nullable="true" MaxLength="300" />
+    <Property Type="String" Name="nombre_proceso" Nullable="true" MaxLength="350" />
+    <Property Type="String" Name="metodo_contratacion" Nullable="true" MaxLength="350" />
+    <Property Type="DateTime" Name="fecha_inicio" Nullable="true" />
+    <Property Type="DateTime" Name="fecha_fin" Nullable="true" />
+    <Property Type="Double" Name="monto" Nullable="true" />
+    <Property Type="String" Name="fuente_financiamiento" Nullable="true" MaxLength="300" />
+    <Property Type="String" Name="unidad_organizativa" Nullable="true" MaxLength="300" />
+    <Property Type="Boolean" Name="estatus_vobo" Nullable="true" />
   </ComplexType>
 </Schema>
