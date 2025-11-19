@@ -227,6 +227,20 @@
       <Parameter Name="id_empleado" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="sp_general_proceso_compra_auditoria" ReturnType="Collection(registro_presupuestoModel.sp_general_proceso_compra_auditoria_Result)" />
+    <FunctionImport Name="EnvioNotificaciones">
+      <Parameter Name="tipo" Mode="In" Type="Int32" />
+      <Parameter Name="correos" Mode="In" Type="String" />
+      <Parameter Name="copias" Mode="In" Type="String" />
+      <Parameter Name="titulo" Mode="In" Type="String" />
+      <Parameter Name="mensaje" Mode="In" Type="String" />
+      <Parameter Name="copiasocultas" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_obtener_personas_unidad_organizativa" ReturnType="Collection(String)">
+      <Parameter Name="id_unidad_organizativa" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_obtener_personas_vobo" ReturnType="Collection(String)">
+      <Parameter Name="id_detalle_presupuesto" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
   <EntityType Name="menu">
     <Key>

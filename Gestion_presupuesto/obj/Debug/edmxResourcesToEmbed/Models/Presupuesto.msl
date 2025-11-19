@@ -292,5 +292,8 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="EnvioNotificaciones" FunctionName="registro_presupuestoModel.Store.EnvioNotificaciones" />
+    <FunctionImportMapping FunctionImportName="sp_obtener_personas_unidad_organizativa" FunctionName="registro_presupuestoModel.Store.sp_obtener_personas_unidad_organizativa" />
+    <FunctionImportMapping FunctionImportName="sp_obtener_personas_vobo" FunctionName="registro_presupuestoModel.Store.sp_obtener_personas_vobo" />
   </EntityContainerMapping>
 </Mapping>

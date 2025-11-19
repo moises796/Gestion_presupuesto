@@ -87,5 +87,52 @@ namespace Gestion_presupuesto.Models
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_general_proceso_compra_auditoria_Result>("sp_general_proceso_compra_auditoria");
         }
+    
+        public virtual int EnvioNotificaciones(Nullable<int> tipo, string correos, string copias, string titulo, string mensaje, string copiasocultas)
+        {
+            var tipoParameter = tipo.HasValue ?
+                new ObjectParameter("tipo", tipo) :
+                new ObjectParameter("tipo", typeof(int));
+    
+            var correosParameter = correos != null ?
+                new ObjectParameter("correos", correos) :
+                new ObjectParameter("correos", typeof(string));
+    
+            var copiasParameter = copias != null ?
+                new ObjectParameter("copias", copias) :
+                new ObjectParameter("copias", typeof(string));
+    
+            var tituloParameter = titulo != null ?
+                new ObjectParameter("titulo", titulo) :
+                new ObjectParameter("titulo", typeof(string));
+    
+            var mensajeParameter = mensaje != null ?
+                new ObjectParameter("mensaje", mensaje) :
+                new ObjectParameter("mensaje", typeof(string));
+    
+            var copiasocultasParameter = copiasocultas != null ?
+                new ObjectParameter("copiasocultas", copiasocultas) :
+                new ObjectParameter("copiasocultas", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("EnvioNotificaciones", tipoParameter, correosParameter, copiasParameter, tituloParameter, mensajeParameter, copiasocultasParameter);
+        }
+    
+        public virtual ObjectResult<string> sp_obtener_personas_unidad_organizativa(Nullable<int> id_unidad_organizativa)
+        {
+            var id_unidad_organizativaParameter = id_unidad_organizativa.HasValue ?
+                new ObjectParameter("id_unidad_organizativa", id_unidad_organizativa) :
+                new ObjectParameter("id_unidad_organizativa", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("sp_obtener_personas_unidad_organizativa", id_unidad_organizativaParameter);
+        }
+    
+        public virtual ObjectResult<string> sp_obtener_personas_vobo(Nullable<int> id_detalle_presupuesto)
+        {
+            var id_detalle_presupuestoParameter = id_detalle_presupuesto.HasValue ?
+                new ObjectParameter("id_detalle_presupuesto", id_detalle_presupuesto) :
+                new ObjectParameter("id_detalle_presupuesto", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("sp_obtener_personas_vobo", id_detalle_presupuestoParameter);
+        }
     }
 }

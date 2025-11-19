@@ -366,6 +366,14 @@
   <Function Name="consulta_bandeja_vobo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="id_empleado" Type="int" Mode="In" />
   </Function>
+  <Function Name="EnvioNotificaciones" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="tipo" Type="int" Mode="In" />
+    <Parameter Name="correos" Type="varchar(max)" Mode="In" />
+    <Parameter Name="copias" Type="varchar(max)" Mode="In" />
+    <Parameter Name="titulo" Type="varchar(max)" Mode="In" />
+    <Parameter Name="mensaje" Type="varchar(max)" Mode="In" />
+    <Parameter Name="copiasocultas" Type="varchar(max)" Mode="In" />
+  </Function>
   <Function Name="sp_consulta_procesos_compra" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="id_unidad_organizativa" Type="int" Mode="In" />
   </Function>
@@ -376,6 +384,12 @@
     <Parameter Name="anio" Type="int" Mode="In" />
   </Function>
   <Function Name="sp_general_proceso_compra_auditoria" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_obtener_personas_unidad_organizativa" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_unidad_organizativa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_obtener_personas_vobo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_detalle_presupuesto" Type="int" Mode="In" />
+  </Function>
   <Function Name="sp_persona_unidad_organizativa" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <EntityContainer Name="registro_presupuestoModelStoreContainer">
     <EntitySet Name="detalle_presupuesto" EntityType="Self.detalle_presupuesto" Schema="dbo" store:Type="Tables" />

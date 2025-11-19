@@ -175,11 +175,12 @@ namespace Gestion_presupuesto.Controllers
 
         public ActionResult ObservarAnulacion(int? id_vobo)
         {
-            var detalle_presupuesto = db.vobo.FirstOrDefault(x => x.id_vobo == id_vobo);
-            if (detalle_presupuesto != null)
+            var vobo = db.vobo.FirstOrDefault(x => x.id_vobo == id_vobo);
+            if (vobo != null)
             {
                 //ANULAMOS TODOS LOS VOBOS
-                var id_detalle_presupuesto = detalle_presupuesto.id_detalle_presupuesto;
+                var id_detalle_presupuesto = vobo.id_detalle_presupuesto;
+                var detalle_presupuesto = db.detalle_presupuesto.FirstOrDefault(x => x.id_detalle_presupuesto == id_detalle_presupuesto);
                 var lista_vobo = db.vobo.Where(x => x.id_detalle_presupuesto == id_detalle_presupuesto).ToList();
                 lista_vobo.ForEach(x => {
                     x.id_etapa_vobo = 4;
@@ -189,8 +190,8 @@ namespace Gestion_presupuesto.Controllers
                 //VAMOS A TRAER LOS VOBOS ANTERIORES PARA PASARLOS A ESTADO 1
                 var vobos_anteriores = db.detalle_presupuesto_anulacion.Where(x => x.id_detalle_presupuesto == id_detalle_presupuesto && x.estado == 1).ToList();
                 vobos_anteriores.ForEach(x => {
-                    var vobo = db.vobo.FirstOrDefault(y => y.id_vobo == x.id_vobo);
-                    vobo.id_etapa_vobo = 1;
+                    var vobos = db.vobo.FirstOrDefault(y => y.id_vobo == x.id_vobo);
+                    vobos.id_etapa_vobo = 1;
                     db.SaveChanges();
                 });
 
@@ -200,6 +201,18 @@ namespace Gestion_presupuesto.Controllers
                     x.estado = 0;
                     db.SaveChanges();
                 });
+
+                //exec [dbo].[EnvioNotificaciones] 1, @correos_unidad_organizativa, @correo_vobo, @asunto, @mensaje_correo, ''
+                var id_empleado = db.personal_vobo.FirstOrDefault(x=>x.id_personal_vobo == vobo.id_personal_vobo).id_empleado;
+                var empleado = db2.Empleado.FirstOrDefault(x => x.id_empleado == id_empleado);
+                var correo_vobo = empleado.correo_institucional;
+                var nombre_empleado = empleado.nombres + " " + empleado.apellidos;
+                var correos = db.sp_obtener_personas_vobo(id_detalle_presupuesto).ToString();
+                var correos_origen = correos + ";" + correo_vobo;
+                var correos_destino = db.sp_obtener_personas_unidad_organizativa(detalle_presupuesto.id_unidad_organizativa).ToString();
+                var asunto = "Visto bueno observado";
+                var contenido = "Comentar que, desde el sistema de PAC se ha denegado la solicitud para eliminación por parte de " + nombre_empleado + ", hacia la solicitud" + detalle_presupuesto.codigo + "<br><br>Saludos cordiales";
+                //db.EnvioNotificaciones(1, correos_destino, correos_origen, asunto, contenido, "");
 
             }
 
@@ -213,6 +226,7 @@ namespace Gestion_presupuesto.Controllers
             {
                 return Json(new { data = -1 }, JsonRequestBehavior.AllowGet);
             }
+            vobo.id_etapa_vobo = 4;
             vobo.instruccion = instruccion;
             db.SaveChanges();
             //VAMOS A PASAR TODO A LA ETAPA 4 DE OBSERVADO
