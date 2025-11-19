@@ -207,12 +207,12 @@ namespace Gestion_presupuesto.Controllers
                 var empleado = db2.Empleado.FirstOrDefault(x => x.id_empleado == id_empleado);
                 var correo_vobo = empleado.correo_institucional;
                 var nombre_empleado = empleado.nombres + " " + empleado.apellidos;
-                var correos = db.sp_obtener_personas_vobo(id_detalle_presupuesto).ToString();
+                var correos = db.sp_obtener_personas_vobo(id_detalle_presupuesto).FirstOrDefault().ToString();
                 var correos_origen = correos + ";" + correo_vobo;
-                var correos_destino = db.sp_obtener_personas_unidad_organizativa(detalle_presupuesto.id_unidad_organizativa).ToString();
-                var asunto = "Visto bueno observado";
+                var correos_destino = db.sp_obtener_personas_unidad_organizativa(detalle_presupuesto.id_unidad_organizativa).FirstOrDefault().ToString();
+                var asunto = "Solicitud eliminación denegada";
                 var contenido = "Comentar que, desde el sistema de PAC se ha denegado la solicitud para eliminación por parte de " + nombre_empleado + ", hacia la solicitud" + detalle_presupuesto.codigo + "<br><br>Saludos cordiales";
-                //db.EnvioNotificaciones(1, correos_destino, correos_origen, asunto, contenido, "");
+                db.EnvioNotificaciones(1, correos_destino, correos_origen, asunto, contenido, "");
 
             }
 
