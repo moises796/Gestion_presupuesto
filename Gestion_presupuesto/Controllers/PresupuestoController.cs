@@ -257,6 +257,29 @@ namespace Gestion_presupuesto.Controllers
             }
         }
 
+        public ActionResult ValidarAnulacionEliminar(int? id_detalle_presupuesto)
+        {
+            var validacion_proceso = db.detalle_presupuesto.FirstOrDefault(x => x.id_detalle_presupuesto == id_detalle_presupuesto && x.estado == 1);
+            if (validacion_proceso != null)
+            {
+                //VAMOS A VALIDAR QUE NO ESTE EN PROCESO DE ELIMINACION
+                var eliminacion_proceso = db.detalle_presupuesto_anulacion.FirstOrDefault(x => x.id_detalle_presupuesto == id_detalle_presupuesto && x.estado == 1);
+                if (eliminacion_proceso != null)
+                {
+                    return Json(new { data = -2 }, JsonRequestBehavior.AllowGet);
+                }
+                else
+                {
+                    return Json(new { data = 1 }, JsonRequestBehavior.AllowGet);
+                }
+
+            }
+            else
+            {
+                return Json(new { data = -1 }, JsonRequestBehavior.AllowGet);
+            }
+        }
+
         public ActionResult ValidarAnulacion(int? id_detalle_presupuesto)
         {
             var validacion_proceso = db.detalle_presupuesto.FirstOrDefault(x => x.id_detalle_presupuesto == id_detalle_presupuesto && x.estado == 1);

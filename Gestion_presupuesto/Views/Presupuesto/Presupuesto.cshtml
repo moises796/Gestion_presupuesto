@@ -355,7 +355,7 @@
 
             $.ajax({
                 type: "POST",
-                url: "@Url.Content("~/Presupuesto/ValidarAnulacion")",
+                url: "@Url.Content("~/Presupuesto/ValidarAnulacionEliminar")",
                 data: "id_detalle_presupuesto=" + data
             }).done(function (resp) {
                 if (resp.data == "1") {
@@ -376,7 +376,6 @@
                                 cancelButtonText: "No"
                             }).then((result) => {
                                 if (result.isConfirmed) {
-
 
                                     Swal.fire({
                                         title: "¿Está seguro?",
@@ -412,8 +411,11 @@
 
                         }
                     });
+                } else if (resp.data == "-2") {
+                    Swal.fire("¡Solicitud en proceso!", "No se puede realizar la acción ya que la solicitud se encuentra a espera de ser descartada por las personas autorizadas", "error");
                 } else {
                     Swal.fire("¡Solicitud descartada!", "No se puede realizar la acción ya que la solicitud fue descartada previamente", "error");
+
                 }
             });
 
@@ -530,7 +532,7 @@
 
             $.ajax({
                 type: "POST",
-                url: "@Url.Content("~/Presupuesto/ValidarAnulacion")",
+                url: "@Url.Content("~/Presupuesto/ValidarAnulacionEliminar")",
                 data: "id_detalle_presupuesto=" + data
             }).done(function (resp) {
                 if (resp.data == "1") {
@@ -649,7 +651,7 @@
 
 
 
-                } else if (resp.data == "1") {
+                } else if (resp.data == "-2") {
                     Swal.fire("¡Solicitud en proceso!", "No se puede realizar la acción ya que la solicitud se encuentra a espera de ser descartada por las personas autorizadas", "error");
                 }
                 else {
