@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="rrhhModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Cargo">
+    <Key>
+      <PropertyRef Name="id_cargo" />
+    </Key>
+    <Property Name="id_cargo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_puesto_nominal" Type="int" />
+    <Property Name="id_puesto_funcional" Type="int" />
+    <Property Name="id_estructura" Type="int" />
+    <Property Name="id_empleado" Type="int" />
+    <Property Name="estado" Type="int" />
+  </EntityType>
+  <EntityType Name="Puesto_Funcional">
+    <Key>
+      <PropertyRef Name="id_puesto_funcional" />
+    </Key>
+    <Property Name="id_puesto_funcional" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="150" />
+    <Property Name="estado" Type="int" />
+  </EntityType>
+  <EntityType Name="Estructura">
+    <Key>
+      <PropertyRef Name="id_estructura" />
+    </Key>
+    <Property Name="id_estructura" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_parent" Type="int" />
+    <Property Name="codigo" Type="varchar" MaxLength="50" />
+    <Property Name="nomenclatura" Type="varchar" MaxLength="50" />
+    <Property Name="nombre" Type="varchar(max)" />
+    <Property Name="estado" Type="int" />
+    <Property Name="id_periodo" Type="int" />
+    <Property Name="enlace_id_estructura" Type="int" />
+    <Property Name="id_nivel_organizativo" Type="int" />
+    <Property Name="orden" Type="int" />
+  </EntityType>
+  <EntityType Name="Periodo">
+    <Key>
+      <PropertyRef Name="id_periodo" />
+    </Key>
+    <Property Name="id_periodo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigo_periodo" Type="varchar" MaxLength="50" />
+    <Property Name="anio" Type="date" />
+    <Property Name="estado" Type="int" />
+    <Property Name="fecha_aprobacion" Type="date" />
+    <Property Name="documento" Type="varchar" MaxLength="250" />
+    <Property Name="nombreDocumento" Type="varchar" MaxLength="250" />
+    <Property Name="fechaDocumento" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Empleado">
+    <Key>
+      <PropertyRef Name="id_empleado" />
+    </Key>
+    <Property Name="id_empleado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigo_empleado" Type="varchar" MaxLength="50" />
+    <Property Name="foto_empleado" Type="varchar(max)" />
+    <Property Name="nombres" Type="varchar" MaxLength="150" />
+    <Property Name="apellidos" Type="varchar" MaxLength="150" />
+    <Property Name="prefijo_academico" Type="varchar" MaxLength="25" />
+    <Property Name="correo_personal" Type="varchar" MaxLength="250" />
+    <Property Name="direccion_empleado" Type="varchar(max)" />
+    <Property Name="telefono_personal" Type="varchar" MaxLength="17" />
+    <Property Name="celular_personal" Type="varchar" MaxLength="17" />
+    <Property Name="id_genero" Type="int" />
+    <Property Name="fecha_nacimiento" Type="datetime" />
+    <Property Name="codigo_pais" Type="varchar" MaxLength="2" />
+    <Property Name="id_departamento_nacimiento" Type="int" />
+    <Property Name="id_municipio_nacimiento" Type="int" />
+    <Property Name="id_ciudad_nacimiento" Type="int" />
+    <Property Name="nacionalidad" Type="varchar" MaxLength="75" />
+    <Property Name="peso" Type="float" />
+    <Property Name="altura" Type="float" />
+    <Property Name="id_tiposangre" Type="int" />
+    <Property Name="id_discapacidad" Type="int" />
+    <Property Name="id_estadocivil" Type="int" />
+    <Property Name="id_tipocontrato" Type="int" />
+    <Property Name="id_tipocontratacion" Type="int" />
+    <Property Name="responsable" Type="varchar(max)" />
+    <Property Name="telefono_responsable" Type="varchar" MaxLength="50" />
+    <Property Name="direccion_responsable" Type="varchar(max)" />
+    <Property Name="correo_institucional" Type="varchar" MaxLength="250" />
+    <Property Name="telefono_institucional" Type="varchar" MaxLength="17" />
+    <Property Name="celular_institucional" Type="varchar" MaxLength="17" />
+    <Property Name="salario" Type="varchar(max)" />
+    <Property Name="nombre_conyuge" Type="varchar" MaxLength="250" />
+    <Property Name="telefono_conyuge" Type="varchar" MaxLength="12" />
+    <Property Name="id_estado_usuario" Type="int" />
+    <Property Name="titular" Type="int" />
+    <Property Name="fecha_contratacion" Type="datetime" />
+    <Property Name="id_detEstadoUsuario" Type="int" />
+    <Property Name="fecha_renuncia" Type="datetime" />
+    <Property Name="id_proyecto" Type="int" />
+    <Property Name="id_profesion" Type="int" />
+    <Property Name="id_marcacion" Type="int" />
+    <Property Name="codigo_marcacion" Type="varchar" MaxLength="300" />
+    <Property Name="usuario_marca" Type="int" />
+  </EntityType>
+  <Association Name="FK__Cargo__id_emplea__2022C2A6">
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="0..1" />
+    <End Role="Cargo" Type="Self.Cargo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleado">
+        <PropertyRef Name="id_empleado" />
+      </Principal>
+      <Dependent Role="Cargo">
+        <PropertyRef Name="id_empleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Cargo__id_estruc__1F2E9E6D">
+    <End Role="Estructura" Type="Self.Estructura" Multiplicity="0..1" />
+    <End Role="Cargo" Type="Self.Cargo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estructura">
+        <PropertyRef Name="id_estructura" />
+      </Principal>
+      <Dependent Role="Cargo">
+        <PropertyRef Name="id_estructura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Cargo__id_puesto__1E3A7A34">
+    <End Role="Puesto_Funcional" Type="Self.Puesto_Funcional" Multiplicity="0..1" />
+    <End Role="Cargo" Type="Self.Cargo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Puesto_Funcional">
+        <PropertyRef Name="id_puesto_funcional" />
+      </Principal>
+      <Dependent Role="Cargo">
+        <PropertyRef Name="id_puesto_funcional" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Estructur__id_pe__38996AB5">
+    <End Role="Periodo" Type="Self.Periodo" Multiplicity="0..1" />
+    <End Role="Estructura" Type="Self.Estructura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Periodo">
+        <PropertyRef Name="id_periodo" />
+      </Principal>
+      <Dependent Role="Estructura">
+        <PropertyRef Name="id_periodo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="rrhhModelStoreContainer">
+    <EntitySet Name="Cargo" EntityType="Self.Cargo" Schema="CargoEmpleado" store:Type="Tables" />
+    <EntitySet Name="Puesto_Funcional" EntityType="Self.Puesto_Funcional" Schema="CargoEmpleado" store:Type="Tables" />
+    <EntitySet Name="Estructura" EntityType="Self.Estructura" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Periodo" EntityType="Self.Periodo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Empleado" EntityType="Self.Empleado" Schema="FichaEmpleado" store:Type="Tables" />
+    <AssociationSet Name="FK__Cargo__id_emplea__2022C2A6" Association="Self.FK__Cargo__id_emplea__2022C2A6">
+      <End Role="Empleado" EntitySet="Empleado" />
+      <End Role="Cargo" EntitySet="Cargo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Cargo__id_estruc__1F2E9E6D" Association="Self.FK__Cargo__id_estruc__1F2E9E6D">
+      <End Role="Estructura" EntitySet="Estructura" />
+      <End Role="Cargo" EntitySet="Cargo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Cargo__id_puesto__1E3A7A34" Association="Self.FK__Cargo__id_puesto__1E3A7A34">
+      <End Role="Puesto_Funcional" EntitySet="Puesto_Funcional" />
+      <End Role="Cargo" EntitySet="Cargo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Estructur__id_pe__38996AB5" Association="Self.FK__Estructur__id_pe__38996AB5">
+      <End Role="Periodo" EntitySet="Periodo" />
+      <End Role="Estructura" EntitySet="Estructura" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

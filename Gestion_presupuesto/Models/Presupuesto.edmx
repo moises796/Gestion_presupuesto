@@ -393,7 +393,7 @@
           <Parameter Name="id_unidad_organizativa" Type="int" Mode="In" />
         </Function>
         <Function Name="sp_obtener_personas_vobo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="id_detalle_presupuesto" Type="int" Mode="In" />
+          <Parameter Name="id_vobo" Type="int" Mode="In" />
         </Function>
         <Function Name="sp_persona_unidad_organizativa" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="registro_presupuestoModelStoreContainer">
@@ -720,10 +720,10 @@
             <Parameter Name="copiasocultas" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_obtener_personas_unidad_organizativa" ReturnType="Collection(String)">
-            <Parameter Name="id_unidad_organizativa" Mode="In" Type="Int32" />
+          <Parameter Name="id_unidad_organizativa" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_obtener_personas_vobo" ReturnType="Collection(String)">
-            <Parameter Name="id_detalle_presupuesto" Mode="In" Type="Int32" />
+            <Parameter Name="id_vobo" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <EntityType Name="menu">

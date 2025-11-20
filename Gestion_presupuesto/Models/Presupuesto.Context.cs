@@ -126,13 +126,13 @@ namespace Gestion_presupuesto.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("sp_obtener_personas_unidad_organizativa", id_unidad_organizativaParameter);
         }
     
-        public virtual ObjectResult<string> sp_obtener_personas_vobo(Nullable<int> id_detalle_presupuesto)
+        public virtual ObjectResult<string> sp_obtener_personas_vobo(Nullable<int> id_vobo)
         {
-            var id_detalle_presupuestoParameter = id_detalle_presupuesto.HasValue ?
-                new ObjectParameter("id_detalle_presupuesto", id_detalle_presupuesto) :
-                new ObjectParameter("id_detalle_presupuesto", typeof(int));
+            var id_voboParameter = id_vobo.HasValue ?
+                new ObjectParameter("id_vobo", id_vobo) :
+                new ObjectParameter("id_vobo", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("sp_obtener_personas_vobo", id_detalle_presupuestoParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("sp_obtener_personas_vobo", id_voboParameter);
         }
     }
 }

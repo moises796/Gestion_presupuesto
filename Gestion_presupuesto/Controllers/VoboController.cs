@@ -114,6 +114,28 @@ namespace Gestion_presupuesto.Controllers
                             modelItem.id_fuente_financiamiento = item.id_fuente_financiamiento;
                             //modelItem.id_unidad_organizativa = item.id_unidad_organizativa;
                             db.SaveChanges();
+
+                            //ENVIO DE CORREO EN CASO SEA MODIFICACION DE PRESIDENCIA
+
+                            var id_empleado = Convert.ToInt32(UserClaims.idempleado_key);
+                            var rol = db.usuario.FirstOrDefault(x => x.id_empleado == id_empleado && x.estado == 1);
+                            if (rol != null)
+                            {
+                                if (rol.id_rol_usuario == 5)
+                                {
+                                    var empleado = db2.Empleado.FirstOrDefault(x => x.id_empleado == id_empleado);
+                                    var correo_vobo = empleado.correo_institucional;
+                                    var nombre_empleado = empleado.nombres + " " + empleado.apellidos;
+
+                                    var correos = db.sp_obtener_personas_vobo(item.id_vobo).FirstOrDefault();
+                                    var correos_origen = correos != null ? correos.ToString() + ";" : "" + correo_vobo;
+                                    var correos_uo = db.sp_obtener_personas_unidad_organizativa(modelItem.id_unidad_organizativa).FirstOrDefault();
+                                    var correos_destino = correos_uo != null ? correos_uo.ToString() : "";
+                                    var asunto = "Modificación a solicitud";
+                                    var contenido = "Comentar que, desde el sistema de PAC se ha realizado una modificación por parte de " + nombre_empleado + ", hacia la solicitud" + modelItem.codigo + "<br><br>Saludos cordiales";
+                                    db.EnvioNotificaciones(1, correos_destino, correos_origen, asunto, contenido, "");
+                                }
+                            }
                         }
                     }
                     catch (Exception e)
@@ -123,7 +145,6 @@ namespace Gestion_presupuesto.Controllers
                 }
                 else
                     ViewData["EditError"] = "Please, correct all errors.";
-                return GridVobo();
             }
             else 
             {
@@ -157,8 +178,30 @@ namespace Gestion_presupuesto.Controllers
                                 modelItem.monto = item.monto;
                             }
                             modelItem.id_fuente_financiamiento = item.id_fuente_financiamiento;
-                            modelItem.id_unidad_organizativa = item.id_unidad_organizativa;
+                            //modelItem.id_unidad_organizativa = item.id_unidad_organizativa;
                             db.SaveChanges();
+
+                            //ENVIO DE CORREO EN CASO SEA MODIFICACION DE PRESIDENCIA
+
+                            var id_empleado = Convert.ToInt32(UserClaims.idempleado_key);
+                            var rol = db.usuario.FirstOrDefault(x => x.id_empleado == id_empleado && x.estado == 1);
+                            if (rol != null)
+                            {
+                                if (rol.id_rol_usuario == 5)
+                                {
+                                    var empleado = db2.Empleado.FirstOrDefault(x => x.id_empleado == id_empleado);
+                                    var correo_vobo = empleado.correo_institucional;
+                                    var nombre_empleado = empleado.nombres + " " + empleado.apellidos;
+
+                                    var correos = db.sp_obtener_personas_vobo(item.id_vobo).FirstOrDefault();
+                                    var correos_origen = correos != null ? correos.ToString() + ";" : "" + correo_vobo;
+                                    var correos_uo = db.sp_obtener_personas_unidad_organizativa(modelItem.id_unidad_organizativa).FirstOrDefault();
+                                    var correos_destino = correos_uo != null ? correos_uo.ToString() : "";
+                                    var asunto = "Modificación a solicitud";
+                                    var contenido = "Comentar que, desde el sistema de PAC se ha realizado una modificación por parte de " + nombre_empleado + ", hacia la solicitud" + modelItem.codigo + "<br><br>Saludos cordiales";
+                                    db.EnvioNotificaciones(1, correos_destino, correos_origen, asunto, contenido, "");
+                                }
+                            }
                         }
                     }
                     catch (Exception e)
@@ -168,9 +211,12 @@ namespace Gestion_presupuesto.Controllers
                 }
                 else
                     ViewData["EditError"] = "Please, correct all errors.";
-                return GridVobo();
+                
             }
+
             
+            return GridVobo();
+
         }
 
         public ActionResult ObservarAnulacion(int? id_vobo)
@@ -202,14 +248,17 @@ namespace Gestion_presupuesto.Controllers
                     db.SaveChanges();
                 });
 
-                //exec [dbo].[EnvioNotificaciones] 1, @correos_unidad_organizativa, @correo_vobo, @asunto, @mensaje_correo, ''
+
                 var id_empleado = db.personal_vobo.FirstOrDefault(x=>x.id_personal_vobo == vobo.id_personal_vobo).id_empleado;
                 var empleado = db2.Empleado.FirstOrDefault(x => x.id_empleado == id_empleado);
                 var correo_vobo = empleado.correo_institucional;
                 var nombre_empleado = empleado.nombres + " " + empleado.apellidos;
-                var correos = db.sp_obtener_personas_vobo(id_detalle_presupuesto).FirstOrDefault().ToString();
-                var correos_origen = correos + ";" + correo_vobo;
-                var correos_destino = db.sp_obtener_personas_unidad_organizativa(detalle_presupuesto.id_unidad_organizativa).FirstOrDefault().ToString();
+
+                var correos = db.sp_obtener_personas_vobo(id_vobo).FirstOrDefault();
+                var correos_origen = correos != null ? correos.ToString() + ";" : "" + correo_vobo;
+                var correos_uo = db.sp_obtener_personas_unidad_organizativa(detalle_presupuesto.id_unidad_organizativa).FirstOrDefault();
+                var correos_destino = correos_uo != null ? correos_uo.ToString() : "";
+
                 var asunto = "Solicitud eliminación denegada";
                 var contenido = "Comentar que, desde el sistema de PAC se ha denegado la solicitud para eliminación por parte de " + nombre_empleado + ", hacia la solicitud" + detalle_presupuesto.codigo + "<br><br>Saludos cordiales";
                 db.EnvioNotificaciones(1, correos_destino, correos_origen, asunto, contenido, "");
