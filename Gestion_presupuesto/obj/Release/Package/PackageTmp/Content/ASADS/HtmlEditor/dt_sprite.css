@@ -1,0 +1,45 @@
+
+.dxeListBoxItemSelected_ASADS .dxHtmlEditor_heEnumIcon_ASADS { background-position: 0px 0px; width: 16px; height: 16px } 
+.dxeListBoxItemSelected_ASADS .dxHtmlEditor_heEventIcon_ASADS { background-position: -162px 0px; width: 16px; height: 16px } 
+.dxeListBoxItemSelected_ASADS .dxHtmlEditor_heFieldIcon_ASADS { background-position: -180px 0px; width: 16px; height: 16px } 
+.dxeListBoxItemSelected_ASADS .dxHtmlEditor_heXmlItemIcon_ASADS { background-position: -144px 0px; width: 16px; height: 16px } 
+.dxHtmlEditor_heConstrainProportionsBottom_ASADS { background-position: -337px 0px; width: 8px; height: 6px } 
+.dxHtmlEditor_heConstrainProportionsBottomRtl_ASADS { background-position: -307px 0px; width: 8px; height: 6px } 
+.dxHtmlEditor_heConstrainProportionsMiddleOff_ASADS { background-position: -230px 0px; width: 7px; height: 13px } 
+.dxHtmlEditor_heConstrainProportionsMiddleOffRtl_ASADS { background-position: -248px 0px; width: 7px; height: 13px } 
+.dxHtmlEditor_heConstrainProportionsMiddleOn_ASADS { background-position: -257px 0px; width: 7px; height: 13px } 
+.dxHtmlEditor_heConstrainProportionsMiddleOnRtl_ASADS { background-position: -239px 0px; width: 7px; height: 13px } 
+.dxHtmlEditor_heConstrainProportionsTop_ASADS { background-position: -317px 0px; width: 8px; height: 6px } 
+.dxHtmlEditor_heConstrainProportionsTopRtl_ASADS { background-position: -327px 0px; width: 8px; height: 6px } 
+.dxHtmlEditor_heEnumIcon_ASADS { background-position: -126px 0px; width: 16px; height: 16px } 
+.dxHtmlEditor_heErrorFrameCloseButton_ASADS { background-position: -266px 0px; width: 10px; height: 10px } 
+.dxHtmlEditor_heEventIcon_ASADS { background-position: -90px 0px; width: 16px; height: 16px } 
+.dxHtmlEditor_heFieldIcon_ASADS { background-position: -72px 0px; width: 16px; height: 16px } 
+.dxHtmlEditor_heReset_ASADS { background-position: -54px 0px; width: 16px; height: 16px } 
+.dxHtmlEditor_heSizeGrip_ASADS { background-position: -198px 0px; width: 14px; height: 14px } 
+.dxHtmlEditor_heSizeGripRtl_ASADS { background-position: -214px 0px; width: 14px; height: 14px } 
+.dxHtmlEditor_heTagInspectorChangeButton_ASADS { background-position: -36px 0px; width: 16px; height: 16px } 
+.dxHtmlEditor_heTagInspectorRemoveButton_ASADS { background-position: -18px 0px; width: 16px; height: 16px } 
+.dxHtmlEditor_heTagInspectorSeparator_ASADS { background-position: -300px 0px; width: 5px; height: 8px } 
+.dxHtmlEditor_heToolbarPopOut_ASADS { background-position: -278px 0px; width: 9px; height: 9px } 
+.dxHtmlEditor_heXmlItemIcon_ASADS { background-position: -108px 0px; width: 16px; height: 16px } 
+.dxm-hovered .dxHtmlEditor_heToolbarPopOut_ASADS { background-position: -289px 0px; width: 9px; height: 9px } 
+.dxHtmlEditor_heConstrainProportionsMiddleOn_ASADS,
+.dxHtmlEditor_heConstrainProportionsMiddleOff_ASADS,
+.dxHtmlEditor_heConstrainProportionsBottom_ASADS,
+.dxHtmlEditor_heConstrainProportionsTop_ASADS,
+.dxHtmlEditor_RoundPanel_herpHeaderTopLeftCorner_ASADS,
+.dxHtmlEditor_RoundPanel_herpHeaderTopRightCorner_ASADS,
+.dxHtmlEditor_RoundPanel_herpBottomLeftCorner_ASADS,
+.dxHtmlEditor_RoundPanel_herpBottomRightCorner_ASADS,
+.dxHtmlEditor_RoundPanel_herpTopLeftCorner_ASADS,
+.dxHtmlEditor_RoundPanel_herpTopRightCorner_ASADS,
+.dxHtmlEditor_RoundPanel_herpGroupBoxBottomLeftCorner_ASADS,
+.dxHtmlEditor_RoundPanel_herpGroupBoxBottomRightCorner_ASADS,
+.dxHtmlEditor_RoundPanel_herpGroupBoxTopLeftCorner_ASADS,
+.dxHtmlEditor_RoundPanel_herpGroupBoxTopRightCorner_ASADS
+{
+	display:block;
+}
+
+

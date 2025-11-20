@@ -1,0 +1,127 @@
+﻿@{
+    var grid = Html.DevExpress().GridView(settings =>
+    {
+        settings.Name = "GridFuenteFinanciamiento";
+        settings.CallbackRouteValues = new { Controller = "FuenteFinanciamiento", Action = "GridFuenteFinanciamiento" };
+
+        settings.SettingsEditing.AddNewRowRouteValues = new { Controller = "FuenteFinanciamiento", Action = "GridFuenteFinanciamientoAddNew" };
+        settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "FuenteFinanciamiento", Action = "GridFuenteFinanciamientoUpdate" };
+        settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "FuenteFinanciamiento", Action = "GridFuenteFinanciamientoDelete" };
+        settings.EnableRowsCache = false;
+        settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+
+        settings.SettingsAdaptivity.AdaptivityMode = GridViewAdaptivityMode.HideDataCells;
+        settings.SettingsSearchPanel.Visible = true;
+        settings.SettingsAdaptivity.AllowOnlyOneAdaptiveDetailExpanded = true;
+        settings.SettingsBehavior.AllowFocusedRow = true;
+        settings.SettingsPopup.EditForm.Modal = true;
+        settings.SettingsEditing.Mode = GridViewEditingMode.PopupEditForm;
+        settings.SettingsPopup.EditForm.VerticalAlign = PopupVerticalAlign.Middle;
+        settings.SettingsPopup.EditForm.HorizontalAlign = PopupHorizontalAlign.Center;
+        settings.SettingsPopup.EditForm.ShowHeader = true;
+        settings.SettingsText.PopupEditFormCaption = "Gestión fuente financiamiento";
+        settings.SettingsBehavior.ConfirmDelete = true;
+        settings.CommandColumn.ButtonRenderMode = GridCommandButtonRenderMode.Outline;
+
+        settings.CommandColumn.Visible = true;
+        settings.CommandColumn.ShowNewButtonInHeader = true;
+        settings.CommandColumn.ShowDeleteButton = false;
+        settings.CommandColumn.ShowEditButton = true;
+
+        settings.KeyFieldName = "id_fuente_financiamiento";
+
+        settings.SettingsPager.Visible = true;
+        settings.Settings.ShowGroupPanel = false;
+        settings.Settings.ShowFilterRow = false;
+        settings.SettingsPager.Visible = true;
+        settings.SettingsPager.PageSizeItemSettings.Visible = true;
+        settings.SettingsPager.PageSizeItemSettings.Items = new string[] { "20", "50", "100", "250", "500" };
+        settings.SettingsPager.FirstPageButton.Visible = true;
+        settings.SettingsPager.LastPageButton.Visible = true;
+        settings.SettingsPager.PageSize = 20;
+        settings.SettingsPager.PageSizeItemSettings.Position = PagerPageSizePosition.Left;
+        settings.SettingsPopup.EditForm.VerticalAlign = PopupVerticalAlign.WindowCenter;
+        settings.SettingsPopup.EditForm.HorizontalAlign = PopupHorizontalAlign.WindowCenter;
+        settings.Settings.ShowGroupPanel = false;
+        settings.Settings.ShowFilterRow = false;
+        settings.SettingsBehavior.AllowSelectByRowClick = true;
+
+
+
+        settings.EditFormLayoutProperties.SettingsAdaptivity.AdaptivityMode = FormLayoutAdaptivityMode.SingleColumnWindowLimit;
+        settings.EditFormLayoutProperties.SettingsAdaptivity.SwitchToSingleColumnAtWindowInnerWidth = 900;
+        settings.SettingsPopup.EditForm.SettingsAdaptivity.Mode = PopupControlAdaptivityMode.OnWindowInnerWidth;
+        settings.SettingsPopup.EditForm.PopupAnimationType = DevExpress.Web.AnimationType.Fade;
+        settings.SettingsPopup.EditForm.Width = 1000;
+
+        settings.Columns.Add(gridViewColumnSettings =>
+        {
+            gridViewColumnSettings.FieldName = "valor";
+            gridViewColumnSettings.Caption = "Fuente financiamiento";
+            gridViewColumnSettings.AdaptivePriority = 2;
+            MVCxColumnTextBoxProperties editorProperties = gridViewColumnSettings.PropertiesEdit as MVCxColumnTextBoxProperties;
+            editorProperties.ValidationSettings.RequiredField.IsRequired = true;
+            editorProperties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.None;
+            editorProperties.ValidationSettings.RequiredField.ErrorText = "Este campo es requerido.";
+            gridViewColumnSettings.AdaptivePriority = 1;
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "estado";
+            column.Caption = "Estado";
+            column.ColumnType = MVCxGridViewColumnType.CheckBox;
+            ((CheckBoxProperties)column.PropertiesEdit).ToggleSwitchDisplayMode = ToggleSwitchDisplayMode.Always;
+            column.AdaptivePriority = 2;
+        });
+
+
+
+        settings.EditFormLayoutProperties.Items.AddGroupItem(tabbedGroupSettings =>
+        {
+            tabbedGroupSettings.GroupBoxDecoration = GroupBoxDecoration.None;
+            tabbedGroupSettings.ColumnCount = 2;
+            tabbedGroupSettings.Items.Add(item =>
+            {
+                item.Name = "valor";
+                item.ColumnName = "valor";
+                item.ColumnSpan = 2;
+                item.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
+            });
+            tabbedGroupSettings.Items.Add(item =>
+            {
+                item.Name = "estado";
+                item.ColumnName = "estado";
+                item.ColumnSpan = 2;
+                item.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
+            });
+        });
+        settings.EditFormLayoutProperties.Items.AddCommandItem(commandItem =>
+        {
+            commandItem.Width = 100;
+            commandItem.VerticalAlign = FormLayoutVerticalAlign.Bottom;
+            commandItem.HorizontalAlign = FormLayoutHorizontalAlign.Center;
+
+        });
+        settings.SettingsCommandButton.CancelButton.RenderMode = GridCommandButtonRenderMode.Danger;
+        settings.SettingsCommandButton.UpdateButton.RenderMode = GridCommandButtonRenderMode.Button;
+        settings.SettingsText.CommandCancel = "Cancelar";
+        settings.SettingsText.CommandUpdate = "Modificar";
+        settings.EditFormLayoutCreated = (sender, e) =>
+        {
+            MVCxGridView gridView = sender as MVCxGridView;
+            if (gridView.IsNewRowEditing)
+            {
+                gridView.SettingsText.CommandUpdate = "Guardar";
+                return;
+            }
+        };
+
+
+    });
+    if (ViewData["EditError"] != null)
+    {
+        grid.SetEditErrorText((string)ViewData["EditError"]);
+    }
+}
+@grid.Bind(Model).GetHtml()

@@ -28,6 +28,7 @@ namespace Gestion_presupuesto.Controllers
 
         public ActionResult ConsultaPresupuesto()
         {
+
             return View();
         }
 

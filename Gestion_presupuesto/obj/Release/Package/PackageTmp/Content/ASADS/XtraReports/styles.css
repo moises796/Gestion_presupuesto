@@ -1,0 +1,31 @@
+.dxsplControl_ASADS .dxmLiteReportToolbarPane
+{
+    background-color: #f1f1f1;
+    padding: 0;
+}
+.dxmLiteReportToolbarPane .dxrControl_ASADS.dxr-tabsHidden .dxr-tabContent
+{
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+.dxmLiteReportToolbarPane .dxmLite_ASADS .dxm-main.dxmtb
+{
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+.dxmLiteReportToolbarPane .dxmLite_ASADS .dxm-horizontal.dxmtb .dxm-image-l .dxm-separator
+{
+    margin-top: -2px;
+}
+.dxmLiteReportToolbarPane .dxmLite_ASADS .dxm-horizontal.dxmtb .dxm-image-l .dxm-separator b
+{
+    padding-bottom: 6px;
+}
+table.dxXtraReports_PageTable .dxXtraReports_PageBorder_blc_ASADS:before,
+table.dxXtraReports_PageTable .dxXtraReports_PageBorder_brc_ASADS:before,
+table.dxXtraReports_PageTable .dxXtraReports_PageBorder_tlc_ASADS:before,
+table.dxXtraReports_PageTable .dxXtraReports_PageBorder_trc_ASADS:before
+{
+    content: none;
+}

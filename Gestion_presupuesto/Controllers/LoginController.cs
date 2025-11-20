@@ -77,7 +77,7 @@ namespace Gestion_presupuesto.Controllers
             }
             var identity = new ClaimsIdentity(claims, "keycloak_sso_auth");
             Request.GetOwinContext().Authentication.SignIn(new AuthenticationProperties(), identity);
-            return RedirectToAction("Presupuesto", "Presupuesto");
+            return RedirectToAction("Index", "Home");
         }
 
 

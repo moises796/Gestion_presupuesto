@@ -23,6 +23,7 @@
     <DevExtremeCreateAsPartial>False</DevExtremeCreateAsPartial>
     <DevExtremeUseLayout>True</DevExtremeUseLayout>
     <DevExtremeSelectedDataContextName>registro_presupuestoEntities %28Gestion_presupuesto.Models%29</DevExtremeSelectedDataContextName>
+    <NameOfLastUsedPublishProfile>C:\repos\Gestion_presupuesto\Gestion_presupuesto\Properties\PublishProfiles\FolderProfile.pubxml</NameOfLastUsedPublishProfile>
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>

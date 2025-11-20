@@ -1,0 +1,919 @@
+/* used as a border of large controls (like grids, diagram) */
+/* used as a background below a page in richedit/diagram */
+/* used as a border of large controls (like grids, diagram) */
+/* used as a background below a page in richedit/diagram */
+/* used as a border of large controls (like grids, diagram) */
+/* used as a background below a page in richedit/diagram */
+.dxreControl_ASADS
+{
+    border: solid 0px #DFDFDF;
+    font: 16px 'Museo Sans', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+}
+.dxreControl_ASADS .dxreTableBorderLine
+{
+    background-color: #4DB6AC;
+}
+.dxreControl_ASADS .dxrePage
+{
+    border: 1px solid #C0C0C0;
+}
+.dxreControl_ASADS .dxreView
+{
+    background-color: #FFFFFF;
+}
+.dxreControl_ASADS .dxflFormLayout_ASADS .dxre-editorsGroupWithPaddings
+{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.dxreControl_ASADS .dxrControl_ASADS .dxtcLite_ASADS.dxtc-top .dxtc-leftIndent
+{
+    width: 0px;
+}
+.dxrControl_ASADS .dxreRibbonCBSmall
+{
+    width: 100px;
+}
+.dxrControl_ASADS .dxreRibbonCBLarge
+{
+    width: 150px;
+}
+.dxrControl_ASADS .dxreRibbonCBMiddle
+{
+    width: 110px;
+}
+.dxrControl_ASADS .dxreRibbonSE
+{
+    width: 110px;
+}
+.dxreControl_ASADS .dxreRulerWrapper
+{
+    padding-top: 2px;
+    background-color: #FFFFFF;
+}
+.dxreControl_ASADS .dxreRulerWrapper .dxre-rulertabAlignBox
+{
+    background-color: #d3d3d3;
+}
+.dxreControl_ASADS .dxreRulerWrapper .dxre-rulertabAlignBox > div
+{
+    background-color: #fff;
+}
+.dxreControl_ASADS .dxreRulerLine
+{
+    border-left: 1px dashed #717171;
+}
+.dxreControl_ASADS .dxreRulerLine.table
+{
+    border-left: 1px solid #599eff;
+}
+.dxreControl_ASADS .dxreRuler .dxre-columnHandleLeftPart,
+.dxreControl_ASADS .dxreRuler .dxre-columnHandleRightPart
+{
+    width: 5px;
+    background-color: #bcb8b8;
+}
+.dxreControl_ASADS .dxreRuler .dxre-rulerTableColumnSeparatorHandle
+{
+    height: 12px;
+    background-color: #d3d3d3;
+}
+.dxreControl_ASADS .dxreRuler .dxre-rulerTableColumnSeparatorHandle > div
+{
+    margin-top: 2px;
+}
+.dxreControl_ASADS .dxreRuler .dxre-rulerDivisions
+{
+    height: 12px;
+    background-color: #fff;
+}
+.dxreControl_ASADS .dxreRuler .dxre-rulerDivisions div
+{
+    height: 12px;
+}
+.dxreControl_ASADS .dxreRuler .dxre-rulerDivisions .dxre-rulerMinorDivision,
+.dxreControl_ASADS .dxreRuler .dxre-rulerDivisions .dxre-rulerMajorDivision
+{
+    border-left: 1px solid #a3a3a3;
+}
+.dxreControl_ASADS .dxreRuler .dxre-rulerDivisions .dxre-rulerNumberDivision
+{
+    color: #4e4e4e;
+}
+.dxreControl_ASADS .dxreRuler .dxre-rulerMarginLeftPanel,
+.dxreControl_ASADS .dxreRuler .dxre-rulerMarginRightPanel,
+.dxreControl_ASADS .dxreRuler .dxre-rulerMarginLeftHandlePanel,
+.dxreControl_ASADS .dxreRuler .dxre-rulerMarginRightHandlePanel,
+.dxreControl_ASADS .dxreRuler .dxre-columnHandle,
+.dxreControl_ASADS .dxreRuler .dxre-columnHandle > div
+{
+    height: 12px;
+}
+.dxreControl_ASADS .dxreRuler .dxre-rulerMarginLeftPanel,
+.dxreControl_ASADS .dxreRuler .dxre-rulerMarginRightPanel,
+.dxreControl_ASADS .dxreRuler .dxre-rulerMarginLeftHandlePanel,
+.dxreControl_ASADS .dxreRuler .dxre-rulerMarginRightHandlePanel,
+.dxreControl_ASADS .dxreRuler .dxre-columnHandle
+{
+    background-color: #d3d3d3;
+}
+.dxreControl_ASADS .dxre-leftIndentDragHandleBody
+{
+    background-color: #fff;
+    border: 1px solid #929292;
+    border-top: none;
+    height: 6px;
+}
+.dxreControl_ASADS .dxreQuickSearchPanel
+{
+    background-color: #FAFAFA;
+    border: 1px solid #a7a7a7;
+    border-top: none;
+    padding: 6px;
+}
+.dxreControl_ASADS .dxreQuickSearchPanel .dxreQuickSearchButtonEdit
+{
+    width: 300px;
+}
+.dxreControl_ASADS .dxreQuickSearchPanel .dxreQuickSearchButton:first-of-type
+{
+    margin-top: 6px;
+    margin-right: 5px;
+    margin-left: 10px;
+}
+.dxreControl_ASADS .dxreQuickSearchPanel .dxreQuickSearchButton:nth-of-type(2)
+{
+    margin-top: 6px;
+}
+.dxreControl_ASADS .dxreQuickSearchPanel .dxreQuickSearchButton:nth-of-type(3)
+{
+    margin-top: 6px;
+    margin-right: 8px;
+    margin-left: 32px;
+}
+.dxreControl_ASADS .dxreQuickSearchPanel .dxreQuickSearchButton:nth-of-type(4)
+{
+    margin-top: 6px;
+}
+.dxreControl_ASADS .dxreQuickSearchPanel .dxreQuickSearchButton,
+.dxreControl_ASADS .dxreQuickSearchPanel .dxreQuickSearchButton .dxb
+{
+    padding: 0px !important;
+    background: none !important;
+    border: none !important;
+}
+.dxreControl_ASADS .dxreBar
+{
+    background-color: #FFFFFF;
+    border-top: 1px solid #DFDFDF;
+    height: 22px;
+}
+.dxreControl_ASADS .dxreBar .dxreLoadingPanel
+{
+    float: right;
+    margin: 3px 2px 0 0;
+    color: #484848;
+}
+.dxreControl_ASADS .dxreBar .dxreLoadingPanel .dx
+{
+    line-height: 0;
+}
+.dxreControl_ASADS .dxreBar .dxreLoadingPanel .dxlp-loadingImage
+{
+    width: 16px;
+    height: 16px;
+    background: url('reLoadingOnStatusBar.gif');
+}
+.dxreControl_ASADS .dxreDlgListBox
+{
+    padding: 1px;
+}
+.dxreControl_ASADS .dxreDlgListBox > div
+{
+    border: 1px solid #C0C0C0;
+    margin: 1px;
+}
+.dxreControl_ASADS .dxreDlgListBox .dxreDlgListHover
+{
+    background-color: #EEE;
+}
+.dxreControl_ASADS .dxreDlgListBox .dxreDlgListSelected
+{
+    background-color: #084298;
+}
+.dxreControl_ASADS .dxre-numberinglistdialog
+{
+    max-width: 541px;
+}
+.dxreControl_ASADS .dxre-simplenumberinglistdialog
+{
+    max-width: 550px;
+}
+.dxreControl_ASADS .dxreDlgNumberingListForm .dxreDlgNumberingListPreview
+{
+    padding: 10px;
+    width: 90px;
+    height: 90px;
+}
+.dxreControl_ASADS .dxreDlgNumberingListForm .dxreDlgMainContainer
+{
+    height: 220px;
+}
+.dxreControl_ASADS .dxreDlgNumberingListForm .dxreDlgListBox > div
+{
+    width: 120px;
+    height: 120px;
+    line-height: 120px;
+}
+.dxreControl_ASADS .dxre-bulletedlistdialog
+{
+    max-width: 400px;
+}
+.dxreControl_ASADS .dxreDlgBulletedListForm .dxreDlgBulletPresetBtn
+{
+    width: 45px !important;
+    height: 45px !important;
+    float: left;
+    margin: 0px 0px 5px 5px;
+}
+.dxreControl_ASADS .dxre-multilevelnumberinglistdialog
+{
+    max-width: 422px;
+}
+.dxreControl_ASADS .dxreMultiLevelNumberingListBoxLayout,
+.dxreControl_ASADS .dxreMultiLevelNumberingListBoxLayout .dxlbd
+{
+    width: 40px;
+    height: 100% !important;
+}
+.dxreControl_ASADS .dxre-multiLevelOptionsLayout .dxflGroup_ASADS
+{
+    padding: 0px;
+}
+.dxreControl_ASADS .dxreDlgMultiLevelNumberingListForm .dxre-dialogContentGroup > tbody > tr > td:first-child
+{
+    padding-right: 0px;
+}
+.dxreControl_ASADS .dxreDlgMultiLevelNumberingListForm .dxre-dialogContentGroup > tbody > tr > td:last-child
+{
+    padding: 0px;
+}
+.dxreControl_ASADS .dxre-alertdialog
+{
+    max-width: 350px;
+}
+.dxreControl_ASADS .dxre-alertdialog span
+{
+    user-select: text;
+}
+.dxreControl_ASADS .dxre-layoutoptionsdialog
+{
+    max-width: 695px;
+}
+.dxreControl_ASADS .dxreDlgLayoutForm .dxtc-content
+{
+    min-height: 670px;
+}
+.dxreControl_ASADS .dxreDlgLayoutForm .dxre-layoutFormOriginalSizeGroup .dxflCaptionCellSys
+{
+    padding-top: 2px;
+}
+.dxreControl_ASADS .dxreDlgLayoutForm .dxre-dialogPresetButton
+{
+    width: 25% !important;
+    text-align: center;
+    float: left;
+}
+@media (max-width: 500px)
+{
+    .dxreControl_ASADS .dxreDlgLayoutForm .dxre-dialogPresetButton
+    {
+        width: 33% !important;
+    }
+}
+@media (max-width: 380px)
+{
+    .dxreControl_ASADS .dxreDlgLayoutForm .dxre-dialogPresetButton
+    {
+        width: 50% !important;
+    }
+}
+.dxreControl_ASADS .dxreDlgLayoutForm .dxre-buttonLable
+{
+    display: block;
+    text-align: center;
+    padding-top: 3px;
+    padding-bottom: 5px;
+}
+.dxreControl_ASADS .dxreDlgLayoutForm .dxre-sizeTabLayout .dx-dialogEditRoot > tbody > tr > td:first-child,
+.dxreControl_ASADS .dxreDlgLayoutForm .dxre-positionTabLayout .dx-dialogEditRoot > tbody > tr > td:first-child
+{
+    width: 5% !important;
+}
+@media (max-width: 500px)
+{
+    .dxreControl_ASADS .dxreDialog .dxre-dialogShortEditor:not(.dxre-dialogNotResponsiveEditor),
+    .dxreControl_ASADS .dxreDialog .dxre-dialogEditor:not(.dxre-dialogNotResponsiveEditor),
+    .dxreControl_ASADS .dxreDialog .dxre-dialogLongEditor:not(.dxre-dialogNotResponsiveEditor)
+    {
+        max-width: 100%;
+    }
+    .dxreControl_ASADS .dxreDialog .dxflItemSys .dxflCaptionCellSys
+    {
+        min-width: 25px !important;
+    }
+}
+.dxreControl_ASADS .dxre-dialogShortEditor
+{
+    max-width: 80px;
+}
+.dxreControl_ASADS .dxre-dialogEditor
+{
+    min-width: 80px;
+    max-width: 150px;
+}
+.dxreControl_ASADS .dxre-dialogLongEditor
+{
+    max-width: 180px;
+}
+.dxreControl_ASADS .dxreDlgInLayoutButton
+{
+    width: 68px !important;
+}
+.dxreControl_ASADS .dxreDlgFooterBtn
+{
+    width: 80px !important;
+    margin-left: 8px;
+}
+.dxreControl_ASADS .dxre-EmptyLine
+{
+    height: 10px;
+}
+.dxreControl_ASADS .dxre-dialogFooter
+{
+    width: auto;
+    padding: 11px;
+    border-top: solid 1px #DFDFDF;
+}
+.dxreControl_ASADS .dxre-dialogLG.dxflGroupSys.dxre-dialogContentGroup
+{
+    padding: 11px 3px;
+}
+.dxreControl_ASADS .dxre-dialogLGB > .dxre-dialogLG > div > .dxre-dialogLGC > .dxre-dialogLI
+{
+    padding-top: 2px;
+}
+.dxreControl_ASADS .dxre-bookmarksdialog
+{
+    max-width: 365px;
+}
+.dxreControl_ASADS .dxre-columnsdialog
+{
+    max-width: 400px;
+}
+.dxreControl_ASADS .dxreDlgColumnsForm .dxreDlgColumnsEditorMainTable > tbody > tr > td
+{
+    padding: 2px 4px;
+}
+.dxreControl_ASADS .dxreDlgColumnsForm .dxreDlgColumnsEditor
+{
+    height: 130px;
+}
+.dxreControl_ASADS .dxreDlgColumnsForm .dxreDlgColumnsEditor .dxreDlgTextBox
+{
+    width: 40px;
+}
+.dxreControl_ASADS .dxreDlgColumnsForm .dxreDlgColumnsEditor .dxreDlgSpinEdit
+{
+    width: 90px;
+}
+@media (max-width: 500px)
+{
+    .dxreControl_ASADS .dxreDlgColumnsForm .dxbButton_ASADS div.dxb
+    {
+        padding: 3px 5px 3px !important;
+        border: none;
+    }
+    .dxreControl_ASADS .dxreDlgColumnsForm tbody > tr.dxrpCR > .dxrpcontent > .dxrpAW > .dxrpCW
+    {
+        padding: 10px 0;
+    }
+    .dxreControl_ASADS .dxreDlgColumnsForm .dxflGroup_ASADS, .dxreControl_ASADS .dxreDlgColumnsForm .dxflGroupCell_ASADS
+    {
+        padding: 0 10px;
+    }
+    .dxreControl_ASADS .dxreDlgColumnsForm .dxreDlgColumnsEditorMainTable
+    {
+        width: 100%;
+    }
+    .dxreControl_ASADS .dxreDlgColumnsForm .dxflNotFloatedElSys .dxrpControl_ASADS .dxflGroupCell_ASADS
+    {
+        padding: 0px;
+    }
+}
+.dxreControl_ASADS .dxre-Separator
+{
+    height: 0px;
+    margin: 5px 0;
+    border-top: 1px solid #808080;
+}
+.dxreControl_ASADS .dxre-findreplacedialog
+{
+    max-width: 540px;
+}
+.dxreControl_ASADS .dxre-findreplacedialog .dxre-searchResultList
+{
+    width: 100%;
+    height: 180px;
+}
+.dxreControl_ASADS .dxre-findreplacedialog .dxre-searchResultList .dxeListBoxItem
+{
+    white-space: normal;
+}
+.dxreControl_ASADS .dxre-findreplacedialog .dxre-dialogContentGroup
+{
+    padding: 24px !important;
+}
+.dxreControl_ASADS .dxre-findreplacedialog .dxre-searchResult
+{
+    width: 100% !important;
+}
+.dxreControl_ASADS .dxre-findreplacedialog .dxre-searchResult > div
+{
+    float: none !important;
+    width: auto !important;
+}
+.dxreControl_ASADS .dxre-findreplacedialog .dxre-searchResult .dxflCaptionCell_ASADS
+{
+    padding-top: 0px;
+}
+.dxreControl_ASADS .dxre-findreplacedialog .dxre-searchResult .dxflNestedControlCell_ASADS
+{
+    text-align: right;
+    white-space: nowrap;
+    color: #acacac;
+}
+.dxreControl_ASADS .dxre-findreplacedialog .dxre-dialogControlsWrapper > tbody > tr > td:first-child
+{
+    width: auto;
+}
+.dxreControl_ASADS .dxre-findreplacedialog .dxre-dialogControlsWrapper > tbody > tr > td:nth-child(2)
+{
+    width: 100%;
+    text-align: left;
+}
+.dxreControl_ASADS .dxre-findreplacedialog .dxre-replaceInfo
+{
+    position: absolute;
+    left: 0;
+    visibility: hidden;
+}
+.dxreControl_ASADS .dxre-findreplacedialog .dxre-replaceInfo > div
+{
+    padding: 8px;
+    background: #FFF2C0;
+}
+@media (max-width: 500px)
+{
+    .dxreControl_ASADS .dxre-findreplacedialog .dxre-dialogFooter .dxreDlgFooterBtn
+    {
+        width: auto !important;
+    }
+    .dxreControl_ASADS .dxre-findreplacedialog .dxre-dialogFooter .dxreDlgFooterBtn > div.dxb
+    {
+        padding-left: 5px;
+        padding-right: 5px;
+        font-size: 12px;
+    }
+}
+.dxreControl_ASADS .dxre-fontdialog
+{
+    max-width: 570px;
+}
+.dxreControl_ASADS .dxreDlgFontForm .dxreCheckBoxContainer .dxflGroup_ASADS,
+.dxreControl_ASADS .dxreDlgFontForm .dxreCheckBoxContainer .dxflGroupCell_ASADS
+{
+    padding: 0px;
+}
+.dxreControl_ASADS .dxreDlgFontForm .dxreCheckBoxContainer .dxflItem_ASADS
+{
+    padding: 0px !important;
+}
+@media (max-width: 500px)
+{
+    .dxreControl_ASADS .dxreDlgFontForm .dxre-dialogContentGroup .dxflLastChildSys .dxflGroupSys > div:not(.dxflFirstChildSys)
+    {
+        margin-top: 7px;
+    }
+}
+.dxreControl_ASADS .dxre-hyperlinkdialog
+{
+    max-width: 520px;
+}
+.dxreControl_ASADS .dxre-insertimagedialog
+{
+    max-width: 450px;
+}
+.dxreControl_ASADS .dxreDlgInsertImageForm .dxreDlgImagePreview
+{
+    margin-top: 10px;
+    width: 100%;
+    height: 170px;
+    color: #878787;
+    border: dashed 1px #cac8c8;
+    text-align: center;
+}
+.dxreControl_ASADS .dxreDlgInsertImageForm .dxflCaption_ASADS
+{
+    white-space: normal;
+}
+.dxreControl_ASADS .dxreDlgInsertImageForm .dxre-dialogRadioNavigation
+{
+    padding-bottom: 7px;
+}
+.dxreControl_ASADS .dxre-insertmergefielddialog
+{
+    max-width: 350px !important;
+}
+.dxreControl_ASADS .dxre-insertmergefielddialog .dxeListBox_ASADS
+{
+    height: 250px;
+    table-layout: fixed;
+}
+.dxreControl_ASADS .dxre-finishandmergedialog
+{
+    max-width: 215px;
+}
+.dxreControl_ASADS .dxre-openfiledialog
+{
+    max-width: 800px;
+}
+.dxreControl_ASADS .dxreDlgOpenFileForm
+{
+    height: 500px;
+}
+.dxreControl_ASADS .dxreDlgOpenFileForm .dxflGroupCell,
+.dxreControl_ASADS .dxreDlgOpenFileForm .dxre-dialogContentGroup,
+.dxreControl_ASADS .dxreDlgOpenFileForm .dxre-dialogContentGroup .dxflItem_ASADS
+{
+    padding: 0px !important;
+}
+.dxreControl_ASADS .dxre-pagesetupdialog
+{
+    max-width: 420px;
+}
+.dxreControl_ASADS .dxreDlgPageSetupForm .dxre-headersAndFootersGroup .dxflLastChildSys > .dxre-dialogLGC
+{
+    padding: 0px;
+}
+.dxreControl_ASADS .dxreDlgPageSetupForm .dxre-offsetGroup .dxflGroupCell_ASADS
+{
+    padding: 0px;
+}
+.dxreControl_ASADS .dxreDlgPageSetupForm .dxre-offsetGroup tr:first-child .dxflGroupCell_ASADS:first-child
+{
+    padding-right: 10px;
+}
+@media (min-width: 500px)
+{
+    .dxreControl_ASADS .dxreDlgPageSetupForm .dxtc-content
+    {
+        min-height: 390px;
+    }
+}
+.dxreControl_ASADS .dxre-paragraphdialog
+{
+    max-width: 500px;
+}
+.dxreControl_ASADS .dxreDlgParagraphForm .dxtc-content
+{
+    min-height: 540px;
+}
+.dxreControl_ASADS .dxreDlgParagraphForm .dxre-dialogControlsWrapper > tbody > tr > td:first-child
+{
+    text-align: left;
+}
+@media (min-width: 500px)
+{
+    .dxreControl_ASADS .dxreDlgParagraphForm .dxre-dialogParagraphInnerLayout
+    {
+        padding-top: 8px;
+    }
+    .dxreControl_ASADS .dxreDlgParagraphForm .dxre-dialogParagraphInnerLayout .dxflFirstChildSys .dxflGroupCell_ASADS
+    {
+        padding-right: 8px;
+    }
+}
+.dxreControl_ASADS .dxreDlgSaveFileForm
+{
+    width: 470px;
+}
+.dxreControl_ASADS .dxre-spellingdialog
+{
+    max-width: 560px;
+}
+.dxreControl_ASADS .dxreDlgSpellingForm .dxreDlgSB
+{
+    min-width: 80px;
+    width: 100%;
+    margin-bottom: 5px;
+}
+.dxreControl_ASADS .dxreDlgSymbolsForm .dxreDlgSymbolsList
+{
+    height: 250px;
+    border: 1px solid #C0C0C0;
+}
+.dxreControl_ASADS .dxreDlgSymbolsForm .dxreDlgListBox > div
+{
+    width: 37px;
+    height: 37px;
+    line-height: 37px;
+    font-size: large;
+}
+.dxreControl_ASADS .dxre-splittablecellsdialog,
+.dxreControl_ASADS .dxre-deletetablecellsdialog,
+.dxreControl_ASADS .dxre-inserttabledialog
+{
+    max-width: 300px;
+}
+.dxreControl_ASADS .dxre-tablepropertiesdialog
+{
+    max-width: 660px;
+}
+.dxreControl_ASADS .dxreDlgTablePropertiesForm .dxtc-content
+{
+    min-height: 560px;
+}
+.dxreControl_ASADS .dxreDlgTablePropertiesForm .dxre-dialogTableSpacing
+{
+    text-align: right;
+}
+.dxreControl_ASADS .dxreDlgTablePropertiesForm .dxre-dialogTableSpacing table
+{
+    display: inline-block;
+}
+@media (max-width: 380px)
+{
+    .dxreControl_ASADS .dxreDlgTablePropertiesForm .dxre-dialogTableSpacing
+    {
+        text-align: left;
+    }
+}
+.dxreControl_ASADS .dxreDlgTablePropertiesForm .dxreDlgRight .dxreDlgFooterBtn
+{
+    display: inline-table;
+}
+.dxreControl_ASADS .dxre-bordershadingdialog
+{
+    max-width: 440px;
+}
+.dxreControl_ASADS .dxreDlgBorderShadingForm .dxre-dialogBorderPresets
+{
+    padding: 6px 0;
+}
+.dxreControl_ASADS .dxreDlgBorderShadingForm .dxre-dialogBorderPresets .dxre-dialogLGC
+{
+    padding: 0px;
+}
+.dxreControl_ASADS .dxreDlgBorderShadingForm .dxre-dialogBorderPresets .dxre-dialogPresetButton
+{
+    padding-bottom: 5px;
+    text-align: center;
+}
+.dxreControl_ASADS .dxreDlgBorderShadingForm .dxre-dialogBorderPresets .dxre-dialogPresetButton .dxre-buttonLable
+{
+    display: block;
+}
+.dxreControl_ASADS .dxreDlgBorderShadingForm .dxreTableBorderPreview
+{
+    width: 130px !important;
+    display: inline-block;
+}
+.dxreControl_ASADS .dxre-dialogCellMargins td.dxre-dialogLGC
+{
+    padding: 0 4px 0 0 !important;
+}
+.dxreControl_ASADS .dxre-dialogCellBlock
+{
+    width: 78px;
+    background-color: #E0E0E0;
+    border: dashed 1px #818181;
+}
+.dxreControl_ASADS .dxreBorderButton div.dxb
+{
+    padding: 3px !important;
+}
+.dxreControl_ASADS .dxre-tabsdialog
+{
+    max-width: 475px;
+}
+.dxreControl_ASADS .dxreDlgTabsForm .dxreDlgTabsList
+{
+    height: 70px;
+}
+.dxreControl_ASADS .dxreDlgTabsForm .dxre-flowRadioButtonList span.dxichCellSys
+{
+    min-width: 120px;
+}
+.dxreControl_ASADS
+{
+    border-bottom: 1px solid #DFDFDF;
+}
+.dxreControl_ASADS .dxrePage
+{
+    -webkit-box-shadow: rgba(0,0,0,0.1) 0 1px 3px;
+    -moz-box-shadow: rgba(0,0,0,0.1) 0 1px 3px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+.dxreControl_ASADS .dxreView
+{
+    border-left: 1px solid #DFDFDF;
+    border-right: 1px solid #DFDFDF;
+}
+.dxreControl_ASADS .dxreBar
+{
+    border-left: 1px solid #DFDFDF;
+    border-right: 1px solid #DFDFDF;
+}
+.dxreControl_ASADS .dxreBar .dxreLoadingPanel .dxlp-loadingImage
+{
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -o-border-radius: 50%;
+    -khtml-border-radius: 50%;
+    border-radius: 50%;
+    animation: dxLoadSpinSys 1s linear infinite;
+    border: 2px solid #084298;
+    border-top: 2px solid #EEE;
+    width: 12px;
+    height: 12px;
+}
+.dxreControl_ASADS .dxreQuickSearchPanel .dxreQuickSearchButton,
+.dxreControl_ASADS .dxreQuickSearchPanel .dxreQuickSearchButton .dxb
+{
+    box-shadow: none;
+    width: 0px;
+}
+.dxreControl_ASADS .dxrControl_ASADS .dxr-minBtn
+{
+    margin-top: 7px;
+}
+.dxreControl_ASADS.dxreNotInternalRibbon
+{
+    border-top: 1px solid #DFDFDF;
+}
+.dxreControl_ASADS .dxreRulerWrapper
+{
+    border-left: 1px solid #DFDFDF;
+    border-right: 1px solid #DFDFDF;
+}
+.dxreControl_ASADS .dxreDlgColumnsForm .dxreDlgTableWidth .dxreDlgCenter
+{
+    padding: 0 5px;
+}
+.dxreControl_ASADS .dxreDlgFindReplaceForm .dxre-dialogContentGroup
+{
+    padding-bottom: 36px !important;
+}
+.dxreControl_ASADS .dxreBorderButton.dxbButton_ASADS.dxbTSys
+{
+    visibility: hidden;
+    width: 0px;
+}
+.dxreControl_ASADS .dxre-dialogCellBlock
+{
+    height: 29px;
+}
+.dxreControl_ASADS .dxreDlgListBox .dxreDlgListSelected
+{
+    color: #FFF;
+}
+.dxreControl_ASADS .dxreDlgFinishMergeForm
+{
+    width: 300px;
+}
+.dxreControl_ASADS .dxreDlgPageSetupForm .dxre-dialogContentGroup > tbody > tr:last-child > td
+{
+    padding-left: 10px;
+}
+.dxreControl_ASADS .dxreDlgHyperlinkForm.dxflFormLayout_ASADS .dxre-editorsGroupWithPaddings
+{
+    padding-left: 5px;
+    padding-right: 2px;
+}
+.dxreControl_ASADS .dxreDlgColumnsForm .dxre-dialogPresetsPanel .dxbButton_ASADS div.dxb
+{
+    padding: 4px 12px 6px;
+}
+.dxreControl_ASADS .dxreDlgColumnsForm .dxre-dialogPresetsPanel .dxbButton_ASADS.dxbTSys
+{
+    width: 60px;
+}
+.dxreControl_ASADS .dxreDlgLayoutForm .dxbButton_ASADS.dxbTSys
+{
+    width: 60px;
+}
+.dxreControl_ASADS .dxre-dialogParagraphInnerLayout .dxflCaptionCell_ASADS
+{
+    padding: 6px 0 !important;
+}
+.dxreControl_ASADS .dxre-dialogPresetButton .dxbButton_ASADS.dxbTSys
+{
+    width: 55px;
+}
+.dxreControl_ASADS .dxre-dialogPresetButton .dxbButton_ASADS div.dxb
+{
+    padding: 6px 2px 6px !important;
+}
+@media (max-width: 500px)
+{
+    .dxreControl_ASADS .dxreDialog .dxtcLite_ASADS > .dxtc-content
+    {
+        padding: 7px;
+    }
+    .dxreControl_ASADS .dxreDialog .dxre-dialog .dxflElConSys > div
+    {
+        float: left;
+        width: 100% !important;
+    }
+    .dxreControl_ASADS .dxreDialog .dxflCaptionCellSys
+    {
+        padding: 13px 0 !important;
+    }
+    .dxreControl_ASADS .dxreDialog .dxflGroupCell_ASADS
+    {
+        padding: 0px 10px;
+    }
+    .dxreControl_ASADS .dxreDialog .dxbButton_ASADS div.dxb
+    {
+        padding: 6px 2px 4px;
+    }
+    .dxreControl_ASADS .dxreDialog .dxre-dialogCellMarginsGroup
+    {
+        padding: 0px !important;
+    }
+    .dxreControl_ASADS .dxreDialog .dxre-dialogCellMarginsGroup .dxre-dialogLG, .dxreControl_ASADS .dxreDialog .dxre-dialogCellMarginsGroup .dxre-dialogLGC
+    {
+        padding: 0px;
+    }
+    .dxreControl_ASADS .dxreDialog .dxre-dialogCellMarginsGroup .dxre-dialogCellBlock
+    {
+        width: 67px;
+    }
+    .dxreControl_ASADS .dxreDialog .dxre-dialogCellMarginsGroup .dxflLastChildSys:not(.dxflFirstChildSys)
+    {
+        padding-left: 35px;
+    }
+    .dxreControl_ASADS .dxreDialog .dxre-dialogCellMarginsGroup .dxre-dialogCellMargins .dxre-dialogShortEditor
+    {
+        max-width: 88px;
+    }
+    .dxreControl_ASADS .dxreDialog .dxre-dialogCellMarginsGroup .dxre-dialogCellMargins .dxre-dialogShortEditor td.dxic
+    {
+        padding: 6px 3px 6px 5px;
+    }
+    .dxreControl_ASADS .dxreDialog .dxre-dialogCellMarginsGroup .dxre-dialogCellMargins .dxre-dialogShortEditor .dxeButtonEditClearButton_ASADS
+    {
+        padding: 0px;
+    }
+    .dxreControl_ASADS .dxreDialog .dxreDlgColumnsForm .dxflNotFloatedElSys .dxrpControl_ASADS .dxflGroupCell_ASADS .dxreDlgSpinEdit
+    {
+        width: 95px;
+    }
+    .dxreControl_ASADS .dxreDialog .dxreDlgColumnsForm .dxflNotFloatedElSys .dxrpControl_ASADS .dxflGroupCell_ASADS .dxreDlgSpinEdit td.dxic
+    {
+        padding: 7px 6px 6px 6px;
+    }
+    .dxreControl_ASADS .dxreDialog .dxreDlgColumnsForm .dxflNotFloatedElSys .dxrpControl_ASADS .dxflGroupCell_ASADS .dxreDlgSpinEdit .dxeButtonEditClearButton_ASADS
+    {
+        padding: 0px;
+    }
+    .dxreControl_ASADS .dxreDialog .dxreDlgColumnsForm .dxre-dialogPresetsPanel .dxbButton_ASADS div.dxb
+    {
+        padding: 4px 12px 6px;
+    }
+    .dxreControl_ASADS .dxreDialog .dxreDlgColumnsForm .dxre-dialogPresetsPanel .dxbButton_ASADS.dxbTSys
+    {
+        width: 40px;
+    }
+    .dxreControl_ASADS .dxreDialog .dxreDlgColumnsForm .dxreDlgColumnsEditor .dxreDlgTextBox
+    {
+        width: 36px;
+    }
+    .dxreControl_ASADS .dxreDialog .dxreDlgColumnsForm .dxreDlgColumnsEditor .dxreDlgSpinEdit
+    {
+        width: 78px;
+    }
+    .dxreControl_ASADS .dxreDialog .dxreDlgLayoutForm .dxbButton_ASADS.dxbTSys
+    {
+        width: 55px;
+    }
+    .dxreControl_ASADS .dxreDialog .dxre-offsetGroup
+    {
+        padding: 0px;
+    }
+    .dxreControl_ASADS .dxreDialog .dxre-offsetGroup .dxre-dialogShortEditor
+    {
+        max-width: 115px;
+    }
+}

@@ -1,0 +1,25 @@
+﻿@Html.DevExpress().CallbackPanel(settings => {
+    settings.Name = "repConsulta";
+    settings.CallbackRouteValues = new { Controller = "Consulta", Action = "ViewerReporteConsulta" };
+    settings.ClientSideEvents.BeginCallback = "function(s,e){e.customArgs[\"anio\"]=localStorage.getItem(\"anio\");}";
+    settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+    settings.Height = 700;
+
+    settings.SetContent(() => {
+
+        if (Model != null)
+        {
+            object[] obj = Model;
+
+            @Html.DevExpress().WebDocumentViewer(setting =>
+            {
+                setting.Name = "reporteConsulta";
+                //settings.MobileMode = true;
+                setting.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+                setting.Height = System.Web.UI.WebControls.Unit.Percentage(100);
+
+            }).Bind((DevExpress.XtraReports.UI.XtraReport)obj[0]).GetHtml();
+        }
+
+    });
+}).GetHtml()

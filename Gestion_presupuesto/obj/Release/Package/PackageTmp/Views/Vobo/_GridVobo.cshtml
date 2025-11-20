@@ -1,0 +1,414 @@
+﻿@{
+    Gestion_presupuesto.Controllers.PresupuestoController clase = new Gestion_presupuesto.Controllers.PresupuestoController();
+    var grid = Html.DevExpress().GridView(settings =>
+    {
+        settings.Name = "GridVobo";
+        settings.CallbackRouteValues = new { Controller = "Vobo", Action = "GridVobo" };
+        settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "Vobo", Action = "GridVoboUpdate" };
+        settings.ClientSideEvents.RowClick = "function(s,e){OnRowClick(s,e);}";
+        settings.EnableRowsCache = false;
+        settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+
+        settings.SettingsAdaptivity.AdaptivityMode = GridViewAdaptivityMode.HideDataCells;
+        settings.SettingsSearchPanel.Visible = true;
+        settings.SettingsAdaptivity.AllowOnlyOneAdaptiveDetailExpanded = true;
+        settings.SettingsBehavior.AllowFocusedRow = true;
+        settings.SettingsPopup.EditForm.Modal = true;
+        settings.SettingsEditing.Mode = GridViewEditingMode.PopupEditForm;
+        settings.SettingsPopup.EditForm.VerticalAlign = PopupVerticalAlign.Middle;
+        settings.SettingsPopup.EditForm.HorizontalAlign = PopupHorizontalAlign.Center;
+        settings.SettingsPopup.EditForm.ShowHeader = false;
+        settings.SettingsBehavior.ConfirmDelete = true;
+        settings.SettingsPopup.EditForm.ShowHeader = true;
+        settings.SettingsText.PopupEditFormCaption = "Gestión plan de compra";
+        settings.CommandColumn.ButtonRenderMode = GridCommandButtonRenderMode.Secondary;
+
+        settings.CommandColumn.Visible = false;
+        settings.CommandColumn.ShowNewButtonInHeader = true;
+        settings.CommandColumn.ShowDeleteButton = false;
+        settings.CommandColumn.ShowEditButton = true;
+
+        settings.KeyFieldName = "id;id_vobo;tipo_vobo";
+
+        settings.SettingsPager.Visible = true;
+        settings.Settings.ShowGroupPanel = false;
+        settings.Settings.ShowFilterRow = false;
+
+
+        settings.SettingsPager.Visible = true;
+        settings.SettingsPager.PageSizeItemSettings.Visible = true;
+        settings.SettingsPager.PageSizeItemSettings.Items = new string[] { "5", "10", "20", "50" };
+        settings.SettingsPager.FirstPageButton.Visible = true;
+        settings.SettingsPager.LastPageButton.Visible = true;
+        settings.SettingsPager.PageSize = 5;
+        settings.SettingsPager.PageSizeItemSettings.Position = PagerPageSizePosition.Left;
+        settings.SettingsPopup.EditForm.VerticalAlign = PopupVerticalAlign.WindowCenter;
+        settings.SettingsPopup.EditForm.HorizontalAlign = PopupHorizontalAlign.WindowCenter;
+        settings.Settings.ShowGroupPanel = false;
+        settings.Settings.ShowFilterRow = false;
+        settings.SettingsBehavior.AllowSelectByRowClick = true;
+
+        settings.EditFormLayoutProperties.SettingsAdaptivity.AdaptivityMode = FormLayoutAdaptivityMode.SingleColumnWindowLimit;
+        settings.EditFormLayoutProperties.SettingsAdaptivity.SwitchToSingleColumnAtWindowInnerWidth = 900;
+        settings.SettingsPopup.EditForm.SettingsAdaptivity.Mode = PopupControlAdaptivityMode.OnWindowInnerWidth;
+        settings.SettingsPopup.EditForm.PopupAnimationType = DevExpress.Web.AnimationType.Fade;
+        settings.SettingsPopup.EditForm.Width = 1000;
+
+        settings.Columns.Add(gridViewColumnSettings =>
+        {
+            gridViewColumnSettings.FieldName = "nombre_proceso";
+            gridViewColumnSettings.Caption = "Nombre del proceso";
+            gridViewColumnSettings.Visible = false;
+            MVCxColumnTextBoxProperties editorProperties = gridViewColumnSettings.PropertiesEdit as MVCxColumnTextBoxProperties;
+            editorProperties.ValidationSettings.RequiredField.IsRequired = true;
+            editorProperties.ValidationSettings.RequiredField.ErrorText = "Este campo es requerido.";
+            gridViewColumnSettings.AdaptivePriority = 1;
+        });
+
+        settings.Columns.Add(gridViewColumnSettings =>
+        {
+            gridViewColumnSettings.FieldName = "proceso_column";
+            gridViewColumnSettings.Caption = "Nombre del proceso";
+            gridViewColumnSettings.AdaptivePriority = 1;
+            gridViewColumnSettings.PropertiesEdit.EncodeHtml = false;
+            MVCxColumnTextBoxProperties editorProperties = gridViewColumnSettings.PropertiesEdit as MVCxColumnTextBoxProperties;
+            editorProperties.ValidationSettings.RequiredField.IsRequired = true;
+            editorProperties.ValidationSettings.RequiredField.ErrorText = "Este campo es requerido.";
+            gridViewColumnSettings.AdaptivePriority = 1;
+        });
+
+        settings.Columns.Add(c =>
+        {
+            c.FieldName = "id_metodo_contratacion";
+            c.Caption = "Método de contratación";
+            c.AdaptivePriority = 2;
+            c.EditorProperties().ComboBox(p =>
+            {
+                p.TextField = "valor";
+                p.ValueField = "id_metodo_contratacion";
+                p.ValueType = typeof(int);
+                p.ValidationSettings.RequiredField.IsRequired = true;
+                p.ValidationSettings.RequiredField.ErrorText = "Este campo es requerido.";
+                p.DataSource = clase.GetMetodoContratacion();
+            });
+        });
+
+        //settings.Columns.Add("fecha_inicio");
+        settings.Columns.Add(c =>
+        {
+            c.FieldName = "fecha_inicio";
+            c.Caption = "Inicio (Mes/Año)";
+            c.AdaptivePriority = 3;
+            c.EditorProperties().DateEdit(p =>
+            {
+                p.EditFormat = EditFormat.Custom;
+                p.EditFormatString = "MM/yyyy";
+                p.DisplayFormatString = "MM/yyyy";
+                p.UseMaskBehavior = true;
+
+                p.CalendarProperties.ShowTodayButton = false;
+                p.ClientSideEvents.DateChanged = "function(s,e){normalizeMonthYear(s,e)}";
+            });
+        });
+
+        settings.Columns.Add(c =>
+        {
+            c.FieldName = "fecha_fin";
+            c.Caption = "Fin (Mes/Año)";
+            c.AdaptivePriority = 4;
+            c.EditorProperties().DateEdit(p =>
+            {
+                p.EditFormat = EditFormat.Custom;
+                p.EditFormatString = "MM/yyyy";
+                p.DisplayFormatString = "MM/yyyy";
+                p.UseMaskBehavior = true;
+
+                p.CalendarProperties.ShowTodayButton = false;
+                p.ClientSideEvents.DateChanged = "function(s,e){normalizeMonthYear(s,e)}";
+            });
+        });
+
+        settings.Columns.Add(gridViewColumnSettings =>
+        {
+            gridViewColumnSettings.FieldName = "monto";
+            gridViewColumnSettings.Caption = "Monto";
+            gridViewColumnSettings.AdaptivePriority = 4;
+            gridViewColumnSettings.ColumnType = MVCxGridViewColumnType.SpinEdit;
+            ((SpinEditProperties)gridViewColumnSettings.PropertiesEdit).DisplayFormatInEditMode = true;
+            ((SpinEditProperties)gridViewColumnSettings.PropertiesEdit).DisplayFormatString = "c";
+            ((SpinEditProperties)gridViewColumnSettings.PropertiesEdit).ValidationSettings.RequiredField.IsRequired = true;
+            ((SpinEditProperties)gridViewColumnSettings.PropertiesEdit).ValidationSettings.RequiredField.ErrorText = "Este campo es requerido.";
+            ((SpinEditProperties)gridViewColumnSettings.PropertiesEdit).NumberFormat = SpinEditNumberFormat.Currency;
+            ((SpinEditProperties)gridViewColumnSettings.PropertiesEdit).MaxValue = 999999999;
+            ((SpinEditProperties)gridViewColumnSettings.PropertiesEdit).DecimalPlaces = 2;
+            ((SpinEditProperties)gridViewColumnSettings.PropertiesEdit).ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.None;
+            ((SpinEditProperties)gridViewColumnSettings.PropertiesEdit).ValidationSettings.ErrorTextPosition = ErrorTextPosition.Bottom;
+        });
+
+
+
+        settings.Columns.Add(gridViewColumnSettings =>
+        {
+            gridViewColumnSettings.FieldName = "monto_goes";
+            gridViewColumnSettings.Visible = false;
+            gridViewColumnSettings.Caption = "Monto GOES";
+            gridViewColumnSettings.AdaptivePriority = 4;
+            gridViewColumnSettings.ColumnType = MVCxGridViewColumnType.SpinEdit;
+            ((SpinEditProperties)gridViewColumnSettings.PropertiesEdit).DisplayFormatInEditMode = true;
+            ((SpinEditProperties)gridViewColumnSettings.PropertiesEdit).DisplayFormatString = "c";
+            ((SpinEditProperties)gridViewColumnSettings.PropertiesEdit).ValidationSettings.RequiredField.IsRequired = true;
+            ((SpinEditProperties)gridViewColumnSettings.PropertiesEdit).ValidationSettings.RequiredField.ErrorText = "Este campo es requerido.";
+            ((SpinEditProperties)gridViewColumnSettings.PropertiesEdit).NumberFormat = SpinEditNumberFormat.Currency;
+            ((SpinEditProperties)gridViewColumnSettings.PropertiesEdit).MaxValue = 999999999;
+            ((SpinEditProperties)gridViewColumnSettings.PropertiesEdit).DecimalPlaces = 2;
+            ((SpinEditProperties)gridViewColumnSettings.PropertiesEdit).ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.None;
+            ((SpinEditProperties)gridViewColumnSettings.PropertiesEdit).ValidationSettings.ErrorTextPosition = ErrorTextPosition.Bottom;
+        });
+
+        settings.Columns.Add(gridViewColumnSettings =>
+        {
+            gridViewColumnSettings.FieldName = "monto_propio";
+            gridViewColumnSettings.Visible = false;
+            gridViewColumnSettings.Caption = "Monto Recursos Propios";
+            gridViewColumnSettings.AdaptivePriority = 4;
+            gridViewColumnSettings.ColumnType = MVCxGridViewColumnType.SpinEdit;
+            ((SpinEditProperties)gridViewColumnSettings.PropertiesEdit).DisplayFormatInEditMode = true;
+            ((SpinEditProperties)gridViewColumnSettings.PropertiesEdit).DisplayFormatString = "c";
+            ((SpinEditProperties)gridViewColumnSettings.PropertiesEdit).ValidationSettings.RequiredField.IsRequired = true;
+            ((SpinEditProperties)gridViewColumnSettings.PropertiesEdit).ValidationSettings.RequiredField.ErrorText = "Este campo es requerido.";
+            ((SpinEditProperties)gridViewColumnSettings.PropertiesEdit).NumberFormat = SpinEditNumberFormat.Currency;
+            ((SpinEditProperties)gridViewColumnSettings.PropertiesEdit).MaxValue = 999999999;
+            ((SpinEditProperties)gridViewColumnSettings.PropertiesEdit).DecimalPlaces = 2;
+            ((SpinEditProperties)gridViewColumnSettings.PropertiesEdit).ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.None;
+            ((SpinEditProperties)gridViewColumnSettings.PropertiesEdit).ValidationSettings.ErrorTextPosition = ErrorTextPosition.Bottom;
+        });
+
+
+        settings.Columns.Add(gridViewColumnSettings =>
+        {
+            gridViewColumnSettings.FieldName = "monto_proyectos";
+            gridViewColumnSettings.Visible = false;
+            gridViewColumnSettings.Caption = "Monto Proyectos";
+            gridViewColumnSettings.AdaptivePriority = 4;
+            gridViewColumnSettings.ColumnType = MVCxGridViewColumnType.SpinEdit;
+            ((SpinEditProperties)gridViewColumnSettings.PropertiesEdit).DisplayFormatInEditMode = true;
+            ((SpinEditProperties)gridViewColumnSettings.PropertiesEdit).DisplayFormatString = "c";
+            ((SpinEditProperties)gridViewColumnSettings.PropertiesEdit).ValidationSettings.RequiredField.IsRequired = true;
+            ((SpinEditProperties)gridViewColumnSettings.PropertiesEdit).ValidationSettings.RequiredField.ErrorText = "Este campo es requerido.";
+            ((SpinEditProperties)gridViewColumnSettings.PropertiesEdit).NumberFormat = SpinEditNumberFormat.Currency;
+            ((SpinEditProperties)gridViewColumnSettings.PropertiesEdit).MaxValue = 999999999;
+            ((SpinEditProperties)gridViewColumnSettings.PropertiesEdit).DecimalPlaces = 2;
+            ((SpinEditProperties)gridViewColumnSettings.PropertiesEdit).ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.None;
+            ((SpinEditProperties)gridViewColumnSettings.PropertiesEdit).ValidationSettings.ErrorTextPosition = ErrorTextPosition.Bottom;
+        });
+
+
+        settings.Columns.Add(gridViewColumnSettings =>
+        {
+            gridViewColumnSettings.FieldName = "monto_compensacion";
+            gridViewColumnSettings.Visible = false;
+            gridViewColumnSettings.Caption = "Monto Compensación Ambiental";
+            gridViewColumnSettings.AdaptivePriority = 4;
+            gridViewColumnSettings.ColumnType = MVCxGridViewColumnType.SpinEdit;
+            ((SpinEditProperties)gridViewColumnSettings.PropertiesEdit).DisplayFormatInEditMode = true;
+            ((SpinEditProperties)gridViewColumnSettings.PropertiesEdit).DisplayFormatString = "c";
+            ((SpinEditProperties)gridViewColumnSettings.PropertiesEdit).ValidationSettings.RequiredField.IsRequired = true;
+            ((SpinEditProperties)gridViewColumnSettings.PropertiesEdit).ValidationSettings.RequiredField.ErrorText = "Este campo es requerido.";
+            ((SpinEditProperties)gridViewColumnSettings.PropertiesEdit).NumberFormat = SpinEditNumberFormat.Currency;
+            ((SpinEditProperties)gridViewColumnSettings.PropertiesEdit).MaxValue = 999999999;
+            ((SpinEditProperties)gridViewColumnSettings.PropertiesEdit).DecimalPlaces = 2;
+            ((SpinEditProperties)gridViewColumnSettings.PropertiesEdit).ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.None;
+            ((SpinEditProperties)gridViewColumnSettings.PropertiesEdit).ValidationSettings.ErrorTextPosition = ErrorTextPosition.Bottom;
+        });
+
+        settings.Columns.Add(c =>
+        {
+            c.FieldName = "id_fuente_financiamiento";
+            c.Caption = "Fuente de financiamiento";
+            c.AdaptivePriority = 5;
+            c.EditorProperties().ComboBox(p =>
+            {
+                p.TextField = "valor";
+                p.ValueField = "id_fuente_financiamiento";
+                p.ValueType = typeof(int);
+                p.ClientSideEvents.Init = "function(s,e){obtenerfinanciamiento(s,e);}";
+                p.ClientSideEvents.ValueChanged = "function(s,e){cambio_financiamiento(s,e);}";
+                p.ValidationSettings.RequiredField.IsRequired = true;
+                p.ValidationSettings.RequiredField.ErrorText = "Este campo es requerido.";
+                p.DataSource = clase.GetFuenteFinanciamiento();
+            });
+        });
+        settings.Columns.Add(c =>
+        {
+            c.FieldName = "id_unidad_organizativa";
+            c.Caption = "Unidad organizativa";
+            c.AdaptivePriority = 6;
+            c.EditorProperties().ComboBox(p =>
+            {
+                p.TextField = "nombre";
+                p.ValueField = "id_estructura";
+                p.ValueType = typeof(int);
+                p.ValidationSettings.RequiredField.IsRequired = true;
+                p.ValidationSettings.RequiredField.ErrorText = "Este campo es requerido.";
+                p.DataSource = clase.GetEstructuras();
+            });
+        });
+        settings.Columns.Add(gridViewColumnSettings =>
+        {
+            gridViewColumnSettings.FieldName = "motivo_movimiento";
+            gridViewColumnSettings.AdaptivePriority = 2;
+            gridViewColumnSettings.Caption = "Motivo de la petición";
+            gridViewColumnSettings.Visible = true;
+            gridViewColumnSettings.EditorProperties().Memo(p =>
+            {
+                p.Rows = 4;
+            });
+            MVCxColumnMemoProperties editorProperties = gridViewColumnSettings.PropertiesEdit as MVCxColumnMemoProperties;
+            editorProperties.ValidationSettings.RequiredField.IsRequired = true;
+            editorProperties.ValidationSettings.RequiredField.ErrorText = "Este campo es requerido";
+        });
+
+        settings.Columns.Add(c =>
+        {
+            c.FieldName = "fecha_movimiento";
+            c.Caption = "Fecha de recepción";
+            c.AdaptivePriority = 7;
+            c.EditorProperties().DateEdit(p =>
+            {
+                p.EditFormat = EditFormat.Custom;
+                p.EditFormatString = "F";
+                p.DisplayFormatString = "F";
+                p.UseMaskBehavior = true;
+                p.CalendarProperties.ShowTodayButton = false;
+            });
+        });
+
+
+
+        settings.EditFormLayoutProperties.Items.AddGroupItem(tabbedGroupSettings =>
+        {
+            tabbedGroupSettings.GroupBoxDecoration = GroupBoxDecoration.None;
+            tabbedGroupSettings.ColumnCount = 2;
+            tabbedGroupSettings.Items.Add(item =>
+            {
+                item.Name = "nombre_proceso";
+                item.ColumnName = "nombre_proceso";
+                item.ColumnSpan = 2;
+                item.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
+            });
+
+
+            tabbedGroupSettings.Items.Add(item =>
+            {
+                item.Name = "id_metodo_contratacion";
+                item.ColumnName = "id_metodo_contratacion";
+                item.ColumnSpan = 2;
+                item.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
+            });
+
+            tabbedGroupSettings.Items.Add(item =>
+            {
+                item.Name = "fecha_inicio";
+                item.ColumnName = "fecha_inicio";
+                item.ColumnSpan = 1;
+                item.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
+            });
+
+            tabbedGroupSettings.Items.Add(item =>
+            {
+                item.Name = "fecha_fin";
+                item.ColumnName = "fecha_fin";
+                item.ColumnSpan = 1;
+                item.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
+            });
+
+            tabbedGroupSettings.Items.Add(item =>
+            {
+                item.Name = "id_fuente_financiamiento";
+                item.ColumnName = "id_fuente_financiamiento";
+                item.ColumnSpan = 2;
+                item.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
+            });
+
+            tabbedGroupSettings.Items.Add(item =>
+            {
+                item.Name = "monto";
+                item.ColumnName = "monto";
+                item.CssClass = "d-none no_mixto_class_detalle";
+                item.ColumnSpan = 2;
+                item.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
+            });
+
+            tabbedGroupSettings.Items.Add(item =>
+            {
+                item.Name = "monto_goes";
+                item.ColumnName = "monto_goes";
+                item.CssClass = "d-none mixto_class_detalle";
+                item.ColumnSpan = 1;
+                item.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
+            });
+
+            tabbedGroupSettings.Items.Add(item =>
+            {
+                item.Name = "monto_propio";
+                item.ColumnName = "monto_propio";
+                item.CssClass = "d-none mixto_class_detalle";
+                item.ColumnSpan = 1;
+                item.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
+            });
+
+            tabbedGroupSettings.Items.Add(item =>
+            {
+                item.Name = "monto_proyectos";
+                item.ColumnName = "monto_proyectos";
+                item.CssClass = "d-none mixto_class_detalle";
+                item.ColumnSpan = 1;
+                item.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
+            });
+
+            tabbedGroupSettings.Items.Add(item =>
+            {
+                item.Name = "monto_compensacion";
+                item.ColumnName = "monto_compensacion";
+                item.CssClass = "d-none mixto_class_detalle";
+                item.ColumnSpan = 1;
+                item.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
+            });
+
+
+
+            //tabbedGroupSettings.Items.Add(item =>
+            //{
+            //    item.Name = "motivo_movimiento";
+            //    item.ColumnName = "motivo_movimiento";
+            //    item.ColumnSpan = 2;
+            //    item.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
+            //});
+        });
+        settings.EditFormLayoutProperties.Items.AddCommandItem(commandItem =>
+        {
+            commandItem.Width = 100;
+            commandItem.VerticalAlign = FormLayoutVerticalAlign.Bottom;
+            commandItem.HorizontalAlign = FormLayoutHorizontalAlign.Center;
+
+        });
+        settings.SettingsCommandButton.CancelButton.RenderMode = GridCommandButtonRenderMode.Danger;
+        settings.SettingsCommandButton.UpdateButton.RenderMode = GridCommandButtonRenderMode.Button;
+        settings.SettingsText.CommandCancel = "Cancelar";
+        settings.SettingsText.CommandUpdate = "Modificar";
+        settings.EditFormLayoutCreated = (sender, e) =>
+        {
+            MVCxGridView gridView = sender as MVCxGridView;
+            if (gridView.IsNewRowEditing)
+            {
+                gridView.SettingsText.CommandUpdate = "Guardar";
+                return;
+            }
+        };
+    });
+    if (ViewData["EditError"] != null)
+    {
+        grid.SetEditErrorText((string)ViewData["EditError"]);
+    }
+}
+@grid.Bind(Model).GetHtml()

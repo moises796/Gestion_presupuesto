@@ -1,0 +1,230 @@
+
+dxSpriteWidth { width : 538 }
+
+.dxGridView_CTClearFilter_ASADS, .dxGridView_CTClearFilterDisabled_ASADS, .dxGridView_CTClearGrouping_ASADS, .dxGridView_CTClearGroupingDisabled_ASADS, .dxGridView_CTCollapseDetailRow_ASADS, .dxGridView_CTCollapseDetailRowDisabled_ASADS, .dxGridView_CTCollapseRow_ASADS, .dxGridView_CTCollapseRowDisabled_ASADS, .dxGridView_CTDeleteRow_ASADS, .dxGridView_CTDeleteRowDisabled_ASADS, .dxGridView_CTEditRow_ASADS, .dxGridView_CTEditRowDisabled_ASADS, .dxGridView_CTExpandDetailRow_ASADS, .dxGridView_CTExpandDetailRowDisabled_ASADS, .dxGridView_CTExpandRow_ASADS, .dxGridView_CTExpandRowDisabled_ASADS, .dxGridView_CTExportCsv_ASADS, .dxGridView_CTExportCsvDisabled_ASADS, .dxGridView_CTExportDocx_ASADS, .dxGridView_CTExportDocxDisabled_ASADS, .dxGridView_CTExportPdf_ASADS, .dxGridView_CTExportPdfDisabled_ASADS, .dxGridView_CTExportRtf_ASADS, .dxGridView_CTExportRtfDisabled_ASADS, .dxGridView_CTExportXls_ASADS, .dxGridView_CTExportXlsDisabled_ASADS, .dxGridView_CTExportXlsx_ASADS, .dxGridView_CTExportXlsxDisabled_ASADS, .dxGridView_CTFullCollapse_ASADS, .dxGridView_CTFullCollapseDisabled_ASADS, .dxGridView_CTFullExpand_ASADS, .dxGridView_CTFullExpandDisabled_ASADS, .dxGridView_CTNewRow_ASADS, .dxGridView_CTNewRowDisabled_ASADS, .dxGridView_CTRefresh_ASADS, .dxGridView_CTRefreshDisabled_ASADS, .dxGridView_CTShowCustDialog_ASADS, .dxGridView_CTShowCustDialogDisabled_ASADS, .dxGridView_CTShowCustomizationWindow_ASADS, .dxGridView_CTShowCustomizationWindowDisabled_ASADS, .dxGridView_CTShowFilterEditor_ASADS, .dxGridView_CTShowFilterEditorDisabled_ASADS, .dxGridView_CTShowFilterRow_ASADS, .dxGridView_CTShowFilterRowDisabled_ASADS, .dxGridView_CTShowGroupPanel_ASADS, .dxGridView_CTShowGroupPanelDisabled_ASADS, .dxGridView_CTShowSearchPanel_ASADS, .dxGridView_CTShowSearchPanelDisabled_ASADS, .dxGridView_CTUpdateSummaries_ASADS, .dxGridView_gvCellError_ASADS, .dxGridView_gvCMClearFilter_ASADS, .dxGridView_gvCMClearFilterDisabled_ASADS, .dxGridView_gvCMClearGrouping_ASADS, .dxGridView_gvCMClearGroupingDisabled_ASADS, .dxGridView_gvCMCollapseDetailRow_ASADS, .dxGridView_gvCMCollapseDetailRowDisabled_ASADS, .dxGridView_gvCMCollapseRow_ASADS, .dxGridView_gvCMCollapseRowDisabled_ASADS, .dxGridView_gvCMCopy_ASADS, .dxGridView_gvCMDeleteRow_ASADS, .dxGridView_gvCMDeleteRowDisabled_ASADS, .dxGridView_gvCMEditRow_ASADS, .dxGridView_gvCMEditRowDisabled_ASADS, .dxGridView_gvCMExpandDetailRow_ASADS, .dxGridView_gvCMExpandDetailRowDisabled_ASADS, .dxGridView_gvCMExpandRow_ASADS, .dxGridView_gvCMExpandRowDisabled_ASADS, .dxGridView_gvCMExportCsv_ASADS, .dxGridView_gvCMExportCsvDisabled_ASADS, .dxGridView_gvCMExportDocx_ASADS, .dxGridView_gvCMExportDocxDisabled_ASADS, .dxGridView_gvCMExportPdf_ASADS, .dxGridView_gvCMExportPdfDisabled_ASADS, .dxGridView_gvCMExportRtf_ASADS, .dxGridView_gvCMExportRtfDisabled_ASADS, .dxGridView_gvCMExportXls_ASADS, .dxGridView_gvCMExportXlsDisabled_ASADS, .dxGridView_gvCMExportXlsx_ASADS, .dxGridView_gvCMExportXlsxDisabled_ASADS, .dxGridView_gvCMFullCollapse_ASADS, .dxGridView_gvCMFullCollapseDisabled_ASADS, .dxGridView_gvCMFullExpand_ASADS, .dxGridView_gvCMFullExpandDisabled_ASADS, .dxGridView_gvCMGroupByColumn_ASADS, .dxGridView_gvCMGroupByColumnDisabled_ASADS, .dxGridView_gvCMNewRow_ASADS, .dxGridView_gvCMNewRowDisabled_ASADS, .dxGridView_gvCMPaste_ASADS, .dxGridView_gvCMRefresh_ASADS, .dxGridView_gvCMRefreshDisabled_ASADS, .dxGridView_gvCMSearchPanel_ASADS, .dxGridView_gvCMSearchPanelDisabled_ASADS, .dxGridView_gvCMShowCustDialog_ASADS, .dxGridView_gvCMShowCustDialogDisabled_ASADS, .dxGridView_gvCMShowCustomizationWindow_ASADS, .dxGridView_gvCMShowCustomizationWindowDisabled_ASADS, .dxGridView_gvCMShowFilterEditor_ASADS, .dxGridView_gvCMShowFilterEditorDisabled_ASADS, .dxGridView_gvCMShowGroupPanel_ASADS, .dxGridView_gvCMShowGroupPanelDisabled_ASADS, .dxGridView_gvCMShowSearchPanel_ASADS, .dxGridView_gvCMShowSearchPanelDisabled_ASADS, .dxGridView_gvCMSortAscending_ASADS, .dxGridView_gvCMSortAscendingDisabled_ASADS, .dxGridView_gvCMSortDescending_ASADS, .dxGridView_gvCMSortDescendingDisabled_ASADS, .dxGridView_gvCMSummaryAverage_ASADS, .dxGridView_gvCMSummaryAverageDisabled_ASADS, .dxGridView_gvCMSummaryCount_ASADS, .dxGridView_gvCMSummaryCountDisabled_ASADS, .dxGridView_gvCMSummaryMax_ASADS, .dxGridView_gvCMSummaryMaxDisabled_ASADS, .dxGridView_gvCMSummaryMin_ASADS, .dxGridView_gvCMSummaryMinDisabled_ASADS, .dxGridView_gvCMSummarySum_ASADS, .dxGridView_gvCMSummarySumDisabled_ASADS, .dxGridView_gvCMUngroupColumn_ASADS, .dxGridView_gvCOApply_ASADS, .dxGridView_gvCOApplyDisabled_ASADS, .dxGridView_gvCOClearFilter_ASADS, .dxGridView_gvCOClearFilterDisabled_ASADS, .dxGridView_gvCOClose_ASADS, .dxGridView_gvCOColumnDrag_ASADS, .dxGridView_gvCOColumnDragDisabled_ASADS, .dxGridView_gvCOColumnGroup_ASADS, .dxGridView_gvCOColumnGroupDisabled_ASADS, .dxGridView_gvCOColumnHide_ASADS, .dxGridView_gvCOColumnHideDisabled_ASADS, .dxGridView_gvCOColumnRemove_ASADS, .dxGridView_gvCOColumnRemoveDisabled_ASADS, .dxGridView_gvCOColumnShow_ASADS, .dxGridView_gvCOColumnShowDisabled_ASADS, .dxGridView_gvCOColumnSort_ASADS, .dxGridView_gvCOColumnSortDisabled_ASADS, .dxGridView_gvCOColumnSortDown_ASADS, .dxGridView_gvCOColumnSortDownDisabled_ASADS, .dxGridView_gvCOColumnSortUp_ASADS, .dxGridView_gvCOColumnSortUpDisabled_ASADS, .dxGridView_gvCOColumnUngroup_ASADS, .dxGridView_gvCOColumnUngroupDisabled_ASADS, .dxGridView_gvCOColumnUnsort_ASADS, .dxGridView_gvCOColumnUnsortDisabled_ASADS, .dxGridView_gvCODragAreaCollapse_ASADS, .dxGridView_gvCODragAreaExpand_ASADS, .dxGridView_gvCOFilterCollapse_ASADS, .dxGridView_gvCOFilterExpand_ASADS, .dxGridView_gvCollapsedButton_ASADS, .dxGridView_gvCollapsedButtonRtl_ASADS, .dxGridView_gvDetailCollapsedButton_ASADS, .dxGridView_gvDetailCollapsedButtonRtl_ASADS, .dxGridView_gvDetailExpandedButton_ASADS, .dxGridView_gvDetailExpandedButtonRtl_ASADS, .dxGridView_gvDragAndDropArrowDown_ASADS, .dxGridView_gvDragAndDropArrowLeft_ASADS, .dxGridView_gvDragAndDropArrowRight_ASADS, .dxGridView_gvDragAndDropArrowUp_ASADS, .dxGridView_gvDragAndDropHideColumn_ASADS, .dxGridView_gvExpandedButton_ASADS, .dxGridView_gvExpandedButtonRtl_ASADS, .dxGridView_gvFilterRowButton_ASADS, .dxGridView_gvFixedGroupRow_ASADS, .dxGridView_gvHeaderFilter_ASADS, .dxGridView_gvHeaderFilterActive_ASADS, .dxGridView_gvHeaderSortDown_ASADS, .dxGridView_gvHeaderSortUp_ASADS, .dxGridView_gvHideAdaptiveDetailButton_ASADS, .dxGridView_gvParentGroupRows_ASADS, .dxGridView_gvShowAdaptiveDetailButton_ASADS, .dxGridView_gvUpdateSummariesButton_ASADS, .dxGridView_WindowResizer_ASADS, .dxGridView_WindowResizerRtl_ASADS, .dxgvADSB:hover .dxGridView_gvShowAdaptiveDetailButton_ASADS, .dxgvFocusedGroupRow_ASADS .dxGridView_gvCollapsedButton_ASADS, .dxgvFocusedGroupRow_ASADS .dxGridView_gvCollapsedButtonRtl_ASADS, .dxgvFocusedGroupRow_ASADS .dxGridView_gvDetailCollapsedButton_ASADS, .dxgvFocusedGroupRow_ASADS .dxGridView_gvDetailCollapsedButtonRtl_ASADS, .dxgvFocusedGroupRow_ASADS .dxGridView_gvDetailExpandedButton_ASADS, .dxgvFocusedGroupRow_ASADS .dxGridView_gvDetailExpandedButtonRtl_ASADS, .dxgvFocusedGroupRow_ASADS .dxGridView_gvExpandedButton_ASADS, .dxgvFocusedGroupRow_ASADS .dxGridView_gvExpandedButtonRtl_ASADS, .dxgvFocusedRow_ASADS .dxGridView_gvDetailCollapsedButton_ASADS, .dxgvFocusedRow_ASADS .dxGridView_gvDetailCollapsedButtonRtl_ASADS, .dxgvFocusedRow_ASADS .dxGridView_gvDetailExpandedButton_ASADS, .dxgvFocusedRow_ASADS .dxGridView_gvDetailExpandedButtonRtl_ASADS, .dxgvFocusedRow_ASADS .dxGridView_gvShowAdaptiveDetailButton_ASADS, .dxgvFocusedRow_ASADS .dxgvADSB:hover .dxGridView_gvShowAdaptiveDetailButton_ASADS, .dxm-checked .dxGridView_CTShowCustomizationWindow_ASADS, .dxm-checked .dxGridView_CTShowFilterRow_ASADS, .dxm-checked .dxGridView_CTShowGroupPanel_ASADS, .dxm-checked .dxGridView_CTShowSearchPanel_ASADS, .dxm-checked .dxGridView_gvCMClearFilter_ASADS, .dxm-checked .dxGridView_gvCMClearGrouping_ASADS, .dxm-checked .dxGridView_gvCMCollapseDetailRow_ASADS, .dxm-checked .dxGridView_gvCMCollapseRow_ASADS, .dxm-checked .dxGridView_gvCMDeleteRow_ASADS, .dxm-checked .dxGridView_gvCMEditRow_ASADS, .dxm-checked .dxGridView_gvCMExpandDetailRow_ASADS, .dxm-checked .dxGridView_gvCMExpandRow_ASADS, .dxm-checked .dxGridView_gvCMFullCollapse_ASADS, .dxm-checked .dxGridView_gvCMFullExpand_ASADS, .dxm-checked .dxGridView_gvCMGroupByColumn_ASADS, .dxm-checked .dxGridView_gvCMNewRow_ASADS, .dxm-checked .dxGridView_gvCMRefresh_ASADS, .dxm-checked .dxGridView_gvCMSearchPanel_ASADS, .dxm-checked .dxGridView_gvCMShowCustomizationWindow_ASADS, .dxm-checked .dxGridView_gvCMShowFilterEditor_ASADS, .dxm-checked .dxGridView_gvCMShowGroupPanel_ASADS, .dxm-checked .dxGridView_gvCMShowSearchPanel_ASADS, .dxm-checked .dxGridView_gvCMSortAscending_ASADS, .dxm-checked .dxGridView_gvCMSortDescending_ASADS, .dxm-checked .dxGridView_gvCMSummaryAverage_ASADS, .dxm-checked .dxGridView_gvCMSummaryCount_ASADS, .dxm-checked .dxGridView_gvCMSummaryMax_ASADS, .dxm-checked .dxGridView_gvCMSummaryMin_ASADS, .dxm-checked .dxGridView_gvCMSummarySum_ASADS, .dxm-checked .dxGridView_gvCMUngroupColumn_ASADS { background-image: url('sprite.svg'); background-repeat: no-repeat; background-color: transparent } 
+.dxGridView_CTClearFilter_ASADS { background-position: -216px -66px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_CTClearFilterDisabled_ASADS { background-position: -18px -66px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_CTClearGrouping_ASADS { background-position: -90px -66px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_CTClearGroupingDisabled_ASADS { background-position: -234px -66px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_CTCollapseDetailRow_ASADS { background-position: -424px -24px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_CTCollapseDetailRowDisabled_ASADS { background-position: -270px -66px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_CTCollapseRow_ASADS { background-position: -162px -66px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_CTCollapseRowDisabled_ASADS { background-position: -442px -24px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_CTDeleteRow_ASADS { background-position: -504px -102px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_CTDeleteRowDisabled_ASADS { background-position: -406px -24px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_CTEditRow_ASADS { background-position: -136px -24px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_CTEditRowDisabled_ASADS { background-position: -298px -24px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_CTExpandDetailRow_ASADS { background-position: -172px -24px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_CTExpandDetailRowDisabled_ASADS { background-position: -154px -24px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_CTExpandRow_ASADS { background-position: -208px -24px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_CTExpandRowDisabled_ASADS { background-position: -190px -24px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_CTExportCsv_ASADS { background-position: -244px -24px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_CTExportCsvDisabled_ASADS { background-position: -226px -24px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_CTExportDocx_ASADS { background-position: -280px -24px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_CTExportDocxDisabled_ASADS { background-position: -388px -24px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_CTExportPdf_ASADS { background-position: -306px -66px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_CTExportPdfDisabled_ASADS { background-position: -198px -66px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_CTExportRtf_ASADS { background-position: -126px -84px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_CTExportRtfDisabled_ASADS { background-position: -180px -66px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_CTExportXls_ASADS { background-position: -54px -102px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_CTExportXlsDisabled_ASADS { background-position: 0px -66px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_CTExportXlsx_ASADS { background-position: -432px -84px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_CTExportXlsxDisabled_ASADS { background-position: -144px -84px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_CTFullCollapse_ASADS { background-position: -468px -84px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_CTFullCollapseDisabled_ASADS { background-position: -450px -84px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_CTFullExpand_ASADS { background-position: -288px -84px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_CTFullExpandDisabled_ASADS { background-position: -486px -84px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_CTNewRow_ASADS { background-position: -144px -48px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_CTNewRowDisabled_ASADS { background-position: -396px -102px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_CTRefresh_ASADS { background-position: -468px -102px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_CTRefreshDisabled_ASADS { background-position: -306px -102px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_CTShowCustDialog_ASADS { background-position: -478px -24px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_CTShowCustDialogDisabled_ASADS { background-position: -460px -24px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_CTShowCustomizationWindow_ASADS { background-position: -514px -24px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_CTShowCustomizationWindowDisabled_ASADS { background-position: -496px -24px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_CTShowFilterEditor_ASADS { background-position: -192px -120px; background-size: 538px auto; width: 14px; height: 14px } 
+.dxGridView_CTShowFilterEditorDisabled_ASADS { background-position: -176px -120px; background-size: 538px auto; width: 14px; height: 14px } 
+.dxGridView_CTShowFilterRow_ASADS { background-position: -262px -24px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_CTShowFilterRowDisabled_ASADS { background-position: 0px -48px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_CTShowGroupPanel_ASADS { background-position: -378px -102px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_CTShowGroupPanelDisabled_ASADS { background-position: -316px -24px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_CTShowSearchPanel_ASADS { background-position: -112px -120px; background-size: 538px auto; width: 14px; height: 14px } 
+.dxGridView_CTShowSearchPanelDisabled_ASADS { background-position: -352px -24px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_CTUpdateSummaries_ASADS { background-position: -504px -66px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_gvCellError_ASADS { background-position: -208px -120px; background-size: 538px auto; width: 14px; height: 14px } 
+.dxGridView_gvCMClearFilter_ASADS { background-position: -36px -102px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_gvCMClearFilterDisabled_ASADS { background-position: -90px -84px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_gvCMClearGrouping_ASADS { background-position: -342px -84px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_gvCMClearGroupingDisabled_ASADS { background-position: -198px -84px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_gvCMCollapseDetailRow_ASADS { background-position: 0px -102px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_gvCMCollapseDetailRowDisabled_ASADS { background-position: -126px -66px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_gvCMCollapseRow_ASADS { background-position: -108px -66px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_gvCMCollapseRowDisabled_ASADS { background-position: -432px -102px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_gvCMCopy_ASADS { background-position: -252px -102px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_gvCMDeleteRow_ASADS { background-position: -450px -66px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_gvCMDeleteRowDisabled_ASADS { background-position: -468px -66px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_gvCMEditRow_ASADS { background-position: -504px -84px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_gvCMEditRowDisabled_ASADS { background-position: -180px -84px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_gvCMExpandDetailRow_ASADS { background-position: -234px -84px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_gvCMExpandDetailRowDisabled_ASADS { background-position: -180px -102px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_gvCMExpandRow_ASADS { background-position: -72px -66px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_gvCMExpandRowDisabled_ASADS { background-position: -432px -66px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_gvCMExportCsv_ASADS { background-position: -216px -84px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_gvCMExportCsvDisabled_ASADS { background-position: 0px -84px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_gvCMExportDocx_ASADS { background-position: -18px -120px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_gvCMExportDocxDisabled_ASADS { background-position: -270px -84px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_gvCMExportPdf_ASADS { background-position: -324px -66px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_gvCMExportPdfDisabled_ASADS { background-position: -370px -24px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_gvCMExportRtf_ASADS { background-position: -54px -120px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_gvCMExportRtfDisabled_ASADS { background-position: -342px -66px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_gvCMExportXls_ASADS { background-position: -378px -66px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_gvCMExportXlsDisabled_ASADS { background-position: -414px -102px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_gvCMExportXlsx_ASADS { background-position: -486px -66px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_gvCMExportXlsxDisabled_ASADS { background-position: -450px -102px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_gvCMFullCollapse_ASADS { background-position: -486px -102px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_gvCMFullCollapseDisabled_ASADS { background-position: -288px -66px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_gvCMFullExpand_ASADS { background-position: -324px -84px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_gvCMFullExpandDisabled_ASADS { background-position: 0px -120px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_gvCMGroupByColumn_ASADS { background-position: -162px -84px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_gvCMGroupByColumnDisabled_ASADS { background-position: -306px -84px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_gvCMNewRow_ASADS { background-position: -144px -66px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_gvCMNewRowDisabled_ASADS { background-position: -504px -48px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_gvCMPaste_ASADS { background-position: -18px -48px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_gvCMRefresh_ASADS { background-position: -360px -48px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_gvCMRefreshDisabled_ASADS { background-position: -126px -102px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_gvCMSearchPanel_ASADS { background-position: -144px -120px; background-size: 538px auto; width: 14px; height: 14px } 
+.dxGridView_gvCMSearchPanelDisabled_ASADS { background-position: -342px -48px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_gvCMShowCustDialog_ASADS { background-position: -306px -48px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_gvCMShowCustDialogDisabled_ASADS { background-position: -324px -48px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_gvCMShowCustomizationWindow_ASADS { background-position: -270px -48px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_gvCMShowCustomizationWindowDisabled_ASADS { background-position: -288px -48px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_gvCMShowFilterEditor_ASADS { background-position: -256px -120px; background-size: 538px auto; width: 14px; height: 14px } 
+.dxGridView_gvCMShowFilterEditorDisabled_ASADS { background-position: -522px -66px; background-size: 538px auto; width: 14px; height: 14px } 
+.dxGridView_gvCMShowGroupPanel_ASADS { background-position: -252px -48px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_gvCMShowGroupPanelDisabled_ASADS { background-position: -486px -48px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_gvCMShowSearchPanel_ASADS { background-position: -224px -120px; background-size: 538px auto; width: 14px; height: 14px } 
+.dxGridView_gvCMShowSearchPanelDisabled_ASADS { background-position: -216px -48px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_gvCMSortAscending_ASADS { background-position: -180px -48px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_gvCMSortAscendingDisabled_ASADS { background-position: -198px -48px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_gvCMSortDescending_ASADS { background-position: -72px -48px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_gvCMSortDescendingDisabled_ASADS { background-position: -162px -48px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_gvCMSummaryAverage_ASADS { background-position: -234px -48px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_gvCMSummaryAverageDisabled_ASADS { background-position: -126px -48px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_gvCMSummaryCount_ASADS { background-position: -396px -48px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_gvCMSummaryCountDisabled_ASADS { background-position: -378px -48px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_gvCMSummaryMax_ASADS { background-position: -36px -66px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_gvCMSummaryMaxDisabled_ASADS { background-position: -414px -48px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_gvCMSummaryMin_ASADS { background-position: -270px -102px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_gvCMSummaryMinDisabled_ASADS { background-position: -414px -66px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_gvCMSummarySum_ASADS { background-position: -234px -102px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_gvCMSummarySumDisabled_ASADS { background-position: -396px -66px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_gvCMUngroupColumn_ASADS { background-position: -360px -66px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_gvCOApply_ASADS { background-position: 0px -24px; background-size: 538px auto; width: 22px; height: 22px } 
+.dxGridView_gvCOApplyDisabled_ASADS { background-position: -48px -24px; background-size: 538px auto; width: 22px; height: 22px } 
+.dxGridView_gvCOClearFilter_ASADS { background-position: -48px 0px; background-size: 538px auto; width: 22px; height: 22px } 
+.dxGridView_gvCOClearFilterDisabled_ASADS { background-position: -24px 0px; background-size: 538px auto; width: 22px; height: 22px } 
+.dxGridView_gvCOClose_ASADS { background-position: -72px 0px; background-size: 538px auto; width: 22px; height: 22px } 
+.dxGridView_gvCOColumnDrag_ASADS { background-position: -116px -24px; background-size: 538px auto; width: 18px; height: 18px } 
+.dxGridView_gvCOColumnDragDisabled_ASADS { background-position: -96px -24px; background-size: 538px auto; width: 18px; height: 18px } 
+.dxGridView_gvCOColumnGroup_ASADS { background-position: -72px -24px; background-size: 538px auto; width: 22px; height: 22px } 
+.dxGridView_gvCOColumnGroupDisabled_ASADS { background-position: -336px 0px; background-size: 538px auto; width: 22px; height: 22px } 
+.dxGridView_gvCOColumnHide_ASADS { background-position: -504px 0px; background-size: 538px auto; width: 22px; height: 22px } 
+.dxGridView_gvCOColumnHideDisabled_ASADS { background-position: -24px -24px; background-size: 538px auto; width: 22px; height: 22px } 
+.dxGridView_gvCOColumnRemove_ASADS { background-position: -456px 0px; background-size: 538px auto; width: 22px; height: 22px } 
+.dxGridView_gvCOColumnRemoveDisabled_ASADS { background-position: -480px 0px; background-size: 538px auto; width: 22px; height: 22px } 
+.dxGridView_gvCOColumnShow_ASADS { background-position: -408px 0px; background-size: 538px auto; width: 22px; height: 22px } 
+.dxGridView_gvCOColumnShowDisabled_ASADS { background-position: -432px 0px; background-size: 538px auto; width: 22px; height: 22px } 
+.dxGridView_gvCOColumnSort_ASADS { background-position: -264px 0px; background-size: 538px auto; width: 22px; height: 22px } 
+.dxGridView_gvCOColumnSortDisabled_ASADS { background-position: -384px 0px; background-size: 538px auto; width: 22px; height: 22px } 
+.dxGridView_gvCOColumnSortDown_ASADS { background-position: 0px 0px; background-size: 538px auto; width: 22px; height: 22px } 
+.dxGridView_gvCOColumnSortDownDisabled_ASADS { background-position: -360px 0px; background-size: 538px auto; width: 22px; height: 22px } 
+.dxGridView_gvCOColumnSortUp_ASADS { background-position: -288px 0px; background-size: 538px auto; width: 22px; height: 22px } 
+.dxGridView_gvCOColumnSortUpDisabled_ASADS { background-position: -312px 0px; background-size: 538px auto; width: 22px; height: 22px } 
+.dxGridView_gvCOColumnUngroup_ASADS { background-position: -216px 0px; background-size: 538px auto; width: 22px; height: 22px } 
+.dxGridView_gvCOColumnUngroupDisabled_ASADS { background-position: -240px 0px; background-size: 538px auto; width: 22px; height: 22px } 
+.dxGridView_gvCOColumnUnsort_ASADS { background-position: -168px 0px; background-size: 538px auto; width: 22px; height: 22px } 
+.dxGridView_gvCOColumnUnsortDisabled_ASADS { background-position: -192px 0px; background-size: 538px auto; width: 22px; height: 22px } 
+.dxGridView_gvCODragAreaCollapse_ASADS { background-position: -319px -120px; background-size: 538px auto; width: 13px; height: 13px } 
+.dxGridView_gvCODragAreaExpand_ASADS { background-position: -304px -120px; background-size: 538px auto; width: 13px; height: 13px } 
+.dxGridView_gvCOFilterCollapse_ASADS { background-position: -144px 0px; background-size: 538px auto; width: 22px; height: 22px } 
+.dxGridView_gvCOFilterExpand_ASADS { background-position: -120px 0px; background-size: 538px auto; width: 22px; height: 22px } 
+.dxGridView_gvCollapsedButton_ASADS { background-position: -334px -120px; background-size: 538px auto; width: 12px; height: 12px } 
+.dxGridView_gvCollapsedButtonRtl_ASADS { background-position: -404px -120px; background-size: 538px auto; width: 12px; height: 12px } 
+.dxGridView_gvDetailCollapsedButton_ASADS { background-position: -362px -120px; background-size: 538px auto; width: 12px; height: 12px } 
+.dxGridView_gvDetailCollapsedButtonRtl_ASADS { background-position: -446px -120px; background-size: 538px auto; width: 12px; height: 12px } 
+.dxGridView_gvDetailExpandedButton_ASADS { background-position: 0px -138px; background-size: 538px auto; width: 12px; height: 12px } 
+.dxGridView_gvDetailExpandedButtonRtl_ASADS { background-position: -348px -120px; background-size: 538px auto; width: 12px; height: 12px } 
+.dxGridView_gvDragAndDropArrowDown_ASADS { background-position: -147px -138px; background-size: 538px auto; width: 11px; height: 9px } 
+.dxGridView_gvDragAndDropArrowLeft_ASADS { background-position: -123px -138px; background-size: 538px auto; width: 9px; height: 10px } 
+.dxGridView_gvDragAndDropArrowRight_ASADS { background-position: -112px -138px; background-size: 538px auto; width: 9px; height: 10px } 
+.dxGridView_gvDragAndDropArrowUp_ASADS { background-position: -134px -138px; background-size: 538px auto; width: 11px; height: 9px } 
+.dxGridView_gvDragAndDropHideColumn_ASADS { background-position: -54px -66px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_gvExpandedButton_ASADS { background-position: -98px -138px; background-size: 538px auto; width: 12px; height: 12px } 
+.dxGridView_gvExpandedButtonRtl_ASADS { background-position: -474px -120px; background-size: 538px auto; width: 12px; height: 12px } 
+.dxGridView_gvFilterRowButton_ASADS { background-position: -522px -84px; background-size: 538px auto; width: 14px; height: 14px } 
+.dxGridView_gvFixedGroupRow_ASADS { background-position: -72px -120px; background-size: 538px auto; width: 22px; height: 14px } 
+.dxGridView_gvHeaderFilter_ASADS { background-position: -240px -120px; background-size: 538px auto; width: 14px; height: 14px } 
+.dxGridView_gvHeaderFilterActive_ASADS { background-position: -128px -120px; background-size: 538px auto; width: 14px; height: 14px } 
+.dxGridView_gvHeaderSortDown_ASADS { background-position: -418px -120px; background-size: 538px auto; width: 12px; height: 12px } 
+.dxGridView_gvHeaderSortUp_ASADS { background-position: -390px -120px; background-size: 538px auto; width: 12px; height: 12px } 
+.dxGridView_gvHideAdaptiveDetailButton_ASADS { background-position: -36px -48px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_gvParentGroupRows_ASADS { background-position: -96px 0px; background-size: 538px auto; width: 22px; height: 22px } 
+.dxGridView_gvShowAdaptiveDetailButton_ASADS { background-position: -414px -84px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_gvUpdateSummariesButton_ASADS { background-position: -72px -102px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_WindowResizer_ASADS { background-position: -160px -120px; background-size: 538px auto; width: 14px; height: 14px } 
+.dxGridView_WindowResizerRtl_ASADS { background-position: -96px -120px; background-size: 538px auto; width: 14px; height: 14px } 
+.dxgvADSB:hover .dxGridView_gvShowAdaptiveDetailButton_ASADS { background-position: -198px -102px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxgvFocusedGroupRow_ASADS .dxGridView_gvCollapsedButton_ASADS { background-position: -460px -120px; background-size: 538px auto; width: 12px; height: 12px } 
+.dxgvFocusedGroupRow_ASADS .dxGridView_gvCollapsedButtonRtl_ASADS { background-position: -502px -120px; background-size: 538px auto; width: 12px; height: 12px } 
+.dxgvFocusedGroupRow_ASADS .dxGridView_gvDetailCollapsedButton_ASADS { background-position: -56px -138px; background-size: 538px auto; width: 12px; height: 12px } 
+.dxgvFocusedGroupRow_ASADS .dxGridView_gvDetailCollapsedButtonRtl_ASADS { background-position: -516px -120px; background-size: 538px auto; width: 12px; height: 12px } 
+.dxgvFocusedGroupRow_ASADS .dxGridView_gvDetailExpandedButton_ASADS { background-position: -488px -120px; background-size: 538px auto; width: 12px; height: 12px } 
+.dxgvFocusedGroupRow_ASADS .dxGridView_gvDetailExpandedButtonRtl_ASADS { background-position: -70px -138px; background-size: 538px auto; width: 12px; height: 12px } 
+.dxgvFocusedGroupRow_ASADS .dxGridView_gvExpandedButton_ASADS { background-position: -84px -138px; background-size: 538px auto; width: 12px; height: 12px } 
+.dxgvFocusedGroupRow_ASADS .dxGridView_gvExpandedButtonRtl_ASADS { background-position: -14px -138px; background-size: 538px auto; width: 12px; height: 12px } 
+.dxgvFocusedRow_ASADS .dxGridView_gvDetailCollapsedButton_ASADS { background-position: -42px -138px; background-size: 538px auto; width: 12px; height: 12px } 
+.dxgvFocusedRow_ASADS .dxGridView_gvDetailCollapsedButtonRtl_ASADS { background-position: -28px -138px; background-size: 538px auto; width: 12px; height: 12px } 
+.dxgvFocusedRow_ASADS .dxGridView_gvDetailExpandedButton_ASADS { background-position: -376px -120px; background-size: 538px auto; width: 12px; height: 12px } 
+.dxgvFocusedRow_ASADS .dxGridView_gvDetailExpandedButtonRtl_ASADS { background-position: -432px -120px; background-size: 538px auto; width: 12px; height: 12px } 
+.dxgvFocusedRow_ASADS .dxGridView_gvShowAdaptiveDetailButton_ASADS { background-position: -108px -102px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxgvFocusedRow_ASADS .dxgvADSB:hover .dxGridView_gvShowAdaptiveDetailButton_ASADS { background-position: -54px -84px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxm-checked .dxGridView_CTShowCustomizationWindow_ASADS { background-position: -36px -84px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxm-checked .dxGridView_CTShowFilterRow_ASADS { background-position: -18px -84px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxm-checked .dxGridView_CTShowGroupPanel_ASADS { background-position: -252px -84px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxm-checked .dxGridView_CTShowSearchPanel_ASADS { background-position: -288px -120px; background-size: 538px auto; width: 14px; height: 14px } 
+.dxm-checked .dxGridView_gvCMClearFilter_ASADS { background-position: -324px -102px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxm-checked .dxGridView_gvCMClearGrouping_ASADS { background-position: -72px -84px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxm-checked .dxGridView_gvCMCollapseDetailRow_ASADS { background-position: -360px -102px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxm-checked .dxGridView_gvCMCollapseRow_ASADS { background-position: -108px -84px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxm-checked .dxGridView_gvCMDeleteRow_ASADS { background-position: -288px -102px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxm-checked .dxGridView_gvCMEditRow_ASADS { background-position: -90px -102px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxm-checked .dxGridView_gvCMExpandDetailRow_ASADS { background-position: -36px -120px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxm-checked .dxGridView_gvCMExpandRow_ASADS { background-position: -162px -102px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxm-checked .dxGridView_gvCMFullCollapse_ASADS { background-position: -144px -102px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxm-checked .dxGridView_gvCMFullExpand_ASADS { background-position: -18px -102px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxm-checked .dxGridView_gvCMGroupByColumn_ASADS { background-position: -54px -48px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxm-checked .dxGridView_gvCMNewRow_ASADS { background-position: -216px -102px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxm-checked .dxGridView_gvCMRefresh_ASADS { background-position: -90px -48px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxm-checked .dxGridView_gvCMSearchPanel_ASADS { background-position: -522px -102px; background-size: 538px auto; width: 14px; height: 14px } 
+.dxm-checked .dxGridView_gvCMShowCustomizationWindow_ASADS { background-position: -108px -48px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxm-checked .dxGridView_gvCMShowFilterEditor_ASADS { background-position: -522px -48px; background-size: 538px auto; width: 14px; height: 14px } 
+.dxm-checked .dxGridView_gvCMShowGroupPanel_ASADS { background-position: -450px -48px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxm-checked .dxGridView_gvCMShowSearchPanel_ASADS { background-position: -272px -120px; background-size: 538px auto; width: 14px; height: 14px } 
+.dxm-checked .dxGridView_gvCMSortAscending_ASADS { background-position: -468px -48px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxm-checked .dxGridView_gvCMSortDescending_ASADS { background-position: -396px -84px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxm-checked .dxGridView_gvCMSummaryAverage_ASADS { background-position: -378px -84px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxm-checked .dxGridView_gvCMSummaryCount_ASADS { background-position: -252px -66px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxm-checked .dxGridView_gvCMSummaryMax_ASADS { background-position: -342px -102px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxm-checked .dxGridView_gvCMSummaryMin_ASADS { background-position: -432px -48px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxm-checked .dxGridView_gvCMSummarySum_ASADS { background-position: -360px -84px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxm-checked .dxGridView_gvCMUngroupColumn_ASADS { background-position: -334px -24px; background-size: 538px auto; width: 16px; height: 16px } 
+.dxGridView_gvFilterRowButton_ASADS
+{
+    margin-left: 8px;
+}
+.dxGridView_gvParentGroupRows_ASADS 
+{
+    margin-left: 4px;
+}
+
+

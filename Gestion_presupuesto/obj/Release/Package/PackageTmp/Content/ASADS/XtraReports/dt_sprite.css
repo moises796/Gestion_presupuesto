@@ -1,0 +1,70 @@
+
+.dxm-hovered .dxXtraReports_BtnFirstPage_ASADS { background-position: 0px 0px; width: 18px; height: 18px } 
+.dxm-hovered .dxXtraReports_BtnLastPage_ASADS { background-position: -220px 0px; width: 18px; height: 18px } 
+.dxm-hovered .dxXtraReports_BtnNextPage_ASADS { background-position: -200px 0px; width: 18px; height: 18px } 
+.dxm-hovered .dxXtraReports_BtnPrevPage_ASADS { background-position: -180px 0px; width: 18px; height: 18px } 
+.dxm-hovered .dxXtraReports_BtnPrint_ASADS { background-position: -456px 0px; width: 16px; height: 16px } 
+.dxm-hovered .dxXtraReports_BtnPrintPage_ASADS { background-position: -438px 0px; width: 16px; height: 16px } 
+.dxm-hovered .dxXtraReports_BtnSave_ASADS { background-position: -240px 0px; width: 16px; height: 16px } 
+.dxm-hovered .dxXtraReports_BtnSaveWindow_ASADS { background-position: -474px 0px; width: 16px; height: 16px } 
+.dxm-hovered .dxXtraReports_BtnSearch_ASADS { background-position: -492px 0px; width: 16px; height: 16px } 
+.dxXtraReports_BtnFirstPage_ASADS { background-position: -120px 0px; width: 18px; height: 18px } 
+.dxXtraReports_BtnFirstPageDisabled_ASADS { background-position: -140px 0px; width: 18px; height: 18px } 
+.dxXtraReports_BtnLastPage_ASADS { background-position: -80px 0px; width: 18px; height: 18px } 
+.dxXtraReports_BtnLastPageDisabled_ASADS { background-position: -100px 0px; width: 18px; height: 18px } 
+.dxXtraReports_BtnNextPage_ASADS { background-position: -40px 0px; width: 18px; height: 18px } 
+.dxXtraReports_BtnNextPageDisabled_ASADS { background-position: -60px 0px; width: 18px; height: 18px } 
+.dxXtraReports_BtnPrevPage_ASADS { background-position: -20px 0px; width: 18px; height: 18px } 
+.dxXtraReports_BtnPrevPageDisabled_ASADS { background-position: -160px 0px; width: 18px; height: 18px } 
+.dxXtraReports_BtnPrint_ASADS { background-position: -366px 0px; width: 16px; height: 16px } 
+.dxXtraReports_BtnPrintDisabled_ASADS { background-position: -420px 0px; width: 16px; height: 16px } 
+.dxXtraReports_BtnPrintPage_ASADS { background-position: -384px 0px; width: 16px; height: 16px } 
+.dxXtraReports_BtnPrintPageDisabled_ASADS { background-position: -402px 0px; width: 16px; height: 16px } 
+.dxXtraReports_BtnSave_ASADS { background-position: -294px 0px; width: 16px; height: 16px } 
+.dxXtraReports_BtnSaveDisabled_ASADS { background-position: -348px 0px; width: 16px; height: 16px } 
+.dxXtraReports_BtnSaveWindow_ASADS { background-position: -312px 0px; width: 16px; height: 16px } 
+.dxXtraReports_BtnSaveWindowDisabled_ASADS { background-position: -330px 0px; width: 16px; height: 16px } 
+.dxXtraReports_BtnSearch_ASADS { background-position: -258px 0px; width: 16px; height: 16px } 
+.dxXtraReports_BtnSearchDisabled_ASADS { background-position: -276px 0px; width: 16px; height: 16px } 
+.dxXtraReports_PageBorder_blc_ASADS { background-position: -522px 0px; width: 10px; height: 10px } 
+.dxXtraReports_PageBorder_brc_ASADS { background-position: 0px -20px; width: 10px; height: 10px } 
+.dxXtraReports_PageBorder_tlc_ASADS { background-position: -510px 0px; width: 10px; height: 10px } 
+.dxXtraReports_PageBorder_trc_ASADS { background-position: -12px -20px; width: 10px; height: 10px } 
+.dxXtraReports_PageBorder_t_ASADS,
+.dxXtraReports_PageBorder_l_ASADS,
+.dxXtraReports_PageBorder_r_ASADS,
+.dxXtraReports_PageBorder_b_ASADS {
+    padding: 0px;
+    background-color: transparent;
+}
+
+.dxXtraReports_PageBorder_t_ASADS {
+    background-image: url('pageTopBorder.svg');
+    background-repeat: repeat-x;
+    width: 1px;
+    height: 10px;
+}
+
+.dxXtraReports_PageBorder_l_ASADS {
+    background-image: url('pageLeftBorder.svg');
+    background-repeat: repeat-y;
+    width: 10px;
+    height: 1px;
+}
+
+.dxXtraReports_PageBorder_r_ASADS {
+    background-image: url('pageRightBorder.svg');
+    background-repeat: repeat-y;
+    width: 10px;
+    height: 1px;
+}
+
+.dxXtraReports_PageBorder_b_ASADS {
+    background-image: url('pageBottomBorder.svg');
+    background-repeat: repeat-x;
+    width: 1px;
+    height: 10px;
+}
+
+
+
