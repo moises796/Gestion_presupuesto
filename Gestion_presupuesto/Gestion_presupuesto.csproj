@@ -1442,6 +1442,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\logo.png" />
     <Content Include="Content\Charset.css" />
     <Content Include="Content\css\animate.min.css" />
     <Content Include="Content\css\bootstrap.css" />
@@ -1498,6 +1499,7 @@
     <Content Include="Content\dx.material.teal.light.css" />
     <Content Include="Content\dx.softblue.compact.css" />
     <Content Include="Content\dx.softblue.css" />
+    <Content Include="Content\gota.png" />
     <Content Include="Content\img\chat.png" />
     <Content Include="Content\img\delete.png" />
     <Content Include="Content\img\edit.png" />

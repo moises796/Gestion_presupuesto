@@ -1,4 +1,5 @@
 ﻿using DevExpress.Web.Mvc;
+using Gestion_presupuesto.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,41 @@ namespace Gestion_presupuesto.Controllers
         // GET: FuenteFinanciamiento
         public ActionResult FuenteFinanciamiento()
         {
-            return View();
+            var id_emp = Convert.ToInt32(UserClaims.idempleado_key);
+            var user = db.usuario.FirstOrDefault(x => x.id_empleado == id_emp && x.estado == 1);
+            if (user != null)
+            {
+                var rol_user = user.id_rol_usuario;
+                var acceso = db.menu.FirstOrDefault(x => x.accion == "FuenteFinanciamiento" && x.controlador == "FuenteFinanciamiento" && x.estado == 1);
+                if (acceso != null)
+                {
+                    var rol_acceso = acceso.id_rol;
+                    if (rol_acceso.Split(',').Contains(rol_user.ToString()))
+                    {
+
+                        return View();
+                    }
+                    return View("~/Views/Home/Index.cshtml");
+                }
+                else
+                {
+                    //BUSCAMOS EN SUB MENU
+                    var acceso_submenu = db.sub_menu.FirstOrDefault(x => x.accion == "FuenteFinanciamiento" && x.controlador == "FuenteFinanciamiento" && x.estado == 1);
+                    if (acceso_submenu != null)
+                    {
+                        var rol_acceso = acceso_submenu.id_rol;
+                        if (rol_acceso.Split(',').Contains(rol_user.ToString()))
+                        {
+                            return View();
+                        }
+                    }
+                    return View("~/Views/Home/Index.cshtml");
+                }
+            }
+            else
+            {
+                return View("~/Views/Home/Index.cshtml");
+            }
         }
 
         Gestion_presupuesto.Models.registro_presupuestoEntities db = new Gestion_presupuesto.Models.registro_presupuestoEntities();
