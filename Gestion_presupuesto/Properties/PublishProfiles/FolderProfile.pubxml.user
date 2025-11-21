@@ -203,10 +203,10 @@
       <publishTime>10/07/2025 20:08:24</publishTime>
     </File>
     <File Include="bin/Gestion_presupuesto.dll">
-      <publishTime>11/20/2025 11:36:44</publishTime>
+      <publishTime>11/20/2025 17:10:15</publishTime>
     </File>
     <File Include="bin/Gestion_presupuesto.pdb">
-      <publishTime>11/20/2025 11:36:44</publishTime>
+      <publishTime>11/20/2025 17:10:15</publishTime>
     </File>
     <File Include="bin/it/Microsoft.Data.SqlClient.resources.dll">
       <publishTime>10/07/2025 20:08:24</publishTime>
@@ -4927,6 +4927,9 @@
     <File Include="Content/fonts/Roboto-700.woff2">
       <publishTime>10/09/2025 09:09:32</publishTime>
     </File>
+    <File Include="Content/gota.png">
+      <publishTime>11/20/2025 14:49:07</publishTime>
+    </File>
     <File Include="Content/icons/dxicons.ttf">
       <publishTime>10/09/2025 09:09:32</publishTime>
     </File>
@@ -5007,6 +5010,9 @@
     </File>
     <File Include="Content/js/shCore.js">
       <publishTime>11/11/2025 16:10:37</publishTime>
+    </File>
+    <File Include="Content/logo.png">
+      <publishTime>11/20/2025 14:49:07</publishTime>
     </File>
     <File Include="Content/media/Logo_AD.svg">
       <publishTime>10/24/2025 12:04:30</publishTime>
@@ -5330,7 +5336,7 @@
       <publishTime>10/22/2025 08:28:48</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>10/22/2025 08:28:48</publishTime>
+      <publishTime>11/20/2025 16:23:45</publishTime>
     </File>
     <File Include="Views/MetodoContratacion/MetodoContratacion.cshtml">
       <publishTime>11/12/2025 09:18:57</publishTime>
@@ -5357,7 +5363,7 @@
       <publishTime>11/18/2025 08:55:29</publishTime>
     </File>
     <File Include="Views/Presupuesto/_GridDetallePresupuesto.cshtml">
-      <publishTime>11/18/2025 11:05:34</publishTime>
+      <publishTime>11/20/2025 16:12:47</publishTime>
     </File>
     <File Include="Views/Presupuesto/_GridMovimientoPresupuesto.cshtml">
       <publishTime>11/18/2025 11:08:07</publishTime>
@@ -5366,7 +5372,7 @@
       <publishTime>10/22/2025 08:28:48</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>11/17/2025 16:00:22</publishTime>
+      <publishTime>11/20/2025 14:25:34</publishTime>
     </File>
     <File Include="Views/Usuario/Usuario.cshtml">
       <publishTime>11/13/2025 09:12:42</publishTime>
@@ -5393,7 +5399,7 @@
       <publishTime>10/22/2025 08:28:48</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>11/20/2025 12:13:16</publishTime>
+      <publishTime>11/20/2025 17:10:17</publishTime>
     </File>
   </ItemGroup>
 </Project>

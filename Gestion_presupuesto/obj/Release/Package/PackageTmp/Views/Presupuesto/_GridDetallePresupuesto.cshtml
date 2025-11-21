@@ -427,7 +427,7 @@
         {
             ViewContext.Writer.Write(
                 "<h4><b>Modificaciones del plan de compra:</b></h4>" +
-                "<div id='contentt2'>"
+                "<div class='p-4' style='background-color:#F5F7FD;border-radius:10px;'>"
             );
             Html.RenderAction("GridMovimientoPresupuesto", "Presupuesto", new { id_detalle_presupuesto = DataBinder.Eval(c.DataItem, "id_detalle_presupuesto") });
             ViewContext.Writer.Write("</div>");

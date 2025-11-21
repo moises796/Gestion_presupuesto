@@ -43,6 +43,8 @@
             this.xrLabel16 = new DevExpress.XtraReports.UI.XRLabel();
             this.sp_voboTableAdapter1 = new Gestion_presupuesto.Reportes.dsComprobanteTableAdapters.sp_voboTableAdapter();
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
+            this.xrLabel19 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel18 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel15 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel14 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel13 = new DevExpress.XtraReports.UI.XRLabel();
@@ -61,8 +63,6 @@
             this.tipo_vobo = new DevExpress.XtraReports.Parameters.Parameter();
             this.PageFooter = new DevExpress.XtraReports.UI.PageFooterBand();
             this.xrPageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
-            this.xrLabel18 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel19 = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this.dsComprobante1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
@@ -120,15 +120,17 @@
             // 
             // VerticalDetail1
             // 
+            this.VerticalDetail1.BandLayout = DevExpress.XtraReports.UI.VerticalBandLayout.AcrossThenDown;
             this.VerticalDetail1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.xrLabel17,
             this.xrLabel16});
             this.VerticalDetail1.Name = "VerticalDetail1";
-            this.VerticalDetail1.WidthF = 392.7778F;
+            this.VerticalDetail1.WidthF = 380.2778F;
             // 
             // xrLabel17
             // 
             this.xrLabel17.CanGrow = false;
+            this.xrLabel17.CanShrink = true;
             this.xrLabel17.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[fecha_movimiento]")});
             this.xrLabel17.Font = new DevExpress.Drawing.DXFont("Lucida Sans Unicode", 9F);
@@ -136,7 +138,7 @@
             this.xrLabel17.Multiline = true;
             this.xrLabel17.Name = "xrLabel17";
             this.xrLabel17.Padding = new DevExpress.XtraPrinting.PaddingInfo(2F, 2F, 0F, 0F, 100F);
-            this.xrLabel17.SizeF = new System.Drawing.SizeF(350F, 23F);
+            this.xrLabel17.SizeF = new System.Drawing.SizeF(334.4445F, 22.99999F);
             this.xrLabel17.StylePriority.UseFont = false;
             this.xrLabel17.StylePriority.UseTextAlignment = false;
             this.xrLabel17.Text = "xrLabel17";
@@ -145,15 +147,14 @@
             // 
             // xrLabel16
             // 
-            this.xrLabel16.CanGrow = false;
             this.xrLabel16.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[nombre_empleado_vobo]")});
             this.xrLabel16.Font = new DevExpress.Drawing.DXFont("Lucida Sans Unicode", 9F);
-            this.xrLabel16.LocationFloat = new DevExpress.Utils.PointFloat(23.3334F, 22.50002F);
+            this.xrLabel16.LocationFloat = new DevExpress.Utils.PointFloat(23.3334F, 22.5001F);
             this.xrLabel16.Multiline = true;
             this.xrLabel16.Name = "xrLabel16";
             this.xrLabel16.Padding = new DevExpress.XtraPrinting.PaddingInfo(2F, 2F, 0F, 0F, 100F);
-            this.xrLabel16.SizeF = new System.Drawing.SizeF(350F, 22.99999F);
+            this.xrLabel16.SizeF = new System.Drawing.SizeF(334.4445F, 22.99999F);
             this.xrLabel16.StylePriority.UseFont = false;
             this.xrLabel16.StylePriority.UseTextAlignment = false;
             this.xrLabel16.Text = "xrLabel16";
@@ -185,6 +186,37 @@
             this.xrLabel1});
             this.Detail.HeightF = 330.5833F;
             this.Detail.Name = "Detail";
+            // 
+            // xrLabel19
+            // 
+            this.xrLabel19.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Código proceso:")});
+            this.xrLabel19.Font = new DevExpress.Drawing.DXFont("Lucida Sans Unicode", 14F, DevExpress.Drawing.DXFontStyle.Bold);
+            this.xrLabel19.LocationFloat = new DevExpress.Utils.PointFloat(540.6945F, 10.00002F);
+            this.xrLabel19.Multiline = true;
+            this.xrLabel19.Name = "xrLabel19";
+            this.xrLabel19.Padding = new DevExpress.XtraPrinting.PaddingInfo(2F, 2F, 0F, 0F, 100F);
+            this.xrLabel19.SizeF = new System.Drawing.SizeF(212.7777F, 23F);
+            this.xrLabel19.StylePriority.UseFont = false;
+            this.xrLabel19.StylePriority.UseTextAlignment = false;
+            this.xrLabel19.Text = "Código proceso:";
+            this.xrLabel19.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            // 
+            // xrLabel18
+            // 
+            this.xrLabel18.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[codigo]")});
+            this.xrLabel18.Font = new DevExpress.Drawing.DXFont("Lucida Sans Unicode", 14F, ((DevExpress.Drawing.DXFontStyle)(((DevExpress.Drawing.DXFontStyle.Bold | DevExpress.Drawing.DXFontStyle.Italic) 
+                | DevExpress.Drawing.DXFontStyle.Underline))));
+            this.xrLabel18.LocationFloat = new DevExpress.Utils.PointFloat(436.8055F, 33.00002F);
+            this.xrLabel18.Multiline = true;
+            this.xrLabel18.Name = "xrLabel18";
+            this.xrLabel18.Padding = new DevExpress.XtraPrinting.PaddingInfo(2F, 2F, 0F, 0F, 100F);
+            this.xrLabel18.SizeF = new System.Drawing.SizeF(316.6667F, 23F);
+            this.xrLabel18.StylePriority.UseFont = false;
+            this.xrLabel18.StylePriority.UseTextAlignment = false;
+            this.xrLabel18.Text = "xrLabel18";
+            this.xrLabel18.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             // 
             // xrLabel15
             // 
@@ -421,37 +453,6 @@
             this.xrPageInfo1.StylePriority.UseTextAlignment = false;
             this.xrPageInfo1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             this.xrPageInfo1.TextFormatString = "Página {0} de {1}";
-            // 
-            // xrLabel18
-            // 
-            this.xrLabel18.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[codigo]")});
-            this.xrLabel18.Font = new DevExpress.Drawing.DXFont("Lucida Sans Unicode", 14F, ((DevExpress.Drawing.DXFontStyle)(((DevExpress.Drawing.DXFontStyle.Bold | DevExpress.Drawing.DXFontStyle.Italic) 
-                | DevExpress.Drawing.DXFontStyle.Underline))));
-            this.xrLabel18.LocationFloat = new DevExpress.Utils.PointFloat(436.8055F, 33.00002F);
-            this.xrLabel18.Multiline = true;
-            this.xrLabel18.Name = "xrLabel18";
-            this.xrLabel18.Padding = new DevExpress.XtraPrinting.PaddingInfo(2F, 2F, 0F, 0F, 100F);
-            this.xrLabel18.SizeF = new System.Drawing.SizeF(316.6667F, 23F);
-            this.xrLabel18.StylePriority.UseFont = false;
-            this.xrLabel18.StylePriority.UseTextAlignment = false;
-            this.xrLabel18.Text = "xrLabel18";
-            this.xrLabel18.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
-            // 
-            // xrLabel19
-            // 
-            this.xrLabel19.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Código proceso:")});
-            this.xrLabel19.Font = new DevExpress.Drawing.DXFont("Lucida Sans Unicode", 14F, DevExpress.Drawing.DXFontStyle.Bold);
-            this.xrLabel19.LocationFloat = new DevExpress.Utils.PointFloat(540.6945F, 10.00002F);
-            this.xrLabel19.Multiline = true;
-            this.xrLabel19.Name = "xrLabel19";
-            this.xrLabel19.Padding = new DevExpress.XtraPrinting.PaddingInfo(2F, 2F, 0F, 0F, 100F);
-            this.xrLabel19.SizeF = new System.Drawing.SizeF(212.7777F, 23F);
-            this.xrLabel19.StylePriority.UseFont = false;
-            this.xrLabel19.StylePriority.UseTextAlignment = false;
-            this.xrLabel19.Text = "Código proceso:";
-            this.xrLabel19.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             // 
             // Comprobante
             // 
