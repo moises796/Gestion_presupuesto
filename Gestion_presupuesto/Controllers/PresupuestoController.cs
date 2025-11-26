@@ -660,16 +660,33 @@ namespace Gestion_presupuesto.Controllers
             {
                 try
                 {
-                    if (item.id_fuente_financiamiento == 5)
+                    //VAMOS A VALIDAR QUE LA FECHA FIN SEA MAYOR O IGUAL A LA DE INCIO
+                    if (item.fecha_inicio.Value.Date > item.fecha_fin.Value.Date)
                     {
-                        //ES MIXTO
-                        item.monto = item.monto_goes + item.monto_propio + item.monto_proyectos + item.monto_compensacion;
+                        ViewData["EditError"] = "La fecha fin no puede ser inferior a la fecha de inicio";
                     }
-                    
+                    else
+                    {
+                        if (item.id_fuente_financiamiento == 5)
+                        {
+                            //ES MIXTO
+                            item.monto = item.monto_goes + item.monto_propio + item.monto_proyectos + item.monto_compensacion;
+                        }
+                        else
+                        {
+                            item.monto_goes = 0;
+                            item.monto_propio = 0;
+                            item.monto_proyectos = 0;
+                            item.monto_compensacion = 0;
+                        }
 
-                    item.estado = 1;
-                    model.Add(item);
-                    db.SaveChanges();
+
+                        item.estado = 1;
+                        model.Add(item);
+                        db.SaveChanges();
+                    }
+
+                    
                 }
                 catch (Exception e)
                 {
@@ -691,33 +708,42 @@ namespace Gestion_presupuesto.Controllers
                     var modelItem = model.FirstOrDefault(it => it.id_detalle_presupuesto == item.id_detalle_presupuesto);
                     if (modelItem != null)
                     {
-                        modelItem.nombre_proceso = item.nombre_proceso;
-                        modelItem.id_metodo_contratacion = item.id_metodo_contratacion;
-                        modelItem.fecha_inicio = item.fecha_inicio;
-                        modelItem.fecha_fin = item.fecha_fin;
 
-
-                        if (item.id_fuente_financiamiento == 5)
+                        if (item.fecha_inicio.Value.Date > item.fecha_fin.Value.Date)
                         {
-                            //ES MIXTO
-                            modelItem.monto_goes = item.monto_goes;
-                            modelItem.monto_propio = item.monto_propio;
-                            modelItem.monto_proyectos = item.monto_proyectos;
-                            modelItem.monto_compensacion = item.monto_compensacion;
-                            modelItem.monto = item.monto_goes + item.monto_propio + item.monto_proyectos + item.monto_compensacion;
+                            ViewData["EditError"] = "La fecha fin no puede ser inferior a la fecha de inicio";
                         }
                         else
                         {
-                            modelItem.monto_goes = 0;
-                            modelItem.monto_propio = 0;
-                            modelItem.monto_proyectos = 0;
-                            modelItem.monto_compensacion = 0;
-                            modelItem.monto = item.monto;
-                        }
+                            modelItem.nombre_proceso = item.nombre_proceso;
+                            modelItem.id_metodo_contratacion = item.id_metodo_contratacion;
+                            modelItem.fecha_inicio = item.fecha_inicio;
+                            modelItem.fecha_fin = item.fecha_fin;
 
-                        modelItem.id_fuente_financiamiento = item.id_fuente_financiamiento;
-                        modelItem.id_unidad_organizativa = item.id_unidad_organizativa;
-                        db.SaveChanges();
+
+                            if (item.id_fuente_financiamiento == 5)
+                            {
+                                //ES MIXTO
+                                modelItem.monto_goes = item.monto_goes;
+                                modelItem.monto_propio = item.monto_propio;
+                                modelItem.monto_proyectos = item.monto_proyectos;
+                                modelItem.monto_compensacion = item.monto_compensacion;
+                                modelItem.monto = item.monto_goes + item.monto_propio + item.monto_proyectos + item.monto_compensacion;
+                            }
+                            else
+                            {
+                                modelItem.monto_goes = 0;
+                                modelItem.monto_propio = 0;
+                                modelItem.monto_proyectos = 0;
+                                modelItem.monto_compensacion = 0;
+                                modelItem.monto = item.monto;
+                            }
+
+                            modelItem.id_fuente_financiamiento = item.id_fuente_financiamiento;
+                            modelItem.id_unidad_organizativa = item.id_unidad_organizativa;
+                            db.SaveChanges();
+                        }
+                        
                     }
                 }
                 catch (Exception e)
@@ -824,32 +850,41 @@ namespace Gestion_presupuesto.Controllers
                     var modelItem = model.FirstOrDefault(it => it.id_movimiento_detalle_presupuesto == item.id_movimiento_detalle_presupuesto);
                     if (modelItem != null)
                     {
-                        modelItem.nombre_proceso = item.nombre_proceso;
-                        modelItem.id_metodo_contratacion = item.id_metodo_contratacion;
-                        modelItem.fecha_inicio = item.fecha_inicio;
-                        modelItem.fecha_fin = item.fecha_fin;
 
-                        if (item.id_fuente_financiamiento == 5)
+                        if (item.fecha_inicio.Value.Date > item.fecha_fin.Value.Date)
                         {
-                            //ES MIXTO
-                            modelItem.monto_goes = item.monto_goes;
-                            modelItem.monto_propio = item.monto_propio;
-                            modelItem.monto_proyectos = item.monto_proyectos;
-                            modelItem.monto_compensacion = item.monto_compensacion;
-                            modelItem.monto = item.monto_goes + item.monto_propio + item.monto_proyectos + item.monto_compensacion;
+                            ViewData["EditError"] = "La fecha fin no puede ser inferior a la fecha de inicio";
                         }
                         else
                         {
-                            modelItem.monto_goes = 0;
-                            modelItem.monto_propio = 0;
-                            modelItem.monto_proyectos = 0;
-                            modelItem.monto_compensacion = 0;
-                            modelItem.monto = item.monto;
+                            modelItem.nombre_proceso = item.nombre_proceso;
+                            modelItem.id_metodo_contratacion = item.id_metodo_contratacion;
+                            modelItem.fecha_inicio = item.fecha_inicio;
+                            modelItem.fecha_fin = item.fecha_fin;
+
+                            if (item.id_fuente_financiamiento == 5)
+                            {
+                                //ES MIXTO
+                                modelItem.monto_goes = item.monto_goes;
+                                modelItem.monto_propio = item.monto_propio;
+                                modelItem.monto_proyectos = item.monto_proyectos;
+                                modelItem.monto_compensacion = item.monto_compensacion;
+                                modelItem.monto = item.monto_goes + item.monto_propio + item.monto_proyectos + item.monto_compensacion;
+                            }
+                            else
+                            {
+                                modelItem.monto_goes = 0;
+                                modelItem.monto_propio = 0;
+                                modelItem.monto_proyectos = 0;
+                                modelItem.monto_compensacion = 0;
+                                modelItem.monto = item.monto;
+                            }
+
+                            modelItem.id_fuente_financiamiento = item.id_fuente_financiamiento;
+                            modelItem.motivo_movimiento = item.motivo_movimiento;
+                            db.SaveChanges();
                         }
 
-                        modelItem.id_fuente_financiamiento = item.id_fuente_financiamiento;
-                        modelItem.motivo_movimiento = item.motivo_movimiento;
-                        db.SaveChanges();
                     }
                 }
                 catch (Exception e)
