@@ -351,6 +351,9 @@
     <Compile Include="Models\consulta_bandeja_vobo_Result7.cs">
       <DependentUpon>Presupuesto.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\consulta_bandeja_vobo_Result8.cs">
+      <DependentUpon>Presupuesto.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\detalle_presupuesto.cs">
       <DependentUpon>Presupuesto.tt</DependentUpon>
     </Compile>

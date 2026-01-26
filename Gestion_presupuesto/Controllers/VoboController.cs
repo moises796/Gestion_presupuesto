@@ -1,5 +1,6 @@
 ﻿using DevExpress.CodeParser.VB;
 using DevExpress.Web.Mvc;
+using DevExpress.XtraRichEdit.Model;
 using Gestion_presupuesto.Helpers;
 using Gestion_presupuesto.Models;
 using Microsoft.Ajax.Utilities;
@@ -123,6 +124,7 @@ namespace Gestion_presupuesto.Controllers
                 bv.monto_proyectos = x.monto_proyectos;
                 bv.monto_compensacion = x.monto_compensacion;
                 bv.id_fuente_financiamiento = x.id_fuente_financiamiento;
+                bv.id_tipo_fuente_financiamiento = x.id_tipo_fuente_financiamiento;
                 bv.id_unidad_organizativa = x.id_unidad_organizativa;
                 bv.estado = x.estado;
                 bv.motivo_movimiento = x.motivo_movimiento == null ? "N/A" : x.motivo_movimiento;
@@ -180,6 +182,7 @@ namespace Gestion_presupuesto.Controllers
                                 modelItem.monto = item.monto;
                             }
                             modelItem.id_fuente_financiamiento = item.id_fuente_financiamiento;
+                            modelItem.id_tipo_fuente_financiamiento = item.id_fuente_financiamiento;
                             //modelItem.id_unidad_organizativa = item.id_unidad_organizativa;
                             db.SaveChanges();
 
@@ -246,6 +249,7 @@ namespace Gestion_presupuesto.Controllers
                                 modelItem.monto = item.monto;
                             }
                             modelItem.id_fuente_financiamiento = item.id_fuente_financiamiento;
+                            modelItem.id_tipo_fuente_financiamiento = item.id_tipo_fuente_financiamiento;
                             //modelItem.id_unidad_organizativa = item.id_unidad_organizativa;
                             db.SaveChanges();
 

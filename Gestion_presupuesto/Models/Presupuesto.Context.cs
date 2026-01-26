@@ -48,15 +48,6 @@ namespace Gestion_presupuesto.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_persona_unidad_organizativa_Result>("sp_persona_unidad_organizativa");
         }
     
-        public virtual ObjectResult<consulta_bandeja_vobo_Result7> consulta_bandeja_vobo(Nullable<int> id_empleado)
-        {
-            var id_empleadoParameter = id_empleado.HasValue ?
-                new ObjectParameter("id_empleado", id_empleado) :
-                new ObjectParameter("id_empleado", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<consulta_bandeja_vobo_Result7>("consulta_bandeja_vobo", id_empleadoParameter);
-        }
-    
         public virtual int EnvioNotificaciones(Nullable<int> tipo, string correos, string copias, string titulo, string mensaje, string copiasocultas)
         {
             var tipoParameter = tipo.HasValue ?
@@ -134,6 +125,15 @@ namespace Gestion_presupuesto.Models
         public virtual ObjectResult<sp_general_proceso_compra_auditoria_Result1> sp_general_proceso_compra_auditoria()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_general_proceso_compra_auditoria_Result1>("sp_general_proceso_compra_auditoria");
+        }
+    
+        public virtual ObjectResult<consulta_bandeja_vobo_Result8> consulta_bandeja_vobo(Nullable<int> id_empleado)
+        {
+            var id_empleadoParameter = id_empleado.HasValue ?
+                new ObjectParameter("id_empleado", id_empleado) :
+                new ObjectParameter("id_empleado", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<consulta_bandeja_vobo_Result8>("consulta_bandeja_vobo", id_empleadoParameter);
         }
     }
 }

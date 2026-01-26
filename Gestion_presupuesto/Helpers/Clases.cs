@@ -22,6 +22,7 @@ namespace Gestion_presupuesto.Helpers
             public double? monto_proyectos { get; set; }
             public double? monto_compensacion { get; set; }
             public int? id_fuente_financiamiento { get; set; }
+            public int? id_tipo_fuente_financiamiento { get; set; }
             public int? id_unidad_organizativa { get; set; }
             public int? estado { get; set; }
             public int? tipo_vobo { get; set; }

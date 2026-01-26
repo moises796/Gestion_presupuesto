@@ -217,6 +217,7 @@ namespace Gestion_presupuesto.Controllers
                 clase.monto_proyectos = presupuesto_original.monto_proyectos;
                 clase.monto_compensacion = presupuesto_original.monto_compensacion;
                 clase.id_fuente_financiamiento = presupuesto_original.id_fuente_financiamiento;
+                clase.id_tipo_fuente_financiamiento = presupuesto_original.id_tipo_fuente_financiamiento;
                 clase.id_unidad_organizativa = presupuesto_original.id_unidad_organizativa;
                 clase.estado = presupuesto_original.estado;
                 clase.fecha_movimiento = DateTime.Now;
@@ -247,6 +248,21 @@ namespace Gestion_presupuesto.Controllers
         }
 
 
+        public IEnumerable GetAllFuenteFinanciamiento()
+        {
+            try
+            {
+                var Get = (from ff in db.tipo_fuente_financiamiento
+                           where ff.estado == 1
+                           select ff);
+                return Get.ToList();
+            }
+            catch (Exception)
+            {
+                return "".ToList();
+            }
+        }
+
         public ActionResult GetTipoFuenteFinanciamiento(int? id_fuente_financiamiento)
         {
             return GridViewExtension.GetComboBoxCallbackResult(p =>
@@ -260,8 +276,17 @@ namespace Gestion_presupuesto.Controllers
                 }
                 else
                 {
-                    var fuente_Financiamientos = db.tipo_fuente_financiamiento.Where(x => x.estado == 1 && x.id_fuente_financiamiento == id_fuente_financiamiento).ToList();
-                    p.BindList(fuente_Financiamientos);
+                    if (id_fuente_financiamiento==5)
+                    {
+                        var fuente_Financiamientos = db.tipo_fuente_financiamiento.Where(x => x.estado == 1).ToList();
+                        p.BindList(fuente_Financiamientos);
+                    }
+                    else
+                    {
+                        var fuente_Financiamientos = db.tipo_fuente_financiamiento.Where(x => x.estado == 1 && x.id_fuente_financiamiento == id_fuente_financiamiento).ToList();
+                        p.BindList(fuente_Financiamientos);
+                    }
+                    
                 }
             });
         }
@@ -272,9 +297,19 @@ namespace Gestion_presupuesto.Controllers
                 return null;
 
             int id = Convert.ToInt32(id_padre);
-            return db.tipo_fuente_financiamiento
-                     .Where(x => x.estado == 1 && x.id_fuente_financiamiento == id)
-                     .ToList();
+            if (id==5)
+            {
+                return db.tipo_fuente_financiamiento
+                         .Where(x => x.estado == 1)
+                         .ToList();
+            }
+            else
+            {
+                return db.tipo_fuente_financiamiento
+                         .Where(x => x.estado == 1 && x.id_fuente_financiamiento == id)
+                         .ToList();
+            }
+                
         }
 
         public IEnumerable GetMetodoContratacion()
