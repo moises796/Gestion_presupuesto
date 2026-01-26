@@ -18,6 +18,7 @@
     <Property Name="monto_propio" Type="float" />
     <Property Name="monto_proyectos" Type="float" />
     <Property Name="monto_compensacion" Type="float" />
+    <Property Name="id_tipo_fuente_financiamiento" Type="int" />
   </EntityType>
   <EntityType Name="detalle_presupuesto_anulacion">
     <Key>
@@ -87,6 +88,7 @@
     <Property Name="monto_propio" Type="float" />
     <Property Name="monto_proyectos" Type="float" />
     <Property Name="monto_compensacion" Type="float" />
+    <Property Name="id_tipo_fuente_financiamiento" Type="int" />
   </EntityType>
   <EntityType Name="movimiento_vobo">
     <Key>
@@ -128,6 +130,16 @@
     <Property Name="id_menu" Type="int" />
     <Property Name="orden" Type="int" />
     <Property Name="id_rol" Type="varchar" MaxLength="250" />
+    <Property Name="estado" Type="int" />
+  </EntityType>
+  <EntityType Name="tipo_fuente_financiamiento">
+    <Key>
+      <PropertyRef Name="id_tipo_fuente_financiamiento" />
+    </Key>
+    <Property Name="id_tipo_fuente_financiamiento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigo_pac" Type="int" />
+    <Property Name="valor" Type="varchar" MaxLength="700" />
+    <Property Name="id_fuente_financiamiento" Type="int" />
     <Property Name="estado" Type="int" />
   </EntityType>
   <EntityType Name="tipo_movimiento">
@@ -192,6 +204,18 @@
       </Principal>
       <Dependent Role="detalle_presupuesto">
         <PropertyRef Name="id_metodo_contratacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__detalle_p__id_ti__2A164134">
+    <End Role="tipo_fuente_financiamiento" Type="Self.tipo_fuente_financiamiento" Multiplicity="0..1" />
+    <End Role="detalle_presupuesto" Type="Self.detalle_presupuesto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipo_fuente_financiamiento">
+        <PropertyRef Name="id_tipo_fuente_financiamiento" />
+      </Principal>
+      <Dependent Role="detalle_presupuesto">
+        <PropertyRef Name="id_tipo_fuente_financiamiento" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -267,6 +291,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK__movimient__id_ti__2B0A656D">
+    <End Role="tipo_fuente_financiamiento" Type="Self.tipo_fuente_financiamiento" Multiplicity="0..1" />
+    <End Role="movimiento_detalle_presupuesto" Type="Self.movimiento_detalle_presupuesto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipo_fuente_financiamiento">
+        <PropertyRef Name="id_tipo_fuente_financiamiento" />
+      </Principal>
+      <Dependent Role="movimiento_detalle_presupuesto">
+        <PropertyRef Name="id_tipo_fuente_financiamiento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__movimient__id_ti__6A30C649">
     <End Role="tipo_movimiento" Type="Self.tipo_movimiento" Multiplicity="0..1" />
     <End Role="movimiento_vobo" Type="Self.movimiento_vobo" Multiplicity="*" />
@@ -300,6 +336,18 @@
       </Principal>
       <Dependent Role="sub_menu">
         <PropertyRef Name="id_menu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tipo_fuen__id_fu__29221CFB">
+    <End Role="fuente_financiamiento" Type="Self.fuente_financiamiento" Multiplicity="0..1" />
+    <End Role="tipo_fuente_financiamiento" Type="Self.tipo_fuente_financiamiento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="fuente_financiamiento">
+        <PropertyRef Name="id_fuente_financiamiento" />
+      </Principal>
+      <Dependent Role="tipo_fuente_financiamiento">
+        <PropertyRef Name="id_fuente_financiamiento" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -403,6 +451,7 @@
     <EntitySet Name="personal_vobo" EntityType="Self.personal_vobo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="rol_usuario" EntityType="Self.rol_usuario" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sub_menu" EntityType="Self.sub_menu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tipo_fuente_financiamiento" EntityType="Self.tipo_fuente_financiamiento" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tipo_movimiento" EntityType="Self.tipo_movimiento" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="usuario" EntityType="Self.usuario" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="vobo" EntityType="Self.vobo" Schema="dbo" store:Type="Tables" />
@@ -416,6 +465,10 @@
     </AssociationSet>
     <AssociationSet Name="FK__detalle_p__id_me__3E52440B" Association="Self.FK__detalle_p__id_me__3E52440B">
       <End Role="metodo_contratacion" EntitySet="metodo_contratacion" />
+      <End Role="detalle_presupuesto" EntitySet="detalle_presupuesto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__detalle_p__id_ti__2A164134" Association="Self.FK__detalle_p__id_ti__2A164134">
+      <End Role="tipo_fuente_financiamiento" EntitySet="tipo_fuente_financiamiento" />
       <End Role="detalle_presupuesto" EntitySet="detalle_presupuesto" />
     </AssociationSet>
     <AssociationSet Name="FK__detalle_p__id_vo__160F4887" Association="Self.FK__detalle_p__id_vo__160F4887">
@@ -442,6 +495,10 @@
       <End Role="personal_vobo" EntitySet="personal_vobo" />
       <End Role="movimiento_vobo" EntitySet="movimiento_vobo" />
     </AssociationSet>
+    <AssociationSet Name="FK__movimient__id_ti__2B0A656D" Association="Self.FK__movimient__id_ti__2B0A656D">
+      <End Role="tipo_fuente_financiamiento" EntitySet="tipo_fuente_financiamiento" />
+      <End Role="movimiento_detalle_presupuesto" EntitySet="movimiento_detalle_presupuesto" />
+    </AssociationSet>
     <AssociationSet Name="FK__movimient__id_ti__6A30C649" Association="Self.FK__movimient__id_ti__6A30C649">
       <End Role="tipo_movimiento" EntitySet="tipo_movimiento" />
       <End Role="movimiento_vobo" EntitySet="movimiento_vobo" />
@@ -453,6 +510,10 @@
     <AssociationSet Name="FK__sub_menu__id_men__5441852A" Association="Self.FK__sub_menu__id_men__5441852A">
       <End Role="menu" EntitySet="menu" />
       <End Role="sub_menu" EntitySet="sub_menu" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tipo_fuen__id_fu__29221CFB" Association="Self.FK__tipo_fuen__id_fu__29221CFB">
+      <End Role="fuente_financiamiento" EntitySet="fuente_financiamiento" />
+      <End Role="tipo_fuente_financiamiento" EntitySet="tipo_fuente_financiamiento" />
     </AssociationSet>
     <AssociationSet Name="FK__usuario__id_rol___123EB7A3" Association="Self.FK__usuario__id_rol___123EB7A3">
       <End Role="rol_usuario" EntitySet="rol_usuario" />

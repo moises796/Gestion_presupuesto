@@ -246,6 +246,37 @@ namespace Gestion_presupuesto.Controllers
             }
         }
 
+
+        public ActionResult GetTipoFuenteFinanciamiento(int? id_fuente_financiamiento)
+        {
+            return GridViewExtension.GetComboBoxCallbackResult(p =>
+            {
+                p.ValueField = "id_tipo_fuente_financiamiento";
+                p.TextField = "valor";
+                p.ValueType = typeof(int);
+                if (id_fuente_financiamiento == null)
+                {
+                    p.BindList(null);
+                }
+                else
+                {
+                    var fuente_Financiamientos = db.tipo_fuente_financiamiento.Where(x => x.estado == 1 && x.id_fuente_financiamiento == id_fuente_financiamiento).ToList();
+                    p.BindList(fuente_Financiamientos);
+                }
+            });
+        }
+
+        public object GetTipoFuenteFinanciamientoPorPadre(object id_padre)
+        {
+            if (id_padre == null || id_padre == DBNull.Value)
+                return null;
+
+            int id = Convert.ToInt32(id_padre);
+            return db.tipo_fuente_financiamiento
+                     .Where(x => x.estado == 1 && x.id_fuente_financiamiento == id)
+                     .ToList();
+        }
+
         public IEnumerable GetMetodoContratacion()
         {
             try
@@ -292,6 +323,7 @@ namespace Gestion_presupuesto.Controllers
                     bpc.monto_proyectos = x.monto_proyectos;
                     bpc.monto_compensacion = x.monto_compensacion;
                     bpc.id_fuente_financiamiento = x.id_fuente_financiamiento;
+                    bpc.id_tipo_fuente_financiamiento = x.id_tipo_fuente_financiamiento;
                     bpc.identificador_fuente_financiamiento = x.id_fuente_financiamiento;
                     bpc.id_unidad_organizativa = x.id_unidad_organizativa;
                     bpc.estado = x.estado;
@@ -740,6 +772,7 @@ namespace Gestion_presupuesto.Controllers
                             }
 
                             modelItem.id_fuente_financiamiento = item.id_fuente_financiamiento;
+                            modelItem.id_tipo_fuente_financiamiento = item.id_tipo_fuente_financiamiento;
                             modelItem.id_unidad_organizativa = item.id_unidad_organizativa;
                             db.SaveChanges();
                         }
@@ -825,6 +858,7 @@ namespace Gestion_presupuesto.Controllers
                 bpc.monto_proyectos = x.monto_proyectos;
                 bpc.monto_compensacion = x.monto_compensacion;
                 bpc.id_fuente_financiamiento = x.id_fuente_financiamiento;
+                bpc.id_tipo_fuente_financiamiento = x.id_tipo_fuente_financiamiento;
                 bpc.identificador_fuente_financiamiento = x.id_fuente_financiamiento;
                 bpc.id_unidad_organizativa = x.id_unidad_organizativa;
                 bpc.estado = x.estado;
@@ -881,6 +915,7 @@ namespace Gestion_presupuesto.Controllers
                             }
 
                             modelItem.id_fuente_financiamiento = item.id_fuente_financiamiento;
+                            modelItem.id_tipo_fuente_financiamiento = item.id_tipo_fuente_financiamiento;
                             modelItem.motivo_movimiento = item.motivo_movimiento;
                             db.SaveChanges();
                         }

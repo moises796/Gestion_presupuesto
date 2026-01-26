@@ -140,7 +140,15 @@
 
 
 <script>
-
+    function Tipofinanciamientopresupuesto_Begin(s, e) {
+        e.customArgs["id_fuente_financiamiento"] = GridDetallePresupuesto.GetEditor("id_fuente_financiamiento").GetValue();
+    }
+    function Tipofinanciamientopresupuesto_EndCallback(s, e) {
+        if (isResetRequired) {
+            isResetRequired = false;
+            s.SetSelectedIndex(0);
+        }
+    }
 
     function cambio_financiamiento(s, e) {
         if (s.lastSuccessValue == 5) {

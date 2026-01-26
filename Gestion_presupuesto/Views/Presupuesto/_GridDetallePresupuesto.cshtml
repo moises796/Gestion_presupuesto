@@ -1,5 +1,6 @@
 ﻿@using Gestion_presupuesto.Helpers;
 @{
+    Gestion_presupuesto.Models.registro_presupuestoEntities db = new Gestion_presupuesto.Models.registro_presupuestoEntities();
     Gestion_presupuesto.Controllers.PresupuestoController clase = new Gestion_presupuesto.Controllers.PresupuestoController();
     var id_emp = Convert.ToInt32(UserClaims.idempleado_key);
     var grid = Html.DevExpress().GridView(settings =>
@@ -176,11 +177,33 @@
                 p.ValueField = "id_fuente_financiamiento";
                 p.ValueType = typeof(int);
                 p.ClientSideEvents.Init = "function(s,e){obtenerfinanciamiento(s,e);}";
+                p.ClientSideEvents.SelectedIndexChanged = "function(s,e){ isResetRequired = true;GridDetallePresupuesto.GetEditor(\"id_tipo_fuente_financiamiento\").PerformCallback();}";
                 p.ClientSideEvents.ValueChanged = "function(s,e){cambio_financiamiento(s,e);}";
                 p.ValidationSettings.RequiredField.IsRequired = true;
                 p.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.None;
                 p.ValidationSettings.RequiredField.ErrorText = "Este campo es requerido.";
                 p.DataSource = clase.GetFuenteFinanciamiento();
+            });
+        });
+
+        settings.Columns.Add(c =>
+        {
+            c.FieldName = "id_tipo_fuente_financiamiento";
+            c.Caption = "Tipo de fuente de financiamiento";
+            c.Visible = false;
+            c.AdaptivePriority = 15;
+            c.EditorProperties().ComboBox(p =>
+            {
+                p.CallbackRouteValues = new { Controller = "Presupuesto", Action = "GetTipoFuenteFinanciamiento" };
+                p.ValueField = "id_tipo_fuente_financiamiento";
+                p.TextField = "valor";
+                p.ValueType = typeof(int);
+                p.ClientSideEvents.BeginCallback = "function(s,e){Tipofinanciamientopresupuesto_Begin(s,e);}";
+                p.ClientSideEvents.EndCallback = "function(s,e){Tipofinanciamientopresupuesto_EndCallback(s,e);}";
+                p.BindList(db.tipo_fuente_financiamiento.Where(x => x.estado == 1).ToList());
+                p.ValidationSettings.RequiredField.IsRequired = true;
+                p.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.None;
+                p.ValidationSettings.RequiredField.ErrorText = "Este campo es requerido.";
             });
         });
 
@@ -349,6 +372,14 @@
             {
                 item.Name = "id_fuente_financiamiento";
                 item.ColumnName = "id_fuente_financiamiento";
+                item.ColumnSpan = 2;
+                item.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
+            });
+
+            tabbedGroupSettings.Items.Add(item =>
+            {
+                item.Name = "id_tipo_fuente_financiamiento";
+                item.ColumnName = "id_tipo_fuente_financiamiento";
                 item.ColumnSpan = 2;
                 item.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
             });

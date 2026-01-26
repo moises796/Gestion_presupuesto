@@ -10,18 +10,9 @@
 namespace Gestion_presupuesto.Models
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class detalle_presupuesto
+    public partial class sp_consulta_procesos_compra_Result2
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public detalle_presupuesto()
-        {
-            this.movimiento_detalle_presupuesto = new HashSet<movimiento_detalle_presupuesto>();
-            this.vobo = new HashSet<vobo>();
-            this.detalle_presupuesto_anulacion = new HashSet<detalle_presupuesto_anulacion>();
-        }
-    
         public int id_detalle_presupuesto { get; set; }
         public string codigo { get; set; }
         public string nombre_proceso { get; set; }
@@ -37,15 +28,9 @@ namespace Gestion_presupuesto.Models
         public Nullable<double> monto_proyectos { get; set; }
         public Nullable<double> monto_compensacion { get; set; }
         public Nullable<int> id_tipo_fuente_financiamiento { get; set; }
-    
-        public virtual fuente_financiamiento fuente_financiamiento { get; set; }
-        public virtual metodo_contratacion metodo_contratacion { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<movimiento_detalle_presupuesto> movimiento_detalle_presupuesto { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<vobo> vobo { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<detalle_presupuesto_anulacion> detalle_presupuesto_anulacion { get; set; }
-        public virtual tipo_fuente_financiamiento tipo_fuente_financiamiento { get; set; }
+        public string metodo_contratacion { get; set; }
+        public string fuente_financiamiento { get; set; }
+        public string estatus_proceso { get; set; }
+        public string estatus_general { get; set; }
     }
 }

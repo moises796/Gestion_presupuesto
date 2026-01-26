@@ -429,22 +429,37 @@
     <Compile Include="Models\sp_consulta_procesos_compra_Result1.cs">
       <DependentUpon>Presupuesto.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\sp_consulta_procesos_compra_Result2.cs">
+      <DependentUpon>Presupuesto.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\sp_consulta_procesos_movimiento_compra_Result.cs">
       <DependentUpon>Presupuesto.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_consulta_procesos_movimiento_compra_Result1.cs">
       <DependentUpon>Presupuesto.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\sp_consulta_procesos_movimiento_compra_Result2.cs">
+      <DependentUpon>Presupuesto.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\sp_general_proceso_compra_auditoria_Result.cs">
       <DependentUpon>Presupuesto.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\sp_general_proceso_compra_auditoria_Result1.cs">
+      <DependentUpon>Presupuesto.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\sp_general_proceso_compra_Result.cs">
+      <DependentUpon>Presupuesto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_general_proceso_compra_Result1.cs">
       <DependentUpon>Presupuesto.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_persona_unidad_organizativa_Result.cs">
       <DependentUpon>Presupuesto.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sub_menu.cs">
+      <DependentUpon>Presupuesto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tipo_fuente_financiamiento.cs">
       <DependentUpon>Presupuesto.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tipo_movimiento.cs">

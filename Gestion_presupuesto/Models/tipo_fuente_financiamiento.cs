@@ -12,25 +12,25 @@ namespace Gestion_presupuesto.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class fuente_financiamiento
+    public partial class tipo_fuente_financiamiento
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public fuente_financiamiento()
+        public tipo_fuente_financiamiento()
         {
             this.detalle_presupuesto = new HashSet<detalle_presupuesto>();
             this.movimiento_detalle_presupuesto = new HashSet<movimiento_detalle_presupuesto>();
-            this.tipo_fuente_financiamiento = new HashSet<tipo_fuente_financiamiento>();
         }
     
-        public int id_fuente_financiamiento { get; set; }
+        public int id_tipo_fuente_financiamiento { get; set; }
+        public Nullable<int> codigo_pac { get; set; }
         public string valor { get; set; }
+        public Nullable<int> id_fuente_financiamiento { get; set; }
         public Nullable<int> estado { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<detalle_presupuesto> detalle_presupuesto { get; set; }
+        public virtual fuente_financiamiento fuente_financiamiento { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<movimiento_detalle_presupuesto> movimiento_detalle_presupuesto { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tipo_fuente_financiamiento> tipo_fuente_financiamiento { get; set; }
     }
 }
