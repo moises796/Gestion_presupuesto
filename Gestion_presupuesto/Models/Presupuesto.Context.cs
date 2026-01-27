@@ -95,45 +95,58 @@ namespace Gestion_presupuesto.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("sp_obtener_personas_vobo", id_voboParameter);
         }
     
-        public virtual ObjectResult<sp_consulta_procesos_compra_Result2> sp_consulta_procesos_compra(Nullable<int> id_unidad_organizativa)
-        {
-            var id_unidad_organizativaParameter = id_unidad_organizativa.HasValue ?
-                new ObjectParameter("id_unidad_organizativa", id_unidad_organizativa) :
-                new ObjectParameter("id_unidad_organizativa", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_consulta_procesos_compra_Result2>("sp_consulta_procesos_compra", id_unidad_organizativaParameter);
-        }
-    
-        public virtual ObjectResult<sp_consulta_procesos_movimiento_compra_Result2> sp_consulta_procesos_movimiento_compra(Nullable<int> id_detalle_presupuesto)
-        {
-            var id_detalle_presupuestoParameter = id_detalle_presupuesto.HasValue ?
-                new ObjectParameter("id_detalle_presupuesto", id_detalle_presupuesto) :
-                new ObjectParameter("id_detalle_presupuesto", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_consulta_procesos_movimiento_compra_Result2>("sp_consulta_procesos_movimiento_compra", id_detalle_presupuestoParameter);
-        }
-    
-        public virtual ObjectResult<sp_general_proceso_compra_Result1> sp_general_proceso_compra(Nullable<int> anio)
-        {
-            var anioParameter = anio.HasValue ?
-                new ObjectParameter("anio", anio) :
-                new ObjectParameter("anio", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_general_proceso_compra_Result1>("sp_general_proceso_compra", anioParameter);
-        }
-    
-        public virtual ObjectResult<sp_general_proceso_compra_auditoria_Result1> sp_general_proceso_compra_auditoria()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_general_proceso_compra_auditoria_Result1>("sp_general_proceso_compra_auditoria");
-        }
-    
-        public virtual ObjectResult<consulta_bandeja_vobo_Result8> consulta_bandeja_vobo(Nullable<int> id_empleado)
+        public virtual ObjectResult<consulta_bandeja_vobo_Result9> consulta_bandeja_vobo(Nullable<int> id_empleado)
         {
             var id_empleadoParameter = id_empleado.HasValue ?
                 new ObjectParameter("id_empleado", id_empleado) :
                 new ObjectParameter("id_empleado", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<consulta_bandeja_vobo_Result8>("consulta_bandeja_vobo", id_empleadoParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<consulta_bandeja_vobo_Result9>("consulta_bandeja_vobo", id_empleadoParameter);
+        }
+    
+        public virtual ObjectResult<sp_comprobante_Result> sp_comprobante(Nullable<int> id, Nullable<int> tipo_vobo)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            var tipo_voboParameter = tipo_vobo.HasValue ?
+                new ObjectParameter("tipo_vobo", tipo_vobo) :
+                new ObjectParameter("tipo_vobo", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_comprobante_Result>("sp_comprobante", idParameter, tipo_voboParameter);
+        }
+    
+        public virtual ObjectResult<sp_consulta_procesos_compra_Result3> sp_consulta_procesos_compra(Nullable<int> id_unidad_organizativa)
+        {
+            var id_unidad_organizativaParameter = id_unidad_organizativa.HasValue ?
+                new ObjectParameter("id_unidad_organizativa", id_unidad_organizativa) :
+                new ObjectParameter("id_unidad_organizativa", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_consulta_procesos_compra_Result3>("sp_consulta_procesos_compra", id_unidad_organizativaParameter);
+        }
+    
+        public virtual ObjectResult<sp_consulta_procesos_movimiento_compra_Result3> sp_consulta_procesos_movimiento_compra(Nullable<int> id_detalle_presupuesto)
+        {
+            var id_detalle_presupuestoParameter = id_detalle_presupuesto.HasValue ?
+                new ObjectParameter("id_detalle_presupuesto", id_detalle_presupuesto) :
+                new ObjectParameter("id_detalle_presupuesto", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_consulta_procesos_movimiento_compra_Result3>("sp_consulta_procesos_movimiento_compra", id_detalle_presupuestoParameter);
+        }
+    
+        public virtual ObjectResult<sp_general_proceso_compra_Result2> sp_general_proceso_compra(Nullable<int> anio)
+        {
+            var anioParameter = anio.HasValue ?
+                new ObjectParameter("anio", anio) :
+                new ObjectParameter("anio", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_general_proceso_compra_Result2>("sp_general_proceso_compra", anioParameter);
+        }
+    
+        public virtual ObjectResult<sp_general_proceso_compra_auditoria_Result2> sp_general_proceso_compra_auditoria()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_general_proceso_compra_auditoria_Result2>("sp_general_proceso_compra_auditoria");
         }
     }
 }

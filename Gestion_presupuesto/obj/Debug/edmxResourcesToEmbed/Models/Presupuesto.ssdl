@@ -19,6 +19,7 @@
     <Property Name="monto_proyectos" Type="float" />
     <Property Name="monto_compensacion" Type="float" />
     <Property Name="id_tipo_fuente_financiamiento" Type="int" />
+    <Property Name="tipo_financiamiento" Type="varchar(max)" />
   </EntityType>
   <EntityType Name="detalle_presupuesto_anulacion">
     <Key>
@@ -89,6 +90,7 @@
     <Property Name="monto_proyectos" Type="float" />
     <Property Name="monto_compensacion" Type="float" />
     <Property Name="id_tipo_fuente_financiamiento" Type="int" />
+    <Property Name="tipo_financiamiento" Type="varchar(max)" />
   </EntityType>
   <EntityType Name="movimiento_vobo">
     <Key>
@@ -421,6 +423,10 @@
     <Parameter Name="titulo" Type="varchar(max)" Mode="In" />
     <Parameter Name="mensaje" Type="varchar(max)" Mode="In" />
     <Parameter Name="copiasocultas" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_comprobante" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="tipo_vobo" Type="int" Mode="In" />
   </Function>
   <Function Name="sp_consulta_procesos_compra" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="id_unidad_organizativa" Type="int" Mode="In" />

@@ -25,6 +25,7 @@
     <NavigationProperty Name="detalle_presupuesto_anulacion" Relationship="registro_presupuestoModel.FK__detalle_p__id_de__151B244E" FromRole="detalle_presupuesto" ToRole="detalle_presupuesto_anulacion" />
     <Property Name="id_tipo_fuente_financiamiento" Type="Int32" />
     <NavigationProperty Name="tipo_fuente_financiamiento" Relationship="registro_presupuestoModel.FK__detalle_p__id_ti__2A164134" FromRole="detalle_presupuesto" ToRole="tipo_fuente_financiamiento" />
+    <Property Name="tipo_financiamiento" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="fuente_financiamiento">
     <Key>
@@ -74,6 +75,7 @@
     <Property Name="monto_compensacion" Type="Double" />
     <Property Name="id_tipo_fuente_financiamiento" Type="Int32" />
     <NavigationProperty Name="tipo_fuente_financiamiento" Relationship="registro_presupuestoModel.FK__movimient__id_ti__2B0A656D" FromRole="movimiento_detalle_presupuesto" ToRole="tipo_fuente_financiamiento" />
+    <Property Name="tipo_financiamiento" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
   </EntityType>
   <Association Name="FK__detalle_p__id_fu__3F466844">
     <End Role="fuente_financiamiento" Type="Self.fuente_financiamiento" Multiplicity="0..1" />
@@ -246,19 +248,23 @@
       <End Role="tipo_fuente_financiamiento" EntitySet="tipo_fuente_financiamiento" />
       <End Role="movimiento_detalle_presupuesto" EntitySet="movimiento_detalle_presupuesto" />
     </AssociationSet>
-    <FunctionImport Name="sp_consulta_procesos_compra" ReturnType="Collection(registro_presupuestoModel.sp_consulta_procesos_compra_Result2)">
-      <Parameter Name="id_unidad_organizativa" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <FunctionImport Name="sp_consulta_procesos_movimiento_compra" ReturnType="Collection(registro_presupuestoModel.sp_consulta_procesos_movimiento_compra_Result2)">
-      <Parameter Name="id_detalle_presupuesto" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <FunctionImport Name="sp_general_proceso_compra" ReturnType="Collection(registro_presupuestoModel.sp_general_proceso_compra_Result1)">
-      <Parameter Name="anio" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <FunctionImport Name="sp_general_proceso_compra_auditoria" ReturnType="Collection(registro_presupuestoModel.sp_general_proceso_compra_auditoria_Result1)" />
-    <FunctionImport Name="consulta_bandeja_vobo" ReturnType="Collection(registro_presupuestoModel.consulta_bandeja_vobo_Result8)">
+    <FunctionImport Name="consulta_bandeja_vobo" ReturnType="Collection(registro_presupuestoModel.consulta_bandeja_vobo_Result9)">
       <Parameter Name="id_empleado" Mode="In" Type="Int32" />
     </FunctionImport>
+    <FunctionImport Name="sp_comprobante" ReturnType="Collection(registro_presupuestoModel.sp_comprobante_Result)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="tipo_vobo" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_consulta_procesos_compra" ReturnType="Collection(registro_presupuestoModel.sp_consulta_procesos_compra_Result3)">
+      <Parameter Name="id_unidad_organizativa" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_consulta_procesos_movimiento_compra" ReturnType="Collection(registro_presupuestoModel.sp_consulta_procesos_movimiento_compra_Result3)">
+      <Parameter Name="id_detalle_presupuesto" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_general_proceso_compra" ReturnType="Collection(registro_presupuestoModel.sp_general_proceso_compra_Result2)">
+      <Parameter Name="anio" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_general_proceso_compra_auditoria" ReturnType="Collection(registro_presupuestoModel.sp_general_proceso_compra_auditoria_Result2)" />
   </EntityContainer>
   <EntityType Name="menu">
     <Key>
@@ -899,5 +905,112 @@
     <Property Type="String" Name="motivo_movimiento" Nullable="true" />
     <Property Type="String" Name="proceso_column" Nullable="false" MaxLength="575" />
     <Property Type="DateTime" Name="fecha_movimiento" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="consulta_bandeja_vobo_Result9">
+    <Property Type="Int32" Name="id" Nullable="true" />
+    <Property Type="String" Name="codigo" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="nombre_proceso" Nullable="true" MaxLength="350" />
+    <Property Type="Int32" Name="id_metodo_contratacion" Nullable="true" />
+    <Property Type="DateTime" Name="fecha_inicio" Nullable="true" />
+    <Property Type="DateTime" Name="fecha_fin" Nullable="true" />
+    <Property Type="Double" Name="monto" Nullable="true" />
+    <Property Type="Double" Name="monto_goes" Nullable="true" />
+    <Property Type="Double" Name="monto_propio" Nullable="true" />
+    <Property Type="Double" Name="monto_proyectos" Nullable="true" />
+    <Property Type="Double" Name="monto_compensacion" Nullable="true" />
+    <Property Type="Int32" Name="id_fuente_financiamiento" Nullable="true" />
+    <Property Type="Int32" Name="id_tipo_fuente_financiamiento" Nullable="true" />
+    <Property Type="String" Name="tipo_financiamiento" Nullable="true" />
+    <Property Type="Int32" Name="id_unidad_organizativa" Nullable="true" />
+    <Property Type="Int32" Name="estado" Nullable="true" />
+    <Property Type="Int32" Name="id_vobo" Nullable="false" />
+    <Property Type="Int32" Name="tipo_vobo" Nullable="false" />
+    <Property Type="String" Name="motivo_movimiento" Nullable="true" />
+    <Property Type="String" Name="proceso_column" Nullable="false" MaxLength="575" />
+    <Property Type="DateTime" Name="fecha_movimiento" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="sp_comprobante_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="codigo" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="nombre_proceso" Nullable="true" MaxLength="350" />
+    <Property Type="String" Name="metodo_contratacion" Nullable="true" MaxLength="250" />
+    <Property Type="DateTime" Name="fecha_inicio" Nullable="true" />
+    <Property Type="DateTime" Name="fecha_fin" Nullable="true" />
+    <Property Type="Double" Name="monto" Nullable="true" />
+    <Property Type="String" Name="fuente_financiamiento" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="unidad_organizativa" Nullable="true" />
+    <Property Type="Int32" Name="estado" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_consulta_procesos_compra_Result3">
+    <Property Type="Int32" Name="id_detalle_presupuesto" Nullable="false" />
+    <Property Type="String" Name="codigo" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="nombre_proceso" Nullable="true" MaxLength="350" />
+    <Property Type="Int32" Name="id_metodo_contratacion" Nullable="true" />
+    <Property Type="DateTime" Name="fecha_inicio" Nullable="true" />
+    <Property Type="DateTime" Name="fecha_fin" Nullable="true" />
+    <Property Type="Double" Name="monto" Nullable="true" />
+    <Property Type="Int32" Name="id_fuente_financiamiento" Nullable="true" />
+    <Property Type="Int32" Name="id_unidad_organizativa" Nullable="true" />
+    <Property Type="Int32" Name="estado" Nullable="true" />
+    <Property Type="Double" Name="monto_goes" Nullable="true" />
+    <Property Type="Double" Name="monto_propio" Nullable="true" />
+    <Property Type="Double" Name="monto_proyectos" Nullable="true" />
+    <Property Type="Double" Name="monto_compensacion" Nullable="true" />
+    <Property Type="Int32" Name="id_tipo_fuente_financiamiento" Nullable="true" />
+    <Property Type="String" Name="tipo_financiamiento" Nullable="true" />
+    <Property Type="String" Name="metodo_contratacion" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="fuente_financiamiento" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="estatus_proceso" Nullable="false" MaxLength="1214" />
+    <Property Type="String" Name="estatus_general" Nullable="false" MaxLength="450" />
+  </ComplexType>
+  <ComplexType Name="sp_consulta_procesos_movimiento_compra_Result3">
+    <Property Type="Int32" Name="id_movimiento_detalle_presupuesto" Nullable="false" />
+    <Property Type="Int32" Name="id_detalle_presupuesto" Nullable="true" />
+    <Property Type="String" Name="nombre_proceso" Nullable="true" MaxLength="350" />
+    <Property Type="Int32" Name="id_metodo_contratacion" Nullable="true" />
+    <Property Type="DateTime" Name="fecha_inicio" Nullable="true" />
+    <Property Type="DateTime" Name="fecha_fin" Nullable="true" />
+    <Property Type="Double" Name="monto" Nullable="true" />
+    <Property Type="Int32" Name="id_fuente_financiamiento" Nullable="true" />
+    <Property Type="Int32" Name="id_unidad_organizativa" Nullable="true" />
+    <Property Type="DateTime" Name="fecha_movimiento" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="estado" Nullable="true" />
+    <Property Type="String" Name="motivo_movimiento" Nullable="true" />
+    <Property Type="String" Name="codigo" Nullable="true" MaxLength="150" />
+    <Property Type="Double" Name="monto_goes" Nullable="true" />
+    <Property Type="Double" Name="monto_propio" Nullable="true" />
+    <Property Type="Double" Name="monto_proyectos" Nullable="true" />
+    <Property Type="Double" Name="monto_compensacion" Nullable="true" />
+    <Property Type="Int32" Name="id_tipo_fuente_financiamiento" Nullable="true" />
+    <Property Type="String" Name="tipo_financiamiento" Nullable="true" />
+    <Property Type="String" Name="metodo_contratacion" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="fuente_financiamiento" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="estatus_general" Nullable="false" MaxLength="1048" />
+  </ComplexType>
+  <ComplexType Name="sp_general_proceso_compra_Result2">
+    <Property Type="Int32" Name="id" Nullable="true" />
+    <Property Type="String" Name="tipo_proceso" Nullable="true" MaxLength="300" />
+    <Property Type="String" Name="codigo" Nullable="true" MaxLength="300" />
+    <Property Type="String" Name="nombre_proceso" Nullable="true" MaxLength="350" />
+    <Property Type="String" Name="metodo_contratacion" Nullable="true" MaxLength="350" />
+    <Property Type="DateTime" Name="fecha_inicio" Nullable="true" />
+    <Property Type="DateTime" Name="fecha_fin" Nullable="true" />
+    <Property Type="Double" Name="monto" Nullable="true" />
+    <Property Type="String" Name="fuente_financiamiento" Nullable="true" MaxLength="300" />
+    <Property Type="String" Name="unidad_organizativa" Nullable="true" MaxLength="300" />
+    <Property Type="Boolean" Name="estatus_vobo" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_general_proceso_compra_auditoria_Result2">
+    <Property Type="Int32" Name="id" Nullable="true" />
+    <Property Type="String" Name="tipo_proceso" Nullable="true" MaxLength="300" />
+    <Property Type="String" Name="codigo" Nullable="true" MaxLength="300" />
+    <Property Type="String" Name="nombre_proceso" Nullable="true" MaxLength="350" />
+    <Property Type="String" Name="metodo_contratacion" Nullable="true" MaxLength="350" />
+    <Property Type="DateTime" Name="fecha_inicio" Nullable="true" />
+    <Property Type="DateTime" Name="fecha_fin" Nullable="true" />
+    <Property Type="Double" Name="monto" Nullable="true" />
+    <Property Type="String" Name="fuente_financiamiento" Nullable="true" MaxLength="300" />
+    <Property Type="String" Name="unidad_organizativa" Nullable="true" MaxLength="300" />
+    <Property Type="Boolean" Name="estatus_vobo" Nullable="true" />
   </ComplexType>
 </Schema>

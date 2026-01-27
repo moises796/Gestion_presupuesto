@@ -73,8 +73,8 @@
 
         settings.CellEditorInitialize = (s, e) => {
             MVCxGridView grids = s as MVCxGridView;
-            if (e.Column.FieldName == "id_tipo_fuente_financiamiento") {
-                ASPxComboBox combo = e.Editor as ASPxComboBox;
+            if (e.Column.FieldName == "tipo_financiamiento") {
+                ASPxTokenBox combo = e.Editor as ASPxTokenBox;
 
                 var idFuente = grids.GetRowValuesByKeyValue(e.KeyValue, "id_fuente_financiamiento");
 
@@ -181,7 +181,7 @@
                 p.ValueField = "id_fuente_financiamiento";
                 p.ValueType = typeof(int);
                 p.ClientSideEvents.Init = "function(s,e){obtenerfinanciamiento(s,e);}";
-                p.ClientSideEvents.SelectedIndexChanged = "function(s,e){ isResetRequired = true;GridDetallePresupuesto.GetEditor(\"id_tipo_fuente_financiamiento\").PerformCallback();}";
+                p.ClientSideEvents.SelectedIndexChanged = "function(s,e){ isResetRequired = true;GridDetallePresupuesto.GetEditor(\"tipo_financiamiento\").PerformCallback();}";
                 p.ClientSideEvents.ValueChanged = "function(s,e){cambio_financiamiento(s,e);}";
                 p.ValidationSettings.RequiredField.IsRequired = true;
                 p.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.None;
@@ -192,15 +192,18 @@
 
         settings.Columns.Add(c =>
         {
-            c.FieldName = "id_tipo_fuente_financiamiento";
+            c.FieldName = "tipo_financiamiento";
             c.Caption = "Tipo fuente de financiamiento";
             c.AdaptivePriority = 8;
-            c.EditorProperties().ComboBox(p =>
+            c.EditorProperties().TokenBox(p =>
             {
                 p.CallbackRouteValues = new { Controller = "Presupuesto", Action = "GetTipoFuenteFinanciamiento" };
                 p.ValueField = "id_tipo_fuente_financiamiento";
                 p.TextField = "valor";
-                p.ValueType = typeof(int);
+                p.ItemValueType = typeof(string);
+                p.ValueSeparator = ',';
+                p.AllowCustomTokens = false;
+                p.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
                 p.ClientSideEvents.BeginCallback = "Tipofinanciamientopresupuesto_Begin";
                 p.ClientSideEvents.EndCallback = "Tipofinanciamientopresupuesto_EndCallback";
                 p.ValidationSettings.RequiredField.IsRequired = true;
@@ -381,8 +384,8 @@
 
             tabbedGroupSettings.Items.Add(item =>
             {
-                item.Name = "id_tipo_fuente_financiamiento";
-                item.ColumnName = "id_tipo_fuente_financiamiento";
+                item.Name = "tipo_financiamiento";
+                item.ColumnName = "tipo_financiamiento";
                 item.ColumnSpan = 2;
                 item.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
             });

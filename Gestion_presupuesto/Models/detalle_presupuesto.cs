@@ -37,6 +37,7 @@ namespace Gestion_presupuesto.Models
         public Nullable<double> monto_proyectos { get; set; }
         public Nullable<double> monto_compensacion { get; set; }
         public Nullable<int> id_tipo_fuente_financiamiento { get; set; }
+        public string tipo_financiamiento { get; set; }
     
         public virtual fuente_financiamiento fuente_financiamiento { get; set; }
         public virtual metodo_contratacion metodo_contratacion { get; set; }

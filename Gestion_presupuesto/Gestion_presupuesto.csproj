@@ -354,6 +354,9 @@
     <Compile Include="Models\consulta_bandeja_vobo_Result8.cs">
       <DependentUpon>Presupuesto.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\consulta_bandeja_vobo_Result9.cs">
+      <DependentUpon>Presupuesto.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\detalle_presupuesto.cs">
       <DependentUpon>Presupuesto.tt</DependentUpon>
     </Compile>
@@ -426,6 +429,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>rrhh.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\sp_comprobante_Result.cs">
+      <DependentUpon>Presupuesto.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\sp_consulta_procesos_compra_Result.cs">
       <DependentUpon>Presupuesto.tt</DependentUpon>
     </Compile>
@@ -433,6 +439,9 @@
       <DependentUpon>Presupuesto.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_consulta_procesos_compra_Result2.cs">
+      <DependentUpon>Presupuesto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_consulta_procesos_compra_Result3.cs">
       <DependentUpon>Presupuesto.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_consulta_procesos_movimiento_compra_Result.cs">
@@ -444,16 +453,25 @@
     <Compile Include="Models\sp_consulta_procesos_movimiento_compra_Result2.cs">
       <DependentUpon>Presupuesto.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\sp_consulta_procesos_movimiento_compra_Result3.cs">
+      <DependentUpon>Presupuesto.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\sp_general_proceso_compra_auditoria_Result.cs">
       <DependentUpon>Presupuesto.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_general_proceso_compra_auditoria_Result1.cs">
       <DependentUpon>Presupuesto.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\sp_general_proceso_compra_auditoria_Result2.cs">
+      <DependentUpon>Presupuesto.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\sp_general_proceso_compra_Result.cs">
       <DependentUpon>Presupuesto.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_general_proceso_compra_Result1.cs">
+      <DependentUpon>Presupuesto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_general_proceso_compra_Result2.cs">
       <DependentUpon>Presupuesto.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_persona_unidad_organizativa_Result.cs">

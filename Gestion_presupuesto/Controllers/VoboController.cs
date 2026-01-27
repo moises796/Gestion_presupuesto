@@ -125,6 +125,7 @@ namespace Gestion_presupuesto.Controllers
                 bv.monto_compensacion = x.monto_compensacion;
                 bv.id_fuente_financiamiento = x.id_fuente_financiamiento;
                 bv.id_tipo_fuente_financiamiento = x.id_tipo_fuente_financiamiento;
+                bv.tipo_financiamiento = x.tipo_financiamiento;
                 bv.id_unidad_organizativa = x.id_unidad_organizativa;
                 bv.estado = x.estado;
                 bv.motivo_movimiento = x.motivo_movimiento == null ? "N/A" : x.motivo_movimiento;
@@ -183,6 +184,8 @@ namespace Gestion_presupuesto.Controllers
                             }
                             modelItem.id_fuente_financiamiento = item.id_fuente_financiamiento;
                             modelItem.id_tipo_fuente_financiamiento = item.id_fuente_financiamiento;
+                            var fuentes_financiamiento = TokenBoxExtension.GetSelectedValues<string>("tipo_financiamiento");
+                            modelItem.tipo_financiamiento = string.Join(",", fuentes_financiamiento); ;
                             //modelItem.id_unidad_organizativa = item.id_unidad_organizativa;
                             db.SaveChanges();
 
@@ -242,14 +245,16 @@ namespace Gestion_presupuesto.Controllers
                             }
                             else
                             {
-                                modelItem.monto_goes = null;
-                                modelItem.monto_propio = null;
-                                modelItem.monto_proyectos = null;
-                                modelItem.monto_compensacion = null;
+                                modelItem.monto_goes = 0;
+                                modelItem.monto_propio = 0;
+                                modelItem.monto_proyectos = 0;
+                                modelItem.monto_compensacion = 0;
                                 modelItem.monto = item.monto;
                             }
                             modelItem.id_fuente_financiamiento = item.id_fuente_financiamiento;
                             modelItem.id_tipo_fuente_financiamiento = item.id_tipo_fuente_financiamiento;
+                            var fuentes_financiamiento = TokenBoxExtension.GetSelectedValues<string>("tipo_financiamiento");
+                            modelItem.tipo_financiamiento = string.Join(",", fuentes_financiamiento); ;
                             //modelItem.id_unidad_organizativa = item.id_unidad_organizativa;
                             db.SaveChanges();
 

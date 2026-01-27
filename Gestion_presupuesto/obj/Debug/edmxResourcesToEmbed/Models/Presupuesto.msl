@@ -4,6 +4,7 @@
     <EntitySetMapping Name="detalle_presupuesto">
       <EntityTypeMapping TypeName="registro_presupuestoModel.detalle_presupuesto">
         <MappingFragment StoreEntitySet="detalle_presupuesto">
+          <ScalarProperty Name="tipo_financiamiento" ColumnName="tipo_financiamiento" />
           <ScalarProperty Name="id_tipo_fuente_financiamiento" ColumnName="id_tipo_fuente_financiamiento" />
           <ScalarProperty Name="monto_compensacion" ColumnName="monto_compensacion" />
           <ScalarProperty Name="monto_proyectos" ColumnName="monto_proyectos" />
@@ -43,6 +44,7 @@
     <EntitySetMapping Name="movimiento_detalle_presupuesto">
       <EntityTypeMapping TypeName="registro_presupuestoModel.movimiento_detalle_presupuesto">
         <MappingFragment StoreEntitySet="movimiento_detalle_presupuesto">
+          <ScalarProperty Name="tipo_financiamiento" ColumnName="tipo_financiamiento" />
           <ScalarProperty Name="id_tipo_fuente_financiamiento" ColumnName="id_tipo_fuente_financiamiento" />
           <ScalarProperty Name="monto_compensacion" ColumnName="monto_compensacion" />
           <ScalarProperty Name="monto_proyectos" ColumnName="monto_proyectos" />
@@ -199,9 +201,52 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="consulta_bandeja_vobo" FunctionName="registro_presupuestoModel.Store.consulta_bandeja_vobo">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="registro_presupuestoModel.consulta_bandeja_vobo_Result9">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="nombre_proceso" ColumnName="nombre_proceso" />
+          <ScalarProperty Name="id_metodo_contratacion" ColumnName="id_metodo_contratacion" />
+          <ScalarProperty Name="fecha_inicio" ColumnName="fecha_inicio" />
+          <ScalarProperty Name="fecha_fin" ColumnName="fecha_fin" />
+          <ScalarProperty Name="monto" ColumnName="monto" />
+          <ScalarProperty Name="monto_goes" ColumnName="monto_goes" />
+          <ScalarProperty Name="monto_propio" ColumnName="monto_propio" />
+          <ScalarProperty Name="monto_proyectos" ColumnName="monto_proyectos" />
+          <ScalarProperty Name="monto_compensacion" ColumnName="monto_compensacion" />
+          <ScalarProperty Name="id_fuente_financiamiento" ColumnName="id_fuente_financiamiento" />
+          <ScalarProperty Name="id_tipo_fuente_financiamiento" ColumnName="id_tipo_fuente_financiamiento" />
+          <ScalarProperty Name="tipo_financiamiento" ColumnName="tipo_financiamiento" />
+          <ScalarProperty Name="id_unidad_organizativa" ColumnName="id_unidad_organizativa" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="id_vobo" ColumnName="id_vobo" />
+          <ScalarProperty Name="tipo_vobo" ColumnName="tipo_vobo" />
+          <ScalarProperty Name="motivo_movimiento" ColumnName="motivo_movimiento" />
+          <ScalarProperty Name="proceso_column" ColumnName="proceso_column" />
+          <ScalarProperty Name="fecha_movimiento" ColumnName="fecha_movimiento" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_comprobante" FunctionName="registro_presupuestoModel.Store.sp_comprobante">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="registro_presupuestoModel.sp_comprobante_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="nombre_proceso" ColumnName="nombre_proceso" />
+          <ScalarProperty Name="metodo_contratacion" ColumnName="metodo_contratacion" />
+          <ScalarProperty Name="fecha_inicio" ColumnName="fecha_inicio" />
+          <ScalarProperty Name="fecha_fin" ColumnName="fecha_fin" />
+          <ScalarProperty Name="monto" ColumnName="monto" />
+          <ScalarProperty Name="fuente_financiamiento" ColumnName="fuente_financiamiento" />
+          <ScalarProperty Name="unidad_organizativa" ColumnName="unidad_organizativa" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="sp_consulta_procesos_compra" FunctionName="registro_presupuestoModel.Store.sp_consulta_procesos_compra">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="registro_presupuestoModel.sp_consulta_procesos_compra_Result2">
+        <ComplexTypeMapping TypeName="registro_presupuestoModel.sp_consulta_procesos_compra_Result3">
           <ScalarProperty Name="id_detalle_presupuesto" ColumnName="id_detalle_presupuesto" />
           <ScalarProperty Name="codigo" ColumnName="codigo" />
           <ScalarProperty Name="nombre_proceso" ColumnName="nombre_proceso" />
@@ -217,6 +262,7 @@
           <ScalarProperty Name="monto_proyectos" ColumnName="monto_proyectos" />
           <ScalarProperty Name="monto_compensacion" ColumnName="monto_compensacion" />
           <ScalarProperty Name="id_tipo_fuente_financiamiento" ColumnName="id_tipo_fuente_financiamiento" />
+          <ScalarProperty Name="tipo_financiamiento" ColumnName="tipo_financiamiento" />
           <ScalarProperty Name="metodo_contratacion" ColumnName="metodo_contratacion" />
           <ScalarProperty Name="fuente_financiamiento" ColumnName="fuente_financiamiento" />
           <ScalarProperty Name="estatus_proceso" ColumnName="estatus_proceso" />
@@ -226,7 +272,7 @@
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="sp_consulta_procesos_movimiento_compra" FunctionName="registro_presupuestoModel.Store.sp_consulta_procesos_movimiento_compra">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="registro_presupuestoModel.sp_consulta_procesos_movimiento_compra_Result2">
+        <ComplexTypeMapping TypeName="registro_presupuestoModel.sp_consulta_procesos_movimiento_compra_Result3">
           <ScalarProperty Name="id_movimiento_detalle_presupuesto" ColumnName="id_movimiento_detalle_presupuesto" />
           <ScalarProperty Name="id_detalle_presupuesto" ColumnName="id_detalle_presupuesto" />
           <ScalarProperty Name="nombre_proceso" ColumnName="nombre_proceso" />
@@ -245,6 +291,7 @@
           <ScalarProperty Name="monto_proyectos" ColumnName="monto_proyectos" />
           <ScalarProperty Name="monto_compensacion" ColumnName="monto_compensacion" />
           <ScalarProperty Name="id_tipo_fuente_financiamiento" ColumnName="id_tipo_fuente_financiamiento" />
+          <ScalarProperty Name="tipo_financiamiento" ColumnName="tipo_financiamiento" />
           <ScalarProperty Name="metodo_contratacion" ColumnName="metodo_contratacion" />
           <ScalarProperty Name="fuente_financiamiento" ColumnName="fuente_financiamiento" />
           <ScalarProperty Name="estatus_general" ColumnName="estatus_general" />
@@ -253,7 +300,7 @@
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="sp_general_proceso_compra" FunctionName="registro_presupuestoModel.Store.sp_general_proceso_compra">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="registro_presupuestoModel.sp_general_proceso_compra_Result1">
+        <ComplexTypeMapping TypeName="registro_presupuestoModel.sp_general_proceso_compra_Result2">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="tipo_proceso" ColumnName="tipo_proceso" />
           <ScalarProperty Name="codigo" ColumnName="codigo" />
@@ -270,7 +317,7 @@
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="sp_general_proceso_compra_auditoria" FunctionName="registro_presupuestoModel.Store.sp_general_proceso_compra_auditoria">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="registro_presupuestoModel.sp_general_proceso_compra_auditoria_Result1">
+        <ComplexTypeMapping TypeName="registro_presupuestoModel.sp_general_proceso_compra_auditoria_Result2">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="tipo_proceso" ColumnName="tipo_proceso" />
           <ScalarProperty Name="codigo" ColumnName="codigo" />
@@ -282,32 +329,6 @@
           <ScalarProperty Name="fuente_financiamiento" ColumnName="fuente_financiamiento" />
           <ScalarProperty Name="unidad_organizativa" ColumnName="unidad_organizativa" />
           <ScalarProperty Name="estatus_vobo" ColumnName="estatus_vobo" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="consulta_bandeja_vobo" FunctionName="registro_presupuestoModel.Store.consulta_bandeja_vobo">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="registro_presupuestoModel.consulta_bandeja_vobo_Result8">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="codigo" ColumnName="codigo" />
-          <ScalarProperty Name="nombre_proceso" ColumnName="nombre_proceso" />
-          <ScalarProperty Name="id_metodo_contratacion" ColumnName="id_metodo_contratacion" />
-          <ScalarProperty Name="fecha_inicio" ColumnName="fecha_inicio" />
-          <ScalarProperty Name="fecha_fin" ColumnName="fecha_fin" />
-          <ScalarProperty Name="monto" ColumnName="monto" />
-          <ScalarProperty Name="monto_goes" ColumnName="monto_goes" />
-          <ScalarProperty Name="monto_propio" ColumnName="monto_propio" />
-          <ScalarProperty Name="monto_proyectos" ColumnName="monto_proyectos" />
-          <ScalarProperty Name="monto_compensacion" ColumnName="monto_compensacion" />
-          <ScalarProperty Name="id_fuente_financiamiento" ColumnName="id_fuente_financiamiento" />
-          <ScalarProperty Name="id_tipo_fuente_financiamiento" ColumnName="id_tipo_fuente_financiamiento" />
-          <ScalarProperty Name="id_unidad_organizativa" ColumnName="id_unidad_organizativa" />
-          <ScalarProperty Name="estado" ColumnName="estado" />
-          <ScalarProperty Name="id_vobo" ColumnName="id_vobo" />
-          <ScalarProperty Name="tipo_vobo" ColumnName="tipo_vobo" />
-          <ScalarProperty Name="motivo_movimiento" ColumnName="motivo_movimiento" />
-          <ScalarProperty Name="proceso_column" ColumnName="proceso_column" />
-          <ScalarProperty Name="fecha_movimiento" ColumnName="fecha_movimiento" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
