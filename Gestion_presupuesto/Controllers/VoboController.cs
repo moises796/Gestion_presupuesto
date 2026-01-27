@@ -192,11 +192,11 @@ namespace Gestion_presupuesto.Controllers
                             //ENVIO DE CORREO EN CASO SEA MODIFICACION DE PRESIDENCIA
 
                             var id_empleado = Convert.ToInt32(UserClaims.idempleado_key);
-                            var rol = db.usuario.FirstOrDefault(x => x.id_empleado == id_empleado && x.estado == 1);
+                            /*var rol = db.usuario.FirstOrDefault(x => x.id_empleado == id_empleado && x.estado == 1);
                             if (rol != null)
                             {
                                 if (rol.id_rol_usuario == 5)
-                                {
+                                {*/
                                     var empleado = db2.Empleado.FirstOrDefault(x => x.id_empleado == id_empleado);
                                     var correo_vobo = empleado.correo_institucional;
                                     var nombre_empleado = empleado.nombres + " " + empleado.apellidos;
@@ -208,8 +208,8 @@ namespace Gestion_presupuesto.Controllers
                                     var asunto = "Modificación a solicitud";
                                     var contenido = "Comentar que, desde el sistema de PAC se ha realizado una modificación por parte de " + nombre_empleado + ", hacia la solicitud" + modelItem.codigo + "<br><br>Saludos cordiales";
                                     db.EnvioNotificaciones(1, correos_destino, correos_origen, asunto, contenido, "");
-                                }
-                            }
+                                //}
+                            //}
                         }
                     }
                     catch (Exception e)
