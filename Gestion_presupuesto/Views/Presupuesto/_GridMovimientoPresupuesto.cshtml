@@ -34,38 +34,40 @@
         settings.CommandColumn.CellStyle.CssClass = "cmdcol-vertical";
         settings.CommandColumn.Width = System.Web.UI.WebControls.Unit.Pixel(140);
 
-        GridViewCommandColumnCustomButton editButton = new GridViewCommandColumnCustomButton() { ID = "btnEdit", Text = " " };
-        editButton.Image.Url = Url.Content("~/Content/img/edit2.png");
-        editButton.Image.ToolTip = "Modificar";
-        editButton.Image.Width = 30;
-        editButton.Image.Height = 30;
-        settings.CommandColumn.CustomButtons.Add(editButton);
-        var inicioButton = new GridViewCommandColumnCustomButton() { ID = "btnInicio", Text = " " };
-        inicioButton.Image.Url = Url.Content("~/Content/img/play.png");
-        inicioButton.Image.ToolTip = "Iniciar proceso";
-        inicioButton.Image.Width = 30;
-        inicioButton.Image.Height = 30;
-        settings.CommandColumn.CustomButtons.Add(inicioButton);
-        var voboButton = new GridViewCommandColumnCustomButton() { ID = "btnVobo", Text = " " };
-        voboButton.Image.Url = Url.Content("~/Content/img/vobo.png");
-        voboButton.Image.ToolTip = "Detalle V°. b°.";
-        voboButton.Image.Width = 30;
-        voboButton.Image.Height = 30;
-        settings.CommandColumn.CustomButtons.Add(voboButton);
-        var finButton = new GridViewCommandColumnCustomButton() { ID = "btnFin", Text = " " };
-        finButton.Image.Url = Url.Content("~/Content/img/see.png");
-        finButton.Image.ToolTip = "Comprobante";
-        finButton.Image.Width = 30;
-        finButton.Image.Height = 30;
-        settings.CommandColumn.CustomButtons.Add(finButton);
-        settings.ClientSideEvents.CustomButtonClick = "function(s,e){ OnCustomButtonClick(s,e); }";
-        var anularButton = new GridViewCommandColumnCustomButton() { ID = "btnAnular", Text = " " };
-        anularButton.Image.Url = Url.Content("~/Content/img/delete.png");
-        anularButton.Image.ToolTip = "Descartar";
-        anularButton.Image.Width = 30;
-        anularButton.Image.Height = 30;
-        settings.CommandColumn.CustomButtons.Add(anularButton);
-        settings.ClientSideEvents.CustomButtonClick = "function(s,e){ OnCustomButtonClick(s,e); }";
+        if (Convert.ToInt32(Session["rol_tipo"]) != 1)
+        {
+            GridViewCommandColumnCustomButton editButton = new GridViewCommandColumnCustomButton() { ID = "btnEdit", Text = " " };
+            editButton.Image.Url = Url.Content("~/Content/img/edit2.png");
+            editButton.Image.ToolTip = "Modificar";
+            editButton.Image.Width = 30;
+            editButton.Image.Height = 30;
+            settings.CommandColumn.CustomButtons.Add(editButton);
+            var inicioButton = new GridViewCommandColumnCustomButton() { ID = "btnInicio", Text = " " };
+            inicioButton.Image.Url = Url.Content("~/Content/img/play.png");
+            inicioButton.Image.ToolTip = "Iniciar proceso";
+            inicioButton.Image.Width = 30;
+            inicioButton.Image.Height = 30;
+            settings.CommandColumn.CustomButtons.Add(inicioButton);
+            var voboButton = new GridViewCommandColumnCustomButton() { ID = "btnVobo", Text = " " };
+            voboButton.Image.Url = Url.Content("~/Content/img/vobo.png");
+            voboButton.Image.ToolTip = "Detalle V°. b°.";
+            voboButton.Image.Width = 30;
+            voboButton.Image.Height = 30;
+            settings.CommandColumn.CustomButtons.Add(voboButton);
+            var finButton = new GridViewCommandColumnCustomButton() { ID = "btnFin", Text = " " };
+            finButton.Image.Url = Url.Content("~/Content/img/see.png");
+            finButton.Image.ToolTip = "Comprobante";
+            finButton.Image.Width = 30;
+            finButton.Image.Height = 30;
+            settings.CommandColumn.CustomButtons.Add(finButton);
+            var anularButton = new GridViewCommandColumnCustomButton() { ID = "btnAnular", Text = " " };
+            anularButton.Image.Url = Url.Content("~/Content/img/delete.png");
+            anularButton.Image.ToolTip = "Descartar";
+            anularButton.Image.Width = 30;
+            anularButton.Image.Height = 30;
+            settings.CommandColumn.CustomButtons.Add(anularButton);
+            settings.ClientSideEvents.CustomButtonClick = "function(s,e){ OnCustomButtonClick(s,e); }";
+        }
 
         settings.KeyFieldName = "id_movimiento_detalle_presupuesto";
 
@@ -317,7 +319,7 @@
                 p.ValueField = "id_tipo_fuente_financiamiento";
                 p.TextField = "valor";
                 p.ItemValueType = typeof(string);
-              
+
                 p.ValueSeparator = ',';
                 p.AllowCustomTokens = false;
                 p.IncrementalFilteringMode = IncrementalFilteringMode.Contains;

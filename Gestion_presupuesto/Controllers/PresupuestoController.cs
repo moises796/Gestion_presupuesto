@@ -31,6 +31,8 @@ namespace Gestion_presupuesto.Controllers
             if (user!=null)
             {
                 var rol_user = user.id_rol_usuario;
+                var rol_tipo = db.rol_usuario.FirstOrDefault(x => x.id_rol_usuario == user.id_rol_usuario);
+                Session["rol_tipo"] = rol_tipo.detalle_all;
                 var acceso = db.menu.FirstOrDefault(x => x.accion == "Presupuesto" && x.controlador == "Presupuesto" && x.estado == 1);
                 if (acceso != null)
                 {
@@ -62,6 +64,47 @@ namespace Gestion_presupuesto.Controllers
                 return View("~/Views/Home/Index.cshtml");
             }
                 
+        }
+
+        public ActionResult PresupuestoGeneral()
+        {
+
+            var id_emp = Convert.ToInt32(UserClaims.idempleado_key);
+            var user = db.usuario.FirstOrDefault(x => x.id_empleado == id_emp && x.estado == 1);
+            if (user != null)
+            {
+                var rol_user = user.id_rol_usuario;
+                var acceso = db.menu.FirstOrDefault(x => x.accion == "Presupuesto" && x.controlador == "Presupuesto" && x.estado == 1);
+                if (acceso != null)
+                {
+                    var rol_acceso = acceso.id_rol;
+                    if (rol_acceso.Split(',').Contains(rol_user.ToString()))
+                    {
+
+                        return View();
+                    }
+                    return View("~/Views/Home/Index.cshtml");
+                }
+                else
+                {
+                    //BUSCAMOS EN SUB MENU
+                    var acceso_submenu = db.sub_menu.FirstOrDefault(x => x.accion == "Presupuesto" && x.controlador == "Presupuesto" && x.estado == 1);
+                    if (acceso_submenu != null)
+                    {
+                        var rol_acceso = acceso_submenu.id_rol;
+                        if (rol_acceso.Split(',').Contains(rol_user.ToString()))
+                        {
+                            return View();
+                        }
+                    }
+                    return View("~/Views/Home/Index.cshtml");
+                }
+            }
+            else
+            {
+                return View("~/Views/Home/Index.cshtml");
+            }
+
         }
 
         public ActionResult ConsultaPresupuesto()
@@ -336,41 +379,122 @@ namespace Gestion_presupuesto.Controllers
             //var model = db.detalle_presupuesto;
             string codEmp = (string)UserClaims.codigoempleado_key;
             var id = Convert.ToInt32(UserClaims.idempleado_key);
-
             var unidad_organizativa = db2.Cargo.Where(x => x.id_empleado == id && x.estado == 1).ToList();
             List<BandejaProcesoCompra> clase = new List<BandejaProcesoCompra>();
 
-            foreach (var item in unidad_organizativa)
+            var user = db.usuario.FirstOrDefault(x => x.id_empleado == id && x.estado == 1);
+            if (user.id_rol_usuario != null)
             {
-                var model = db.sp_consulta_procesos_compra(item.id_estructura).ToList();
-
-                model.ForEach(x =>
+                var rol_tipo = db.rol_usuario.FirstOrDefault(x => x.id_rol_usuario == user.id_rol_usuario);
+                if (rol_tipo.detalle_all==1)
                 {
-                    BandejaProcesoCompra bpc = new BandejaProcesoCompra();
-                    bpc.id_detalle_presupuesto = x.id_detalle_presupuesto;
-                    bpc.codigo = x.codigo;
-                    bpc.nombre_proceso = x.nombre_proceso;
-                    bpc.id_metodo_contratacion = x.id_metodo_contratacion;
-                    bpc.fecha_inicio = x.fecha_inicio;
-                    bpc.fecha_fin = x.fecha_fin;
-                    bpc.monto = x.monto;
-                    bpc.monto_goes = x.monto_goes;
-                    bpc.monto_propio = x.monto_propio;
-                    bpc.monto_proyectos = x.monto_proyectos;
-                    bpc.monto_compensacion = x.monto_compensacion;
-                    bpc.id_fuente_financiamiento = x.id_fuente_financiamiento;
-                    bpc.id_tipo_fuente_financiamiento = x.id_tipo_fuente_financiamiento;
-                    bpc.tipo_financiamiento = x.tipo_financiamiento;
-                    bpc.identificador_fuente_financiamiento = x.id_fuente_financiamiento;
-                    bpc.id_unidad_organizativa = x.id_unidad_organizativa;
-                    bpc.estado = x.estado;
-                    bpc.metodo_contratacion = x.metodo_contratacion;
-                    bpc.fuente_financiamiento = x.fuente_financiamiento;
-                    bpc.estatus_proceso = x.estatus_proceso;
-                    bpc.estatus_general = x.estatus_general;
-                    clase.Add(bpc);
-                });
+                    //VERA TODO GENERAL SIN PODER MODIFICAR
+                    
+                    var model = db.sp_consulta_procesos_compra_general().ToList();
+
+                    model.ForEach(x =>
+                    {
+                        BandejaProcesoCompra bpc = new BandejaProcesoCompra();
+                        bpc.id_detalle_presupuesto = x.id_detalle_presupuesto;
+                        bpc.codigo = x.codigo;
+                        bpc.nombre_proceso = x.nombre_proceso;
+                        bpc.id_metodo_contratacion = x.id_metodo_contratacion;
+                        bpc.fecha_inicio = x.fecha_inicio;
+                        bpc.fecha_fin = x.fecha_fin;
+                        bpc.monto = x.monto;
+                        bpc.monto_goes = x.monto_goes;
+                        bpc.monto_propio = x.monto_propio;
+                        bpc.monto_proyectos = x.monto_proyectos;
+                        bpc.monto_compensacion = x.monto_compensacion;
+                        bpc.id_fuente_financiamiento = x.id_fuente_financiamiento;
+                        bpc.id_tipo_fuente_financiamiento = x.id_tipo_fuente_financiamiento;
+                        bpc.tipo_financiamiento = x.tipo_financiamiento;
+                        bpc.identificador_fuente_financiamiento = x.id_fuente_financiamiento;
+                        bpc.id_unidad_organizativa = x.id_unidad_organizativa;
+                        bpc.estado = x.estado;
+                        bpc.metodo_contratacion = x.metodo_contratacion;
+                        bpc.fuente_financiamiento = x.fuente_financiamiento;
+                        bpc.estatus_proceso = x.estatus_proceso;
+                        bpc.estatus_general = x.estatus_general;
+                        clase.Add(bpc);
+                    });
+                    
+                }
+                else
+                {
+                    //VERA SOLO LO DE SU UNIDAD ORG. Y PODRA MODIFICAR
+                    foreach (var item in unidad_organizativa)
+                    {
+                        var model = db.sp_consulta_procesos_compra(item.id_estructura).ToList();
+
+                        model.ForEach(x =>
+                        {
+                            BandejaProcesoCompra bpc = new BandejaProcesoCompra();
+                            bpc.id_detalle_presupuesto = x.id_detalle_presupuesto;
+                            bpc.codigo = x.codigo;
+                            bpc.nombre_proceso = x.nombre_proceso;
+                            bpc.id_metodo_contratacion = x.id_metodo_contratacion;
+                            bpc.fecha_inicio = x.fecha_inicio;
+                            bpc.fecha_fin = x.fecha_fin;
+                            bpc.monto = x.monto;
+                            bpc.monto_goes = x.monto_goes;
+                            bpc.monto_propio = x.monto_propio;
+                            bpc.monto_proyectos = x.monto_proyectos;
+                            bpc.monto_compensacion = x.monto_compensacion;
+                            bpc.id_fuente_financiamiento = x.id_fuente_financiamiento;
+                            bpc.id_tipo_fuente_financiamiento = x.id_tipo_fuente_financiamiento;
+                            bpc.tipo_financiamiento = x.tipo_financiamiento;
+                            bpc.identificador_fuente_financiamiento = x.id_fuente_financiamiento;
+                            bpc.id_unidad_organizativa = x.id_unidad_organizativa;
+                            bpc.estado = x.estado;
+                            bpc.metodo_contratacion = x.metodo_contratacion;
+                            bpc.fuente_financiamiento = x.fuente_financiamiento;
+                            bpc.estatus_proceso = x.estatus_proceso;
+                            bpc.estatus_general = x.estatus_general;
+                            clase.Add(bpc);
+                        });
+                    }
+                }
             }
+            else
+            {
+                //LE MOSTRAMOS SOLO LO DE LA UNIDAD ORG
+                foreach (var item in unidad_organizativa)
+                {
+                    var model = db.sp_consulta_procesos_compra(item.id_estructura).ToList();
+
+                    model.ForEach(x =>
+                    {
+                        BandejaProcesoCompra bpc = new BandejaProcesoCompra();
+                        bpc.id_detalle_presupuesto = x.id_detalle_presupuesto;
+                        bpc.codigo = x.codigo;
+                        bpc.nombre_proceso = x.nombre_proceso;
+                        bpc.id_metodo_contratacion = x.id_metodo_contratacion;
+                        bpc.fecha_inicio = x.fecha_inicio;
+                        bpc.fecha_fin = x.fecha_fin;
+                        bpc.monto = x.monto;
+                        bpc.monto_goes = x.monto_goes;
+                        bpc.monto_propio = x.monto_propio;
+                        bpc.monto_proyectos = x.monto_proyectos;
+                        bpc.monto_compensacion = x.monto_compensacion;
+                        bpc.id_fuente_financiamiento = x.id_fuente_financiamiento;
+                        bpc.id_tipo_fuente_financiamiento = x.id_tipo_fuente_financiamiento;
+                        bpc.tipo_financiamiento = x.tipo_financiamiento;
+                        bpc.identificador_fuente_financiamiento = x.id_fuente_financiamiento;
+                        bpc.id_unidad_organizativa = x.id_unidad_organizativa;
+                        bpc.estado = x.estado;
+                        bpc.metodo_contratacion = x.metodo_contratacion;
+                        bpc.fuente_financiamiento = x.fuente_financiamiento;
+                        bpc.estatus_proceso = x.estatus_proceso;
+                        bpc.estatus_general = x.estatus_general;
+                        clase.Add(bpc);
+                    });
+                }
+            }
+
+                
+
+            
 
             if (clase.ToList().Count > 0)
             {

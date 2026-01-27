@@ -119,6 +119,7 @@
     <Property Name="id_rol_usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="valor" Type="varchar" MaxLength="300" />
     <Property Name="estado" Type="int" />
+    <Property Name="detalle_all" Type="int" />
   </EntityType>
   <EntityType Name="sub_menu">
     <Key>
@@ -431,6 +432,7 @@
   <Function Name="sp_consulta_procesos_compra" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="id_unidad_organizativa" Type="int" Mode="In" />
   </Function>
+  <Function Name="sp_consulta_procesos_compra_general" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="sp_consulta_procesos_movimiento_compra" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="id_detalle_presupuesto" Type="int" Mode="In" />
   </Function>

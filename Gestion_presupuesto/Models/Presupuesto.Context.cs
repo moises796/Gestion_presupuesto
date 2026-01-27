@@ -148,5 +148,10 @@ namespace Gestion_presupuesto.Models
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_general_proceso_compra_auditoria_Result2>("sp_general_proceso_compra_auditoria");
         }
+    
+        public virtual ObjectResult<sp_consulta_procesos_compra_general_Result> sp_consulta_procesos_compra_general()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_consulta_procesos_compra_general_Result>("sp_consulta_procesos_compra_general");
+        }
     }
 }

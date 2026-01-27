@@ -23,6 +23,7 @@ namespace Gestion_presupuesto.Models
         public int id_rol_usuario { get; set; }
         public string valor { get; set; }
         public Nullable<int> estado { get; set; }
+        public Nullable<int> detalle_all { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<usuario> usuario { get; set; }
