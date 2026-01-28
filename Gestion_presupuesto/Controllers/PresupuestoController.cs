@@ -31,8 +31,6 @@ namespace Gestion_presupuesto.Controllers
             if (user!=null)
             {
                 var rol_user = user.id_rol_usuario;
-                var rol_tipo = db.rol_usuario.FirstOrDefault(x => x.id_rol_usuario == user.id_rol_usuario);
-                Session["rol_tipo"] = rol_tipo.detalle_all;
                 var acceso = db.menu.FirstOrDefault(x => x.accion == "Presupuesto" && x.controlador == "Presupuesto" && x.estado == 1);
                 if (acceso != null)
                 {

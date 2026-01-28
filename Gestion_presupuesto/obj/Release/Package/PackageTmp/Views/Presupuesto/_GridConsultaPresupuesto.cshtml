@@ -45,6 +45,14 @@
         settings.SettingsPopup.EditForm.SettingsAdaptivity.Mode = PopupControlAdaptivityMode.OnWindowInnerWidth;
         settings.SettingsPopup.EditForm.PopupAnimationType = DevExpress.Web.AnimationType.Fade;
 
+
+        settings.Columns.Add(gridViewColumnSettings =>
+        {
+            gridViewColumnSettings.FieldName = "codigo";
+            gridViewColumnSettings.Caption = "Código";
+            gridViewColumnSettings.AdaptivePriority = 1;
+        });
+
         settings.Columns.Add(gridViewColumnSettings =>
         {
             gridViewColumnSettings.FieldName = "tipo_proceso";

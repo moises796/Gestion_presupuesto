@@ -36,6 +36,10 @@
         <EntityTypeShape EntityType="registro_presupuestoModel.detalle_presupuesto_anulacion" Width="1.5" PointX="10.5" PointY="2.25" />
         <AssociationConnector Association="registro_presupuestoModel.FK__detalle_p__id_de__151B244E" />
         <AssociationConnector Association="registro_presupuestoModel.FK__detalle_p__id_vo__160F4887" />
+        <EntityTypeShape EntityType="registro_presupuestoModel.tipo_fuente_financiamiento" Width="1.5" PointX="3" PointY="12.625" />
+        <AssociationConnector Association="registro_presupuestoModel.FK__detalle_p__id_ti__2A164134" />
+        <AssociationConnector Association="registro_presupuestoModel.FK__tipo_fuen__id_fu__29221CFB" />
+        <AssociationConnector Association="registro_presupuestoModel.FK__movimient__id_ti__2B0A656D" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

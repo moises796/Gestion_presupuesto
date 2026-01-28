@@ -3,7 +3,7 @@
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>C:\publishrepos\presupuesto</_PublishTargetUrl>
-    <History>True|2025-12-03T20:26:36.5560163Z||;True|2025-11-20T11:37:01.4115345-06:00||;</History>
+    <History>True|2026-01-28T16:51:07.3755901Z||;True|2025-12-03T14:26:36.5560163-06:00||;True|2025-11-20T11:37:01.4115345-06:00||;</History>
     <LastFailureDetails />
   </PropertyGroup>
   <ItemGroup>
@@ -353,10 +353,10 @@
       <publishTime>10/07/2025 20:08:24</publishTime>
     </File>
     <File Include="bin/Gestion_presupuesto.dll">
-      <publishTime>12/03/2025 14:26:28</publishTime>
+      <publishTime>01/28/2026 10:51:01</publishTime>
     </File>
     <File Include="bin/Gestion_presupuesto.pdb">
-      <publishTime>12/03/2025 14:26:28</publishTime>
+      <publishTime>01/28/2026 10:51:01</publishTime>
     </File>
     <File Include="bin/it/Microsoft.Data.SqlClient.resources.dll">
       <publishTime>10/07/2025 20:08:24</publishTime>
@@ -5267,7 +5267,7 @@
       <publishTime>10/22/2025 08:28:48</publishTime>
     </File>
     <File Include="Models/Presupuesto.edmx.diagram">
-      <publishTime>11/14/2025 16:57:23</publishTime>
+      <publishTime>01/26/2026 09:47:38</publishTime>
     </File>
     <File Include="Models/rrhh.edmx.diagram">
       <publishTime>10/22/2025 11:31:58</publishTime>
@@ -5579,19 +5579,22 @@
       <publishTime>11/18/2025 13:57:57</publishTime>
     </File>
     <File Include="Views/Presupuesto/Presupuesto.cshtml">
-      <publishTime>11/26/2025 10:28:26</publishTime>
+      <publishTime>01/27/2026 12:02:28</publishTime>
+    </File>
+    <File Include="Views/Presupuesto/PresupuestoGeneral.cshtml">
+      <publishTime>01/27/2026 10:30:51</publishTime>
     </File>
     <File Include="Views/Presupuesto/repComprobante.cshtml">
       <publishTime>10/26/2025 21:22:07</publishTime>
     </File>
     <File Include="Views/Presupuesto/_GridConsultaPresupuesto.cshtml">
-      <publishTime>11/26/2025 09:35:55</publishTime>
+      <publishTime>01/27/2026 12:26:44</publishTime>
     </File>
     <File Include="Views/Presupuesto/_GridDetallePresupuesto.cshtml">
-      <publishTime>12/03/2025 14:19:08</publishTime>
+      <publishTime>01/27/2026 12:04:16</publishTime>
     </File>
     <File Include="Views/Presupuesto/_GridMovimientoPresupuesto.cshtml">
-      <publishTime>12/03/2025 14:20:02</publishTime>
+      <publishTime>01/27/2026 13:30:12</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>10/22/2025 08:28:48</publishTime>
@@ -5606,16 +5609,16 @@
       <publishTime>11/13/2025 09:36:52</publishTime>
     </File>
     <File Include="Views/Vobo/Vobo.cshtml">
-      <publishTime>11/26/2025 10:54:53</publishTime>
+      <publishTime>01/26/2026 13:39:17</publishTime>
     </File>
     <File Include="Views/Vobo/VoboPresidencia.cshtml">
-      <publishTime>11/19/2025 15:48:57</publishTime>
+      <publishTime>01/26/2026 13:59:01</publishTime>
     </File>
     <File Include="Views/Vobo/_GridListadoVobo.cshtml">
       <publishTime>10/25/2025 00:40:17</publishTime>
     </File>
     <File Include="Views/Vobo/_GridVobo.cshtml">
-      <publishTime>12/03/2025 14:21:04</publishTime>
+      <publishTime>01/27/2026 09:21:56</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>10/24/2025 14:16:16</publishTime>
@@ -5624,7 +5627,7 @@
       <publishTime>10/22/2025 08:28:48</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>12/03/2025 14:26:30</publishTime>
+      <publishTime>01/28/2026 10:51:02</publishTime>
     </File>
   </ItemGroup>
 </Project>

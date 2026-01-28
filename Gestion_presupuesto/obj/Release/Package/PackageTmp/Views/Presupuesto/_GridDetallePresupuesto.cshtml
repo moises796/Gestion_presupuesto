@@ -1,5 +1,6 @@
 ﻿@using Gestion_presupuesto.Helpers;
 @{
+    Gestion_presupuesto.Models.registro_presupuestoEntities db = new Gestion_presupuesto.Models.registro_presupuestoEntities();
     Gestion_presupuesto.Controllers.PresupuestoController clase = new Gestion_presupuesto.Controllers.PresupuestoController();
     var id_emp = Convert.ToInt32(UserClaims.idempleado_key);
     var grid = Html.DevExpress().GridView(settings =>
@@ -10,7 +11,11 @@
         settings.SettingsEditing.AddNewRowRouteValues = new { Controller = "Presupuesto", Action = "GridDetallePresupuestoAddNew" };
         settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "Presupuesto", Action = "GridDetallePresupuestoUpdate" };
         settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "Presupuesto", Action = "GridDetallePresupuestoDelete" };
-        settings.ClientSideEvents.RowClick = "function(s,e){OnRowClick(s,e);}";
+        if (Convert.ToInt32(Session["rol_tipo"]) != 1)
+        {
+            settings.ClientSideEvents.RowClick = "function(s,e){OnRowClick(s,e);}";
+        }
+
         settings.ClientSideEvents.EndCallback = "function(s,e){OnCallBackGridViewGRID();}";
         settings.EnableRowsCache = false;
         settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
@@ -70,6 +75,23 @@
             e.NewValues["monto_compensacion"] = 0m;
         };
 
+        settings.CellEditorInitialize = (s, e) => {
+            MVCxGridView grids = s as MVCxGridView;
+            if (e.Column.FieldName == "tipo_financiamiento") {
+                ASPxTokenBox combo = e.Editor as ASPxTokenBox;
+
+                var idFuente = grids.GetRowValuesByKeyValue(e.KeyValue, "id_fuente_financiamiento");
+
+                if (idFuente != null && idFuente != DBNull.Value) {
+                    combo.DataSource = clase.GetTipoFuenteFinanciamientoPorPadre(idFuente);
+                    combo.DataBind();
+                } else {
+                    combo.DataSource = null;
+                    combo.DataBind();
+                }
+            }
+        };
+
         settings.Columns.Add(gridViewColumnSettings =>
         {
             gridViewColumnSettings.FieldName = "estatus_proceso";
@@ -81,19 +103,6 @@
             gridViewColumnSettings.Settings.AutoFilterCondition = AutoFilterCondition.Contains;
             gridViewColumnSettings.Settings.FilterMode = ColumnFilterMode.DisplayText;
         });
-
-        //settings.Columns.Add(gridViewColumnSettings =>
-        //{
-        //    gridViewColumnSettings.FieldName = "estatus_general";
-        //    gridViewColumnSettings.Caption = "Estatus del proceso";
-        //    gridViewColumnSettings.CellStyle.Wrap = DefaultBoolean.True;
-        //    gridViewColumnSettings.CellStyle.HorizontalAlign = System.Web.UI.WebControls.HorizontalAlign.Center;
-        //    gridViewColumnSettings.AdaptivePriority = 1;
-        //    gridViewColumnSettings.PropertiesEdit.EncodeHtml = false;
-        //    gridViewColumnSettings.UnboundType = DevExpress.Data.UnboundColumnType.String;
-        //    gridViewColumnSettings.Settings.AutoFilterCondition = AutoFilterCondition.Contains;
-        //    gridViewColumnSettings.Settings.FilterMode = ColumnFilterMode.DisplayText;
-        //});
 
 
         settings.Columns.Add(gridViewColumnSettings =>
@@ -176,11 +185,35 @@
                 p.ValueField = "id_fuente_financiamiento";
                 p.ValueType = typeof(int);
                 p.ClientSideEvents.Init = "function(s,e){obtenerfinanciamiento(s,e);}";
+                p.ClientSideEvents.SelectedIndexChanged = "function(s,e){ isResetRequired = true;GridDetallePresupuesto.GetEditor(\"tipo_financiamiento\").PerformCallback();}";
                 p.ClientSideEvents.ValueChanged = "function(s,e){cambio_financiamiento(s,e);}";
                 p.ValidationSettings.RequiredField.IsRequired = true;
                 p.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.None;
                 p.ValidationSettings.RequiredField.ErrorText = "Este campo es requerido.";
                 p.DataSource = clase.GetFuenteFinanciamiento();
+            });
+        });
+
+        settings.Columns.Add(c =>
+        {
+            c.FieldName = "tipo_financiamiento";
+            c.Caption = "Tipo fuente de financiamiento";
+            c.AdaptivePriority = 8;
+            c.EditorProperties().TokenBox(p =>
+            {
+                p.CallbackRouteValues = new { Controller = "Presupuesto", Action = "GetTipoFuenteFinanciamiento" };
+                p.ValueField = "id_tipo_fuente_financiamiento";
+                p.TextField = "valor";
+                p.ItemValueType = typeof(string);
+                p.ValueSeparator = ',';
+                p.AllowCustomTokens = false;
+                p.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+                p.ClientSideEvents.BeginCallback = "Tipofinanciamientopresupuesto_Begin";
+                p.ClientSideEvents.EndCallback = "Tipofinanciamientopresupuesto_EndCallback";
+                p.ValidationSettings.RequiredField.IsRequired = true;
+                p.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.None;
+                p.ValidationSettings.RequiredField.ErrorText = "Este campo es requerido.";
+                p.BindList(clase.GetAllFuenteFinanciamiento());
             });
         });
 
@@ -349,6 +382,14 @@
             {
                 item.Name = "id_fuente_financiamiento";
                 item.ColumnName = "id_fuente_financiamiento";
+                item.ColumnSpan = 2;
+                item.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
+            });
+
+            tabbedGroupSettings.Items.Add(item =>
+            {
+                item.Name = "tipo_financiamiento";
+                item.ColumnName = "tipo_financiamiento";
                 item.ColumnSpan = 2;
                 item.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
             });

@@ -21,7 +21,7 @@ namespace Gestion_presupuesto.Controllers
         {
             return View();
         }
-
+        Gestion_presupuesto.Models.registro_presupuestoEntities db = new Models.registro_presupuestoEntities();
         Gestion_presupuesto.Models.rrhhEntities db2 = new Models.rrhhEntities();
         public ActionResult Callback()
         {
@@ -77,12 +77,34 @@ namespace Gestion_presupuesto.Controllers
             }
             var identity = new ClaimsIdentity(claims, "keycloak_sso_auth");
             Request.GetOwinContext().Authentication.SignIn(new AuthenticationProperties(), identity);
+            //SI ES PRESIDENCIA DE UNA VEZ LO MANDARE A LA BANDEJA DE VOBO
+            if (empleado!=null)
+            {
+                var usuario_sistema = db.usuario.FirstOrDefault(x => x.id_empleado == empleado.id_empleado && x.estado==1);
+                if (usuario_sistema==null)
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+
+                var rol_tipo = db.rol_usuario.FirstOrDefault(x => x.id_rol_usuario == usuario_sistema.id_rol_usuario);
+                Session["rol_tipo"] = rol_tipo.detalle_all;
+                if (usuario_sistema.id_rol_usuario==5)
+                {
+                    //PRESIDENCIA
+                    return RedirectToAction("VoboPresidencia", "Vobo");
+                }
+
+                return RedirectToAction("Index", "Home");
+            }
+            
             return RedirectToAction("Index", "Home");
         }
 
 
         public async Task<ActionResult> SignOut()
         {
+            Session.Clear();
+            Session.Abandon();
             var identity = (ClaimsIdentity)User.Identity;
             var idToken = identity.Claims.FirstOrDefault(c => c.Type == "IdToken")?.Value;
             Request.GetOwinContext().Authentication.SignOut("keycloak_sso_auth");
