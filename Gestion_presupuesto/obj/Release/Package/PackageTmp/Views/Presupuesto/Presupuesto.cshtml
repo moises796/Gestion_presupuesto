@@ -28,37 +28,46 @@
     }*/
 
 </style>
-@{ 
-    if (Convert.ToInt32(Session["rol_tipo"]) != 1)
+@{
+
+    @Html.DevExpress().FloatingActionButton(settings =>
     {
-        @Html.DevExpress().FloatingActionButton(settings =>
-       {
 
-           settings.Name = "fab";
-           settings.ContainerElementID = "contentt";
-           settings.InitialActionContext = "NewRowContext";
-           settings.HorizontalMargin = 35;
-           settings.VerticalMargin = 40;
-           settings.ClientSideEvents.ActionItemClick = "function(s,e){OnActionItemClick(s,e);}";
-           settings.ClientSideEvents.ActionCollapsing = "function(s,e){OnActionCollapsing(s,e);}";
+        settings.Name = "fab";
+        settings.ContainerElementID = "contentt";
+        settings.InitialActionContext = "NewRowContext";
+        settings.HorizontalMargin = 35;
+        settings.VerticalMargin = 40;
+        settings.ClientSideEvents.ActionItemClick = "function(s,e){OnActionItemClick(s,e);}";
+        settings.ClientSideEvents.ActionCollapsing = "function(s,e){OnActionCollapsing(s,e);}";
 
-           settings.VerticalPosition = FloatingActionButtonVerticalPosition.Top;
-           settings.HorizontalPosition = FloatingActionButtonHorizontalPosition.Right;
-           settings.Items.Add(new FABAction("NewRowContext", "Agregar", "Nueva solicitud"));
-           settings.Items.Add(new FABAction("CancelContext", "Cancelar", "Cancelar"));
+        settings.VerticalPosition = FloatingActionButtonVerticalPosition.Top;
+        settings.HorizontalPosition = FloatingActionButtonHorizontalPosition.Right;
+        if (Convert.ToInt32(Session["rol_tipo"]) != 1)
+        {
+            settings.Items.Add(new FABAction("NewRowContext", "Agregar", "Nueva solicitud"));
+        }
+        settings.Items.Add(new FABAction("CancelContext", "Cancelar", "Cancelar"));
 
-           FABActionGroup focusedRowContext = new FABActionGroup() { ContextName = "ClickTabla" };
-           focusedRowContext.Text = "Acciones";
-           settings.Items.Add(focusedRowContext);
+        FABActionGroup focusedRowContext = new FABActionGroup() { ContextName = "ClickTabla" };
+        focusedRowContext.Text = "Acciones";
+        settings.Items.Add(focusedRowContext);
+        if (Convert.ToInt32(Session["rol_tipo"]) != 1)
+        {
+            focusedRowContext.Items.Add(new FABActionItem("Editar", Url.Content("~/Content/img/edit2.png"), "Modificar"));
+            focusedRowContext.Items.Add(new FABActionItem("Notificar", Url.Content("~/Content/img/play.png"), "Iniciar proceso"));
+            focusedRowContext.Items.Add(new FABActionItem("Vobos", Url.Content("~/Content/img/vobo.png"), "Detalle V°. b°.(s)"));
+            focusedRowContext.Items.Add(new FABActionItem("Imprimir", Url.Content("~/Content/img/see.png"), "Comprobante finalización"));
+            focusedRowContext.Items.Add(new FABActionItem("Descarta", Url.Content("~/Content/img/delete.png"), "Descartar"));
+        }
+        else
+        {
+            focusedRowContext.Items.Add(new FABActionItem("Vobos", Url.Content("~/Content/img/vobo.png"), "Detalle V°. b°.(s)"));
+            focusedRowContext.Items.Add(new FABActionItem("Imprimir", Url.Content("~/Content/img/see.png"), "Comprobante finalización"));
+        }
 
-           focusedRowContext.Items.Add(new FABActionItem("Editar", Url.Content("~/Content/img/edit2.png"), "Modificar"));
-           focusedRowContext.Items.Add(new FABActionItem("Notificar", Url.Content("~/Content/img/play.png"), "Iniciar proceso"));
-           focusedRowContext.Items.Add(new FABActionItem("Vobos", Url.Content("~/Content/img/vobo.png"), "Detalle V°. b°.(s)"));
-           focusedRowContext.Items.Add(new FABActionItem("Imprimir", Url.Content("~/Content/img/see.png"), "Comprobante finalización"));
-           focusedRowContext.Items.Add(new FABActionItem("Descarta", Url.Content("~/Content/img/delete.png"), "Descartar"));
-
-       }).GetHtml()
-    }
+    }).GetHtml()
+    
 }
 
 
@@ -111,27 +120,27 @@
 }).GetHtml()
 
 @*@Html.DevExpress().PopupControl(settings =>
-{
-    settings.Name = "modalmovimiento";
-    settings.SettingsAdaptivity.Mode = PopupControlAdaptivityMode.OnWindowInnerWidth;
-    settings.Width = 1024;
-    settings.Height = 600;
-    settings.CloseAction = CloseAction.CloseButton;
-    settings.CloseOnEscape = true;
-    settings.PopupAnimationType = DevExpress.Web.AnimationType.Fade;
-    settings.ShowHeader = true;
-    settings.HeaderText = "Movimiento(s) solicitud";
-    settings.Modal = true;
-    settings.AllowDragging = false;
-    settings.PopupHorizontalAlign = PopupHorizontalAlign.WindowCenter;
-    settings.PopupVerticalAlign = PopupVerticalAlign.TopSides;
-    settings.SetContent(() =>
     {
+        settings.Name = "modalmovimiento";
+        settings.SettingsAdaptivity.Mode = PopupControlAdaptivityMode.OnWindowInnerWidth;
+        settings.Width = 1024;
+        settings.Height = 600;
+        settings.CloseAction = CloseAction.CloseButton;
+        settings.CloseOnEscape = true;
+        settings.PopupAnimationType = DevExpress.Web.AnimationType.Fade;
+        settings.ShowHeader = true;
+        settings.HeaderText = "Movimiento(s) solicitud";
+        settings.Modal = true;
+        settings.AllowDragging = false;
+        settings.PopupHorizontalAlign = PopupHorizontalAlign.WindowCenter;
+        settings.PopupVerticalAlign = PopupVerticalAlign.TopSides;
+        settings.SetContent(() =>
+        {
 
-        @Html.RenderAction("GridMovimientoPresupuesto", "Presupuesto");
+            @Html.RenderAction("GridMovimientoPresupuesto", "Presupuesto");
 
-    });
-}).GetHtml()*@
+        });
+    }).GetHtml()*@
 
 <center>
     <h1 class="animated fadeInUp encabezado mt-2">Plan anual de compras</h1>

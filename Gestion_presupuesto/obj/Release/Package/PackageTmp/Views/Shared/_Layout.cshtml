@@ -314,6 +314,14 @@
                                 aria-expanded="false"
                                 style="text-decoration: none; text-overflow: ellipsis;">
                             @*AQUI IRA EL NOMBRE DE USUARIO*@
+                            @{
+                                var lista = db.consulta_bandeja_vobo(id_emp).Count();
+                                if (Convert.ToInt32(Session["rol_tipo"]) == 1)
+                                {
+
+                                    <span class="badge badge-warning bg-info">@lista</span>
+                                }
+                            }
                             @nombre_completo_empleado
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark dropdown-menu-nav w-100" aria-labelledby="userDropdown">

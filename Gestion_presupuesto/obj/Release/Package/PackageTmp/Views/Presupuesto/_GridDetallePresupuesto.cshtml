@@ -11,10 +11,9 @@
         settings.SettingsEditing.AddNewRowRouteValues = new { Controller = "Presupuesto", Action = "GridDetallePresupuestoAddNew" };
         settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "Presupuesto", Action = "GridDetallePresupuestoUpdate" };
         settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "Presupuesto", Action = "GridDetallePresupuestoDelete" };
-        if (Convert.ToInt32(Session["rol_tipo"]) != 1)
-        {
-            settings.ClientSideEvents.RowClick = "function(s,e){OnRowClick(s,e);}";
-        }
+
+        settings.ClientSideEvents.RowClick = "function(s,e){OnRowClick(s,e);}";
+       
 
         settings.ClientSideEvents.EndCallback = "function(s,e){OnCallBackGridViewGRID();}";
         settings.EnableRowsCache = false;

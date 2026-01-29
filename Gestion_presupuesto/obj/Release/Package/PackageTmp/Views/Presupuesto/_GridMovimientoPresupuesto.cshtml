@@ -68,6 +68,22 @@
             settings.CommandColumn.CustomButtons.Add(anularButton);
             settings.ClientSideEvents.CustomButtonClick = "function(s,e){ OnCustomButtonClick(s,e); }";
         }
+        else
+        {
+            var voboButton = new GridViewCommandColumnCustomButton() { ID = "btnVobo", Text = " " };
+            voboButton.Image.Url = Url.Content("~/Content/img/vobo.png");
+            voboButton.Image.ToolTip = "Detalle V°. b°.";
+            voboButton.Image.Width = 30;
+            voboButton.Image.Height = 30;
+            settings.CommandColumn.CustomButtons.Add(voboButton);
+            var finButton = new GridViewCommandColumnCustomButton() { ID = "btnFin", Text = " " };
+            finButton.Image.Url = Url.Content("~/Content/img/see.png");
+            finButton.Image.ToolTip = "Comprobante";
+            finButton.Image.Width = 30;
+            finButton.Image.Height = 30;
+            settings.CommandColumn.CustomButtons.Add(finButton);
+            settings.ClientSideEvents.CustomButtonClick = "function(s,e){ OnCustomButtonClick(s,e); }";
+        }
 
         settings.KeyFieldName = "id_movimiento_detalle_presupuesto";
 

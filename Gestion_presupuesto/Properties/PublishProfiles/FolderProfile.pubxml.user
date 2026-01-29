@@ -3,7 +3,7 @@
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>C:\publishrepos\presupuesto</_PublishTargetUrl>
-    <History>True|2026-01-28T16:51:07.3755901Z||;True|2025-12-03T14:26:36.5560163-06:00||;True|2025-11-20T11:37:01.4115345-06:00||;</History>
+    <History>True|2026-01-28T18:02:14.4364392Z||;True|2026-01-28T10:51:07.3755901-06:00||;True|2025-12-03T14:26:36.5560163-06:00||;True|2025-11-20T11:37:01.4115345-06:00||;</History>
     <LastFailureDetails />
   </PropertyGroup>
   <ItemGroup>
@@ -353,10 +353,10 @@
       <publishTime>10/07/2025 20:08:24</publishTime>
     </File>
     <File Include="bin/Gestion_presupuesto.dll">
-      <publishTime>01/28/2026 10:51:01</publishTime>
+      <publishTime>01/28/2026 12:02:07</publishTime>
     </File>
     <File Include="bin/Gestion_presupuesto.pdb">
-      <publishTime>01/28/2026 10:51:01</publishTime>
+      <publishTime>01/28/2026 12:02:07</publishTime>
     </File>
     <File Include="bin/it/Microsoft.Data.SqlClient.resources.dll">
       <publishTime>10/07/2025 20:08:24</publishTime>
@@ -5579,7 +5579,7 @@
       <publishTime>11/18/2025 13:57:57</publishTime>
     </File>
     <File Include="Views/Presupuesto/Presupuesto.cshtml">
-      <publishTime>01/27/2026 12:02:28</publishTime>
+      <publishTime>01/28/2026 11:04:48</publishTime>
     </File>
     <File Include="Views/Presupuesto/PresupuestoGeneral.cshtml">
       <publishTime>01/27/2026 10:30:51</publishTime>
@@ -5591,16 +5591,16 @@
       <publishTime>01/27/2026 12:26:44</publishTime>
     </File>
     <File Include="Views/Presupuesto/_GridDetallePresupuesto.cshtml">
-      <publishTime>01/27/2026 12:04:16</publishTime>
+      <publishTime>01/28/2026 11:03:10</publishTime>
     </File>
     <File Include="Views/Presupuesto/_GridMovimientoPresupuesto.cshtml">
-      <publishTime>01/27/2026 13:30:12</publishTime>
+      <publishTime>01/28/2026 11:09:35</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>10/22/2025 08:28:48</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>11/20/2025 14:25:34</publishTime>
+      <publishTime>01/28/2026 11:49:41</publishTime>
     </File>
     <File Include="Views/Usuario/Usuario.cshtml">
       <publishTime>11/13/2025 09:12:42</publishTime>
@@ -5627,7 +5627,7 @@
       <publishTime>10/22/2025 08:28:48</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>01/28/2026 10:51:02</publishTime>
+      <publishTime>01/28/2026 12:02:09</publishTime>
     </File>
   </ItemGroup>
 </Project>
